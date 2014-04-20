@@ -1,0 +1,91 @@
+[comment encoding = UTF-8 /]
+[module generateAvroSchema('http://www.eclipse.org/emf/2002/Ecore')]
+
+[template public generateAvroSchema(anEPackage : EPackage)]
+[comment @main/]
+[for (eclass: EClass | anEPackage.eClassifiers->filter(EClass))]
+	[eclass.generateSchema()/]
+[/for]
+[for (epackage: EPackage | anEPackage.eSubpackages)]
+	[epackage.generateAvroSchema()/]
+[/for]
+[/template]
+
+[template public generateSchema(anEClass : EClass)]
+[comment Tell the utility to clear the class list and start with the current class/]
+[startList(anEClass)/]
+
+[comment Create a file for each schema/]
+[file ('schemas/'.concat(anEClass.ePackage.name.concat('.'.concat(anEClass.name.concat('.avsc')))), false, 'UTF-8')]
+{"type":"record","name":"[anEClass.name/]","namespace":"[anEClass.ePackage.nsPrefix/]","fields":['['/]
+[for (aFeature: EStructuralFeature | anEClass.eAllStructuralFeatures)]
+[if(i > 1)],[/if][aFeature.generateFeature()/]
+[/for][']'/]}
+[/file]
+[/template]
+
+[template public generateRecord(anEClass : EClass) post(trim())]
+"record","name":"[anEClass.name/]","namespace":"[anEClass.ePackage.nsPrefix/]","fields":['['/]
+[for (aFeature: EStructuralFeature | anEClass.eAllStructuralFeatures)]
+[if(i > 1)],[/if][aFeature.generateFeature()/]
+[/for][']'/]}
+[/template]
+
+[template public generateFeature(aFeature : EStructuralFeature) post(trim())]
+[if(aFeature.oclIsTypeOf(EAttribute))]
+	[if(aFeature.eType.oclIsTypeOf(EEnum))]
+		{"name":"[aFeature.name/]","type":[aFeature.eType->filter(EEnum).generateEnum()/]}
+	[else]
+		{"name":"[aFeature.name/]","type":"[aFeature.eType.printAvroType()/]"}
+	[/if]
+[else]
+	[if(aFeature.oclIsTypeOf(EReference))]
+		{"name":"[aFeature.name/]","type":{"type":"record","name":"[aFeature.eType.name/]","fields":['['/]
+		[for (childFeature: EStructuralFeature | aFeature.eType->filter(EClass).eAllStructuralFeatures) ]
+   			[if(i > 1)],[/if]
+			{"name":"[childFeature.name/]",
+			[if(childFeature.oclIsTypeOf(EReference))]
+				[if(addClass(childFeature.oclAsType(EReference).eReferenceType))]
+					"type":[childFeature.oclAsType(EReference).eReferenceType.generateRecord()/]
+				[else]
+					"type":"[childFeature.eType.name/]"}
+				[/if]
+			[else]
+				"type":"[childFeature.eType.printAvroType()/]"}
+			[/if]
+		[/for][']'/]}}
+	[else]
+		How did we get here? [aFeature.name/]
+	[/if]
+[/if]
+[/template]
+
+[template private generateEnum(eEnum: EEnum) post(trim()) ]
+"enum","name":"[eEnum.name/]","symbols":['['/][for (eLiteral : EEnumLiteral | eEnum.eLiterals)][if(i > 1)],[/if]"[eLiteral.name/]"[/for][']'/]
+[/template]
+
+[template private printAvroType(eClass: EClassifier) post(trim())]
+[if (eClass.name = 'EInt')]int
+[elseif (eClass.name = 'EShort')]short
+[elseif (eClass.name = 'EShort')]int
+[elseif (eClass.name = 'ELong')]long
+[elseif (eClass.name = 'EDouble')]double
+[elseif (eClass.name = 'EFloat')]float
+[elseif (eClass.name = 'EString')]string
+[elseif (eClass.name = 'EBoolean')]boolean
+[elseif (eClass.name = 'EDate')]string
+[else][eClass.name/][/if]
+[/template]
+
+[query public addClass(arg0 : EClass) : Boolean
+	= invoke('net.langleystudios.avro.gen.Utility', 'addClass(org.eclipse.emf.ecore.EClass)', Sequence{arg0})
+/]
+[query public startList(arg0: EClass) : OclVoid
+	= invoke('net.langleystudios.avro.gen.Utility', 'startList(org.eclipse.emf.ecore.EClass)', Sequence{arg0})
+/]
+[query public printFeature(arg0 : EStructuralFeature) : OclVoid
+	= invoke('net.langleystudios.avro.gen.Utility', 'printFeature(org.eclipse.emf.ecore.EStructuralFeature)', Sequence{arg0})
+/]
+[query public printClass(arg0 : EClass) : OclVoid
+	= invoke('net.langleystudios.avro.gen.Utility', 'printClass(org.eclipse.emf.ecore.EClass)', Sequence{arg0})
+/]

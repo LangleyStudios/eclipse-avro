@@ -1,0 +1,7 @@
+[comment encoding = UTF-8 /]
+[module generate('http://www.eclipse.org/emf/2002/Ecore')/]
+
+[query public addClass(arg0 : EStructuralFeature) : String
+	= invoke('net.langleystudios.avro.gen.Utility', 'addClass(org.eclipse.emf.ecore.EStructuralFeature)', Sequence{arg0})
+/]
+

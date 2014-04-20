@@ -1,0 +1,37 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Acceleo Gen Module Runtime Plug-in
+Bundle-SymbolicName: net.langleystudios.avro;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: net.langleystudios.avro.gen.Activator
+Bundle-Vendor: Eclipse Modeling Project
+Export-Package: net.langleystudios.avro.gen,
+ net.langleystudios.avro.gen.common
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi,
+ org.eclipse.ocl,
+ org.eclipse.ocl.ecore,
+ org.eclipse.acceleo.common;bundle-version="3.3.0",
+ org.eclipse.acceleo.model;bundle-version="3.3.0",
+ org.eclipse.acceleo.profiler;bundle-version="3.3.0",
+ org.eclipse.acceleo.engine;bundle-version="3.3.0",
+ com.google.guava,
+ org.eclipse.e4.ui.workbench,
+ org.eclipse.e4.core.di,
+ javax.inject,
+ org.eclipse.core.resources
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Eclipse-LazyStart: true
+Import-Package: org.eclipse.e4.ui.services,
+ org.eclipse.jface.viewers,
+ org.eclipse.jface.window,
+ org.eclipse.swt.widgets,
+ org.eclipse.ui.dialogs
+Bundle-ClassPath: .,
+ lib/avro-1.7.5.jar,
+ lib/avro-tools-1.7.5.jar,
+ lib/jackson-core-asl-1.9.13.jar,
+ lib/jackson-mapper-asl-1.9.13.jar,
+ lib/paranamer-2.3.jar
