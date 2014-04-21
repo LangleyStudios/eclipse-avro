@@ -5,8 +5,8 @@
     <elements xsi:type="commands:Command" xmi:id="_h6sAsMaTEeOP651W1n7iiw" elementId="net.langleystudios.avro.gen.java" commandName="Generate Java"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_AH6GkLlJEeOmz9UMY4DijQ" featurename="handlers" parentElementId="org.eclipse.e4.legacy.ide.application">
-    <elements xsi:type="commands:Handler" xmi:id="_FtUP4LlJEeOmz9UMY4DijQ" elementId="net.langleystudios.avro.gen.handler" contributionURI="bundleclass://net.langleystudios.avro.gen/net.langleystudios.avro.gen.handler.GenerateAvroHandler" command="_kdFlULlIEeOmz9UMY4DijQ"/>
-    <elements xsi:type="commands:Handler" xmi:id="_mkIRAMaTEeOP651W1n7iiw" elementId="net.langleystudios.avro.gen.handler.0" contributionURI="bundleclass://net.langleystudios.avro.gen/net.langleystudios.avro.gen.handler.GenerateJavaHandler" command="_h6sAsMaTEeOP651W1n7iiw"/>
+    <elements xsi:type="commands:Handler" xmi:id="_FtUP4LlJEeOmz9UMY4DijQ" elementId="net.langleystudios.avro.gen.handler" contributionURI="bundleclass://net.langleystudios.avro/net.langleystudios.avro.gen.handler.GenerateAvroHandler" command="_kdFlULlIEeOmz9UMY4DijQ"/>
+    <elements xsi:type="commands:Handler" xmi:id="_mkIRAMaTEeOP651W1n7iiw" elementId="net.langleystudios.avro.gen.handler.0" contributionURI="bundleclass://net.langleystudios.avro/net.langleystudios.avro.gen.handler.GenerateJavaHandler" command="_h6sAsMaTEeOP651W1n7iiw"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_TUKgELlJEeOmz9UMY4DijQ" featurename="menuContributions" parentElementId="org.eclipse.e4.legacy.ide.application">
     <elements xsi:type="menu:MenuContribution" xmi:id="_aYv9ILlJEeOmz9UMY4DijQ" elementId="net.langleystudios.avro.gen.menucontribution.0" parentId="org.eclipse.ui.main.menu">
