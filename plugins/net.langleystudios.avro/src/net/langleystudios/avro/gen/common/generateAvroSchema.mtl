@@ -1,6 +1,10 @@
 [comment encoding = UTF-8 /]
 [module generateAvroSchema('http://www.eclipse.org/emf/2002/Ecore')]
 
+[comment 
+	This template recursively walks a package to generate Avro schemas
+	for each EClass in the contained packages.
+/]
 [template public generateAvroSchema(anEPackage : EPackage)]
 [comment @main/]
 [for (eclass: EClass | anEPackage.eClassifiers->filter(EClass))]
@@ -11,13 +15,16 @@
 [/for]
 [/template]
 
+[comment
+	This template generates the Avro schema for an EClass
+/]
 [template public generateSchema(anEClass : EClass)]
 [comment Tell the utility to clear the class list and start with the current class/]
 [startList(anEClass)/]
 
 [comment Create a file for each schema/]
 [file ('schemas/'.concat(anEClass.ePackage.name.concat('.'.concat(anEClass.name.concat('.avsc')))), false, 'UTF-8')]
-{"type":"record","name":"[anEClass.name/]","namespace":"[anEClass.ePackage.nsPrefix/]","fields":['['/]
+{"type":"record","name":"[anEClass.name/]","namespace":"['avro.'.concat(anEClass.ePackage.name)/]","fields":['['/]
 [for (aFeature: EStructuralFeature | anEClass.eAllStructuralFeatures)]
 [if( not aFeature.eType.name.equalsIgnoreCase('EFeatureMapEntry'))]
 [if(i > 1)],[/if][aFeature.generateFeature()/][/if]
@@ -26,7 +33,7 @@
 [/template]
 
 [template public generateRecord(anEClass : EClass) post(trim())]
-"record","name":"[anEClass.name/]","namespace":"[anEClass.ePackage.nsPrefix/]","fields":['['/]
+{"type":"record","name":"[anEClass.name/]","fields":['['/]
 [for (aFeature: EStructuralFeature | anEClass.eAllStructuralFeatures)]
 [if( not aFeature.eType.name.equalsIgnoreCase('EFeatureMapEntry'))]
 [if(i > 1)],[/if][aFeature.generateFeature()/][/if]
@@ -34,59 +41,30 @@
 [/template]
 
 [template public generateArray(aFeature: EStructuralFeature) post(trim())]
-"array","items":
+{"type":"array","items":
 [if(aFeature.oclIsTypeOf(EAttribute))]
 "[aFeature.eType.printAvroType()/]"
 [else]
 	[if(aFeature.oclIsTypeOf(EReference) and addClass(aFeature.oclAsType(EReference).eReferenceType))]
-		{"name":"[aFeature.name/]","type":"record","fields":['['/]
-		[for (childFeature: EStructuralFeature | aFeature.eType->filter(EClass).eAllStructuralFeatures) ]
-			[if(i > 1)],[/if]{"name":"[childFeature.name/]",
-			[if(childFeature.oclIsTypeOf(EReference))]
-				[if(addClass(childFeature.oclAsType(EReference).eReferenceType))]
-					"type":{"type":[childFeature.oclAsType(EReference).eReferenceType.generateRecord()/]}
-				[else]
-					"type":"[childFeature.eType.name/]"}
-				[/if]
-			[elseif(childFeature.eType.oclIsTypeOf(EEnum))]
-				"type":{ "type":[childFeature.eType->filter(EEnum).generateEnum()/]}}
-			[elseif( not aFeature.eType.name.equalsIgnoreCase('EFeatureMapEntry'))]
-				"type":"[childFeature.eType.printAvroType()/]"}
-			[/if]
-		[/for][']'/]}
+		[aFeature.oclAsType(EReference).eReferenceType.generateRecord()/]
 	[else]
-		"[aFeature.eType.name/]"}
+		"[aFeature.eType.name/]"
 	[/if]
-[/if]
+[/if]}
 [/template]
 
 [template public generateFeature(aFeature : EStructuralFeature) post(trim())]
-[if(aFeature.upperBound < 0)]
-{"name":"[aFeature.name/]","type":{ "type":[aFeature.generateArray()/]}}
+[if(aFeature.upperBound <> 1)]
+{"name":"[aFeature.name/]","type":[aFeature.generateArray()/]}
 [elseif(aFeature.oclIsTypeOf(EAttribute))]
 	[if(aFeature.eType.oclIsTypeOf(EEnum))]
-		{"name":"[aFeature.name/]","type":{ "type":[aFeature.eType->filter(EEnum).generateEnum()/]}}
+		{"name":"[aFeature.name/]","type":[aFeature.eType->filter(EEnum).generateEnum()/]}}
 	[elseif( not aFeature.eType.name.equalsIgnoreCase('EFeatureMapEntry'))]
 		{"name":"[aFeature.name/]","type":"[aFeature.eType.printAvroType()/]"}
 	[/if]
 [else]
 	[if(aFeature.oclIsTypeOf(EReference) and addClass(aFeature.oclAsType(EReference).eReferenceType))]
-		{"name":"[aFeature.name/]","type":{"type":"record","name":"[aFeature.eType.name/]","fields":['['/]
-		[for (childFeature: EStructuralFeature | aFeature.eType->filter(EClass).eAllStructuralFeatures) ]
-   			[if( not childFeature.eType.name.equalsIgnoreCase('EFeatureMapEntry'))]
-			[if(i > 1)],[/if]{"name":"[childFeature.name/]",
-			[if(childFeature.oclIsTypeOf(EReference))]
-				[if(addClass(childFeature.oclAsType(EReference).eReferenceType))]
-					"type":{"type":[childFeature.oclAsType(EReference).eReferenceType.generateRecord()/]}
-				[else]
-					"type":"[childFeature.eType.name/]"}
-				[/if]
-			[elseif(childFeature.eType.oclIsTypeOf(EEnum))]
-				"type":{ "type":[childFeature.eType->filter(EEnum).generateEnum()/]}}
-			[elseif( not aFeature.eType.name.equalsIgnoreCase('EFeatureMapEntry'))]
-				"type":"[childFeature.eType.printAvroType()/]"}
-			[/if][/if]
-		[/for][']'/]}}
+		{"name":"[aFeature.name/]","type":[aFeature.oclAsType(EReference).eReferenceType.generateRecord()/]}
 	[else]
 		{"name":"[aFeature.name/]","type":"[aFeature.eType.name/]"}
 	[/if]
@@ -94,7 +72,7 @@
 [/template]
 
 [template private generateEnum(eEnum: EEnum) post(trim()) ]
-"enum","name":"[eEnum.name/]","symbols":['['/][for (eLiteral : EEnumLiteral | eEnum.eLiterals)][if(i > 1)],[/if]"[eLiteral.name/]"[/for][']'/]
+{"type":"enum","name":"[eEnum.name/]","symbols":['['/][for (eLiteral : EEnumLiteral | eEnum.eLiterals)][if(i > 1)],[/if]"[eLiteral.name/]"[/for][']'/]
 [/template]
 
 [template private printAvroType(eClass: EClassifier) post(trim())]

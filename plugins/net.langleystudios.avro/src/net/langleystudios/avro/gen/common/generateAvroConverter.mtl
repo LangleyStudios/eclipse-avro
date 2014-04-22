@@ -1,0 +1,65 @@
+[comment encoding = UTF-8 /]
+[module generateAvroConverter('http://www.eclipse.org/emf/2002/Ecore')]
+
+[template public generateConverter(anEPackage : EPackage) {
+prefix : String = 'org.eclipse.emf.examples.';
+avroPrefix : String = 'avro.'.concat(anEPackage.name).concat('.');
+emfPrefix : String = prefix.concat(anEPackage.name).concat('.');
+}]
+[comment @main/]
+
+
+[comment Create a file for each schema/]
+[file ('src-gen/avro/'.concat(anEPackage.name.concat('/ConvertEMFtoAvro.java')), false, 'UTF-8')]
+package avro.[anEPackage.name/];
+
+[comment Find out what the imports have to be /]
+
+import java.util.ArrayList;
+import java.util.List;
+
+[comment Main class definition /]
+public class ConvertEMFtoAvro {
+
+[for (eclass: EClass | anEPackage.eClassifiers->filter(EClass))]
+public [avroPrefix.concat(eclass.name)/] convert[eclass.name/](
+	[emfPrefix.concat(eclass.name)/] input) {
+
+	[avroPrefix.concat(eclass.name)/] output = new [avroPrefix.concat(eclass.name)/]();
+
+[for (aFeature: EStructuralFeature | eclass.eAllStructuralFeatures)]
+[if( not aFeature.eType.name.equalsIgnoreCase('EFeatureMapEntry'))]
+[if(aFeature.upperBound <> 1)]
+	// Handle array type for [aFeature.name/]
+	List<[avroPrefix.concat(aFeature.eType.name)/]> [aFeature.name/]List = new ArrayList<[avroPrefix.concat(aFeature.eType.name)/]>();
+	for([emfPrefix.concat(aFeature.eType.name)/] itr : input.get[aFeature.name.toUpperFirst()/]()) {
+		[aFeature.name/]List.add(convert[aFeature.eType.name/](itr));
+	}
+	output.set[aFeature.name.toUpperFirst()/]([aFeature.name/]List);
+[elseif(aFeature.oclIsTypeOf(EAttribute))]
+	[if(aFeature.eType.oclIsTypeOf(EEnum))]
+	// Handle enum type for [aFeature.name/]
+	[elseif(aFeature.eType.name.equalsIgnoreCase('EBoolean'))]
+	output.set[aFeature.name.toUpperFirst()/](input.is[aFeature.name.toUpperFirst()/]());
+	[elseif(aFeature.eType.name.equalsIgnoreCase('EDate'))]
+	output.set[aFeature.name.toUpperFirst()/](input.get[aFeature.name.toUpperFirst()/]().toString());
+	[else]
+	output.set[aFeature.name.toUpperFirst()/](input.get[aFeature.name.toUpperFirst()/]());
+	[/if]
+[else]
+	// Handle reference type for [aFeature.name/]
+[/if]
+[/if]
+
+[/for]
+
+	return output;
+}
+
+[/for]
+
+[comment Converter for each class in the package /]
+}
+[/file]
+
+[/template]
