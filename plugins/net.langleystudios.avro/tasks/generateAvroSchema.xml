@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="generateAvroSchema" name="net.langleystudios.avro">
     <property name="ECLIPSE_HOME" value="../../../../../../../opt/tools/eclipse/eclipse-emf-kepler/eclipse"/>
-    <property name="ECLIPSE_WORKSPACE" value="../../../../../workspace/runtime-EclipseXtext"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../../workspace/opendis"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="net.langleystudios.avro.libraryclasspath">
@@ -40,6 +40,7 @@
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.swt.gtk.linux.x86_64_3.102.1.v20130827-2048.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ui.ide_3.9.1.v20130704-1828.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ui.workbench_3.105.1.v20130821-1411.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.slf4j.api_1.7.2.v20121108-1250.jar"/>
     </path>
 
     <path id="net.langleystudios.avro.classpath">
