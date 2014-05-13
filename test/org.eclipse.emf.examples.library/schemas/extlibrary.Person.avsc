@@ -1,0 +1,5 @@
+{"type":"record","name":"Person","namespace":"avro.extlibrary","fields":[
+	{"name":"address","type":"string"},
+	{"name":"firstName","type":"string"},
+	{"name":"lastName","type":"string"}]
+}
