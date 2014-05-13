@@ -25,37 +25,6 @@
 			<arguments>
 			</arguments>
 		</buildCommand>
-		<buildCommand>
-			<name>org.eclipse.emf.cdo.releng.version.VersionBuilder</name>
-			<arguments>
-				<dictionary>
-					<key>ignore.missing.dependency.ranges</key>
-					<value>true</value>
-				</dictionary>
-				<dictionary>
-					<key>ignore.schema.builder</key>
-					<value>true</value>
-				</dictionary>
-				<dictionary>
-					<key>release.path</key>
-					<value>/org.eclipse.emf.java/release.xml</value>
-				</dictionary>
-			</arguments>
-		</buildCommand>
-		<buildCommand>
-			<name>org.eclipse.ui.externaltools.ExternalToolBuilder</name>
-			<triggers>auto,full,incremental,</triggers>
-			<arguments>
-				<dictionary>
-					<key>LaunchConfigHandle</key>
-					<value>&lt;project&gt;/.externalToolBuilders/org.eclipse.emf.examples.library.launch</value>
-				</dictionary>
-				<dictionary>
-					<key>incclean</key>
-					<value>true</value>
-				</dictionary>
-			</arguments>
-		</buildCommand>
 	</buildSpec>
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
