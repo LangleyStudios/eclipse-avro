@@ -63,7 +63,7 @@ public static [avroPrefix.concat(eclass.name)/] convert[eclass.name/](
 	[elseif(aFeature.eType.name.equalsIgnoreCase('EBoolean'))]
 	output.set[aFeature.name.toUpperFirst()/](input.is[aFeature.name.toUpperFirst()/]());
 	[elseif(aFeature.eType.name.equalsIgnoreCase('EDate'))]
-	output.set[aFeature.name.toUpperFirst()/](input.get[aFeature.name.toUpperFirst()/]().toString());
+	output.set[aFeature.name.toUpperFirst()/](Date.valueOf(input.get[aFeature.name.toUpperFirst()/]().toString()));
 	[else]
 	output.set[aFeature.name.toUpperFirst()/](input.get[aFeature.name.toUpperFirst()/]());
 	[/if]

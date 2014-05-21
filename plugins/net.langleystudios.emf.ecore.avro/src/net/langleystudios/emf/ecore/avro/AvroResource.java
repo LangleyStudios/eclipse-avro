@@ -9,20 +9,21 @@ import org.apache.avro.Schema;
 import org.apache.avro.file.CodecFactory;
 import org.apache.avro.file.DataFileStream;
 import org.apache.avro.file.DataFileWriter;
-import org.apache.avro.generic.GenericDatumReader;
-import org.apache.avro.generic.GenericDatumWriter;
+import org.apache.avro.io.DatumReader;
 import org.apache.avro.io.DatumWriter;
+import org.apache.avro.specific.SpecificData;
+import org.apache.avro.specific.SpecificDatumWriter;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 
+import avro.extlibrary.ConvertAvroToEMF;
 import avro.extlibrary.ConvertEMFtoAvro;
 
 public class AvroResource extends ResourceImpl {
 
-	public static final String NS_URI_META = "ns.uri.meta";
-	public static final String NS_SPLIT_STRING = ";";
-
+	private ClassLoader loader = null;
+	
 	public AvroResource() {
 		super();
 	}
@@ -31,18 +32,24 @@ public class AvroResource extends ResourceImpl {
 		super(uri);
 	}
 
+	public void setClassLoader(ClassLoader loader) {
+		this.loader = loader;
+	}
+	
 	@Override
 	protected void doLoad(InputStream inputStream, Map<?, ?> options)
 			throws IOException {
 
 		Schema unionSchema = ConvertEMFtoAvro.getUnionSchema();
-		GenericDatumReader<EObject> reader = new GenericDatumReader<EObject>();
-		DataFileStream<EObject> dataStream = new DataFileStream<EObject>(
+		
+		SpecificData sData = new SpecificData(loader);
+		DatumReader reader = sData.createDatumReader(unionSchema);
+		DataFileStream<Object> dataStream = new DataFileStream<Object>(
 				inputStream, reader);
-		reader.setExpected(unionSchema);
 
-		for (EObject eobject : dataStream) {
-			contents.add(eobject);
+		for (Object object : dataStream) {
+			EObject obj = ConvertAvroToEMF.convertAvroObject(object);
+			this.getContents().add(obj);
 		}
 		dataStream.close();
 
@@ -55,8 +62,8 @@ public class AvroResource extends ResourceImpl {
 		Schema unionSchema = ConvertEMFtoAvro.getUnionSchema();
 
 		try {
-			DatumWriter<Object> writer = new GenericDatumWriter<Object>(
-					avro.extlibrary.Person.getClassSchema());
+			DatumWriter<Object> writer = new SpecificDatumWriter<Object>(
+					unionSchema);
 			DataFileWriter<Object> fileWriter = new DataFileWriter<Object>(
 					writer);
 			fileWriter.setCodec(CodecFactory.deflateCodec(9));

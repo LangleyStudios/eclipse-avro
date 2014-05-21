@@ -17,4 +17,5 @@ Export-Package: net.langleystudios.emf.ecore.avro
 Import-Package: org.apache.avro;version="1.7.6",
  org.apache.avro.file;version="1.7.6",
  org.apache.avro.generic;version="1.7.6",
- org.apache.avro.io;version="1.7.6"
+ org.apache.avro.io;version="1.7.6",
+ org.apache.avro.specific;version="1.7.6"
