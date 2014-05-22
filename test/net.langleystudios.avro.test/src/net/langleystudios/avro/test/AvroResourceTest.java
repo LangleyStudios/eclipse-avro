@@ -8,14 +8,14 @@
  * Contributors:
  *     Langley Studios - initial API and implementation
  *******************************************************************************/
-package net.langleystudios.emf.ecore.avro.test;
+package net.langleystudios.avro.test;
 
 import static org.junit.Assert.fail;
 
 import java.io.File;
 import java.io.IOException;
 
-import net.langleystudios.emf.ecore.avro.AvroResource;
+import net.langleystudios.avro.ecore.AvroResource;
 
 import org.apache.avro.Schema;
 import org.apache.avro.file.CodecFactory;
@@ -44,7 +44,9 @@ public class AvroResourceTest {
 		person.setFirstName("John");
 		person.setLastName("Smith");
 
-		Schema unionSchema = ConvertEMFtoAvro.getUnionSchema();
+		ConvertEMFtoAvro converter = new ConvertEMFtoAvro();
+		
+		Schema unionSchema = converter.getSchema();
 
 		try {
 			DatumWriter<Object> writer = new SpecificDatumWriter<Object>(
@@ -54,7 +56,7 @@ public class AvroResourceTest {
 			fileWriter.setCodec(CodecFactory.deflateCodec(9));
 			fileWriter.create(avro.extlibrary.Person.getClassSchema(),
 					new File("test.avro"));
-			avro.extlibrary.Person avroPerson = ConvertEMFtoAvro.convertPerson(person);
+			avro.extlibrary.Person avroPerson = converter.convertPerson(person);
 			fileWriter.append(avroPerson);
 			fileWriter.close();
 

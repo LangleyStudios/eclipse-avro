@@ -1,15 +1,23 @@
 package avro.extlibrary;
 
-
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+import net.langleystudios.avro.AvroEMFConverter;
 
 import org.apache.avro.Schema;
+
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.EList;
 
-public class ConvertEMFtoAvro {
+public class ConvertEMFtoAvro implements AvroEMFConverter {
 
-public static Schema getUnionSchema() {
+public Schema getSchema() {
 	List<Schema> schemaList = new ArrayList<Schema>();
 	schemaList.add(avro.extlibrary.Book.SCHEMA$);
 	schemaList.add(avro.extlibrary.Library.SCHEMA$);
@@ -29,7 +37,7 @@ public static Schema getUnionSchema() {
 	return unionSchema;
 }
 
-public static Object convertEObject(EObject eobject) {
+public Object convertEObject(EObject eobject) {
 	if(eobject instanceof org.eclipse.emf.examples.extlibrary.Book)
 	{
 		return convertBook((org.eclipse.emf.examples.extlibrary.Book)eobject);
@@ -89,7 +97,7 @@ public static Object convertEObject(EObject eobject) {
 	return null;
 }
 
-public static avro.extlibrary.Book convertBook(
+public avro.extlibrary.Book convertBook(
 	org.eclipse.emf.examples.extlibrary.Book input) {
 
 	avro.extlibrary.Book output = new avro.extlibrary.Book();
@@ -116,7 +124,7 @@ public static avro.extlibrary.Book convertBook(
 	return output;
 }
 
-public static avro.extlibrary.Library convertLibrary(
+public avro.extlibrary.Library convertLibrary(
 	org.eclipse.emf.examples.extlibrary.Library input) {
 
 	avro.extlibrary.Library output = new avro.extlibrary.Library();
@@ -168,7 +176,7 @@ public static avro.extlibrary.Library convertLibrary(
 	return output;
 }
 
-public static avro.extlibrary.Writer convertWriter(
+public avro.extlibrary.Writer convertWriter(
 	org.eclipse.emf.examples.extlibrary.Writer input) {
 
 	avro.extlibrary.Writer output = new avro.extlibrary.Writer();
@@ -191,7 +199,7 @@ public static avro.extlibrary.Writer convertWriter(
 	return output;
 }
 
-public static avro.extlibrary.Item convertItem(
+public avro.extlibrary.Item convertItem(
 	org.eclipse.emf.examples.extlibrary.Item input) {
 
 	avro.extlibrary.Item output = new avro.extlibrary.Item();
@@ -202,7 +210,7 @@ public static avro.extlibrary.Item convertItem(
 	return output;
 }
 
-public static avro.extlibrary.Lendable convertLendable(
+public avro.extlibrary.Lendable convertLendable(
 	org.eclipse.emf.examples.extlibrary.Lendable input) {
 
 	avro.extlibrary.Lendable output = new avro.extlibrary.Lendable();
@@ -219,7 +227,7 @@ public static avro.extlibrary.Lendable convertLendable(
 	return output;
 }
 
-public static avro.extlibrary.CirculatingItem convertCirculatingItem(
+public avro.extlibrary.CirculatingItem convertCirculatingItem(
 	org.eclipse.emf.examples.extlibrary.CirculatingItem input) {
 
 	avro.extlibrary.CirculatingItem output = new avro.extlibrary.CirculatingItem();
@@ -238,7 +246,7 @@ public static avro.extlibrary.CirculatingItem convertCirculatingItem(
 	return output;
 }
 
-public static avro.extlibrary.Periodical convertPeriodical(
+public avro.extlibrary.Periodical convertPeriodical(
 	org.eclipse.emf.examples.extlibrary.Periodical input) {
 
 	avro.extlibrary.Periodical output = new avro.extlibrary.Periodical();
@@ -253,7 +261,7 @@ public static avro.extlibrary.Periodical convertPeriodical(
 	return output;
 }
 
-public static avro.extlibrary.AudioVisualItem convertAudioVisualItem(
+public avro.extlibrary.AudioVisualItem convertAudioVisualItem(
 	org.eclipse.emf.examples.extlibrary.AudioVisualItem input) {
 
 	avro.extlibrary.AudioVisualItem output = new avro.extlibrary.AudioVisualItem();
@@ -278,7 +286,7 @@ public static avro.extlibrary.AudioVisualItem convertAudioVisualItem(
 	return output;
 }
 
-public static avro.extlibrary.BookOnTape convertBookOnTape(
+public avro.extlibrary.BookOnTape convertBookOnTape(
 	org.eclipse.emf.examples.extlibrary.BookOnTape input) {
 
 	avro.extlibrary.BookOnTape output = new avro.extlibrary.BookOnTape();
@@ -307,7 +315,7 @@ public static avro.extlibrary.BookOnTape convertBookOnTape(
 	return output;
 }
 
-public static avro.extlibrary.VideoCassette convertVideoCassette(
+public avro.extlibrary.VideoCassette convertVideoCassette(
 	org.eclipse.emf.examples.extlibrary.VideoCassette input) {
 
 	avro.extlibrary.VideoCassette output = new avro.extlibrary.VideoCassette();
@@ -338,7 +346,7 @@ public static avro.extlibrary.VideoCassette convertVideoCassette(
 	return output;
 }
 
-public static avro.extlibrary.Borrower convertBorrower(
+public avro.extlibrary.Borrower convertBorrower(
 	org.eclipse.emf.examples.extlibrary.Borrower input) {
 
 	avro.extlibrary.Borrower output = new avro.extlibrary.Borrower();
@@ -359,7 +367,7 @@ public static avro.extlibrary.Borrower convertBorrower(
 	return output;
 }
 
-public static avro.extlibrary.Person convertPerson(
+public avro.extlibrary.Person convertPerson(
 	org.eclipse.emf.examples.extlibrary.Person input) {
 
 	avro.extlibrary.Person output = new avro.extlibrary.Person();
@@ -374,7 +382,7 @@ public static avro.extlibrary.Person convertPerson(
 	return output;
 }
 
-public static avro.extlibrary.Employee convertEmployee(
+public avro.extlibrary.Employee convertEmployee(
 	org.eclipse.emf.examples.extlibrary.Employee input) {
 
 	avro.extlibrary.Employee output = new avro.extlibrary.Employee();
@@ -391,7 +399,7 @@ public static avro.extlibrary.Employee convertEmployee(
 	return output;
 }
 
-public static avro.extlibrary.Addressable convertAddressable(
+public avro.extlibrary.Addressable convertAddressable(
 	org.eclipse.emf.examples.extlibrary.Addressable input) {
 
 	avro.extlibrary.Addressable output = new avro.extlibrary.Addressable();
@@ -402,5 +410,207 @@ public static avro.extlibrary.Addressable convertAddressable(
 	return output;
 }
 
+
+public EObject convertAvroObject(Object object) {
+	if(object instanceof avro.extlibrary.Book)
+	{
+		return convertBook((avro.extlibrary.Book)object);
+	}
+	if(object instanceof avro.extlibrary.Library)
+	{
+		return convertLibrary((avro.extlibrary.Library)object);
+	}
+	if(object instanceof avro.extlibrary.Writer)
+	{
+		return convertWriter((avro.extlibrary.Writer)object);
+	}
+	if(object instanceof avro.extlibrary.BookOnTape)
+	{
+		return convertBookOnTape((avro.extlibrary.BookOnTape)object);
+	}
+	if(object instanceof avro.extlibrary.VideoCassette)
+	{
+		return convertVideoCassette((avro.extlibrary.VideoCassette)object);
+	}
+	if(object instanceof avro.extlibrary.Borrower)
+	{
+		return convertBorrower((avro.extlibrary.Borrower)object);
+	}
+	if(object instanceof avro.extlibrary.Person)
+	{
+		return convertPerson((avro.extlibrary.Person)object);
+	}
+	if(object instanceof avro.extlibrary.Employee)
+	{
+		return convertEmployee((avro.extlibrary.Employee)object);
+	}
+	return null;
+}
+
+public org.eclipse.emf.examples.extlibrary.Book convertBook(
+	avro.extlibrary.Book input) {
+
+	org.eclipse.emf.examples.extlibrary.Book output = org.eclipse.emf.examples.extlibrary.EXTLibraryFactory.eINSTANCE.createBook();
+
+	try {
+		Date publicationDateDate = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH).parse(input.getPublicationDate().toString());
+		output.setPublicationDate(publicationDateDate);
+	} catch(ParseException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	output.setCopies(input.getCopies());
+	EList<org.eclipse.emf.examples.extlibrary.Borrower> borrowersList = output.getBorrowers();
+	for(avro.extlibrary.Borrower itr : input.getBorrowers()) {
+		borrowersList.add((org.eclipse.emf.examples.extlibrary.Borrower)convertAvroObject(itr));
+	}
+	output.setTitle(input.getTitle().toString());
+	output.setPages(input.getPages());
+	output.setCategory(org.eclipse.emf.examples.extlibrary.BookCategory.valueOf(input.getCategory().name()));
+	output.setAuthor(convertWriter(input.getAuthor()));
+
+	return output;
+}
+public org.eclipse.emf.examples.extlibrary.Library convertLibrary(
+	avro.extlibrary.Library input) {
+
+	org.eclipse.emf.examples.extlibrary.Library output = org.eclipse.emf.examples.extlibrary.EXTLibraryFactory.eINSTANCE.createLibrary();
+
+	output.setAddress(input.getAddress().toString());
+	output.setName(input.getName().toString());
+	EList<org.eclipse.emf.examples.extlibrary.Writer> writersList = output.getWriters();
+	for(avro.extlibrary.Writer itr : input.getWriters()) {
+		writersList.add((org.eclipse.emf.examples.extlibrary.Writer)convertAvroObject(itr));
+	}
+	EList<org.eclipse.emf.examples.extlibrary.Employee> employeesList = output.getEmployees();
+	for(avro.extlibrary.Employee itr : input.getEmployees()) {
+		employeesList.add((org.eclipse.emf.examples.extlibrary.Employee)convertAvroObject(itr));
+	}
+	EList<org.eclipse.emf.examples.extlibrary.Borrower> borrowersList = output.getBorrowers();
+	for(avro.extlibrary.Borrower itr : input.getBorrowers()) {
+		borrowersList.add((org.eclipse.emf.examples.extlibrary.Borrower)convertAvroObject(itr));
+	}
+	EList<org.eclipse.emf.examples.extlibrary.Item> stockList = output.getStock();
+	for(avro.extlibrary.Item itr : input.getStock()) {
+		stockList.add((org.eclipse.emf.examples.extlibrary.Item)convertAvroObject(itr));
+	}
+	EList<org.eclipse.emf.examples.extlibrary.Book> booksList = output.getBooks();
+	for(avro.extlibrary.Book itr : input.getBooks()) {
+		booksList.add((org.eclipse.emf.examples.extlibrary.Book)convertAvroObject(itr));
+	}
+	EList<org.eclipse.emf.examples.extlibrary.Library> branchesList = output.getBranches();
+	for(avro.extlibrary.Library itr : input.getBranches()) {
+		branchesList.add((org.eclipse.emf.examples.extlibrary.Library)convertAvroObject(itr));
+	}
+	output.setParentBranch(convertLibrary(input.getParentBranch()));
+
+	return output;
+}
+public org.eclipse.emf.examples.extlibrary.Writer convertWriter(
+	avro.extlibrary.Writer input) {
+
+	org.eclipse.emf.examples.extlibrary.Writer output = org.eclipse.emf.examples.extlibrary.EXTLibraryFactory.eINSTANCE.createWriter();
+
+	output.setAddress(input.getAddress().toString());
+	output.setFirstName(input.getFirstName().toString());
+	output.setLastName(input.getLastName().toString());
+	output.setName(input.getName().toString());
+	EList<org.eclipse.emf.examples.extlibrary.Book> booksList = output.getBooks();
+	for(avro.extlibrary.Book itr : input.getBooks()) {
+		booksList.add((org.eclipse.emf.examples.extlibrary.Book)convertAvroObject(itr));
+	}
+
+	return output;
+}
+public org.eclipse.emf.examples.extlibrary.BookOnTape convertBookOnTape(
+	avro.extlibrary.BookOnTape input) {
+
+	org.eclipse.emf.examples.extlibrary.BookOnTape output = org.eclipse.emf.examples.extlibrary.EXTLibraryFactory.eINSTANCE.createBookOnTape();
+
+	try {
+		Date publicationDateDate = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH).parse(input.getPublicationDate().toString());
+		output.setPublicationDate(publicationDateDate);
+	} catch(ParseException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	output.setCopies(input.getCopies());
+	EList<org.eclipse.emf.examples.extlibrary.Borrower> borrowersList = output.getBorrowers();
+	for(avro.extlibrary.Borrower itr : input.getBorrowers()) {
+		borrowersList.add((org.eclipse.emf.examples.extlibrary.Borrower)convertAvroObject(itr));
+	}
+	output.setTitle(input.getTitle().toString());
+	output.setMinutesLength(input.getMinutesLength());
+	output.setDamaged(input.getDamaged());
+	output.setReader(convertPerson(input.getReader()));
+	output.setAuthor(convertWriter(input.getAuthor()));
+
+	return output;
+}
+public org.eclipse.emf.examples.extlibrary.VideoCassette convertVideoCassette(
+	avro.extlibrary.VideoCassette input) {
+
+	org.eclipse.emf.examples.extlibrary.VideoCassette output = org.eclipse.emf.examples.extlibrary.EXTLibraryFactory.eINSTANCE.createVideoCassette();
+
+	try {
+		Date publicationDateDate = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH).parse(input.getPublicationDate().toString());
+		output.setPublicationDate(publicationDateDate);
+	} catch(ParseException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	output.setCopies(input.getCopies());
+	EList<org.eclipse.emf.examples.extlibrary.Borrower> borrowersList = output.getBorrowers();
+	for(avro.extlibrary.Borrower itr : input.getBorrowers()) {
+		borrowersList.add((org.eclipse.emf.examples.extlibrary.Borrower)convertAvroObject(itr));
+	}
+	output.setTitle(input.getTitle().toString());
+	output.setMinutesLength(input.getMinutesLength());
+	output.setDamaged(input.getDamaged());
+	EList<org.eclipse.emf.examples.extlibrary.Person> castList = output.getCast();
+	for(avro.extlibrary.Person itr : input.getCast()) {
+		castList.add((org.eclipse.emf.examples.extlibrary.Person)convertAvroObject(itr));
+	}
+
+	return output;
+}
+public org.eclipse.emf.examples.extlibrary.Borrower convertBorrower(
+	avro.extlibrary.Borrower input) {
+
+	org.eclipse.emf.examples.extlibrary.Borrower output = org.eclipse.emf.examples.extlibrary.EXTLibraryFactory.eINSTANCE.createBorrower();
+
+	output.setAddress(input.getAddress().toString());
+	output.setFirstName(input.getFirstName().toString());
+	output.setLastName(input.getLastName().toString());
+	EList<org.eclipse.emf.examples.extlibrary.Lendable> borrowedList = output.getBorrowed();
+	for(avro.extlibrary.Lendable itr : input.getBorrowed()) {
+		borrowedList.add((org.eclipse.emf.examples.extlibrary.Lendable)convertAvroObject(itr));
+	}
+
+	return output;
+}
+public org.eclipse.emf.examples.extlibrary.Person convertPerson(
+	avro.extlibrary.Person input) {
+
+	org.eclipse.emf.examples.extlibrary.Person output = org.eclipse.emf.examples.extlibrary.EXTLibraryFactory.eINSTANCE.createPerson();
+
+	output.setAddress(input.getAddress().toString());
+	output.setFirstName(input.getFirstName().toString());
+	output.setLastName(input.getLastName().toString());
+
+	return output;
+}
+public org.eclipse.emf.examples.extlibrary.Employee convertEmployee(
+	avro.extlibrary.Employee input) {
+
+	org.eclipse.emf.examples.extlibrary.Employee output = org.eclipse.emf.examples.extlibrary.EXTLibraryFactory.eINSTANCE.createEmployee();
+
+	output.setAddress(input.getAddress().toString());
+	output.setFirstName(input.getFirstName().toString());
+	output.setLastName(input.getLastName().toString());
+	output.setManager(convertEmployee(input.getManager()));
+
+	return output;
+}
 
 }

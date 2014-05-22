@@ -17,26 +17,35 @@
 prefix : String = 'org.eclipse.emf.examples.';
 avroPrefix : String = 'avro.'.concat(anEPackage.name).concat('.');
 emfPrefix : String = prefix.concat(anEPackage.name).concat('.');
+emfPackage : String = emfPrefix.concat('EXTLibraryPackage');
+emfFactory : String = emfPrefix.concat('EXTLibraryFactory');
 }]
 [comment @main/]
 
 
 [comment Create a file for each schema/]
-[file ('src-gen/avro/'.concat(anEPackage.name.concat('/ConvertEMFtoAvro.java')), false, 'UTF-8')]
+[file ('avro/'.concat(anEPackage.name.concat('/ConvertEMFtoAvro.java')), false, 'UTF-8')]
 package avro.[anEPackage.name/];
 
-[comment Find out what the imports have to be /]
-
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+import net.langleystudios.avro.AvroEMFConverter;
 
 import org.apache.avro.Schema;
+
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.EList;
 
 [comment Main class definition /]
-public class ConvertEMFtoAvro {
+public class ConvertEMFtoAvro implements AvroEMFConverter {
 
-public static Schema getUnionSchema() {
+public Schema getSchema() {
 	List<Schema> schemaList = new ArrayList<Schema>();
 [for (eclass: EClass | anEPackage.eClassifiers->filter(EClass))]
 	schemaList.add([avroPrefix.concat(eclass.name)/].SCHEMA$);
@@ -45,7 +54,7 @@ public static Schema getUnionSchema() {
 	return unionSchema;
 }
 
-public static Object convertEObject(EObject eobject) {
+public Object convertEObject(EObject eobject) {
 [for (eclass: EClass | anEPackage.eClassifiers->filter(EClass))]
 	if(eobject instanceof [emfPrefix.concat(eclass.name)/])
 	{
@@ -56,7 +65,7 @@ public static Object convertEObject(EObject eobject) {
 }
 
 [for (eclass: EClass | anEPackage.eClassifiers->filter(EClass))]
-public static [avroPrefix.concat(eclass.name)/] convert[eclass.name/](
+public [avroPrefix.concat(eclass.name)/] convert[eclass.name/](
 	[emfPrefix.concat(eclass.name)/] input) {
 
 	[avroPrefix.concat(eclass.name)/] output = new [avroPrefix.concat(eclass.name)/]();
@@ -75,7 +84,7 @@ public static [avroPrefix.concat(eclass.name)/] convert[eclass.name/](
 	[elseif(aFeature.eType.name.equalsIgnoreCase('EBoolean'))]
 	output.set[aFeature.name.toUpperFirst()/](input.is[aFeature.name.toUpperFirst()/]());
 	[elseif(aFeature.eType.name.equalsIgnoreCase('EDate'))]
-	output.set[aFeature.name.toUpperFirst()/](Date.valueOf(input.get[aFeature.name.toUpperFirst()/]().toString()));
+	output.set[aFeature.name.toUpperFirst()/](input.get[aFeature.name.toUpperFirst()/]().toString());
 	[else]
 	output.set[aFeature.name.toUpperFirst()/](input.get[aFeature.name.toUpperFirst()/]());
 	[/if]
@@ -89,6 +98,61 @@ public static [avroPrefix.concat(eclass.name)/] convert[eclass.name/](
 	return output;
 }
 
+[/for]
+
+public EObject convertAvroObject(Object object) {
+[for (eclass: EClass | anEPackage.eClassifiers->filter(EClass))]
+[if (eclass.abstract = false)]
+	if(object instanceof [avroPrefix.concat(eclass.name)/])
+	{
+		return convert[eclass.name/](([avroPrefix.concat(eclass.name)/])object);
+	}
+[/if]
+[/for]
+	return null;
+}
+
+[for (eclass: EClass | anEPackage.eClassifiers->filter(EClass))]
+[if (eclass.abstract = false)]
+public [emfPrefix.concat(eclass.name)/] convert[eclass.name/](
+	[avroPrefix.concat(eclass.name)/] input) {
+
+	[emfPrefix.concat(eclass.name)/] output = [emfFactory/].eINSTANCE.create[eclass.name/]();
+
+[for (aFeature: EStructuralFeature | eclass.eAllStructuralFeatures)]
+[if( not aFeature.eType.name.equalsIgnoreCase('EFeatureMapEntry'))]
+[if(aFeature.upperBound <> 1)]
+	EList<[emfPrefix.concat(aFeature.eType.name)/]> [aFeature.name/]List = output.get[aFeature.name.toUpperFirst()/]();
+	for([avroPrefix.concat(aFeature.eType.name)/] itr : input.get[aFeature.name.toUpperFirst()/]()) {
+		[aFeature.name/]List.add(([emfPrefix.concat(aFeature.eType.name)/])convertAvroObject(itr));
+	}
+[elseif(aFeature.oclIsTypeOf(EAttribute))]
+	[if(aFeature.eType.oclIsTypeOf(EEnum))]
+	output.set[aFeature.name.toUpperFirst()/]([emfPrefix.concat(aFeature.eType.name)/].valueOf(input.get[aFeature.name.toUpperFirst()/]().name()));
+	[elseif(aFeature.eType.name.equalsIgnoreCase('EBoolean'))]
+	output.set[aFeature.name.toUpperFirst()/](input.get[aFeature.name.toUpperFirst()/]());
+	[elseif(aFeature.eType.name.equalsIgnoreCase('EDate'))]
+	try {
+		Date [aFeature.name/]Date = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH).parse(input.get[aFeature.name.toUpperFirst()/]().toString());
+		output.set[aFeature.name.toUpperFirst()/]([aFeature.name/]Date);
+	} catch(ParseException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	[elseif(aFeature.eType.name.equalsIgnoreCase('EString'))]
+	output.set[aFeature.name.toUpperFirst()/](input.get[aFeature.name.toUpperFirst()/]().toString());
+	[else]
+	output.set[aFeature.name.toUpperFirst()/](input.get[aFeature.name.toUpperFirst()/]());
+	[/if]
+[else]
+	output.set[aFeature.name.toUpperFirst()/](convert[aFeature.eType.name/](input.get[aFeature.name.toUpperFirst()/]()));
+[/if]
+[/if]
+[/for]
+
+	return output;
+}
+[/if]
 [/for]
 
 }

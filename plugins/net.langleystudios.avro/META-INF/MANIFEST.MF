@@ -24,7 +24,11 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Eclipse-LazyStart: true
-Import-Package: org.apache.avro.tool;version="1.7.6",
+Import-Package: org.apache.avro;version="1.7.6",
+ org.apache.avro.file;version="1.7.6",
+ org.apache.avro.io;version="1.7.6",
+ org.apache.avro.specific;version="1.7.6",
+ org.apache.avro.tool;version="1.7.6",
  org.eclipse.e4.ui.services,
  org.eclipse.jface.viewers,
  org.eclipse.jface.window,
@@ -36,6 +40,8 @@ Bundle-ClassPath: .,
  lib/jackson-core-asl-1.9.13.jar,
  lib/jackson-mapper-asl-1.9.13.jar,
  lib/paranamer-2.3.jar
-Export-Package: net.langleystudios.avro.gen,
+Export-Package: net.langleystudios.avro,
+ net.langleystudios.avro.ecore,
+ net.langleystudios.avro.gen,
  net.langleystudios.avro.gen.common,
  net.langleystudios.avro.gen.handler

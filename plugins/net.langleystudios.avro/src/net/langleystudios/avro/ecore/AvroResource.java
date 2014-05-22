@@ -8,12 +8,14 @@
  * Contributors:
  *     Langley Studios - initial API and implementation
  *******************************************************************************/
-package net.langleystudios.emf.ecore.avro;
+package net.langleystudios.avro.ecore;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Map;
+
+import net.langleystudios.avro.AvroEMFConverter;
 
 import org.apache.avro.Schema;
 import org.apache.avro.file.CodecFactory;
@@ -27,12 +29,11 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 
-import avro.extlibrary.ConvertAvroToEMF;
-import avro.extlibrary.ConvertEMFtoAvro;
-
 public class AvroResource extends ResourceImpl {
 
 	private ClassLoader loader = null;
+
+	private AvroEMFConverter converter = null;
 	
 	public AvroResource() {
 		super();
@@ -46,11 +47,15 @@ public class AvroResource extends ResourceImpl {
 		this.loader = loader;
 	}
 	
+	public void setConverter(AvroEMFConverter converter) {
+		this.converter = converter;
+	}
+	
 	@Override
 	protected void doLoad(InputStream inputStream, Map<?, ?> options)
 			throws IOException {
 
-		Schema unionSchema = ConvertEMFtoAvro.getUnionSchema();
+		Schema unionSchema = converter.getSchema();
 		
 		SpecificData sData = new SpecificData(loader);
 		DatumReader reader = sData.createDatumReader(unionSchema);
@@ -58,7 +63,7 @@ public class AvroResource extends ResourceImpl {
 				inputStream, reader);
 
 		for (Object object : dataStream) {
-			EObject obj = ConvertAvroToEMF.convertAvroObject(object);
+			EObject obj = converter.convertAvroObject(object);
 			this.getContents().add(obj);
 		}
 		dataStream.close();
@@ -69,17 +74,17 @@ public class AvroResource extends ResourceImpl {
 	protected void doSave(OutputStream outputStream, Map<?, ?> options)
 			throws IOException {
 
-		Schema unionSchema = ConvertEMFtoAvro.getUnionSchema();
+		Schema schema = converter.getSchema();
 
 		try {
 			DatumWriter<Object> writer = new SpecificDatumWriter<Object>(
-					unionSchema);
+					schema);
 			DataFileWriter<Object> fileWriter = new DataFileWriter<Object>(
 					writer);
 			fileWriter.setCodec(CodecFactory.deflateCodec(9));
-			fileWriter.create(avro.extlibrary.Person.getClassSchema(), outputStream);
+			fileWriter.create(schema, outputStream);
 			for (EObject eobject : this.contents) {
-				Object o = ConvertEMFtoAvro.convertEObject(eobject);
+				Object o = converter.convertEObject(eobject);
 				fileWriter.append(o);
 			}
 			fileWriter.close();
