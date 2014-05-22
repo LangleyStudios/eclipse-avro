@@ -7,7 +7,7 @@ Bundle-Vendor: Langley Studios
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.eclipse.emf.ecore;bundle-version="2.9.2",
  org.eclipse.emf.examples.library;bundle-version="2.5.0",
- net.langleystudios.avro;bundle-version="1.0.0"
+ net.langleystudios.avro;bundle-version="0.0.1"
 Bundle-ClassPath: .,
  lib/avro-1.7.5.jar,
  lib/paranamer-2.3.jar,
