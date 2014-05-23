@@ -14,11 +14,11 @@
 [module generateAvroConverter('http://www.eclipse.org/emf/2002/Ecore')]
 
 [template public generateConverter(anEPackage : EPackage) {
-prefix : String = 'org.eclipse.emf.examples.';
+prefix : String = getPrefix();
 avroPrefix : String = 'avro.'.concat(anEPackage.name).concat('.');
-emfPrefix : String = prefix.concat(anEPackage.name).concat('.');
-emfPackage : String = emfPrefix.concat('EXTLibraryPackage');
-emfFactory : String = emfPrefix.concat('EXTLibraryFactory');
+emfPrefix : String = prefix.concat('.'.concat(anEPackage.name)).concat('.');
+emfPackage : String = emfPrefix.concat(getPackage());
+emfFactory : String = emfPrefix.concat(getFactory());
 }]
 [comment @main/]
 
@@ -159,3 +159,13 @@ public [emfPrefix.concat(eclass.name)/] convert[eclass.name/](
 [/file]
 
 [/template]
+
+[query public getPrefix(tracecontext : OclAny) : EString
+	= invoke('net.langleystudios.avro.gen.Utility', 'getPrefix()', Sequence{tracecontext})
+/]
+[query public getPackage(tracecontext : OclAny) : EString
+	= invoke('net.langleystudios.avro.gen.Utility', 'getPackage()', Sequence{tracecontext})
+/]
+[query public getFactory(tracecontext : OclAny) : EString
+	= invoke('net.langleystudios.avro.gen.Utility', 'getFactory()', Sequence{tracecontext})
+/]

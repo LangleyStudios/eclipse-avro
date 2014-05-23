@@ -20,6 +20,35 @@ public class Utility {
 	
 	private ArrayList<String> list = new ArrayList<String>();
 
+	private static String prefix = "org.eclipse.emf.examples";
+	private static String packageName = "EXTLibraryPackage";
+	private static String factoryName = "EXTLibraryFactory";
+	
+	public static String getPrefix() {
+		return Utility.prefix;
+	}
+	
+	public static String getPackage() {
+		return Utility.packageName;
+	}
+	
+	public static String getFactory() {
+		return Utility.factoryName;
+	}
+	
+	public static void setPrefix(String prefix)
+	{
+		Utility.prefix = prefix;
+	}
+	
+	public static void setPackage(String packageName) {
+		Utility.packageName = packageName;
+	}
+	
+	public static void setFactory(String factoryName) {
+		Utility.factoryName = factoryName;
+	}
+	
 	public void startList(EClass eclass) {
 		list.clear();
 		StringBuilder builder = new StringBuilder();
