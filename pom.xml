@@ -23,7 +23,8 @@
 	<modules>
 		<module>plugins/net.langleystudios.avro</module>
 		<module>plugins/net.langleystudios.apache.avro</module>
-		<module>plugins/net.langleystudios.emf.ecore.avro</module>
+		<module>releng/net.langleystudios.avro.feature</module>
+		<module>releng/net.langleystudios.avro.site</module>
 	</modules>
 	<build>
 		<plugins>

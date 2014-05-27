@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/net.langleystudios.avro.feature_0.0.1.qualifier.jar" id="net.langleystudios.avro.feature" version="0.0.1.qualifier">
+      <category name="net.langleystudios.avro.category.runtime"/>
+   </feature>
+   <category-def name="net.langleystudios.avro.category.runtime" label="Eclipse Avro Runtime"/>
+</site>
