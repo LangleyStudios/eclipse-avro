@@ -8,5 +8,60 @@
             uri="fragment.e4xmi">
       </fragment>
    </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="net.langleystudios.avro.gen.handler.GenerateAvroDIHandler"
+            id="net.langleystudios.command.generateAvro"
+            name="Generate Avro">
+      </command>
+      <command
+            id="net.langleystudios.command.generateJava"
+            name="Generate Java">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
+         <command
+               commandId="net.langleystudios.command.generateAvro"
+               label="Generate Avro"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+                  <with
+                        variable="selection">
+                     <iterate
+                           ifEmpty="false">
+                        <test
+                              property="org.eclipse.core.resources.extension"
+                              value="ecore">
+                        </test>
+                     </iterate>
+                  </with>
+            </visibleWhen>
+         </command>
+         <command
+               commandId="net.langleystudios.command.generateJava"
+               label="Generate Java"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="selection">
+                  <iterate
+                        ifEmpty="false">
+                     <test
+                           property="org.eclipse.core.resources.extension"
+                           value="avsc">
+                     </test>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
 
 </plugin>

@@ -18,6 +18,11 @@
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/releases/kepler</url>
 		</repository>
+		<repository>
+			<id>e4tools</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/e4/downloads/drops/S-0.15-201401152200/repository</url>
+		</repository>
 	</repositories>
 
 	<modules>
