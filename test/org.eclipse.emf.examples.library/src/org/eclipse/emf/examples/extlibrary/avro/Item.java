@@ -3,11 +3,11 @@
  * 
  * DO NOT EDIT DIRECTLY
  */
-package org.eclipse.emf.examples.avro;  
+package org.eclipse.emf.examples.extlibrary.avro;  
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class Item extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Item\",\"namespace\":\"org.eclipse.emf.examples.avro\",\"fields\":[{\"name\":\"publicationDate\",\"type\":\"string\"}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Item\",\"namespace\":\"org.eclipse.emf.examples.extlibrary.avro\",\"fields\":[{\"name\":\"publicationDate\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public java.lang.CharSequence publicationDate;
 
@@ -58,18 +58,18 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
   }
 
   /** Creates a new Item RecordBuilder */
-  public static org.eclipse.emf.examples.avro.Item.Builder newBuilder() {
-    return new org.eclipse.emf.examples.avro.Item.Builder();
+  public static org.eclipse.emf.examples.extlibrary.avro.Item.Builder newBuilder() {
+    return new org.eclipse.emf.examples.extlibrary.avro.Item.Builder();
   }
   
   /** Creates a new Item RecordBuilder by copying an existing Builder */
-  public static org.eclipse.emf.examples.avro.Item.Builder newBuilder(org.eclipse.emf.examples.avro.Item.Builder other) {
-    return new org.eclipse.emf.examples.avro.Item.Builder(other);
+  public static org.eclipse.emf.examples.extlibrary.avro.Item.Builder newBuilder(org.eclipse.emf.examples.extlibrary.avro.Item.Builder other) {
+    return new org.eclipse.emf.examples.extlibrary.avro.Item.Builder(other);
   }
   
   /** Creates a new Item RecordBuilder by copying an existing Item instance */
-  public static org.eclipse.emf.examples.avro.Item.Builder newBuilder(org.eclipse.emf.examples.avro.Item other) {
-    return new org.eclipse.emf.examples.avro.Item.Builder(other);
+  public static org.eclipse.emf.examples.extlibrary.avro.Item.Builder newBuilder(org.eclipse.emf.examples.extlibrary.avro.Item other) {
+    return new org.eclipse.emf.examples.extlibrary.avro.Item.Builder(other);
   }
   
   /**
@@ -82,11 +82,11 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
 
     /** Creates a new Builder */
     private Builder() {
-      super(org.eclipse.emf.examples.avro.Item.SCHEMA$);
+      super(org.eclipse.emf.examples.extlibrary.avro.Item.SCHEMA$);
     }
     
     /** Creates a Builder by copying an existing Builder */
-    private Builder(org.eclipse.emf.examples.avro.Item.Builder other) {
+    private Builder(org.eclipse.emf.examples.extlibrary.avro.Item.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.publicationDate)) {
         this.publicationDate = data().deepCopy(fields()[0].schema(), other.publicationDate);
@@ -95,8 +95,8 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
     }
     
     /** Creates a Builder by copying an existing Item instance */
-    private Builder(org.eclipse.emf.examples.avro.Item other) {
-            super(org.eclipse.emf.examples.avro.Item.SCHEMA$);
+    private Builder(org.eclipse.emf.examples.extlibrary.avro.Item other) {
+            super(org.eclipse.emf.examples.extlibrary.avro.Item.SCHEMA$);
       if (isValidValue(fields()[0], other.publicationDate)) {
         this.publicationDate = data().deepCopy(fields()[0].schema(), other.publicationDate);
         fieldSetFlags()[0] = true;
@@ -109,7 +109,7 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
     }
     
     /** Sets the value of the 'publicationDate' field */
-    public org.eclipse.emf.examples.avro.Item.Builder setPublicationDate(java.lang.CharSequence value) {
+    public org.eclipse.emf.examples.extlibrary.avro.Item.Builder setPublicationDate(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.publicationDate = value;
       fieldSetFlags()[0] = true;
@@ -122,7 +122,7 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
     }
     
     /** Clears the value of the 'publicationDate' field */
-    public org.eclipse.emf.examples.avro.Item.Builder clearPublicationDate() {
+    public org.eclipse.emf.examples.extlibrary.avro.Item.Builder clearPublicationDate() {
       publicationDate = null;
       fieldSetFlags()[0] = false;
       return this;

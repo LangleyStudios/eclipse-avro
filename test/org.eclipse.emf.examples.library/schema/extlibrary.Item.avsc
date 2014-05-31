@@ -1,2 +1,2 @@
-{"type":"record","name":"Item","namespace":"org.eclipse.emf.examples.avro","fields":[
+{"type":"record","name":"Item","namespace":"org.eclipse.emf.examples.extlibrary.avro","fields":[
 {"name":"publicationDate","type":"string"}]}

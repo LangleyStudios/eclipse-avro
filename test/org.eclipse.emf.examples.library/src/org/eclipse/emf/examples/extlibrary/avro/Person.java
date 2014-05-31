@@ -3,32 +3,30 @@
  * 
  * DO NOT EDIT DIRECTLY
  */
-package org.eclipse.emf.examples.avro;  
+package org.eclipse.emf.examples.extlibrary.avro;  
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
-public class Borrower extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Borrower\",\"namespace\":\"org.eclipse.emf.examples.avro\",\"fields\":[{\"name\":\"address\",\"type\":\"string\"},{\"name\":\"firstName\",\"type\":\"string\"},{\"name\":\"lastName\",\"type\":\"string\"},{\"name\":\"borrowed\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Lendable\",\"fields\":[{\"name\":\"copies\",\"type\":\"int\"},{\"name\":\"borrowers\",\"type\":{\"type\":\"array\",\"items\":\"Borrower\"}}]}}}]}");
+public class Person extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Person\",\"namespace\":\"org.eclipse.emf.examples.extlibrary.avro\",\"fields\":[{\"name\":\"address\",\"type\":\"string\"},{\"name\":\"firstName\",\"type\":\"string\"},{\"name\":\"lastName\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public java.lang.CharSequence address;
   @Deprecated public java.lang.CharSequence firstName;
   @Deprecated public java.lang.CharSequence lastName;
-  @Deprecated public java.util.List<org.eclipse.emf.examples.avro.Lendable> borrowed;
 
   /**
    * Default constructor.  Note that this does not initialize fields
    * to their default values from the schema.  If that is desired then
    * one should use <code>newBuilder()</code>. 
    */
-  public Borrower() {}
+  public Person() {}
 
   /**
    * All-args constructor.
    */
-  public Borrower(java.lang.CharSequence address, java.lang.CharSequence firstName, java.lang.CharSequence lastName, java.util.List<org.eclipse.emf.examples.avro.Lendable> borrowed) {
+  public Person(java.lang.CharSequence address, java.lang.CharSequence firstName, java.lang.CharSequence lastName) {
     this.address = address;
     this.firstName = firstName;
     this.lastName = lastName;
-    this.borrowed = borrowed;
   }
 
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
@@ -38,7 +36,6 @@ public class Borrower extends org.apache.avro.specific.SpecificRecordBase implem
     case 0: return address;
     case 1: return firstName;
     case 2: return lastName;
-    case 3: return borrowed;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -49,7 +46,6 @@ public class Borrower extends org.apache.avro.specific.SpecificRecordBase implem
     case 0: address = (java.lang.CharSequence)value$; break;
     case 1: firstName = (java.lang.CharSequence)value$; break;
     case 2: lastName = (java.lang.CharSequence)value$; break;
-    case 3: borrowed = (java.util.List<org.eclipse.emf.examples.avro.Lendable>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -99,54 +95,38 @@ public class Borrower extends org.apache.avro.specific.SpecificRecordBase implem
     this.lastName = value;
   }
 
-  /**
-   * Gets the value of the 'borrowed' field.
-   */
-  public java.util.List<org.eclipse.emf.examples.avro.Lendable> getBorrowed() {
-    return borrowed;
-  }
-
-  /**
-   * Sets the value of the 'borrowed' field.
-   * @param value the value to set.
-   */
-  public void setBorrowed(java.util.List<org.eclipse.emf.examples.avro.Lendable> value) {
-    this.borrowed = value;
-  }
-
-  /** Creates a new Borrower RecordBuilder */
-  public static org.eclipse.emf.examples.avro.Borrower.Builder newBuilder() {
-    return new org.eclipse.emf.examples.avro.Borrower.Builder();
+  /** Creates a new Person RecordBuilder */
+  public static org.eclipse.emf.examples.extlibrary.avro.Person.Builder newBuilder() {
+    return new org.eclipse.emf.examples.extlibrary.avro.Person.Builder();
   }
   
-  /** Creates a new Borrower RecordBuilder by copying an existing Builder */
-  public static org.eclipse.emf.examples.avro.Borrower.Builder newBuilder(org.eclipse.emf.examples.avro.Borrower.Builder other) {
-    return new org.eclipse.emf.examples.avro.Borrower.Builder(other);
+  /** Creates a new Person RecordBuilder by copying an existing Builder */
+  public static org.eclipse.emf.examples.extlibrary.avro.Person.Builder newBuilder(org.eclipse.emf.examples.extlibrary.avro.Person.Builder other) {
+    return new org.eclipse.emf.examples.extlibrary.avro.Person.Builder(other);
   }
   
-  /** Creates a new Borrower RecordBuilder by copying an existing Borrower instance */
-  public static org.eclipse.emf.examples.avro.Borrower.Builder newBuilder(org.eclipse.emf.examples.avro.Borrower other) {
-    return new org.eclipse.emf.examples.avro.Borrower.Builder(other);
+  /** Creates a new Person RecordBuilder by copying an existing Person instance */
+  public static org.eclipse.emf.examples.extlibrary.avro.Person.Builder newBuilder(org.eclipse.emf.examples.extlibrary.avro.Person other) {
+    return new org.eclipse.emf.examples.extlibrary.avro.Person.Builder(other);
   }
   
   /**
-   * RecordBuilder for Borrower instances.
+   * RecordBuilder for Person instances.
    */
-  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Borrower>
-    implements org.apache.avro.data.RecordBuilder<Borrower> {
+  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Person>
+    implements org.apache.avro.data.RecordBuilder<Person> {
 
     private java.lang.CharSequence address;
     private java.lang.CharSequence firstName;
     private java.lang.CharSequence lastName;
-    private java.util.List<org.eclipse.emf.examples.avro.Lendable> borrowed;
 
     /** Creates a new Builder */
     private Builder() {
-      super(org.eclipse.emf.examples.avro.Borrower.SCHEMA$);
+      super(org.eclipse.emf.examples.extlibrary.avro.Person.SCHEMA$);
     }
     
     /** Creates a Builder by copying an existing Builder */
-    private Builder(org.eclipse.emf.examples.avro.Borrower.Builder other) {
+    private Builder(org.eclipse.emf.examples.extlibrary.avro.Person.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.address)) {
         this.address = data().deepCopy(fields()[0].schema(), other.address);
@@ -160,15 +140,11 @@ public class Borrower extends org.apache.avro.specific.SpecificRecordBase implem
         this.lastName = data().deepCopy(fields()[2].schema(), other.lastName);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.borrowed)) {
-        this.borrowed = data().deepCopy(fields()[3].schema(), other.borrowed);
-        fieldSetFlags()[3] = true;
-      }
     }
     
-    /** Creates a Builder by copying an existing Borrower instance */
-    private Builder(org.eclipse.emf.examples.avro.Borrower other) {
-            super(org.eclipse.emf.examples.avro.Borrower.SCHEMA$);
+    /** Creates a Builder by copying an existing Person instance */
+    private Builder(org.eclipse.emf.examples.extlibrary.avro.Person other) {
+            super(org.eclipse.emf.examples.extlibrary.avro.Person.SCHEMA$);
       if (isValidValue(fields()[0], other.address)) {
         this.address = data().deepCopy(fields()[0].schema(), other.address);
         fieldSetFlags()[0] = true;
@@ -181,10 +157,6 @@ public class Borrower extends org.apache.avro.specific.SpecificRecordBase implem
         this.lastName = data().deepCopy(fields()[2].schema(), other.lastName);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.borrowed)) {
-        this.borrowed = data().deepCopy(fields()[3].schema(), other.borrowed);
-        fieldSetFlags()[3] = true;
-      }
     }
 
     /** Gets the value of the 'address' field */
@@ -193,7 +165,7 @@ public class Borrower extends org.apache.avro.specific.SpecificRecordBase implem
     }
     
     /** Sets the value of the 'address' field */
-    public org.eclipse.emf.examples.avro.Borrower.Builder setAddress(java.lang.CharSequence value) {
+    public org.eclipse.emf.examples.extlibrary.avro.Person.Builder setAddress(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.address = value;
       fieldSetFlags()[0] = true;
@@ -206,7 +178,7 @@ public class Borrower extends org.apache.avro.specific.SpecificRecordBase implem
     }
     
     /** Clears the value of the 'address' field */
-    public org.eclipse.emf.examples.avro.Borrower.Builder clearAddress() {
+    public org.eclipse.emf.examples.extlibrary.avro.Person.Builder clearAddress() {
       address = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -218,7 +190,7 @@ public class Borrower extends org.apache.avro.specific.SpecificRecordBase implem
     }
     
     /** Sets the value of the 'firstName' field */
-    public org.eclipse.emf.examples.avro.Borrower.Builder setFirstName(java.lang.CharSequence value) {
+    public org.eclipse.emf.examples.extlibrary.avro.Person.Builder setFirstName(java.lang.CharSequence value) {
       validate(fields()[1], value);
       this.firstName = value;
       fieldSetFlags()[1] = true;
@@ -231,7 +203,7 @@ public class Borrower extends org.apache.avro.specific.SpecificRecordBase implem
     }
     
     /** Clears the value of the 'firstName' field */
-    public org.eclipse.emf.examples.avro.Borrower.Builder clearFirstName() {
+    public org.eclipse.emf.examples.extlibrary.avro.Person.Builder clearFirstName() {
       firstName = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -243,7 +215,7 @@ public class Borrower extends org.apache.avro.specific.SpecificRecordBase implem
     }
     
     /** Sets the value of the 'lastName' field */
-    public org.eclipse.emf.examples.avro.Borrower.Builder setLastName(java.lang.CharSequence value) {
+    public org.eclipse.emf.examples.extlibrary.avro.Person.Builder setLastName(java.lang.CharSequence value) {
       validate(fields()[2], value);
       this.lastName = value;
       fieldSetFlags()[2] = true;
@@ -256,45 +228,19 @@ public class Borrower extends org.apache.avro.specific.SpecificRecordBase implem
     }
     
     /** Clears the value of the 'lastName' field */
-    public org.eclipse.emf.examples.avro.Borrower.Builder clearLastName() {
+    public org.eclipse.emf.examples.extlibrary.avro.Person.Builder clearLastName() {
       lastName = null;
       fieldSetFlags()[2] = false;
       return this;
     }
 
-    /** Gets the value of the 'borrowed' field */
-    public java.util.List<org.eclipse.emf.examples.avro.Lendable> getBorrowed() {
-      return borrowed;
-    }
-    
-    /** Sets the value of the 'borrowed' field */
-    public org.eclipse.emf.examples.avro.Borrower.Builder setBorrowed(java.util.List<org.eclipse.emf.examples.avro.Lendable> value) {
-      validate(fields()[3], value);
-      this.borrowed = value;
-      fieldSetFlags()[3] = true;
-      return this; 
-    }
-    
-    /** Checks whether the 'borrowed' field has been set */
-    public boolean hasBorrowed() {
-      return fieldSetFlags()[3];
-    }
-    
-    /** Clears the value of the 'borrowed' field */
-    public org.eclipse.emf.examples.avro.Borrower.Builder clearBorrowed() {
-      borrowed = null;
-      fieldSetFlags()[3] = false;
-      return this;
-    }
-
     @Override
-    public Borrower build() {
+    public Person build() {
       try {
-        Borrower record = new Borrower();
+        Person record = new Person();
         record.address = fieldSetFlags()[0] ? this.address : (java.lang.CharSequence) defaultValue(fields()[0]);
         record.firstName = fieldSetFlags()[1] ? this.firstName : (java.lang.CharSequence) defaultValue(fields()[1]);
         record.lastName = fieldSetFlags()[2] ? this.lastName : (java.lang.CharSequence) defaultValue(fields()[2]);
-        record.borrowed = fieldSetFlags()[3] ? this.borrowed : (java.util.List<org.eclipse.emf.examples.avro.Lendable>) defaultValue(fields()[3]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

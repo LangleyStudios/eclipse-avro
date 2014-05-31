@@ -1,2 +1,2 @@
-{"type":"record","name":"Person","namespace":"org.eclipse.emf.examples.avro","fields":[
+{"type":"record","name":"Person","namespace":"org.eclipse.emf.examples.extlibrary.avro","fields":[
 {"name":"address","type":"string"},{"name":"firstName","type":"string"},{"name":"lastName","type":"string"}]}

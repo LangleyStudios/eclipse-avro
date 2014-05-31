@@ -62,6 +62,16 @@ public Object convertEObject(EObject eobject) {
 	return null;
 }
 
+public Schema getSchema(EObject eobject) {
+[for (eclass: EClass | anEPackage.eClassifiers->filter(EClass))]
+	if(eobject instanceof [emfPrefix.concat(eclass.name)/])
+	{
+		return [avroPrefix.concat(eclass.name)/].getClassSchema();
+	}
+[/for]
+	return null;
+}
+
 [for (eclass: EClass | anEPackage.eClassifiers->filter(EClass))]
 public [avroPrefix.concat(eclass.name)/] convert[eclass.name/](
 	[emfPrefix.concat(eclass.name)/] input) {

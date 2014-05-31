@@ -3,19 +3,19 @@
  * 
  * DO NOT EDIT DIRECTLY
  */
-package org.eclipse.emf.examples.avro;  
+package org.eclipse.emf.examples.extlibrary.avro;  
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class Book extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Book\",\"namespace\":\"org.eclipse.emf.examples.avro\",\"fields\":[{\"name\":\"publicationDate\",\"type\":\"string\"},{\"name\":\"copies\",\"type\":\"int\"},{\"name\":\"borrowers\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Borrower\",\"fields\":[{\"name\":\"address\",\"type\":\"string\"},{\"name\":\"firstName\",\"type\":\"string\"},{\"name\":\"lastName\",\"type\":\"string\"},{\"name\":\"borrowed\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Lendable\",\"fields\":[{\"name\":\"copies\",\"type\":\"int\"},{\"name\":\"borrowers\",\"type\":{\"type\":\"array\",\"items\":\"Borrower\"}}]}}}]}}},{\"name\":\"title\",\"type\":\"string\"},{\"name\":\"pages\",\"type\":\"int\"},{\"name\":\"category\",\"type\":{\"type\":\"enum\",\"name\":\"BookCategory\",\"symbols\":[\"Mystery\",\"ScienceFiction\",\"Biography\"]}},{\"name\":\"author\",\"type\":{\"type\":\"record\",\"name\":\"Writer\",\"fields\":[{\"name\":\"address\",\"type\":\"string\"},{\"name\":\"firstName\",\"type\":\"string\"},{\"name\":\"lastName\",\"type\":\"string\"},{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"books\",\"type\":{\"type\":\"array\",\"items\":\"Book\"}}]}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Book\",\"namespace\":\"org.eclipse.emf.examples.extlibrary.avro\",\"fields\":[{\"name\":\"publicationDate\",\"type\":\"string\"},{\"name\":\"copies\",\"type\":\"int\"},{\"name\":\"borrowers\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Borrower\",\"fields\":[{\"name\":\"address\",\"type\":\"string\"},{\"name\":\"firstName\",\"type\":\"string\"},{\"name\":\"lastName\",\"type\":\"string\"},{\"name\":\"borrowed\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Lendable\",\"fields\":[{\"name\":\"copies\",\"type\":\"int\"},{\"name\":\"borrowers\",\"type\":{\"type\":\"array\",\"items\":\"Borrower\"}}]}}}]}}},{\"name\":\"title\",\"type\":\"string\"},{\"name\":\"pages\",\"type\":\"int\"},{\"name\":\"category\",\"type\":{\"type\":\"enum\",\"name\":\"BookCategory\",\"symbols\":[\"Mystery\",\"ScienceFiction\",\"Biography\"]}},{\"name\":\"author\",\"type\":{\"type\":\"record\",\"name\":\"Writer\",\"fields\":[{\"name\":\"address\",\"type\":\"string\"},{\"name\":\"firstName\",\"type\":\"string\"},{\"name\":\"lastName\",\"type\":\"string\"},{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"books\",\"type\":{\"type\":\"array\",\"items\":\"Book\"}}]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public java.lang.CharSequence publicationDate;
   @Deprecated public int copies;
-  @Deprecated public java.util.List<org.eclipse.emf.examples.avro.Borrower> borrowers;
+  @Deprecated public java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> borrowers;
   @Deprecated public java.lang.CharSequence title;
   @Deprecated public int pages;
-  @Deprecated public org.eclipse.emf.examples.avro.BookCategory category;
-  @Deprecated public org.eclipse.emf.examples.avro.Writer author;
+  @Deprecated public org.eclipse.emf.examples.extlibrary.avro.BookCategory category;
+  @Deprecated public org.eclipse.emf.examples.extlibrary.avro.Writer author;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -27,7 +27,7 @@ public class Book extends org.apache.avro.specific.SpecificRecordBase implements
   /**
    * All-args constructor.
    */
-  public Book(java.lang.CharSequence publicationDate, java.lang.Integer copies, java.util.List<org.eclipse.emf.examples.avro.Borrower> borrowers, java.lang.CharSequence title, java.lang.Integer pages, org.eclipse.emf.examples.avro.BookCategory category, org.eclipse.emf.examples.avro.Writer author) {
+  public Book(java.lang.CharSequence publicationDate, java.lang.Integer copies, java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> borrowers, java.lang.CharSequence title, java.lang.Integer pages, org.eclipse.emf.examples.extlibrary.avro.BookCategory category, org.eclipse.emf.examples.extlibrary.avro.Writer author) {
     this.publicationDate = publicationDate;
     this.copies = copies;
     this.borrowers = borrowers;
@@ -57,11 +57,11 @@ public class Book extends org.apache.avro.specific.SpecificRecordBase implements
     switch (field$) {
     case 0: publicationDate = (java.lang.CharSequence)value$; break;
     case 1: copies = (java.lang.Integer)value$; break;
-    case 2: borrowers = (java.util.List<org.eclipse.emf.examples.avro.Borrower>)value$; break;
+    case 2: borrowers = (java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower>)value$; break;
     case 3: title = (java.lang.CharSequence)value$; break;
     case 4: pages = (java.lang.Integer)value$; break;
-    case 5: category = (org.eclipse.emf.examples.avro.BookCategory)value$; break;
-    case 6: author = (org.eclipse.emf.examples.avro.Writer)value$; break;
+    case 5: category = (org.eclipse.emf.examples.extlibrary.avro.BookCategory)value$; break;
+    case 6: author = (org.eclipse.emf.examples.extlibrary.avro.Writer)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -99,7 +99,7 @@ public class Book extends org.apache.avro.specific.SpecificRecordBase implements
   /**
    * Gets the value of the 'borrowers' field.
    */
-  public java.util.List<org.eclipse.emf.examples.avro.Borrower> getBorrowers() {
+  public java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> getBorrowers() {
     return borrowers;
   }
 
@@ -107,7 +107,7 @@ public class Book extends org.apache.avro.specific.SpecificRecordBase implements
    * Sets the value of the 'borrowers' field.
    * @param value the value to set.
    */
-  public void setBorrowers(java.util.List<org.eclipse.emf.examples.avro.Borrower> value) {
+  public void setBorrowers(java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> value) {
     this.borrowers = value;
   }
 
@@ -144,7 +144,7 @@ public class Book extends org.apache.avro.specific.SpecificRecordBase implements
   /**
    * Gets the value of the 'category' field.
    */
-  public org.eclipse.emf.examples.avro.BookCategory getCategory() {
+  public org.eclipse.emf.examples.extlibrary.avro.BookCategory getCategory() {
     return category;
   }
 
@@ -152,14 +152,14 @@ public class Book extends org.apache.avro.specific.SpecificRecordBase implements
    * Sets the value of the 'category' field.
    * @param value the value to set.
    */
-  public void setCategory(org.eclipse.emf.examples.avro.BookCategory value) {
+  public void setCategory(org.eclipse.emf.examples.extlibrary.avro.BookCategory value) {
     this.category = value;
   }
 
   /**
    * Gets the value of the 'author' field.
    */
-  public org.eclipse.emf.examples.avro.Writer getAuthor() {
+  public org.eclipse.emf.examples.extlibrary.avro.Writer getAuthor() {
     return author;
   }
 
@@ -167,23 +167,23 @@ public class Book extends org.apache.avro.specific.SpecificRecordBase implements
    * Sets the value of the 'author' field.
    * @param value the value to set.
    */
-  public void setAuthor(org.eclipse.emf.examples.avro.Writer value) {
+  public void setAuthor(org.eclipse.emf.examples.extlibrary.avro.Writer value) {
     this.author = value;
   }
 
   /** Creates a new Book RecordBuilder */
-  public static org.eclipse.emf.examples.avro.Book.Builder newBuilder() {
-    return new org.eclipse.emf.examples.avro.Book.Builder();
+  public static org.eclipse.emf.examples.extlibrary.avro.Book.Builder newBuilder() {
+    return new org.eclipse.emf.examples.extlibrary.avro.Book.Builder();
   }
   
   /** Creates a new Book RecordBuilder by copying an existing Builder */
-  public static org.eclipse.emf.examples.avro.Book.Builder newBuilder(org.eclipse.emf.examples.avro.Book.Builder other) {
-    return new org.eclipse.emf.examples.avro.Book.Builder(other);
+  public static org.eclipse.emf.examples.extlibrary.avro.Book.Builder newBuilder(org.eclipse.emf.examples.extlibrary.avro.Book.Builder other) {
+    return new org.eclipse.emf.examples.extlibrary.avro.Book.Builder(other);
   }
   
   /** Creates a new Book RecordBuilder by copying an existing Book instance */
-  public static org.eclipse.emf.examples.avro.Book.Builder newBuilder(org.eclipse.emf.examples.avro.Book other) {
-    return new org.eclipse.emf.examples.avro.Book.Builder(other);
+  public static org.eclipse.emf.examples.extlibrary.avro.Book.Builder newBuilder(org.eclipse.emf.examples.extlibrary.avro.Book other) {
+    return new org.eclipse.emf.examples.extlibrary.avro.Book.Builder(other);
   }
   
   /**
@@ -194,19 +194,19 @@ public class Book extends org.apache.avro.specific.SpecificRecordBase implements
 
     private java.lang.CharSequence publicationDate;
     private int copies;
-    private java.util.List<org.eclipse.emf.examples.avro.Borrower> borrowers;
+    private java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> borrowers;
     private java.lang.CharSequence title;
     private int pages;
-    private org.eclipse.emf.examples.avro.BookCategory category;
-    private org.eclipse.emf.examples.avro.Writer author;
+    private org.eclipse.emf.examples.extlibrary.avro.BookCategory category;
+    private org.eclipse.emf.examples.extlibrary.avro.Writer author;
 
     /** Creates a new Builder */
     private Builder() {
-      super(org.eclipse.emf.examples.avro.Book.SCHEMA$);
+      super(org.eclipse.emf.examples.extlibrary.avro.Book.SCHEMA$);
     }
     
     /** Creates a Builder by copying an existing Builder */
-    private Builder(org.eclipse.emf.examples.avro.Book.Builder other) {
+    private Builder(org.eclipse.emf.examples.extlibrary.avro.Book.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.publicationDate)) {
         this.publicationDate = data().deepCopy(fields()[0].schema(), other.publicationDate);
@@ -239,8 +239,8 @@ public class Book extends org.apache.avro.specific.SpecificRecordBase implements
     }
     
     /** Creates a Builder by copying an existing Book instance */
-    private Builder(org.eclipse.emf.examples.avro.Book other) {
-            super(org.eclipse.emf.examples.avro.Book.SCHEMA$);
+    private Builder(org.eclipse.emf.examples.extlibrary.avro.Book other) {
+            super(org.eclipse.emf.examples.extlibrary.avro.Book.SCHEMA$);
       if (isValidValue(fields()[0], other.publicationDate)) {
         this.publicationDate = data().deepCopy(fields()[0].schema(), other.publicationDate);
         fieldSetFlags()[0] = true;
@@ -277,7 +277,7 @@ public class Book extends org.apache.avro.specific.SpecificRecordBase implements
     }
     
     /** Sets the value of the 'publicationDate' field */
-    public org.eclipse.emf.examples.avro.Book.Builder setPublicationDate(java.lang.CharSequence value) {
+    public org.eclipse.emf.examples.extlibrary.avro.Book.Builder setPublicationDate(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.publicationDate = value;
       fieldSetFlags()[0] = true;
@@ -290,7 +290,7 @@ public class Book extends org.apache.avro.specific.SpecificRecordBase implements
     }
     
     /** Clears the value of the 'publicationDate' field */
-    public org.eclipse.emf.examples.avro.Book.Builder clearPublicationDate() {
+    public org.eclipse.emf.examples.extlibrary.avro.Book.Builder clearPublicationDate() {
       publicationDate = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -302,7 +302,7 @@ public class Book extends org.apache.avro.specific.SpecificRecordBase implements
     }
     
     /** Sets the value of the 'copies' field */
-    public org.eclipse.emf.examples.avro.Book.Builder setCopies(int value) {
+    public org.eclipse.emf.examples.extlibrary.avro.Book.Builder setCopies(int value) {
       validate(fields()[1], value);
       this.copies = value;
       fieldSetFlags()[1] = true;
@@ -315,18 +315,18 @@ public class Book extends org.apache.avro.specific.SpecificRecordBase implements
     }
     
     /** Clears the value of the 'copies' field */
-    public org.eclipse.emf.examples.avro.Book.Builder clearCopies() {
+    public org.eclipse.emf.examples.extlibrary.avro.Book.Builder clearCopies() {
       fieldSetFlags()[1] = false;
       return this;
     }
 
     /** Gets the value of the 'borrowers' field */
-    public java.util.List<org.eclipse.emf.examples.avro.Borrower> getBorrowers() {
+    public java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> getBorrowers() {
       return borrowers;
     }
     
     /** Sets the value of the 'borrowers' field */
-    public org.eclipse.emf.examples.avro.Book.Builder setBorrowers(java.util.List<org.eclipse.emf.examples.avro.Borrower> value) {
+    public org.eclipse.emf.examples.extlibrary.avro.Book.Builder setBorrowers(java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> value) {
       validate(fields()[2], value);
       this.borrowers = value;
       fieldSetFlags()[2] = true;
@@ -339,7 +339,7 @@ public class Book extends org.apache.avro.specific.SpecificRecordBase implements
     }
     
     /** Clears the value of the 'borrowers' field */
-    public org.eclipse.emf.examples.avro.Book.Builder clearBorrowers() {
+    public org.eclipse.emf.examples.extlibrary.avro.Book.Builder clearBorrowers() {
       borrowers = null;
       fieldSetFlags()[2] = false;
       return this;
@@ -351,7 +351,7 @@ public class Book extends org.apache.avro.specific.SpecificRecordBase implements
     }
     
     /** Sets the value of the 'title' field */
-    public org.eclipse.emf.examples.avro.Book.Builder setTitle(java.lang.CharSequence value) {
+    public org.eclipse.emf.examples.extlibrary.avro.Book.Builder setTitle(java.lang.CharSequence value) {
       validate(fields()[3], value);
       this.title = value;
       fieldSetFlags()[3] = true;
@@ -364,7 +364,7 @@ public class Book extends org.apache.avro.specific.SpecificRecordBase implements
     }
     
     /** Clears the value of the 'title' field */
-    public org.eclipse.emf.examples.avro.Book.Builder clearTitle() {
+    public org.eclipse.emf.examples.extlibrary.avro.Book.Builder clearTitle() {
       title = null;
       fieldSetFlags()[3] = false;
       return this;
@@ -376,7 +376,7 @@ public class Book extends org.apache.avro.specific.SpecificRecordBase implements
     }
     
     /** Sets the value of the 'pages' field */
-    public org.eclipse.emf.examples.avro.Book.Builder setPages(int value) {
+    public org.eclipse.emf.examples.extlibrary.avro.Book.Builder setPages(int value) {
       validate(fields()[4], value);
       this.pages = value;
       fieldSetFlags()[4] = true;
@@ -389,18 +389,18 @@ public class Book extends org.apache.avro.specific.SpecificRecordBase implements
     }
     
     /** Clears the value of the 'pages' field */
-    public org.eclipse.emf.examples.avro.Book.Builder clearPages() {
+    public org.eclipse.emf.examples.extlibrary.avro.Book.Builder clearPages() {
       fieldSetFlags()[4] = false;
       return this;
     }
 
     /** Gets the value of the 'category' field */
-    public org.eclipse.emf.examples.avro.BookCategory getCategory() {
+    public org.eclipse.emf.examples.extlibrary.avro.BookCategory getCategory() {
       return category;
     }
     
     /** Sets the value of the 'category' field */
-    public org.eclipse.emf.examples.avro.Book.Builder setCategory(org.eclipse.emf.examples.avro.BookCategory value) {
+    public org.eclipse.emf.examples.extlibrary.avro.Book.Builder setCategory(org.eclipse.emf.examples.extlibrary.avro.BookCategory value) {
       validate(fields()[5], value);
       this.category = value;
       fieldSetFlags()[5] = true;
@@ -413,19 +413,19 @@ public class Book extends org.apache.avro.specific.SpecificRecordBase implements
     }
     
     /** Clears the value of the 'category' field */
-    public org.eclipse.emf.examples.avro.Book.Builder clearCategory() {
+    public org.eclipse.emf.examples.extlibrary.avro.Book.Builder clearCategory() {
       category = null;
       fieldSetFlags()[5] = false;
       return this;
     }
 
     /** Gets the value of the 'author' field */
-    public org.eclipse.emf.examples.avro.Writer getAuthor() {
+    public org.eclipse.emf.examples.extlibrary.avro.Writer getAuthor() {
       return author;
     }
     
     /** Sets the value of the 'author' field */
-    public org.eclipse.emf.examples.avro.Book.Builder setAuthor(org.eclipse.emf.examples.avro.Writer value) {
+    public org.eclipse.emf.examples.extlibrary.avro.Book.Builder setAuthor(org.eclipse.emf.examples.extlibrary.avro.Writer value) {
       validate(fields()[6], value);
       this.author = value;
       fieldSetFlags()[6] = true;
@@ -438,7 +438,7 @@ public class Book extends org.apache.avro.specific.SpecificRecordBase implements
     }
     
     /** Clears the value of the 'author' field */
-    public org.eclipse.emf.examples.avro.Book.Builder clearAuthor() {
+    public org.eclipse.emf.examples.extlibrary.avro.Book.Builder clearAuthor() {
       author = null;
       fieldSetFlags()[6] = false;
       return this;
@@ -450,11 +450,11 @@ public class Book extends org.apache.avro.specific.SpecificRecordBase implements
         Book record = new Book();
         record.publicationDate = fieldSetFlags()[0] ? this.publicationDate : (java.lang.CharSequence) defaultValue(fields()[0]);
         record.copies = fieldSetFlags()[1] ? this.copies : (java.lang.Integer) defaultValue(fields()[1]);
-        record.borrowers = fieldSetFlags()[2] ? this.borrowers : (java.util.List<org.eclipse.emf.examples.avro.Borrower>) defaultValue(fields()[2]);
+        record.borrowers = fieldSetFlags()[2] ? this.borrowers : (java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower>) defaultValue(fields()[2]);
         record.title = fieldSetFlags()[3] ? this.title : (java.lang.CharSequence) defaultValue(fields()[3]);
         record.pages = fieldSetFlags()[4] ? this.pages : (java.lang.Integer) defaultValue(fields()[4]);
-        record.category = fieldSetFlags()[5] ? this.category : (org.eclipse.emf.examples.avro.BookCategory) defaultValue(fields()[5]);
-        record.author = fieldSetFlags()[6] ? this.author : (org.eclipse.emf.examples.avro.Writer) defaultValue(fields()[6]);
+        record.category = fieldSetFlags()[5] ? this.category : (org.eclipse.emf.examples.extlibrary.avro.BookCategory) defaultValue(fields()[5]);
+        record.author = fieldSetFlags()[6] ? this.author : (org.eclipse.emf.examples.extlibrary.avro.Writer) defaultValue(fields()[6]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

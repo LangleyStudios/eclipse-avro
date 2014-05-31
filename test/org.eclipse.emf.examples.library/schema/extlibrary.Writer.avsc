@@ -1,4 +1,4 @@
-{"type":"record","name":"Writer","namespace":"org.eclipse.emf.examples.avro","fields":[
+{"type":"record","name":"Writer","namespace":"org.eclipse.emf.examples.extlibrary.avro","fields":[
 {"name":"address","type":"string"},{"name":"firstName","type":"string"},{"name":"lastName","type":"string"},{"name":"name","type":"string"},{"name":"books","type":{"type":"array","items":
 		{"type":"record","name":"Book","fields":[
 		{"name":"publicationDate","type":"string"},{"name":"copies","type":"int"},{"name":"borrowers","type":{"type":"array","items":

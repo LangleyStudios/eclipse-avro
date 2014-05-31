@@ -13,6 +13,8 @@ package net.langleystudios.avro.ecore;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import net.langleystudios.avro.AvroEMFConverter;
@@ -74,15 +76,24 @@ public class AvroResource extends ResourceImpl {
 	protected void doSave(OutputStream outputStream, Map<?, ?> options)
 			throws IOException {
 
-		Schema schema = converter.getSchema();
+		// Create a union schema using only the EObjects that are in contents
+		List<Schema> schemaList = new ArrayList<Schema>();
+		for(EObject eobject : this.contents) {
+			Schema schema = converter.getSchema(eobject);
+			if(schema != null)
+			{
+				schemaList.add(schema);
+			}
+		}
+		Schema unionSchema = Schema.createUnion(schemaList);
 
 		try {
 			DatumWriter<Object> writer = new SpecificDatumWriter<Object>(
-					schema);
+					unionSchema);
 			DataFileWriter<Object> fileWriter = new DataFileWriter<Object>(
 					writer);
 			fileWriter.setCodec(CodecFactory.deflateCodec(9));
-			fileWriter.create(schema, outputStream);
+			fileWriter.create(unionSchema, outputStream);
 			for (EObject eobject : this.contents) {
 				Object o = converter.convertEObject(eobject);
 				fileWriter.append(o);

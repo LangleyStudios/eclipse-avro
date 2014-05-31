@@ -3,11 +3,11 @@
  * 
  * DO NOT EDIT DIRECTLY
  */
-package org.eclipse.emf.examples.avro;  
+package org.eclipse.emf.examples.extlibrary.avro;  
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class Periodical extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Periodical\",\"namespace\":\"org.eclipse.emf.examples.avro\",\"fields\":[{\"name\":\"publicationDate\",\"type\":\"string\"},{\"name\":\"title\",\"type\":\"string\"},{\"name\":\"issuesPerYear\",\"type\":\"int\"}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Periodical\",\"namespace\":\"org.eclipse.emf.examples.extlibrary.avro\",\"fields\":[{\"name\":\"publicationDate\",\"type\":\"string\"},{\"name\":\"title\",\"type\":\"string\"},{\"name\":\"issuesPerYear\",\"type\":\"int\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public java.lang.CharSequence publicationDate;
   @Deprecated public java.lang.CharSequence title;
@@ -96,18 +96,18 @@ public class Periodical extends org.apache.avro.specific.SpecificRecordBase impl
   }
 
   /** Creates a new Periodical RecordBuilder */
-  public static org.eclipse.emf.examples.avro.Periodical.Builder newBuilder() {
-    return new org.eclipse.emf.examples.avro.Periodical.Builder();
+  public static org.eclipse.emf.examples.extlibrary.avro.Periodical.Builder newBuilder() {
+    return new org.eclipse.emf.examples.extlibrary.avro.Periodical.Builder();
   }
   
   /** Creates a new Periodical RecordBuilder by copying an existing Builder */
-  public static org.eclipse.emf.examples.avro.Periodical.Builder newBuilder(org.eclipse.emf.examples.avro.Periodical.Builder other) {
-    return new org.eclipse.emf.examples.avro.Periodical.Builder(other);
+  public static org.eclipse.emf.examples.extlibrary.avro.Periodical.Builder newBuilder(org.eclipse.emf.examples.extlibrary.avro.Periodical.Builder other) {
+    return new org.eclipse.emf.examples.extlibrary.avro.Periodical.Builder(other);
   }
   
   /** Creates a new Periodical RecordBuilder by copying an existing Periodical instance */
-  public static org.eclipse.emf.examples.avro.Periodical.Builder newBuilder(org.eclipse.emf.examples.avro.Periodical other) {
-    return new org.eclipse.emf.examples.avro.Periodical.Builder(other);
+  public static org.eclipse.emf.examples.extlibrary.avro.Periodical.Builder newBuilder(org.eclipse.emf.examples.extlibrary.avro.Periodical other) {
+    return new org.eclipse.emf.examples.extlibrary.avro.Periodical.Builder(other);
   }
   
   /**
@@ -122,11 +122,11 @@ public class Periodical extends org.apache.avro.specific.SpecificRecordBase impl
 
     /** Creates a new Builder */
     private Builder() {
-      super(org.eclipse.emf.examples.avro.Periodical.SCHEMA$);
+      super(org.eclipse.emf.examples.extlibrary.avro.Periodical.SCHEMA$);
     }
     
     /** Creates a Builder by copying an existing Builder */
-    private Builder(org.eclipse.emf.examples.avro.Periodical.Builder other) {
+    private Builder(org.eclipse.emf.examples.extlibrary.avro.Periodical.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.publicationDate)) {
         this.publicationDate = data().deepCopy(fields()[0].schema(), other.publicationDate);
@@ -143,8 +143,8 @@ public class Periodical extends org.apache.avro.specific.SpecificRecordBase impl
     }
     
     /** Creates a Builder by copying an existing Periodical instance */
-    private Builder(org.eclipse.emf.examples.avro.Periodical other) {
-            super(org.eclipse.emf.examples.avro.Periodical.SCHEMA$);
+    private Builder(org.eclipse.emf.examples.extlibrary.avro.Periodical other) {
+            super(org.eclipse.emf.examples.extlibrary.avro.Periodical.SCHEMA$);
       if (isValidValue(fields()[0], other.publicationDate)) {
         this.publicationDate = data().deepCopy(fields()[0].schema(), other.publicationDate);
         fieldSetFlags()[0] = true;
@@ -165,7 +165,7 @@ public class Periodical extends org.apache.avro.specific.SpecificRecordBase impl
     }
     
     /** Sets the value of the 'publicationDate' field */
-    public org.eclipse.emf.examples.avro.Periodical.Builder setPublicationDate(java.lang.CharSequence value) {
+    public org.eclipse.emf.examples.extlibrary.avro.Periodical.Builder setPublicationDate(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.publicationDate = value;
       fieldSetFlags()[0] = true;
@@ -178,7 +178,7 @@ public class Periodical extends org.apache.avro.specific.SpecificRecordBase impl
     }
     
     /** Clears the value of the 'publicationDate' field */
-    public org.eclipse.emf.examples.avro.Periodical.Builder clearPublicationDate() {
+    public org.eclipse.emf.examples.extlibrary.avro.Periodical.Builder clearPublicationDate() {
       publicationDate = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -190,7 +190,7 @@ public class Periodical extends org.apache.avro.specific.SpecificRecordBase impl
     }
     
     /** Sets the value of the 'title' field */
-    public org.eclipse.emf.examples.avro.Periodical.Builder setTitle(java.lang.CharSequence value) {
+    public org.eclipse.emf.examples.extlibrary.avro.Periodical.Builder setTitle(java.lang.CharSequence value) {
       validate(fields()[1], value);
       this.title = value;
       fieldSetFlags()[1] = true;
@@ -203,7 +203,7 @@ public class Periodical extends org.apache.avro.specific.SpecificRecordBase impl
     }
     
     /** Clears the value of the 'title' field */
-    public org.eclipse.emf.examples.avro.Periodical.Builder clearTitle() {
+    public org.eclipse.emf.examples.extlibrary.avro.Periodical.Builder clearTitle() {
       title = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -215,7 +215,7 @@ public class Periodical extends org.apache.avro.specific.SpecificRecordBase impl
     }
     
     /** Sets the value of the 'issuesPerYear' field */
-    public org.eclipse.emf.examples.avro.Periodical.Builder setIssuesPerYear(int value) {
+    public org.eclipse.emf.examples.extlibrary.avro.Periodical.Builder setIssuesPerYear(int value) {
       validate(fields()[2], value);
       this.issuesPerYear = value;
       fieldSetFlags()[2] = true;
@@ -228,7 +228,7 @@ public class Periodical extends org.apache.avro.specific.SpecificRecordBase impl
     }
     
     /** Clears the value of the 'issuesPerYear' field */
-    public org.eclipse.emf.examples.avro.Periodical.Builder clearIssuesPerYear() {
+    public org.eclipse.emf.examples.extlibrary.avro.Periodical.Builder clearIssuesPerYear() {
       fieldSetFlags()[2] = false;
       return this;
     }

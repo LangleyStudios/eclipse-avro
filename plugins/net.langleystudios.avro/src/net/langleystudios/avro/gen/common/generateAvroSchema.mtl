@@ -50,7 +50,7 @@
 
 [comment Create a file for each schema/]
 [file ('schema/'.concat(anEClass.ePackage.name).concat('.'.concat(anEClass.name.concat('.avsc'))), false, 'UTF-8')]
-{"type":"record","name":"[anEClass.name/]","namespace":"[basePackage.concat('.avro')/]","fields":['['/]
+{"type":"record","name":"[anEClass.name/]","namespace":"[basePackage.concat('.').concat(anEClass.ePackage.name).concat('.avro')/]","fields":['['/]
 [for (aFeature: EStructuralFeature | anEClass.eAllStructuralFeatures)]
 [if( not aFeature.eType.name.equalsIgnoreCase('EFeatureMapEntry'))]
 [if(i > 1)],[/if][aFeature.generateFeature()/][/if]

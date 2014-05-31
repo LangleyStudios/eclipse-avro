@@ -20,4 +20,6 @@ public interface AvroEMFConverter {
 	Object convertEObject(EObject eobject);
 
 	Schema getSchema();
+	
+	Schema getSchema(EObject eobject);
 }

@@ -3,38 +3,36 @@
  * 
  * DO NOT EDIT DIRECTLY
  */
-package org.eclipse.emf.examples.avro;  
+package org.eclipse.emf.examples.extlibrary.avro;  
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
-public class VideoCassette extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"VideoCassette\",\"namespace\":\"org.eclipse.emf.examples.avro\",\"fields\":[{\"name\":\"publicationDate\",\"type\":\"string\"},{\"name\":\"copies\",\"type\":\"int\"},{\"name\":\"borrowers\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Borrower\",\"fields\":[{\"name\":\"address\",\"type\":\"string\"},{\"name\":\"firstName\",\"type\":\"string\"},{\"name\":\"lastName\",\"type\":\"string\"},{\"name\":\"borrowed\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Lendable\",\"fields\":[{\"name\":\"copies\",\"type\":\"int\"},{\"name\":\"borrowers\",\"type\":{\"type\":\"array\",\"items\":\"Borrower\"}}]}}}]}}},{\"name\":\"title\",\"type\":\"string\"},{\"name\":\"minutesLength\",\"type\":\"int\"},{\"name\":\"damaged\",\"type\":\"boolean\"},{\"name\":\"cast\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Person\",\"fields\":[{\"name\":\"address\",\"type\":\"string\"},{\"name\":\"firstName\",\"type\":\"string\"},{\"name\":\"lastName\",\"type\":\"string\"}]}}}]}");
+public class AudioVisualItem extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AudioVisualItem\",\"namespace\":\"org.eclipse.emf.examples.extlibrary.avro\",\"fields\":[{\"name\":\"publicationDate\",\"type\":\"string\"},{\"name\":\"copies\",\"type\":\"int\"},{\"name\":\"borrowers\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Borrower\",\"fields\":[{\"name\":\"address\",\"type\":\"string\"},{\"name\":\"firstName\",\"type\":\"string\"},{\"name\":\"lastName\",\"type\":\"string\"},{\"name\":\"borrowed\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Lendable\",\"fields\":[{\"name\":\"copies\",\"type\":\"int\"},{\"name\":\"borrowers\",\"type\":{\"type\":\"array\",\"items\":\"Borrower\"}}]}}}]}}},{\"name\":\"title\",\"type\":\"string\"},{\"name\":\"minutesLength\",\"type\":\"int\"},{\"name\":\"damaged\",\"type\":\"boolean\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public java.lang.CharSequence publicationDate;
   @Deprecated public int copies;
-  @Deprecated public java.util.List<org.eclipse.emf.examples.avro.Borrower> borrowers;
+  @Deprecated public java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> borrowers;
   @Deprecated public java.lang.CharSequence title;
   @Deprecated public int minutesLength;
   @Deprecated public boolean damaged;
-  @Deprecated public java.util.List<org.eclipse.emf.examples.avro.Person> cast;
 
   /**
    * Default constructor.  Note that this does not initialize fields
    * to their default values from the schema.  If that is desired then
    * one should use <code>newBuilder()</code>. 
    */
-  public VideoCassette() {}
+  public AudioVisualItem() {}
 
   /**
    * All-args constructor.
    */
-  public VideoCassette(java.lang.CharSequence publicationDate, java.lang.Integer copies, java.util.List<org.eclipse.emf.examples.avro.Borrower> borrowers, java.lang.CharSequence title, java.lang.Integer minutesLength, java.lang.Boolean damaged, java.util.List<org.eclipse.emf.examples.avro.Person> cast) {
+  public AudioVisualItem(java.lang.CharSequence publicationDate, java.lang.Integer copies, java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> borrowers, java.lang.CharSequence title, java.lang.Integer minutesLength, java.lang.Boolean damaged) {
     this.publicationDate = publicationDate;
     this.copies = copies;
     this.borrowers = borrowers;
     this.title = title;
     this.minutesLength = minutesLength;
     this.damaged = damaged;
-    this.cast = cast;
   }
 
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
@@ -47,7 +45,6 @@ public class VideoCassette extends org.apache.avro.specific.SpecificRecordBase i
     case 3: return title;
     case 4: return minutesLength;
     case 5: return damaged;
-    case 6: return cast;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -57,11 +54,10 @@ public class VideoCassette extends org.apache.avro.specific.SpecificRecordBase i
     switch (field$) {
     case 0: publicationDate = (java.lang.CharSequence)value$; break;
     case 1: copies = (java.lang.Integer)value$; break;
-    case 2: borrowers = (java.util.List<org.eclipse.emf.examples.avro.Borrower>)value$; break;
+    case 2: borrowers = (java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower>)value$; break;
     case 3: title = (java.lang.CharSequence)value$; break;
     case 4: minutesLength = (java.lang.Integer)value$; break;
     case 5: damaged = (java.lang.Boolean)value$; break;
-    case 6: cast = (java.util.List<org.eclipse.emf.examples.avro.Person>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -99,7 +95,7 @@ public class VideoCassette extends org.apache.avro.specific.SpecificRecordBase i
   /**
    * Gets the value of the 'borrowers' field.
    */
-  public java.util.List<org.eclipse.emf.examples.avro.Borrower> getBorrowers() {
+  public java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> getBorrowers() {
     return borrowers;
   }
 
@@ -107,7 +103,7 @@ public class VideoCassette extends org.apache.avro.specific.SpecificRecordBase i
    * Sets the value of the 'borrowers' field.
    * @param value the value to set.
    */
-  public void setBorrowers(java.util.List<org.eclipse.emf.examples.avro.Borrower> value) {
+  public void setBorrowers(java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> value) {
     this.borrowers = value;
   }
 
@@ -156,57 +152,41 @@ public class VideoCassette extends org.apache.avro.specific.SpecificRecordBase i
     this.damaged = value;
   }
 
-  /**
-   * Gets the value of the 'cast' field.
-   */
-  public java.util.List<org.eclipse.emf.examples.avro.Person> getCast() {
-    return cast;
-  }
-
-  /**
-   * Sets the value of the 'cast' field.
-   * @param value the value to set.
-   */
-  public void setCast(java.util.List<org.eclipse.emf.examples.avro.Person> value) {
-    this.cast = value;
-  }
-
-  /** Creates a new VideoCassette RecordBuilder */
-  public static org.eclipse.emf.examples.avro.VideoCassette.Builder newBuilder() {
-    return new org.eclipse.emf.examples.avro.VideoCassette.Builder();
+  /** Creates a new AudioVisualItem RecordBuilder */
+  public static org.eclipse.emf.examples.extlibrary.avro.AudioVisualItem.Builder newBuilder() {
+    return new org.eclipse.emf.examples.extlibrary.avro.AudioVisualItem.Builder();
   }
   
-  /** Creates a new VideoCassette RecordBuilder by copying an existing Builder */
-  public static org.eclipse.emf.examples.avro.VideoCassette.Builder newBuilder(org.eclipse.emf.examples.avro.VideoCassette.Builder other) {
-    return new org.eclipse.emf.examples.avro.VideoCassette.Builder(other);
+  /** Creates a new AudioVisualItem RecordBuilder by copying an existing Builder */
+  public static org.eclipse.emf.examples.extlibrary.avro.AudioVisualItem.Builder newBuilder(org.eclipse.emf.examples.extlibrary.avro.AudioVisualItem.Builder other) {
+    return new org.eclipse.emf.examples.extlibrary.avro.AudioVisualItem.Builder(other);
   }
   
-  /** Creates a new VideoCassette RecordBuilder by copying an existing VideoCassette instance */
-  public static org.eclipse.emf.examples.avro.VideoCassette.Builder newBuilder(org.eclipse.emf.examples.avro.VideoCassette other) {
-    return new org.eclipse.emf.examples.avro.VideoCassette.Builder(other);
+  /** Creates a new AudioVisualItem RecordBuilder by copying an existing AudioVisualItem instance */
+  public static org.eclipse.emf.examples.extlibrary.avro.AudioVisualItem.Builder newBuilder(org.eclipse.emf.examples.extlibrary.avro.AudioVisualItem other) {
+    return new org.eclipse.emf.examples.extlibrary.avro.AudioVisualItem.Builder(other);
   }
   
   /**
-   * RecordBuilder for VideoCassette instances.
+   * RecordBuilder for AudioVisualItem instances.
    */
-  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<VideoCassette>
-    implements org.apache.avro.data.RecordBuilder<VideoCassette> {
+  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<AudioVisualItem>
+    implements org.apache.avro.data.RecordBuilder<AudioVisualItem> {
 
     private java.lang.CharSequence publicationDate;
     private int copies;
-    private java.util.List<org.eclipse.emf.examples.avro.Borrower> borrowers;
+    private java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> borrowers;
     private java.lang.CharSequence title;
     private int minutesLength;
     private boolean damaged;
-    private java.util.List<org.eclipse.emf.examples.avro.Person> cast;
 
     /** Creates a new Builder */
     private Builder() {
-      super(org.eclipse.emf.examples.avro.VideoCassette.SCHEMA$);
+      super(org.eclipse.emf.examples.extlibrary.avro.AudioVisualItem.SCHEMA$);
     }
     
     /** Creates a Builder by copying an existing Builder */
-    private Builder(org.eclipse.emf.examples.avro.VideoCassette.Builder other) {
+    private Builder(org.eclipse.emf.examples.extlibrary.avro.AudioVisualItem.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.publicationDate)) {
         this.publicationDate = data().deepCopy(fields()[0].schema(), other.publicationDate);
@@ -232,15 +212,11 @@ public class VideoCassette extends org.apache.avro.specific.SpecificRecordBase i
         this.damaged = data().deepCopy(fields()[5].schema(), other.damaged);
         fieldSetFlags()[5] = true;
       }
-      if (isValidValue(fields()[6], other.cast)) {
-        this.cast = data().deepCopy(fields()[6].schema(), other.cast);
-        fieldSetFlags()[6] = true;
-      }
     }
     
-    /** Creates a Builder by copying an existing VideoCassette instance */
-    private Builder(org.eclipse.emf.examples.avro.VideoCassette other) {
-            super(org.eclipse.emf.examples.avro.VideoCassette.SCHEMA$);
+    /** Creates a Builder by copying an existing AudioVisualItem instance */
+    private Builder(org.eclipse.emf.examples.extlibrary.avro.AudioVisualItem other) {
+            super(org.eclipse.emf.examples.extlibrary.avro.AudioVisualItem.SCHEMA$);
       if (isValidValue(fields()[0], other.publicationDate)) {
         this.publicationDate = data().deepCopy(fields()[0].schema(), other.publicationDate);
         fieldSetFlags()[0] = true;
@@ -265,10 +241,6 @@ public class VideoCassette extends org.apache.avro.specific.SpecificRecordBase i
         this.damaged = data().deepCopy(fields()[5].schema(), other.damaged);
         fieldSetFlags()[5] = true;
       }
-      if (isValidValue(fields()[6], other.cast)) {
-        this.cast = data().deepCopy(fields()[6].schema(), other.cast);
-        fieldSetFlags()[6] = true;
-      }
     }
 
     /** Gets the value of the 'publicationDate' field */
@@ -277,7 +249,7 @@ public class VideoCassette extends org.apache.avro.specific.SpecificRecordBase i
     }
     
     /** Sets the value of the 'publicationDate' field */
-    public org.eclipse.emf.examples.avro.VideoCassette.Builder setPublicationDate(java.lang.CharSequence value) {
+    public org.eclipse.emf.examples.extlibrary.avro.AudioVisualItem.Builder setPublicationDate(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.publicationDate = value;
       fieldSetFlags()[0] = true;
@@ -290,7 +262,7 @@ public class VideoCassette extends org.apache.avro.specific.SpecificRecordBase i
     }
     
     /** Clears the value of the 'publicationDate' field */
-    public org.eclipse.emf.examples.avro.VideoCassette.Builder clearPublicationDate() {
+    public org.eclipse.emf.examples.extlibrary.avro.AudioVisualItem.Builder clearPublicationDate() {
       publicationDate = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -302,7 +274,7 @@ public class VideoCassette extends org.apache.avro.specific.SpecificRecordBase i
     }
     
     /** Sets the value of the 'copies' field */
-    public org.eclipse.emf.examples.avro.VideoCassette.Builder setCopies(int value) {
+    public org.eclipse.emf.examples.extlibrary.avro.AudioVisualItem.Builder setCopies(int value) {
       validate(fields()[1], value);
       this.copies = value;
       fieldSetFlags()[1] = true;
@@ -315,18 +287,18 @@ public class VideoCassette extends org.apache.avro.specific.SpecificRecordBase i
     }
     
     /** Clears the value of the 'copies' field */
-    public org.eclipse.emf.examples.avro.VideoCassette.Builder clearCopies() {
+    public org.eclipse.emf.examples.extlibrary.avro.AudioVisualItem.Builder clearCopies() {
       fieldSetFlags()[1] = false;
       return this;
     }
 
     /** Gets the value of the 'borrowers' field */
-    public java.util.List<org.eclipse.emf.examples.avro.Borrower> getBorrowers() {
+    public java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> getBorrowers() {
       return borrowers;
     }
     
     /** Sets the value of the 'borrowers' field */
-    public org.eclipse.emf.examples.avro.VideoCassette.Builder setBorrowers(java.util.List<org.eclipse.emf.examples.avro.Borrower> value) {
+    public org.eclipse.emf.examples.extlibrary.avro.AudioVisualItem.Builder setBorrowers(java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> value) {
       validate(fields()[2], value);
       this.borrowers = value;
       fieldSetFlags()[2] = true;
@@ -339,7 +311,7 @@ public class VideoCassette extends org.apache.avro.specific.SpecificRecordBase i
     }
     
     /** Clears the value of the 'borrowers' field */
-    public org.eclipse.emf.examples.avro.VideoCassette.Builder clearBorrowers() {
+    public org.eclipse.emf.examples.extlibrary.avro.AudioVisualItem.Builder clearBorrowers() {
       borrowers = null;
       fieldSetFlags()[2] = false;
       return this;
@@ -351,7 +323,7 @@ public class VideoCassette extends org.apache.avro.specific.SpecificRecordBase i
     }
     
     /** Sets the value of the 'title' field */
-    public org.eclipse.emf.examples.avro.VideoCassette.Builder setTitle(java.lang.CharSequence value) {
+    public org.eclipse.emf.examples.extlibrary.avro.AudioVisualItem.Builder setTitle(java.lang.CharSequence value) {
       validate(fields()[3], value);
       this.title = value;
       fieldSetFlags()[3] = true;
@@ -364,7 +336,7 @@ public class VideoCassette extends org.apache.avro.specific.SpecificRecordBase i
     }
     
     /** Clears the value of the 'title' field */
-    public org.eclipse.emf.examples.avro.VideoCassette.Builder clearTitle() {
+    public org.eclipse.emf.examples.extlibrary.avro.AudioVisualItem.Builder clearTitle() {
       title = null;
       fieldSetFlags()[3] = false;
       return this;
@@ -376,7 +348,7 @@ public class VideoCassette extends org.apache.avro.specific.SpecificRecordBase i
     }
     
     /** Sets the value of the 'minutesLength' field */
-    public org.eclipse.emf.examples.avro.VideoCassette.Builder setMinutesLength(int value) {
+    public org.eclipse.emf.examples.extlibrary.avro.AudioVisualItem.Builder setMinutesLength(int value) {
       validate(fields()[4], value);
       this.minutesLength = value;
       fieldSetFlags()[4] = true;
@@ -389,7 +361,7 @@ public class VideoCassette extends org.apache.avro.specific.SpecificRecordBase i
     }
     
     /** Clears the value of the 'minutesLength' field */
-    public org.eclipse.emf.examples.avro.VideoCassette.Builder clearMinutesLength() {
+    public org.eclipse.emf.examples.extlibrary.avro.AudioVisualItem.Builder clearMinutesLength() {
       fieldSetFlags()[4] = false;
       return this;
     }
@@ -400,7 +372,7 @@ public class VideoCassette extends org.apache.avro.specific.SpecificRecordBase i
     }
     
     /** Sets the value of the 'damaged' field */
-    public org.eclipse.emf.examples.avro.VideoCassette.Builder setDamaged(boolean value) {
+    public org.eclipse.emf.examples.extlibrary.avro.AudioVisualItem.Builder setDamaged(boolean value) {
       validate(fields()[5], value);
       this.damaged = value;
       fieldSetFlags()[5] = true;
@@ -413,47 +385,21 @@ public class VideoCassette extends org.apache.avro.specific.SpecificRecordBase i
     }
     
     /** Clears the value of the 'damaged' field */
-    public org.eclipse.emf.examples.avro.VideoCassette.Builder clearDamaged() {
+    public org.eclipse.emf.examples.extlibrary.avro.AudioVisualItem.Builder clearDamaged() {
       fieldSetFlags()[5] = false;
       return this;
     }
 
-    /** Gets the value of the 'cast' field */
-    public java.util.List<org.eclipse.emf.examples.avro.Person> getCast() {
-      return cast;
-    }
-    
-    /** Sets the value of the 'cast' field */
-    public org.eclipse.emf.examples.avro.VideoCassette.Builder setCast(java.util.List<org.eclipse.emf.examples.avro.Person> value) {
-      validate(fields()[6], value);
-      this.cast = value;
-      fieldSetFlags()[6] = true;
-      return this; 
-    }
-    
-    /** Checks whether the 'cast' field has been set */
-    public boolean hasCast() {
-      return fieldSetFlags()[6];
-    }
-    
-    /** Clears the value of the 'cast' field */
-    public org.eclipse.emf.examples.avro.VideoCassette.Builder clearCast() {
-      cast = null;
-      fieldSetFlags()[6] = false;
-      return this;
-    }
-
     @Override
-    public VideoCassette build() {
+    public AudioVisualItem build() {
       try {
-        VideoCassette record = new VideoCassette();
+        AudioVisualItem record = new AudioVisualItem();
         record.publicationDate = fieldSetFlags()[0] ? this.publicationDate : (java.lang.CharSequence) defaultValue(fields()[0]);
         record.copies = fieldSetFlags()[1] ? this.copies : (java.lang.Integer) defaultValue(fields()[1]);
-        record.borrowers = fieldSetFlags()[2] ? this.borrowers : (java.util.List<org.eclipse.emf.examples.avro.Borrower>) defaultValue(fields()[2]);
+        record.borrowers = fieldSetFlags()[2] ? this.borrowers : (java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower>) defaultValue(fields()[2]);
         record.title = fieldSetFlags()[3] ? this.title : (java.lang.CharSequence) defaultValue(fields()[3]);
         record.minutesLength = fieldSetFlags()[4] ? this.minutesLength : (java.lang.Integer) defaultValue(fields()[4]);
         record.damaged = fieldSetFlags()[5] ? this.damaged : (java.lang.Boolean) defaultValue(fields()[5]);
-        record.cast = fieldSetFlags()[6] ? this.cast : (java.util.List<org.eclipse.emf.examples.avro.Person>) defaultValue(fields()[6]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

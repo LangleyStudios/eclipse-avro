@@ -1,4 +1,4 @@
-{"type":"record","name":"Library","namespace":"org.eclipse.emf.examples.avro","fields":[
+{"type":"record","name":"Library","namespace":"org.eclipse.emf.examples.extlibrary.avro","fields":[
 {"name":"address","type":"string"},{"name":"name","type":"string"},{"name":"writers","type":{"type":"array","items":
 		{"type":"record","name":"Writer","fields":[
 		{"name":"address","type":"string"},{"name":"firstName","type":"string"},{"name":"lastName","type":"string"},{"name":"name","type":"string"},{"name":"books","type":{"type":"array","items":

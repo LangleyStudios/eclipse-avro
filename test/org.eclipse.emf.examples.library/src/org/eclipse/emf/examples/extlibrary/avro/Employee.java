@@ -3,30 +3,32 @@
  * 
  * DO NOT EDIT DIRECTLY
  */
-package org.eclipse.emf.examples.avro;  
+package org.eclipse.emf.examples.extlibrary.avro;  
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
-public class Person extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Person\",\"namespace\":\"org.eclipse.emf.examples.avro\",\"fields\":[{\"name\":\"address\",\"type\":\"string\"},{\"name\":\"firstName\",\"type\":\"string\"},{\"name\":\"lastName\",\"type\":\"string\"}]}");
+public class Employee extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Employee\",\"namespace\":\"org.eclipse.emf.examples.extlibrary.avro\",\"fields\":[{\"name\":\"address\",\"type\":\"string\"},{\"name\":\"firstName\",\"type\":\"string\"},{\"name\":\"lastName\",\"type\":\"string\"},{\"name\":\"manager\",\"type\":\"Employee\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public java.lang.CharSequence address;
   @Deprecated public java.lang.CharSequence firstName;
   @Deprecated public java.lang.CharSequence lastName;
+  @Deprecated public org.eclipse.emf.examples.extlibrary.avro.Employee manager;
 
   /**
    * Default constructor.  Note that this does not initialize fields
    * to their default values from the schema.  If that is desired then
    * one should use <code>newBuilder()</code>. 
    */
-  public Person() {}
+  public Employee() {}
 
   /**
    * All-args constructor.
    */
-  public Person(java.lang.CharSequence address, java.lang.CharSequence firstName, java.lang.CharSequence lastName) {
+  public Employee(java.lang.CharSequence address, java.lang.CharSequence firstName, java.lang.CharSequence lastName, org.eclipse.emf.examples.extlibrary.avro.Employee manager) {
     this.address = address;
     this.firstName = firstName;
     this.lastName = lastName;
+    this.manager = manager;
   }
 
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
@@ -36,6 +38,7 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
     case 0: return address;
     case 1: return firstName;
     case 2: return lastName;
+    case 3: return manager;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -46,6 +49,7 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
     case 0: address = (java.lang.CharSequence)value$; break;
     case 1: firstName = (java.lang.CharSequence)value$; break;
     case 2: lastName = (java.lang.CharSequence)value$; break;
+    case 3: manager = (org.eclipse.emf.examples.extlibrary.avro.Employee)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -95,38 +99,54 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
     this.lastName = value;
   }
 
-  /** Creates a new Person RecordBuilder */
-  public static org.eclipse.emf.examples.avro.Person.Builder newBuilder() {
-    return new org.eclipse.emf.examples.avro.Person.Builder();
+  /**
+   * Gets the value of the 'manager' field.
+   */
+  public org.eclipse.emf.examples.extlibrary.avro.Employee getManager() {
+    return manager;
+  }
+
+  /**
+   * Sets the value of the 'manager' field.
+   * @param value the value to set.
+   */
+  public void setManager(org.eclipse.emf.examples.extlibrary.avro.Employee value) {
+    this.manager = value;
+  }
+
+  /** Creates a new Employee RecordBuilder */
+  public static org.eclipse.emf.examples.extlibrary.avro.Employee.Builder newBuilder() {
+    return new org.eclipse.emf.examples.extlibrary.avro.Employee.Builder();
   }
   
-  /** Creates a new Person RecordBuilder by copying an existing Builder */
-  public static org.eclipse.emf.examples.avro.Person.Builder newBuilder(org.eclipse.emf.examples.avro.Person.Builder other) {
-    return new org.eclipse.emf.examples.avro.Person.Builder(other);
+  /** Creates a new Employee RecordBuilder by copying an existing Builder */
+  public static org.eclipse.emf.examples.extlibrary.avro.Employee.Builder newBuilder(org.eclipse.emf.examples.extlibrary.avro.Employee.Builder other) {
+    return new org.eclipse.emf.examples.extlibrary.avro.Employee.Builder(other);
   }
   
-  /** Creates a new Person RecordBuilder by copying an existing Person instance */
-  public static org.eclipse.emf.examples.avro.Person.Builder newBuilder(org.eclipse.emf.examples.avro.Person other) {
-    return new org.eclipse.emf.examples.avro.Person.Builder(other);
+  /** Creates a new Employee RecordBuilder by copying an existing Employee instance */
+  public static org.eclipse.emf.examples.extlibrary.avro.Employee.Builder newBuilder(org.eclipse.emf.examples.extlibrary.avro.Employee other) {
+    return new org.eclipse.emf.examples.extlibrary.avro.Employee.Builder(other);
   }
   
   /**
-   * RecordBuilder for Person instances.
+   * RecordBuilder for Employee instances.
    */
-  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Person>
-    implements org.apache.avro.data.RecordBuilder<Person> {
+  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Employee>
+    implements org.apache.avro.data.RecordBuilder<Employee> {
 
     private java.lang.CharSequence address;
     private java.lang.CharSequence firstName;
     private java.lang.CharSequence lastName;
+    private org.eclipse.emf.examples.extlibrary.avro.Employee manager;
 
     /** Creates a new Builder */
     private Builder() {
-      super(org.eclipse.emf.examples.avro.Person.SCHEMA$);
+      super(org.eclipse.emf.examples.extlibrary.avro.Employee.SCHEMA$);
     }
     
     /** Creates a Builder by copying an existing Builder */
-    private Builder(org.eclipse.emf.examples.avro.Person.Builder other) {
+    private Builder(org.eclipse.emf.examples.extlibrary.avro.Employee.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.address)) {
         this.address = data().deepCopy(fields()[0].schema(), other.address);
@@ -140,11 +160,15 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
         this.lastName = data().deepCopy(fields()[2].schema(), other.lastName);
         fieldSetFlags()[2] = true;
       }
+      if (isValidValue(fields()[3], other.manager)) {
+        this.manager = data().deepCopy(fields()[3].schema(), other.manager);
+        fieldSetFlags()[3] = true;
+      }
     }
     
-    /** Creates a Builder by copying an existing Person instance */
-    private Builder(org.eclipse.emf.examples.avro.Person other) {
-            super(org.eclipse.emf.examples.avro.Person.SCHEMA$);
+    /** Creates a Builder by copying an existing Employee instance */
+    private Builder(org.eclipse.emf.examples.extlibrary.avro.Employee other) {
+            super(org.eclipse.emf.examples.extlibrary.avro.Employee.SCHEMA$);
       if (isValidValue(fields()[0], other.address)) {
         this.address = data().deepCopy(fields()[0].schema(), other.address);
         fieldSetFlags()[0] = true;
@@ -157,6 +181,10 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
         this.lastName = data().deepCopy(fields()[2].schema(), other.lastName);
         fieldSetFlags()[2] = true;
       }
+      if (isValidValue(fields()[3], other.manager)) {
+        this.manager = data().deepCopy(fields()[3].schema(), other.manager);
+        fieldSetFlags()[3] = true;
+      }
     }
 
     /** Gets the value of the 'address' field */
@@ -165,7 +193,7 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
     }
     
     /** Sets the value of the 'address' field */
-    public org.eclipse.emf.examples.avro.Person.Builder setAddress(java.lang.CharSequence value) {
+    public org.eclipse.emf.examples.extlibrary.avro.Employee.Builder setAddress(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.address = value;
       fieldSetFlags()[0] = true;
@@ -178,7 +206,7 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
     }
     
     /** Clears the value of the 'address' field */
-    public org.eclipse.emf.examples.avro.Person.Builder clearAddress() {
+    public org.eclipse.emf.examples.extlibrary.avro.Employee.Builder clearAddress() {
       address = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -190,7 +218,7 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
     }
     
     /** Sets the value of the 'firstName' field */
-    public org.eclipse.emf.examples.avro.Person.Builder setFirstName(java.lang.CharSequence value) {
+    public org.eclipse.emf.examples.extlibrary.avro.Employee.Builder setFirstName(java.lang.CharSequence value) {
       validate(fields()[1], value);
       this.firstName = value;
       fieldSetFlags()[1] = true;
@@ -203,7 +231,7 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
     }
     
     /** Clears the value of the 'firstName' field */
-    public org.eclipse.emf.examples.avro.Person.Builder clearFirstName() {
+    public org.eclipse.emf.examples.extlibrary.avro.Employee.Builder clearFirstName() {
       firstName = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -215,7 +243,7 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
     }
     
     /** Sets the value of the 'lastName' field */
-    public org.eclipse.emf.examples.avro.Person.Builder setLastName(java.lang.CharSequence value) {
+    public org.eclipse.emf.examples.extlibrary.avro.Employee.Builder setLastName(java.lang.CharSequence value) {
       validate(fields()[2], value);
       this.lastName = value;
       fieldSetFlags()[2] = true;
@@ -228,19 +256,45 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
     }
     
     /** Clears the value of the 'lastName' field */
-    public org.eclipse.emf.examples.avro.Person.Builder clearLastName() {
+    public org.eclipse.emf.examples.extlibrary.avro.Employee.Builder clearLastName() {
       lastName = null;
       fieldSetFlags()[2] = false;
       return this;
     }
 
+    /** Gets the value of the 'manager' field */
+    public org.eclipse.emf.examples.extlibrary.avro.Employee getManager() {
+      return manager;
+    }
+    
+    /** Sets the value of the 'manager' field */
+    public org.eclipse.emf.examples.extlibrary.avro.Employee.Builder setManager(org.eclipse.emf.examples.extlibrary.avro.Employee value) {
+      validate(fields()[3], value);
+      this.manager = value;
+      fieldSetFlags()[3] = true;
+      return this; 
+    }
+    
+    /** Checks whether the 'manager' field has been set */
+    public boolean hasManager() {
+      return fieldSetFlags()[3];
+    }
+    
+    /** Clears the value of the 'manager' field */
+    public org.eclipse.emf.examples.extlibrary.avro.Employee.Builder clearManager() {
+      manager = null;
+      fieldSetFlags()[3] = false;
+      return this;
+    }
+
     @Override
-    public Person build() {
+    public Employee build() {
       try {
-        Person record = new Person();
+        Employee record = new Employee();
         record.address = fieldSetFlags()[0] ? this.address : (java.lang.CharSequence) defaultValue(fields()[0]);
         record.firstName = fieldSetFlags()[1] ? this.firstName : (java.lang.CharSequence) defaultValue(fields()[1]);
         record.lastName = fieldSetFlags()[2] ? this.lastName : (java.lang.CharSequence) defaultValue(fields()[2]);
+        record.manager = fieldSetFlags()[3] ? this.manager : (org.eclipse.emf.examples.extlibrary.avro.Employee) defaultValue(fields()[3]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

@@ -18,7 +18,6 @@ import javax.inject.Named;
 
 import net.langleystudios.avro.gen.Utility;
 import net.langleystudios.avro.gen.common.GenerateAvroConverter;
-import net.langleystudios.avro.gen.common.GenerateAvroSchema;
 import net.langleystudios.avro.gen.common.GenerateFromGenModel;
 
 import org.eclipse.acceleo.common.preference.AcceleoPreferences;
@@ -40,12 +39,8 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.xmi.XMIResource;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.ui.dialogs.ContainerSelectionDialog;
 
 public class GenerateFromGenModelHandler {
 
@@ -59,12 +54,8 @@ public class GenerateFromGenModelHandler {
 		// Load the GenModel to get the path to the source plugin
 		java.net.URI netURI = selectedResource.getLocationURI();
 		URI locationURI = URI.createFileURI(netURI.getPath());
-		XMIResource resource = new XMIResourceImpl(locationURI);
-		try {
-			resource.load(null);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		ResourceSet resourceSet = new ResourceSetImpl();
+		Resource resource = resourceSet.getResource(locationURI, true);
 		GenModel genModel = (GenModel) resource.getContents().get(0);
 		IWorkspace workspace = ResourcesPlugin.getWorkspace();
 		IWorkspaceRoot workspaceRoot = workspace.getRoot();
@@ -119,12 +110,14 @@ public class GenerateFromGenModelHandler {
 		}
 
 		for(GenPackage genPackage: genModel.getGenPackages()) {
-			String basePackage = genPackage.getBasePackage();
+			String basePackage = genPackage.getBasePackage() + "." + genPackage.getEcorePackage().getName();
 			Utility.setBasePackage(basePackage);
 			Utility.setFactory(genPackage.getPrefix()+"Factory");
 			Utility.setPackage(genPackage.getPrefix()+"Package");
 
-			String avroDir = locationFile.toString() + File.separator + basePackage.replace('.','/') + "/avro";
+			String avroDir = locationFile.toString() + File.separator + 
+					basePackage.replace('.','/') + File.separator +
+					"avro";
 			File avroLocation = new File(avroDir);
 			GenerateAvroConverter generator;
 			try {

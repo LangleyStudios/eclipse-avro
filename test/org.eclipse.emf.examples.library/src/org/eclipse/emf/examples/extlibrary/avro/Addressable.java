@@ -3,11 +3,11 @@
  * 
  * DO NOT EDIT DIRECTLY
  */
-package org.eclipse.emf.examples.avro;  
+package org.eclipse.emf.examples.extlibrary.avro;  
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class Addressable extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Addressable\",\"namespace\":\"org.eclipse.emf.examples.avro\",\"fields\":[{\"name\":\"address\",\"type\":\"string\"}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Addressable\",\"namespace\":\"org.eclipse.emf.examples.extlibrary.avro\",\"fields\":[{\"name\":\"address\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public java.lang.CharSequence address;
 
@@ -58,18 +58,18 @@ public class Addressable extends org.apache.avro.specific.SpecificRecordBase imp
   }
 
   /** Creates a new Addressable RecordBuilder */
-  public static org.eclipse.emf.examples.avro.Addressable.Builder newBuilder() {
-    return new org.eclipse.emf.examples.avro.Addressable.Builder();
+  public static org.eclipse.emf.examples.extlibrary.avro.Addressable.Builder newBuilder() {
+    return new org.eclipse.emf.examples.extlibrary.avro.Addressable.Builder();
   }
   
   /** Creates a new Addressable RecordBuilder by copying an existing Builder */
-  public static org.eclipse.emf.examples.avro.Addressable.Builder newBuilder(org.eclipse.emf.examples.avro.Addressable.Builder other) {
-    return new org.eclipse.emf.examples.avro.Addressable.Builder(other);
+  public static org.eclipse.emf.examples.extlibrary.avro.Addressable.Builder newBuilder(org.eclipse.emf.examples.extlibrary.avro.Addressable.Builder other) {
+    return new org.eclipse.emf.examples.extlibrary.avro.Addressable.Builder(other);
   }
   
   /** Creates a new Addressable RecordBuilder by copying an existing Addressable instance */
-  public static org.eclipse.emf.examples.avro.Addressable.Builder newBuilder(org.eclipse.emf.examples.avro.Addressable other) {
-    return new org.eclipse.emf.examples.avro.Addressable.Builder(other);
+  public static org.eclipse.emf.examples.extlibrary.avro.Addressable.Builder newBuilder(org.eclipse.emf.examples.extlibrary.avro.Addressable other) {
+    return new org.eclipse.emf.examples.extlibrary.avro.Addressable.Builder(other);
   }
   
   /**
@@ -82,11 +82,11 @@ public class Addressable extends org.apache.avro.specific.SpecificRecordBase imp
 
     /** Creates a new Builder */
     private Builder() {
-      super(org.eclipse.emf.examples.avro.Addressable.SCHEMA$);
+      super(org.eclipse.emf.examples.extlibrary.avro.Addressable.SCHEMA$);
     }
     
     /** Creates a Builder by copying an existing Builder */
-    private Builder(org.eclipse.emf.examples.avro.Addressable.Builder other) {
+    private Builder(org.eclipse.emf.examples.extlibrary.avro.Addressable.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.address)) {
         this.address = data().deepCopy(fields()[0].schema(), other.address);
@@ -95,8 +95,8 @@ public class Addressable extends org.apache.avro.specific.SpecificRecordBase imp
     }
     
     /** Creates a Builder by copying an existing Addressable instance */
-    private Builder(org.eclipse.emf.examples.avro.Addressable other) {
-            super(org.eclipse.emf.examples.avro.Addressable.SCHEMA$);
+    private Builder(org.eclipse.emf.examples.extlibrary.avro.Addressable other) {
+            super(org.eclipse.emf.examples.extlibrary.avro.Addressable.SCHEMA$);
       if (isValidValue(fields()[0], other.address)) {
         this.address = data().deepCopy(fields()[0].schema(), other.address);
         fieldSetFlags()[0] = true;
@@ -109,7 +109,7 @@ public class Addressable extends org.apache.avro.specific.SpecificRecordBase imp
     }
     
     /** Sets the value of the 'address' field */
-    public org.eclipse.emf.examples.avro.Addressable.Builder setAddress(java.lang.CharSequence value) {
+    public org.eclipse.emf.examples.extlibrary.avro.Addressable.Builder setAddress(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.address = value;
       fieldSetFlags()[0] = true;
@@ -122,7 +122,7 @@ public class Addressable extends org.apache.avro.specific.SpecificRecordBase imp
     }
     
     /** Clears the value of the 'address' field */
-    public org.eclipse.emf.examples.avro.Addressable.Builder clearAddress() {
+    public org.eclipse.emf.examples.extlibrary.avro.Addressable.Builder clearAddress() {
       address = null;
       fieldSetFlags()[0] = false;
       return this;
