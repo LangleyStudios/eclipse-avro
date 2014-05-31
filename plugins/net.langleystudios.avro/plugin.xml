@@ -11,7 +11,7 @@
    <extension
          point="org.eclipse.ui.commands">
       <command
-            defaultHandler="net.langleystudios.avro.gen.handler.GenerateAvroDIHandler"
+            defaultHandler="net.langleystudios.avro.gen.handler.GenerateJavaHandler3X"
             id="net.langleystudios.command.generateAvro"
             name="Generate Avro">
       </command>
