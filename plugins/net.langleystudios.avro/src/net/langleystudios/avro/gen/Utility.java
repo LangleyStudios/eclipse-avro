@@ -20,12 +20,12 @@ public class Utility {
 	
 	private ArrayList<String> list = new ArrayList<String>();
 
-	private static String prefix = "org.eclipse.emf.examples";
+	private static String basePackage = "org.eclipse.emf.examples";
 	private static String packageName = "EXTLibraryPackage";
 	private static String factoryName = "EXTLibraryFactory";
 	
-	public static String getPrefix() {
-		return Utility.prefix;
+	public static String getBasePackage() {
+		return Utility.basePackage;
 	}
 	
 	public static String getPackage() {
@@ -36,9 +36,9 @@ public class Utility {
 		return Utility.factoryName;
 	}
 	
-	public static void setPrefix(String prefix)
+	public static void setBasePackage(String prefix)
 	{
-		Utility.prefix = prefix;
+		Utility.basePackage = prefix;
 	}
 	
 	public static void setPackage(String packageName) {

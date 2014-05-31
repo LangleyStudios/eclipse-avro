@@ -14,18 +14,16 @@
 [module generateAvroConverter('http://www.eclipse.org/emf/2002/Ecore')]
 
 [template public generateConverter(anEPackage : EPackage) {
-prefix : String = getPrefix();
-avroPrefix : String = 'avro.'.concat(anEPackage.name).concat('.');
-emfPrefix : String = prefix.concat('.'.concat(anEPackage.name)).concat('.');
+basePackage : String = getBasePackage();
+avroPrefix : String = basePackage.concat('.avro.');
+emfPrefix : String = basePackage.concat('.');
 emfPackage : String = emfPrefix.concat(getPackage());
 emfFactory : String = emfPrefix.concat(getFactory());
 }]
 [comment @main/]
 
-
-[comment Create a file for each schema/]
-[file ('avro/'.concat(anEPackage.name.concat('/ConvertEMFtoAvro.java')), false, 'UTF-8')]
-package avro.[anEPackage.name/];
+[file ('ConvertEMFtoAvro.java', false, 'UTF-8')]
+package [basePackage/].avro;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -160,8 +158,8 @@ public [emfPrefix.concat(eclass.name)/] convert[eclass.name/](
 
 [/template]
 
-[query public getPrefix(tracecontext : OclAny) : EString
-	= invoke('net.langleystudios.avro.gen.Utility', 'getPrefix()', Sequence{tracecontext})
+[query public getBasePackage(tracecontext : OclAny) : EString
+	= invoke('net.langleystudios.avro.gen.Utility', 'getBasePackage()', Sequence{tracecontext})
 /]
 [query public getPackage(tracecontext : OclAny) : EString
 	= invoke('net.langleystudios.avro.gen.Utility', 'getPackage()', Sequence{tracecontext})

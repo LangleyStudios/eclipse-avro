@@ -19,6 +19,11 @@
             id="net.langleystudios.command.generateJava"
             name="Generate Java">
       </command>
+      <command
+            defaultHandler="net.langleystudios.avro.gen.handler.GenerateFromGenModelDIHandler"
+            id="net.langleystudios.command.generateAvro2"
+            name="Generate From Genmodel">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
@@ -56,6 +61,24 @@
                      <test
                            property="org.eclipse.core.resources.extension"
                            value="avsc">
+                     </test>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+         <command
+               commandId="net.langleystudios.command.generateAvro2"
+               label="Generate From GenModel"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="selection">
+                  <iterate
+                        ifEmpty="false">
+                     <test
+                           property="org.eclipse.core.resources.extension"
+                           value="genmodel">
                      </test>
                   </iterate>
                </with>

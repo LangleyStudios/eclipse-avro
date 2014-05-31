@@ -29,11 +29,10 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.examples.avro.ConvertEMFtoAvro;
 import org.eclipse.emf.examples.extlibrary.EXTLibraryFactory;
 import org.eclipse.emf.examples.extlibrary.Person;
 import org.junit.Test;
-
-import avro.extlibrary.ConvertEMFtoAvro;
 
 public class AvroResourceTest {
 
@@ -54,19 +53,19 @@ public class AvroResourceTest {
 			DataFileWriter<Object> fileWriter = new DataFileWriter<Object>(
 					writer);
 			fileWriter.setCodec(CodecFactory.deflateCodec(9));
-			fileWriter.create(avro.extlibrary.Person.getClassSchema(),
+			fileWriter.create(org.eclipse.emf.examples.avro.Person.getClassSchema(),
 					new File("test.avro"));
-			avro.extlibrary.Person avroPerson = converter.convertPerson(person);
+			org.eclipse.emf.examples.avro.Person avroPerson = converter.convertPerson(person);
 			fileWriter.append(avroPerson);
 			fileWriter.close();
 
-			SpecificData sData = new SpecificData(avro.extlibrary.Person.class.getClassLoader());
+			SpecificData sData = new SpecificData(org.eclipse.emf.examples.avro.Person.class.getClassLoader());
 			DatumReader reader = sData.createDatumReader(unionSchema);
 			DataFileReader<Object> dataFileReader = new DataFileReader<Object>(
 					new File("test.avro"), reader);
 			Object o = dataFileReader.next();
 			
-			avro.extlibrary.Person temp = (avro.extlibrary.Person)o;
+			org.eclipse.emf.examples.avro.Person temp = (org.eclipse.emf.examples.avro.Person)o;
 			System.out.println(temp);
 			System.out.println(avroPerson);
 
@@ -100,7 +99,7 @@ public class AvroResourceTest {
 		}
 
 		AvroResource loadResource = new AvroResource(uri);
-		loadResource.setClassLoader(avro.extlibrary.Person.class.getClassLoader());
+		loadResource.setClassLoader(org.eclipse.emf.examples.avro.Person.class.getClassLoader());
 		try {
 			loadResource.load(null);
 		} catch (IOException e) {

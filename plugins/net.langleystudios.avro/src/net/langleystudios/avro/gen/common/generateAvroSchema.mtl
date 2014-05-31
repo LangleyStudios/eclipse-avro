@@ -20,7 +20,21 @@
 [template public generateAvroSchema(anEPackage : EPackage)]
 [comment @main/]
 [for (eclass: EClass | anEPackage.eClassifiers->filter(EClass))]
-	[eclass.generateSchema()/]
+	[eclass.generateSchema(anEPackage.name)/]
+[/for]
+[for (epackage: EPackage | anEPackage.eSubpackages)]
+	[epackage.generateAvroSchema()/]
+[/for]
+[/template]
+
+[comment 
+	This template recursively walks a package to generate Avro schemas
+	for each EClass in the contained packages.
+/]
+[template public generateAvroSchema(anEPackage : EPackage, basePackage : String) ]
+[comment @main/]
+[for (eclass: EClass | anEPackage.eClassifiers->filter(EClass))]
+	[eclass.generateSchema(basePackage)/]
 [/for]
 [for (epackage: EPackage | anEPackage.eSubpackages)]
 	[epackage.generateAvroSchema()/]
@@ -30,13 +44,13 @@
 [comment
 	This template generates the Avro schema for an EClass
 /]
-[template public generateSchema(anEClass : EClass)]
+[template public generateSchema(anEClass : EClass, basePackage : String)]
 [comment Tell the utility to clear the class list and start with the current class/]
 [startList(anEClass)/]
 
 [comment Create a file for each schema/]
-[file (anEClass.ePackage.name.concat('.'.concat(anEClass.name.concat('.avsc'))), false, 'UTF-8')]
-{"type":"record","name":"[anEClass.name/]","namespace":"['avro.'.concat(anEClass.ePackage.name)/]","fields":['['/]
+[file ('schema/'.concat(anEClass.ePackage.name).concat('.'.concat(anEClass.name.concat('.avsc'))), false, 'UTF-8')]
+{"type":"record","name":"[anEClass.name/]","namespace":"[basePackage.concat('.avro')/]","fields":['['/]
 [for (aFeature: EStructuralFeature | anEClass.eAllStructuralFeatures)]
 [if( not aFeature.eType.name.equalsIgnoreCase('EFeatureMapEntry'))]
 [if(i > 1)],[/if][aFeature.generateFeature()/][/if]

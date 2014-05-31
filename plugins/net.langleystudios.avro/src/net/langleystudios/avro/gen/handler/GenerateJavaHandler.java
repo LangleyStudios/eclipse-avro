@@ -112,7 +112,7 @@ public class GenerateJavaHandler {
 		}
 	}
 
-	public void generateCode(File schemaFile, File locationFile) {
+	public synchronized static void generateCode(File schemaFile, File locationFile) {
 		try {
 			SpecificCompilerTool tool = new SpecificCompilerTool();
 			List<String> args = new ArrayList<String>();

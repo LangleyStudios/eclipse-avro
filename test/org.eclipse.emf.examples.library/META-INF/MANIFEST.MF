@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: avro.extlibrary,
+Export-Package: org.eclipse.emf.examples.avro,
  org.eclipse.emf.examples.extlibrary,
  org.eclipse.emf.examples.extlibrary.impl,
  org.eclipse.emf.examples.extlibrary.util

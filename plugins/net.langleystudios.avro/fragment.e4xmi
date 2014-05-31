@@ -3,16 +3,19 @@
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_bscPELlIEeOmz9UMY4DijQ" featurename="commands" parentElementId="org.eclipse.e4.legacy.ide.application">
     <elements xsi:type="commands:Command" xmi:id="_kdFlULlIEeOmz9UMY4DijQ" elementId="net.langleystudios.avro.gen.schema" commandName="Generate Avro"/>
     <elements xsi:type="commands:Command" xmi:id="_h6sAsMaTEeOP651W1n7iiw" elementId="net.langleystudios.avro.gen.java" commandName="Generate Java"/>
+    <elements xsi:type="commands:Command" xmi:id="_2RIsMOefEeObBcskLTtvzA" elementId="net.langleystudios.avro.gen.genmodel" commandName="Generate GenModel"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_AH6GkLlJEeOmz9UMY4DijQ" featurename="handlers" parentElementId="org.eclipse.e4.legacy.ide.application">
     <elements xsi:type="commands:Handler" xmi:id="_FtUP4LlJEeOmz9UMY4DijQ" elementId="net.langleystudios.avro.gen.handler" contributionURI="bundleclass://net.langleystudios.avro/net.langleystudios.avro.gen.handler.GenerateAvroHandler" command="_kdFlULlIEeOmz9UMY4DijQ"/>
     <elements xsi:type="commands:Handler" xmi:id="_mkIRAMaTEeOP651W1n7iiw" elementId="net.langleystudios.avro.gen.handler.0" contributionURI="bundleclass://net.langleystudios.avro/net.langleystudios.avro.gen.handler.GenerateJavaHandler" command="_h6sAsMaTEeOP651W1n7iiw"/>
+    <elements xsi:type="commands:Handler" xmi:id="_0UxtMOefEeObBcskLTtvzA" elementId="net.langleystudios.avro.handler.0" contributionURI="bundleclass://net.langleystudios.avro/net.langleystudios.avro.gen.handler.GenerateFromGenModelHandler" command="_2RIsMOefEeObBcskLTtvzA"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_TUKgELlJEeOmz9UMY4DijQ" featurename="menuContributions" parentElementId="org.eclipse.e4.legacy.ide.application">
     <elements xsi:type="menu:MenuContribution" xmi:id="_aYv9ILlJEeOmz9UMY4DijQ" elementId="net.langleystudios.avro.gen.menucontribution.0" parentId="org.eclipse.ui.main.menu">
       <children xsi:type="menu:Menu" xmi:id="_iC9N4Ly5EeOmz9UMY4DijQ" elementId="net.langleystudios.avro.gen.menu.0" label="Avro">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_cR4pALlJEeOmz9UMY4DijQ" elementId="net.langleystudios.menu.avro.gen" label="Generate Avro" command="_kdFlULlIEeOmz9UMY4DijQ"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_v1EQ4MaTEeOP651W1n7iiw" elementId="net.langleystudios.avro.gen.handledmenuitem.0" label="Generate Java" command="_h6sAsMaTEeOP651W1n7iiw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_8Wzp8OefEeObBcskLTtvzA" elementId="net.langleystudios.menu.avro.gen" label="Generate From GenModel" command="_2RIsMOefEeObBcskLTtvzA"/>
       </children>
     </elements>
   </fragments>
