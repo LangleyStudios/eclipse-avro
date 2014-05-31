@@ -1,0 +1,38 @@
+{"type":"record","name":"EPackage","namespace":"ecore.ecore.avro","fields":[
+{"name":"eAnnotations","type":{"type":"array","items":
+		{"type":"record","name":"EAnnotation","fields":[
+		{"name":"eAnnotations","type":{"type":"array","items":
+				"EAnnotation"
+		}},{"name":"source","type":"string"},{"name":"details","type":{"type":"array","items":
+				{"type":"record","name":"EStringToStringMapEntry","fields":[
+				{"name":"key","type":"string"},{"name":"value","type":"string"}]}
+		}},{"name":"eModelElement","type":{"type":"record","name":"EModelElement","fields":[
+				{"name":"eAnnotations","type":{"type":"array","items":
+						"EAnnotation"
+				}}]}},{"name":"contents","type":{"type":"array","items":
+						{"type":"record","name":"EObject","fields":[
+						]}
+				}},{"name":"references","type":{"type":"array","items":
+						"EObject"
+				}}]}
+}},{"name":"name","type":"string"},{"name":"nsURI","type":"string"},{"name":"nsPrefix","type":"string"},{"name":"eFactoryInstance","type":{"type":"record","name":"EFactory","fields":[
+		{"name":"eAnnotations","type":{"type":"array","items":
+				"EAnnotation"
+		}},{"name":"ePackage","type":"EPackage"}]}},{"name":"eClassifiers","type":{"type":"array","items":
+				{"type":"record","name":"EClassifier","fields":[
+				{"name":"eAnnotations","type":{"type":"array","items":
+						"EAnnotation"
+				}},{"name":"name","type":"string"},{"name":"instanceClassName","type":"string"},{"name":"instanceClass","type":"//TODO: EJavaClass"},{"name":"defaultValue","type":"//TODO: EJavaObject"},{"name":"instanceTypeName","type":"string"},{"name":"ePackage","type":"EPackage"},{"name":"eTypeParameters","type":{"type":"array","items":
+						{"type":"record","name":"ETypeParameter","fields":[
+						{"name":"eAnnotations","type":{"type":"array","items":
+								"EAnnotation"
+						}},{"name":"name","type":"string"},{"name":"eBounds","type":{"type":"array","items":
+								{"type":"record","name":"EGenericType","fields":[
+								{"name":"eUpperBound","type":"EGenericType"},{"name":"eTypeArguments","type":{"type":"array","items":
+										"EGenericType"
+								}},{"name":"eRawType","type":"EClassifier"},{"name":"eLowerBound","type":"EGenericType"},{"name":"eTypeParameter","type":"ETypeParameter"},{"name":"eClassifier","type":"EClassifier"}]}
+						}}]}
+				}}]}
+		}},{"name":"eSubpackages","type":{"type":"array","items":
+				"EPackage"
+		}},{"name":"eSuperPackage","type":"EPackage"}]}

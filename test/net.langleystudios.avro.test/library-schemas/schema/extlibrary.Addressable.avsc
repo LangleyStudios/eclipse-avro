@@ -1,0 +1,2 @@
+{"type":"record","name":"Addressable","namespace":"extlibrary.extlibrary.avro","fields":[
+{"name":"address","type":"string"}]}

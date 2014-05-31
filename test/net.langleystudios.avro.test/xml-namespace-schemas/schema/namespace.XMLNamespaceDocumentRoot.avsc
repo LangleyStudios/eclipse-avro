@@ -1,0 +1,7 @@
+{"type":"record","name":"XMLNamespaceDocumentRoot","namespace":"namespace.namespace.avro","fields":[
+,{"name":"xMLNSPrefixMap","type":{"type":"array","items":
+		{"type":"record","name":"EStringToStringMapEntry","fields":[
+		{"name":"key","type":"string"},{"name":"value","type":"string"}]}
+}},{"name":"xSISchemaLocation","type":{"type":"array","items":
+		"EStringToStringMapEntry"
+}},{"name":"base","type":"//TODO: AnyURI"},{"name":"id","type":"//TODO: ID"},{"name":"lang","type":"//TODO: LangType"},{"name":"space","type":{"type":"enum","name":"SpaceType","symbols":["default","preserve"]}}]}

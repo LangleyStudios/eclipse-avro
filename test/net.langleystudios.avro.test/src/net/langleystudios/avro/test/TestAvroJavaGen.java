@@ -19,17 +19,50 @@ import org.junit.Test;
 public class TestAvroJavaGen {
 
 	@Test
-	public void test() {
-		File schemaDir = new File("schemas");
+	public void testLibrary() {
+		File schemaDir = new File("library-schemas/schema");
 		File srcDir = new File("src-gen");
 		srcDir.mkdir();
 		
-		GenerateJavaHandler handler = new GenerateJavaHandler();
-		
 		for(File file: schemaDir.listFiles())
 		{
-			handler.generateCode(file, srcDir);
+			GenerateJavaHandler.generateCode(file, srcDir);
 		}
 	}
 
+	@Test
+	public void testEcore() {
+		File schemaDir = new File("ecore-schemas/schema");
+		File srcDir = new File("src-gen");
+		srcDir.mkdir();
+		
+		for(File file: schemaDir.listFiles())
+		{
+			GenerateJavaHandler.generateCode(file, srcDir);
+		}
+	}
+	
+	@Test
+	public void testXMLNamespace() {
+		File schemaDir = new File("xml-namespace-schemas/schema");
+		File srcDir = new File("src-gen");
+		srcDir.mkdir();
+		
+		for(File file: schemaDir.listFiles())
+		{
+			GenerateJavaHandler.generateCode(file, srcDir);
+		}
+	}
+	
+	@Test
+	public void testXMLType() {
+		File schemaDir = new File("xml-type-schemas/schema");
+		File srcDir = new File("src-gen");
+		srcDir.mkdir();
+		
+		for(File file: schemaDir.listFiles())
+		{
+			GenerateJavaHandler.generateCode(file, srcDir);
+		}
+	}
 }

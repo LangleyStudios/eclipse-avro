@@ -24,26 +24,21 @@ import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.common.util.URI;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.osgi.framework.Bundle;
 
 public class TestAvroSchemaGen {
 
-	static URI modelURI;
-	static File locationFile;
-
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
+	@Test
+	public void testLibraryExample() throws IOException {
+		URI modelURI;
+		File locationFile;
 		Bundle bundle = Platform.getBundle("org.eclipse.emf.examples.library");
 		URL bundleURL = bundle.getEntry("model/extlibrary.ecore");
 		URL fileURL = FileLocator.toFileURL(bundleURL);
 		modelURI = URI.createFileURI(fileURL.toString());
-	}
-
-	@Test
-	public void test() {
-		locationFile = new File("schemas");
+		locationFile = new File("library-schemas");
+		clearDir(locationFile);
 		AcceleoPreferences.switchQueryCache(false);
 		GenerateAvroSchema generator;
 		try {
@@ -55,4 +50,80 @@ public class TestAvroSchemaGen {
 		}
 	}
 
+	@Test
+	public void testEMFEcore() throws IOException {
+		URI modelURI;
+		File locationFile;
+		Bundle bundle = Platform.getBundle("org.eclipse.emf.ecore");
+		URL bundleURL = bundle.getEntry("model/Ecore.ecore");
+		URL fileURL = FileLocator.toFileURL(bundleURL);
+		modelURI = URI.createFileURI(fileURL.toString());
+		locationFile = new File("ecore-schemas");
+		clearDir(locationFile);
+		AcceleoPreferences.switchQueryCache(false);
+		GenerateAvroSchema generator;
+		try {
+			generator = new GenerateAvroSchema(
+					modelURI, locationFile, new ArrayList<Object>());
+			generator.doGenerate(new BasicMonitor());
+		} catch (IOException e) {
+			fail(e.getMessage());
+		}
+	}
+
+	@Test
+	public void testXMLNamespace() throws IOException {
+		URI modelURI;
+		File locationFile;
+		Bundle bundle = Platform.getBundle("org.eclipse.emf.ecore");
+		URL bundleURL = bundle.getEntry("model/XMLNamespace.ecore");
+		URL fileURL = FileLocator.toFileURL(bundleURL);
+		modelURI = URI.createFileURI(fileURL.toString());
+		locationFile = new File("xml-namespace-schemas");
+		clearDir(locationFile);
+		AcceleoPreferences.switchQueryCache(false);
+		GenerateAvroSchema generator;
+		try {
+			generator = new GenerateAvroSchema(
+					modelURI, locationFile, new ArrayList<Object>());
+			generator.doGenerate(new BasicMonitor());
+		} catch (IOException e) {
+			fail(e.getMessage());
+		}
+	}
+	
+	@Test
+	public void testXMLType() throws IOException {
+		URI modelURI;
+		File locationFile;
+		Bundle bundle = Platform.getBundle("org.eclipse.emf.ecore");
+		URL bundleURL = bundle.getEntry("model/XMLType.ecore");
+		URL fileURL = FileLocator.toFileURL(bundleURL);
+		modelURI = URI.createFileURI(fileURL.toString());
+		locationFile = new File("xml-type-schemas");
+		clearDir(locationFile);
+		AcceleoPreferences.switchQueryCache(false);
+		GenerateAvroSchema generator;
+		try {
+			generator = new GenerateAvroSchema(
+					modelURI, locationFile, new ArrayList<Object>());
+			generator.doGenerate(new BasicMonitor());
+		} catch (IOException e) {
+			fail(e.getMessage());
+		}
+	}
+	
+	private void clearDir(File locationFile)
+	{
+		if(locationFile.exists())
+		{
+			File[] files = locationFile.listFiles();
+			for(File f: files)
+			{
+				f.delete();
+			}
+			locationFile.delete();
+		}
+		locationFile.mkdir();
+	}
 }

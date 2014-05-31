@@ -1,0 +1,15 @@
+{"type":"record","name":"EModelElement","namespace":"ecore.ecore.avro","fields":[
+{"name":"eAnnotations","type":{"type":"array","items":
+		{"type":"record","name":"EAnnotation","fields":[
+		{"name":"eAnnotations","type":{"type":"array","items":
+				"EAnnotation"
+		}},{"name":"source","type":"string"},{"name":"details","type":{"type":"array","items":
+				{"type":"record","name":"EStringToStringMapEntry","fields":[
+				{"name":"key","type":"string"},{"name":"value","type":"string"}]}
+		}},{"name":"eModelElement","type":"EModelElement"},{"name":"contents","type":{"type":"array","items":
+				{"type":"record","name":"EObject","fields":[
+				]}
+		}},{"name":"references","type":{"type":"array","items":
+				"EObject"
+		}}]}
+}}]}

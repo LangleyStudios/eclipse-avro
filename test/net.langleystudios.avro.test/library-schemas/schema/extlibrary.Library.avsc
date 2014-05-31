@@ -1,0 +1,28 @@
+{"type":"record","name":"Library","namespace":"extlibrary.extlibrary.avro","fields":[
+{"name":"address","type":"string"},{"name":"name","type":"string"},{"name":"writers","type":{"type":"array","items":
+		{"type":"record","name":"Writer","fields":[
+		{"name":"address","type":"string"},{"name":"firstName","type":"string"},{"name":"lastName","type":"string"},{"name":"name","type":"string"},{"name":"books","type":{"type":"array","items":
+				{"type":"record","name":"Book","fields":[
+				{"name":"publicationDate","type":"string"},{"name":"copies","type":"int"},{"name":"borrowers","type":{"type":"array","items":
+						{"type":"record","name":"Borrower","fields":[
+						{"name":"address","type":"string"},{"name":"firstName","type":"string"},{"name":"lastName","type":"string"},{"name":"borrowed","type":{"type":"array","items":
+								{"type":"record","name":"Lendable","fields":[
+								{"name":"copies","type":"int"},{"name":"borrowers","type":{"type":"array","items":
+										"Borrower"
+								}}]}
+						}}]}
+				}},{"name":"title","type":"string"},{"name":"pages","type":"int"},{"name":"category","type":{"type":"enum","name":"BookCategory","symbols":["Mystery","ScienceFiction","Biography"]}},{"name":"author","type":"Writer"}]}
+		}}]}
+}},{"name":"employees","type":{"type":"array","items":
+		{"type":"record","name":"Employee","fields":[
+		{"name":"address","type":"string"},{"name":"firstName","type":"string"},{"name":"lastName","type":"string"},{"name":"manager","type":"Employee"}]}
+}},{"name":"borrowers","type":{"type":"array","items":
+		"Borrower"
+}},{"name":"stock","type":{"type":"array","items":
+		{"type":"record","name":"Item","fields":[
+		{"name":"publicationDate","type":"string"}]}
+}},{"name":"books","type":{"type":"array","items":
+		"Book"
+}},{"name":"branches","type":{"type":"array","items":
+		"Library"
+}},{"name":"parentBranch","type":"Library"}]}
