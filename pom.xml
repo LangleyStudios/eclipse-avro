@@ -23,11 +23,18 @@
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/e4/downloads/drops/S-0.15-201401152200/repository</url>
 		</repository>
+		<repository>
+			<id>emf</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/modeling/emf/emf/updates/releases</url>
+		</repository>
 	</repositories>
 
 	<modules>
 		<module>plugins/net.langleystudios.avro</module>
 		<module>plugins/net.langleystudios.apache.avro</module>
+		<module>test/net.langleystudios.avro.test</module>
+		<module>test/org.eclipse.emf.examples.library</module>
 		<module>releng/net.langleystudios.avro.feature</module>
 		<module>releng/net.langleystudios.avro.site</module>
 	</modules>
@@ -39,7 +46,14 @@
 				<version>${tycho-version}</version>
 				<extensions>true</extensions>
 			</plugin>
-
+	 		<plugin>
+				   <groupId>org.apache.maven.plugins</groupId>
+				   <artifactId>maven-compiler-plugin</artifactId>
+				   <configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				   </configuration>
+			</plugin>
 		</plugins>
 	</build>
 </project>
