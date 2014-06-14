@@ -10,6 +10,8 @@
  *******************************************************************************/
 package net.langleystudios.avro.test;
 
+import static org.junit.Assert.assertTrue;
+
 import java.io.File;
 
 import net.langleystudios.avro.gen.handler.GenerateJavaHandler;
@@ -26,7 +28,8 @@ public class TestAvroJavaGen {
 		
 		for(File file: schemaDir.listFiles())
 		{
-			GenerateJavaHandler.generateCode(file, srcDir);
+			int rvalue = GenerateJavaHandler.generateCode(file, srcDir);
+			assertTrue(rvalue == 0);
 		}
 	}
 
@@ -38,7 +41,8 @@ public class TestAvroJavaGen {
 		
 		for(File file: schemaDir.listFiles())
 		{
-			GenerateJavaHandler.generateCode(file, srcDir);
+			int rvalue = GenerateJavaHandler.generateCode(file, srcDir);
+			assertTrue(rvalue == 0);
 		}
 	}
 	
@@ -50,7 +54,8 @@ public class TestAvroJavaGen {
 		
 		for(File file: schemaDir.listFiles())
 		{
-			GenerateJavaHandler.generateCode(file, srcDir);
+			int rvalue = GenerateJavaHandler.generateCode(file, srcDir);
+			assertTrue(rvalue == 0);
 		}
 	}
 	
@@ -62,7 +67,8 @@ public class TestAvroJavaGen {
 		
 		for(File file: schemaDir.listFiles())
 		{
-			GenerateJavaHandler.generateCode(file, srcDir);
+			int rvalue = GenerateJavaHandler.generateCode(file, srcDir);
+			assertTrue(rvalue == 0);
 		}
 	}
 }
