@@ -1,2 +1,0 @@
-{"type":"record","name":"Employee","namespace":"extlibrary.extlibrary.avro","fields":[
-{"name":"address","type":"string"},{"name":"firstName","type":"string"},{"name":"lastName","type":"string"},{"name":"manager","type":"Employee"}]}

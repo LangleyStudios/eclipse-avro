@@ -28,8 +28,10 @@ public class TestAvroJavaGen {
 		
 		for(File file: schemaDir.listFiles())
 		{
+			System.out.println("Generating Java Code for " + file.getName());
 			int rvalue = GenerateJavaHandler.generateCode(file, srcDir);
-			assertTrue(rvalue == 0);
+			
+			assertTrue("Failed for " + file.getName(), rvalue == 0);
 		}
 	}
 
@@ -41,8 +43,9 @@ public class TestAvroJavaGen {
 		
 		for(File file: schemaDir.listFiles())
 		{
+			System.out.println("Generating Java Code for " + file.getName());
 			int rvalue = GenerateJavaHandler.generateCode(file, srcDir);
-			assertTrue(rvalue == 0);
+			assertTrue("Failed for " + file.getName(), rvalue == 0);
 		}
 	}
 	
@@ -54,8 +57,9 @@ public class TestAvroJavaGen {
 		
 		for(File file: schemaDir.listFiles())
 		{
+			System.out.println("Generating Java Code for " + file.getName());
 			int rvalue = GenerateJavaHandler.generateCode(file, srcDir);
-			assertTrue(rvalue == 0);
+			assertTrue("Failed for " + file.getName(), rvalue == 0);
 		}
 	}
 	
@@ -67,8 +71,9 @@ public class TestAvroJavaGen {
 		
 		for(File file: schemaDir.listFiles())
 		{
+			System.out.println("Generating Java Code for " + file.getName());
 			int rvalue = GenerateJavaHandler.generateCode(file, srcDir);
-			assertTrue(rvalue == 0);
+			assertTrue("Failed for " + file.getName(), rvalue == 0);
 		}
 	}
 }

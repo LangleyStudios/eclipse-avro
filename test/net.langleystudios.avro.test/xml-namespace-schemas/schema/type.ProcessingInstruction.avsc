@@ -1,2 +1,0 @@
-{"type":"record","name":"ProcessingInstruction","namespace":"type.type.avro","fields":[
-{"name":"data","type":"//TODO: String"},{"name":"target","type":"//TODO: String"}]}

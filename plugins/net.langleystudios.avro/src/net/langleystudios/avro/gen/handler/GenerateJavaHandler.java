@@ -112,18 +112,20 @@ public class GenerateJavaHandler {
 		}
 	}
 
-	public synchronized static void generateCode(File schemaFile, File locationFile) {
+	public synchronized static int generateCode(File schemaFile, File locationFile) {
+		int rvalue = -1;
 		try {
 			SpecificCompilerTool tool = new SpecificCompilerTool();
 			List<String> args = new ArrayList<String>();
 			args.add("schema");
 			args.add(schemaFile.getAbsolutePath());
 			args.add(locationFile.getAbsolutePath());
-			tool.run(System.in, System.out, System.err, args);
+			rvalue = tool.run(System.in, System.out, System.err, args);
 		} catch (Exception e) {
 			logger.error("Problem generating java code for {}", schemaFile.getName());
 			logger.error(e.getMessage());
 		}
+		return rvalue;
 	}
 
 	@CanExecute

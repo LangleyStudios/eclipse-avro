@@ -1,7 +1,0 @@
-{"type":"record","name":"Borrower","namespace":"extlibrary.extlibrary.avro","fields":[
-{"name":"address","type":"string"},{"name":"firstName","type":"string"},{"name":"lastName","type":"string"},{"name":"borrowed","type":{"type":"array","items":
-		{"type":"record","name":"Lendable","fields":[
-		{"name":"copies","type":"int"},{"name":"borrowers","type":{"type":"array","items":
-				"Borrower"
-		}}]}
-}}]}

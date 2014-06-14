@@ -52,8 +52,7 @@
 [file ('schema/'.concat(anEClass.ePackage.name).concat('.'.concat(anEClass.name.concat('.avsc'))), false, 'UTF-8')]
 {"type":"record","name":"[anEClass.name/]","namespace":"[basePackage.concat('.').concat(anEClass.ePackage.name).concat('.avro')/]","fields":['['/]
 [for (aFeature: EStructuralFeature | anEClass.eAllStructuralFeatures)]
-[if( not aFeature.eType.name.equalsIgnoreCase('EFeatureMapEntry'))]
-[if(i > 1)],[/if][aFeature.generateFeature()/][/if]
+[if(i > 1)],[/if][aFeature.generateFeature()/]
 [/for][']'/]}
 [/file]
 [/template]
@@ -61,8 +60,7 @@
 [template public generateRecord(anEClass : EClass) post(trim())]
 {"type":"record","name":"[anEClass.name/]","fields":['['/]
 [for (aFeature: EStructuralFeature | anEClass.eAllStructuralFeatures)]
-[if( not aFeature.eType.name.equalsIgnoreCase('EFeatureMapEntry'))]
-[if(i > 1)],[/if][aFeature.generateFeature()/][/if]
+[if(i > 1)],[/if][aFeature.generateFeature()/]
 [/for][']'/]}
 [/template]
 
@@ -85,7 +83,7 @@
 [elseif(aFeature.oclIsTypeOf(EAttribute))]
 	[if(aFeature.eType.oclIsTypeOf(EEnum))]
 		{"name":"[aFeature.name/]","type":[aFeature.eType->filter(EEnum).generateEnum()/]}}
-	[elseif( not aFeature.eType.name.equalsIgnoreCase('EFeatureMapEntry'))]
+	[else]
 		{"name":"[aFeature.name/]","type":"[aFeature.eType.printAvroType()/]"}
 	[/if]
 [else]
@@ -111,7 +109,7 @@
 [elseif (eClass.name = 'EString')]string
 [elseif (eClass.name = 'EBoolean')]boolean
 [elseif (eClass.name = 'EDate')]string
-[else]//TODO: [eClass.name/][/if]
+[else]null[/if]
 [/template]
 
 [query public addClass(arg0 : EClass) : Boolean

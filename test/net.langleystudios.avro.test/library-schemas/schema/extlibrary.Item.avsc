@@ -1,2 +1,0 @@
-{"type":"record","name":"Item","namespace":"extlibrary.extlibrary.avro","fields":[
-{"name":"publicationDate","type":"string"}]}

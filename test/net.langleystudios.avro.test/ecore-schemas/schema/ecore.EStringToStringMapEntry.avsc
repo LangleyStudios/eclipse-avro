@@ -1,2 +1,0 @@
-{"type":"record","name":"EStringToStringMapEntry","namespace":"ecore.ecore.avro","fields":[
-{"name":"key","type":"string"},{"name":"value","type":"string"}]}

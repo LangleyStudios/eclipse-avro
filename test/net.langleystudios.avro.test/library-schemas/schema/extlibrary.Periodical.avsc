@@ -1,2 +1,0 @@
-{"type":"record","name":"Periodical","namespace":"extlibrary.extlibrary.avro","fields":[
-{"name":"publicationDate","type":"string"},{"name":"title","type":"string"},{"name":"issuesPerYear","type":"int"}]}

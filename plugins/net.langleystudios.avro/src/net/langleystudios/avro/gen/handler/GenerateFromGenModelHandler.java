@@ -41,6 +41,8 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class GenerateFromGenModelHandler {
 
@@ -48,6 +50,8 @@ public class GenerateFromGenModelHandler {
 	private static final String SCHEMA_EXTENSION = "avsc";
 	private IResource selectedResource;
 
+	private Logger logger = LoggerFactory.getLogger(GenerateFromGenModelHandler.class);
+	
 	@Execute
 	public void execute() {
 
@@ -100,8 +104,11 @@ public class GenerateFromGenModelHandler {
 						java.net.URI schemaURI = schemaResource.getLocationURI();
 						File schemaFile = new File(schemaURI);
 
-						GenerateJavaHandler.generateCode(schemaFile, locationFile);
-
+						int rvalue = GenerateJavaHandler.generateCode(schemaFile, locationFile);
+						if(rvalue != 0)
+						{
+							logger.error("Java Generation from schema incomplete: ", schemaFile.getAbsoluteFile());
+						}
 					}
 				}
 			} catch (CoreException e) {

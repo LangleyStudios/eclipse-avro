@@ -2,3 +2,7 @@ bin
 schemas
 src-gen
 target
+ecore-schemas
+library-schemas
+xml-namespace-schemas
+xml-type-schemas

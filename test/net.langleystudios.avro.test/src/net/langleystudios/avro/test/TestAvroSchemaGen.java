@@ -46,6 +46,7 @@ public class TestAvroSchemaGen {
 					modelURI, locationFile, new ArrayList<Object>());
 			generator.doGenerate(new BasicMonitor());
 		} catch (IOException e) {
+			e.printStackTrace();
 			fail(e.getMessage());
 		}
 	}
@@ -67,6 +68,7 @@ public class TestAvroSchemaGen {
 					modelURI, locationFile, new ArrayList<Object>());
 			generator.doGenerate(new BasicMonitor());
 		} catch (IOException e) {
+			e.printStackTrace();
 			fail(e.getMessage());
 		}
 	}
@@ -88,6 +90,7 @@ public class TestAvroSchemaGen {
 					modelURI, locationFile, new ArrayList<Object>());
 			generator.doGenerate(new BasicMonitor());
 		} catch (IOException e) {
+			e.printStackTrace();
 			fail(e.getMessage());
 		}
 	}
@@ -109,6 +112,7 @@ public class TestAvroSchemaGen {
 					modelURI, locationFile, new ArrayList<Object>());
 			generator.doGenerate(new BasicMonitor());
 		} catch (IOException e) {
+			e.printStackTrace();
 			fail(e.getMessage());
 		}
 	}

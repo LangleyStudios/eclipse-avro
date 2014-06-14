@@ -28,8 +28,29 @@
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/modeling/emf/emf/updates/releases</url>
 		</repository>
+		<repository>
+			<id>Eclipse - Acceleo Snapshots</id>
+			<url>https://repo.eclipse.org/content/repositories/acceleo-snapshots</url>
+		</repository>
+		<repository>
+			<id>Eclipse - Acceleo Release</id>
+			<url>https://repo.eclipse.org/content/repositories/acceleo-releases</url>
+		</repository>
 	</repositories>
-
+	<pluginRepositories>
+		<pluginRepository>
+			<id>codehaus.snapshots</id>
+			<url>http://snapshots.repository.codehaus.org/</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>Eclipse - Acceleo Snapshots</id>
+			<url>https://repo.eclipse.org/content/repositories/acceleo-snapshots</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>Eclipse - Acceleo Release</id>
+			<url>https://repo.eclipse.org/content/repositories/acceleo-releases</url>
+		</pluginRepository>
+	</pluginRepositories>
 	<modules>
 		<module>plugins/net.langleystudios.avro</module>
 		<module>plugins/net.langleystudios.apache.avro</module>
@@ -46,13 +67,13 @@
 				<version>${tycho-version}</version>
 				<extensions>true</extensions>
 			</plugin>
-	 		<plugin>
-				   <groupId>org.apache.maven.plugins</groupId>
-				   <artifactId>maven-compiler-plugin</artifactId>
-				   <configuration>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
 					<source>1.6</source>
 					<target>1.6</target>
-				   </configuration>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
