@@ -30,8 +30,14 @@ public class GenerateJavaDIHandler extends AbstractHandler {
 
 	@Override
 	public boolean isEnabled() {
-		 return (boolean) ContextInjectionFactory.invoke(handler, CanExecute.class,
+		boolean rvalue = false;
+		Object object =  ContextInjectionFactory.invoke(handler, CanExecute.class,
 				 getActiveContext());
+		if(object instanceof Boolean) {
+			Boolean bool = (Boolean)object;
+			rvalue = bool.booleanValue();
+		}
+		return rvalue;
 	}
 
 	private static IEclipseContext getActiveContext() {

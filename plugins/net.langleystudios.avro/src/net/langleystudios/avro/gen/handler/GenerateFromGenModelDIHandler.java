@@ -30,9 +30,14 @@ public class GenerateFromGenModelDIHandler extends AbstractHandler {
 
 	@Override
 	public boolean isEnabled() {
-		return true;
-//		 return (boolean) ContextInjectionFactory.invoke(handler, CanExecute.class,
-//				 getActiveContext());
+		boolean rvalue = false;
+		Object object =  ContextInjectionFactory.invoke(handler, CanExecute.class,
+				 getActiveContext());
+		if(object instanceof Boolean) {
+			Boolean bool = (Boolean)object;
+			rvalue = bool.booleanValue();
+		}
+		return rvalue;
 	}
 
 	private static IEclipseContext getActiveContext() {
