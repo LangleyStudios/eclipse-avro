@@ -1,0 +1,81 @@
+grammar net.langleystudios.dsl.AvroSchema hidden(WS, ML_COMMENT, SL_COMMENT)
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+generate avroSchema "http://www.langleystudios.net/dsl/AvroSchema"
+
+AvroSchema:
+	types+=(JsonType|RecordType|UnionType);
+
+UnionType:
+	'[' ( types+=UnionMember )(',' types+=UnionMember)* ']'
+	;
+
+UnionMember:
+	(RecordType|ArrayType|Primitive|MapType|EnumType|FixedType)
+;
+
+JsonType:
+	'{' '"' 'type' '"' ':' '"' type=Primitive '"' '}';
+
+RecordType:
+	'{' '"' 'type' '"' ':' '"' 'record' '"' ',' '"' 'name' '"' ':' '"' name=^ID '"'
+	(',' '"' 'namespace' '"' ':' '"' namespace=Namespace '"')?
+	',' '"' 'fields' '"' ':' '[' (fields+=Field)(',' (fields+=Field))* ']' '}';
+	
+Field:
+	'{' '"' 'name' '"' ':' '"' name=('name'|ID) '"' ',' '"' 'type' '"' ':' 
+	((primitive=Primitive) | 
+	(record=RecordType) |
+	('"' recordRef = [RecordType] '"') |
+	(etype=EnumType) |
+	(array=ArrayType) |
+	(map=MapType) |
+	(fixed=FixedType))
+	'}'
+;
+
+EnumType:
+	'{' '"' 'type' '"' ':' '"' 'enum' '"' ',' '"' 'name' '"' ':' '"' name=ID '"' ','
+	'"' 'symbols' '"' ':' '[' ('"' symbols+=ID '"')(',' '"' symbols+=ID '"')*']' '}'
+;
+
+ArrayType:
+	'{' '"' 'type' '"' ':' '"' 'array' '"' ',' '"' 'items' '"' ':'
+	((primitive=Primitive) | 
+	(record=RecordType) |
+	('"' recordRef = [RecordType] '"') |
+	(etype=EnumType))
+	'}'
+;
+
+MapType:
+	'{' '"' 'type' '"' ':' '"' 'map' '"' ',' '"' 'items' '"' ':'
+	((primitive=Primitive) | 
+	(record=RecordType) |
+	('"' recordRef = [RecordType] '"') |
+	(etype=EnumType) |
+	(atype=ArrayType))
+	'}'
+;
+
+FixedType:
+	'"' 'fixed' '"' ',' '"' 'name' '"' ':' '"' name=ID '"' ','
+	'"' 'size' '"' ':' '"' size=INT '"'
+;
+
+Primitive:
+	'"' type=('null' | 'boolean' | 'int' | 'long' | 'float' | 'double' | 'bytes' | 'string') '"';
+
+Namespace:
+	ID('.'ID)*
+;
+
+terminal ID  		: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+terminal INT returns ecore::EInt: ('0'..'9')+;
+
+terminal ML_COMMENT	: '/*' -> '*/';
+terminal SL_COMMENT 	: '//' !('\n'|'\r')* ('\r'? '\n')?;
+terminal WS			: (' '|'\t'|'\r'|'\n')+;
+
+terminal ANY_OTHER: .;

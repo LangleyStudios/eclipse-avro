@@ -12,31 +12,7 @@
 		<tycho-version>0.18.1</tycho-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-	<repositories>
-		<repository>
-			<id>kepler</id>
-			<layout>p2</layout>
-			<url>http://download.eclipse.org/releases/kepler</url>
-		</repository>
-		<repository>
-			<id>e4tools</id>
-			<layout>p2</layout>
-			<url>http://download.eclipse.org/e4/downloads/drops/S-0.15-201401152200/repository</url>
-		</repository>
-		<repository>
-			<id>emf</id>
-			<layout>p2</layout>
-			<url>http://download.eclipse.org/modeling/emf/emf/updates/releases</url>
-		</repository>
-		<repository>
-			<id>Eclipse - Acceleo Snapshots</id>
-			<url>https://repo.eclipse.org/content/repositories/acceleo-snapshots</url>
-		</repository>
-		<repository>
-			<id>Eclipse - Acceleo Release</id>
-			<url>https://repo.eclipse.org/content/repositories/acceleo-releases</url>
-		</repository>
-	</repositories>
+
 	<pluginRepositories>
 		<pluginRepository>
 			<id>codehaus.snapshots</id>
@@ -51,13 +27,17 @@
 			<url>https://repo.eclipse.org/content/repositories/acceleo-releases</url>
 		</pluginRepository>
 	</pluginRepositories>
+
 	<modules>
 		<module>plugins/net.langleystudios.avro</module>
+		<module>plugins/net.langleystudios.avro.dsl</module>
+		<module>plugins/net.langleystudios.avro.dsl.ui</module>
 		<module>plugins/net.langleystudios.apache.avro</module>
 		<module>test/net.langleystudios.avro.test</module>
 		<module>test/org.eclipse.emf.examples.library</module>
 		<module>releng/net.langleystudios.avro.feature</module>
 		<module>releng/net.langleystudios.avro.site</module>
+		<module>releng/net.langleystudios.avro.target.kepler</module>
 	</modules>
 	<build>
 		<plugins>
@@ -68,8 +48,35 @@
 				<extensions>true</extensions>
 			</plugin>
 			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<target>
+						<artifact>
+							<groupId>net.langleystudios</groupId>
+							<artifactId>net.langleystudios.avro.target.kepler</artifactId>
+							<version>0.0.1-SNAPSHOT</version>
+						</artifact>
+					</target>
+					<environments>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
 				<configuration>
 					<source>1.6</source>
 					<target>1.6</target>

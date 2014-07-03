@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/net.langleystudios.avro.dsl/src-gen" editDirectory="/net.langleystudios.avro.dsl.edit/src"
+    editorDirectory="/net.langleystudios.avro.dsl.editor/src" modelPluginID="net.langleystudios.avro.dsl"
+    forceOverwrite="true" modelName="AvroSchema" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="net.langleystudios.avro.dsl.edit"
+    editorPluginID="net.langleystudios.avro.dsl.editor" runtimeVersion="2.10">
+  <genPackages prefix="AvroSchema" basePackage="net.langleystudios.dsl" disposableProviderFactory="true"
+      fileExtensions="avsc" ecorePackage="AvroSchema.ecore#/">
+    <genClasses ecoreClass="AvroSchema.ecore#//AvroSchema">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//AvroSchema/types"/>
+    </genClasses>
+    <genClasses ecoreClass="AvroSchema.ecore#//UnionType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//UnionType/types"/>
+    </genClasses>
+    <genClasses ecoreClass="AvroSchema.ecore#//UnionMember"/>
+    <genClasses ecoreClass="AvroSchema.ecore#//JsonType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//JsonType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="AvroSchema.ecore#//RecordType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AvroSchema.ecore#//RecordType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AvroSchema.ecore#//RecordType/namespace"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//RecordType/fields"/>
+    </genClasses>
+    <genClasses ecoreClass="AvroSchema.ecore#//Field">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AvroSchema.ecore#//Field/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//Field/primitive"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//Field/record"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//Field/recordRef"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//Field/etype"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//Field/array"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//Field/map"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//Field/fixed"/>
+    </genClasses>
+    <genClasses ecoreClass="AvroSchema.ecore#//EnumType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AvroSchema.ecore#//EnumType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AvroSchema.ecore#//EnumType/symbols"/>
+    </genClasses>
+    <genClasses ecoreClass="AvroSchema.ecore#//ArrayType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//ArrayType/primitive"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//ArrayType/record"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//ArrayType/recordRef"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//ArrayType/etype"/>
+    </genClasses>
+    <genClasses ecoreClass="AvroSchema.ecore#//MapType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//MapType/primitive"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//MapType/record"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//MapType/recordRef"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//MapType/etype"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//MapType/atype"/>
+    </genClasses>
+    <genClasses ecoreClass="AvroSchema.ecore#//FixedType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AvroSchema.ecore#//FixedType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AvroSchema.ecore#//FixedType/size"/>
+    </genClasses>
+    <genClasses ecoreClass="AvroSchema.ecore#//Primitive">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AvroSchema.ecore#//Primitive/type"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

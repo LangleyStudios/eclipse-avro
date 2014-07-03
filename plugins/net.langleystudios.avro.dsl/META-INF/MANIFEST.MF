@@ -1,0 +1,34 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: net.langleystudios.avro.dsl
+Bundle-Vendor: My Company
+Bundle-Version: 0.0.1.qualifier
+Bundle-SymbolicName: net.langleystudios.avro.dsl; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext;visibility:=reexport,
+ org.eclipse.xtext.xbase;resolution:=optional;visibility:=reexport,
+ org.eclipse.xtext.generator;resolution:=optional,
+ org.apache.commons.logging;bundle-version="1.0.4";resolution:=optional,
+ org.eclipse.emf.codegen.ecore;resolution:=optional,
+ org.eclipse.emf.mwe.utils;resolution:=optional,
+ org.eclipse.emf.mwe2.launch;resolution:=optional,
+ org.eclipse.xtext.util,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.common,
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types
+Import-Package: org.apache.log4j,
+ org.eclipse.xtext.xbase.lib
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: net.langleystudios.dsl,
+ net.langleystudios.dsl.services,
+ net.langleystudios.dsl.avroSchema,
+ net.langleystudios.dsl.avroSchema.impl,
+ net.langleystudios.dsl.avroSchema.util,
+ net.langleystudios.dsl.serializer,
+ net.langleystudios.dsl.parser.antlr,
+ net.langleystudios.dsl.parser.antlr.internal,
+ net.langleystudios.dsl.validation,
+ net.langleystudios.dsl.scoping,
+ net.langleystudios.dsl.generator,
+ net.langleystudios.dsl.formatting
