@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Kepler Target
+Bundle-SymbolicName: net.langleystudios.avro.target.kepler
+Bundle-Version: 0.0.1.qualifier
+Bundle-Vendor: Langley Studios
