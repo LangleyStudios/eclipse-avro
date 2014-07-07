@@ -50,8 +50,9 @@ public class GenerateFromGenModelHandler {
 	private static final String SCHEMA_EXTENSION = "avsc";
 	private IResource selectedResource;
 
-	private Logger logger = LoggerFactory.getLogger(GenerateFromGenModelHandler.class);
-	
+	private Logger logger = LoggerFactory
+			.getLogger(GenerateFromGenModelHandler.class);
+
 	@Execute
 	public void execute() {
 
@@ -67,12 +68,10 @@ public class GenerateFromGenModelHandler {
 		if (ifile != null) {
 			java.net.URI fileURI = ifile.getLocationURI();
 			File locationFile = new File(fileURI);
-			URI modelURI = URI.createFileURI(selectedResource.getFullPath()
-					.toFile().toString());
 			try {
 				AcceleoPreferences.switchQueryCache(false);
 				GenerateFromGenModel generator = new GenerateFromGenModel(
-						modelURI, locationFile, new ArrayList<Object>());
+						locationURI, locationFile, new ArrayList<Object>());
 				generator.generate(new BasicMonitor());
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -101,13 +100,16 @@ public class GenerateFromGenModelHandler {
 								.findMember(schemaRes.getFullPath().toFile()
 										.toString());
 
-						java.net.URI schemaURI = schemaResource.getLocationURI();
+						java.net.URI schemaURI = schemaResource
+								.getLocationURI();
 						File schemaFile = new File(schemaURI);
 
-						int rvalue = GenerateJavaHandler.generateCode(schemaFile, locationFile);
-						if(rvalue != 0)
-						{
-							logger.error("Java Generation from schema incomplete: ", schemaFile.getAbsoluteFile());
+						int rvalue = GenerateJavaHandler.generateCode(
+								schemaFile, locationFile);
+						if (rvalue != 0) {
+							logger.error(
+									"Java Generation from schema incomplete: ",
+									schemaFile.getAbsoluteFile());
 						}
 					}
 				}
@@ -116,25 +118,34 @@ public class GenerateFromGenModelHandler {
 			}
 		}
 
-		for(GenPackage genPackage: genModel.getGenPackages()) {
-			String basePackage = genPackage.getBasePackage() + "." + genPackage.getEcorePackage().getName();
+		for (GenPackage genPackage : genModel.getGenPackages()) {
+			String basePackage = genPackage.getBasePackage() + "."
+					+ genPackage.getEcorePackage().getName();
 			Utility.setBasePackage(basePackage);
-			Utility.setFactory(genPackage.getPrefix()+"Factory");
-			Utility.setPackage(genPackage.getPrefix()+"Package");
+			Utility.setFactory(genPackage.getPrefix() + "Factory");
+			Utility.setPackage(genPackage.getPrefix() + "Package");
 
-			String avroDir = locationFile.toString() + File.separator + 
-					basePackage.replace('.','/') + File.separator +
-					"avro";
+			String avroDir = locationFile.toString() + File.separator
+					+ basePackage.replace('.', '/') + File.separator + "avro";
 			File avroLocation = new File(avroDir);
 			GenerateAvroConverter generator;
 			try {
 				generator = new GenerateAvroConverter(
-						genPackage.getEcorePackage(), avroLocation, new ArrayList<Object>());
+						genPackage.getEcorePackage(), avroLocation,
+						new ArrayList<Object>());
 				generator.generate(new BasicMonitor());
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
+
+		// Final workspace refresh to make everything visible
+		try {
+			workspaceRoot.refreshLocal(IResource.DEPTH_INFINITE, null);
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	@CanExecute

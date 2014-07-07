@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="generateAvroConverter" name="net.langleystudios.avro">
-    <property name="ECLIPSE_HOME" value="../../../../../../../opt/tools/eclipse/eclipse-rcp-luna"/>
+    <property name="ECLIPSE_HOME" value="../../../../../../../opt/tools/eclipse/eclipse-emf-luna"/>
     <property name="ECLIPSE_WORKSPACE" value="../../../../../workspace/eclipse-avro"/>
 
     <!-- The classpath with only the dependencies used by the project -->
