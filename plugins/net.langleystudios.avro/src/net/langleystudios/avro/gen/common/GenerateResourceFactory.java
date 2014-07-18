@@ -25,24 +25,24 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
 /**
- * Entry point of the 'GenerateFromGenModel' generation module.
+ * Entry point of the 'GenerateResourceFactory' generation module.
  *
  * @generated
  */
-public class GenerateFromGenModel extends AbstractAcceleoGenerator {
+public class GenerateResourceFactory extends AbstractAcceleoGenerator {
     /**
      * The name of the module.
      *
      * @generated
      */
-    public static final String MODULE_FILE_NAME = "/net/langleystudios/avro/gen/common/generateFromGenModel";
+    public static final String MODULE_FILE_NAME = "/net/langleystudios/avro/gen/common/generateResourceFactory";
     
     /**
      * The name of the templates that are to be generated.
      *
      * @generated
      */
-    public static final String[] TEMPLATE_NAMES = { "generateElement" };
+    public static final String[] TEMPLATE_NAMES = { "generateResourceFactory" };
     
     /**
      * The list of properties files from the launch parameters (Launch configuration).
@@ -65,7 +65,7 @@ public class GenerateFromGenModel extends AbstractAcceleoGenerator {
      *
      * @generated
      */
-    public GenerateFromGenModel() {
+    public GenerateResourceFactory() {
         // Empty implementation
     }
 
@@ -85,7 +85,7 @@ public class GenerateFromGenModel extends AbstractAcceleoGenerator {
      *             the model cannot be loaded.
      * @generated
      */
-    public GenerateFromGenModel(URI modelURI, File targetFolder,
+    public GenerateResourceFactory(URI modelURI, File targetFolder,
             List<? extends Object> arguments) throws IOException {
         initialize(modelURI, targetFolder, arguments);
     }
@@ -106,7 +106,7 @@ public class GenerateFromGenModel extends AbstractAcceleoGenerator {
      *             This can be thrown in two scenarios : the module cannot be found, or it cannot be loaded.
      * @generated
      */
-    public GenerateFromGenModel(EObject model, File targetFolder,
+    public GenerateResourceFactory(EObject model, File targetFolder,
             List<? extends Object> arguments) throws IOException {
         initialize(model, targetFolder, arguments);
     }
@@ -141,7 +141,7 @@ public class GenerateFromGenModel extends AbstractAcceleoGenerator {
                  * add in "arguments" this "String" attribute.
                  */
                 
-                GenerateFromGenModel generator = new GenerateFromGenModel(modelURI, folder, arguments);
+                GenerateResourceFactory generator = new GenerateResourceFactory(modelURI, folder, arguments);
                 
                 /*
                  * Add the properties from the launch arguments.
@@ -340,9 +340,6 @@ public class GenerateFromGenModel extends AbstractAcceleoGenerator {
     @Override
     public void registerPackages(ResourceSet resourceSet) {
         super.registerPackages(resourceSet);
-        if (!isInWorkspace(org.eclipse.emf.codegen.ecore.genmodel.GenModelPackage.class)) {
-            resourceSet.getPackageRegistry().put(org.eclipse.emf.codegen.ecore.genmodel.GenModelPackage.eINSTANCE.getNsURI(), org.eclipse.emf.codegen.ecore.genmodel.GenModelPackage.eINSTANCE);
-        }
         if (!isInWorkspace(org.eclipse.emf.ecore.EcorePackage.class)) {
             resourceSet.getPackageRegistry().put(org.eclipse.emf.ecore.EcorePackage.eINSTANCE.getNsURI(), org.eclipse.emf.ecore.EcorePackage.eINSTANCE);
         }

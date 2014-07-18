@@ -19,6 +19,7 @@ import javax.inject.Named;
 import net.langleystudios.avro.gen.Utility;
 import net.langleystudios.avro.gen.common.GenerateAvroConverter;
 import net.langleystudios.avro.gen.common.GenerateFromGenModel;
+import net.langleystudios.avro.gen.common.GenerateResourceFactory;
 
 import org.eclipse.acceleo.common.preference.AcceleoPreferences;
 import org.eclipse.core.resources.IContainer;
@@ -134,6 +135,16 @@ public class GenerateFromGenModelHandler {
 						genPackage.getEcorePackage(), avroLocation,
 						new ArrayList<Object>());
 				generator.generate(new BasicMonitor());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			GenerateResourceFactory factoryGenerator;
+			try {
+				factoryGenerator = new GenerateResourceFactory(
+						genPackage.getEcorePackage(), avroLocation,
+						new ArrayList<Object>());
+				factoryGenerator.generate(new BasicMonitor());	
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

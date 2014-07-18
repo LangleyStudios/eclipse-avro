@@ -1,2 +1,6 @@
 {"type":"record","name":"Employee","namespace":"org.eclipse.emf.examples.extlibrary.avro","fields":[
-{"name":"address","type":"string"},{"name":"firstName","type":"string"},{"name":"lastName","type":"string"},{"name":"manager","type":"Employee"}]}
+{"name":"address","type":"string"}
+,{"name":"firstName","type":"string"}
+,{"name":"lastName","type":"string"}
+,{"name":"manager","type":"Employee"}
+]}

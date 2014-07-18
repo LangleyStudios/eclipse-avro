@@ -1,2 +1,3 @@
 {"type":"record","name":"Addressable","namespace":"org.eclipse.emf.examples.extlibrary.avro","fields":[
-{"name":"address","type":"string"}]}
+{"name":"address","type":"string"}
+]}

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project default="generateFromGenModel" name="net.langleystudios.avro">
+<project default="generateResourceFactory" name="net.langleystudios.avro">
     <property name="ECLIPSE_HOME" value="../../../../../../../opt/tools/eclipse/eclipse-emf-kepler/eclipse"/>
     <property name="ECLIPSE_WORKSPACE" value="../../../../../workspace/eclipse-avro"/>
 
@@ -62,8 +62,8 @@
     </path>
 
     <!-- The default task with the jars used by this project -->
-    <target name="generateFromGenModel">
-        <java classname="net.langleystudios.avro.gen.common.GenerateFromGenModel" classpathref="net.langleystudios.avro.classpath">
+    <target name="generateResourceFactory">
+        <java classname="net.langleystudios.avro.gen.common.GenerateResourceFactory" classpathref="net.langleystudios.avro.classpath">
             <arg value="${model}"/>
             <arg value="${target}"/>
         </java>
@@ -73,8 +73,8 @@
         In case of problem you can also try with all the jar available in your Eclipse
         Keep in mind that having two versions of the same jar can create problems
     -->
-    <target name="generateFromGenModel.alljars">
-        <java classname="net.langleystudios.avro.gen.common.GenerateFromGenModel" classpathref="net.langleystudios.avro.classpath">
+    <target name="generateResourceFactory.alljars">
+        <java classname="net.langleystudios.avro.gen.common.GenerateResourceFactory" classpathref="net.langleystudios.avro.classpath">
             <arg value="${model}"/>
             <arg value="${target}"/>
         </java>

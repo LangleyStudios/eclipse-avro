@@ -1,13 +1,29 @@
 {"type":"record","name":"VideoCassette","namespace":"org.eclipse.emf.examples.extlibrary.avro","fields":[
-{"name":"publicationDate","type":"string"},{"name":"copies","type":"int"},{"name":"borrowers","type":{"type":"array","items":
+{"name":"publicationDate","type":"string"}
+,{"name":"copies","type":"int"}
+,{"name":"borrowers","type":{"type":"array","items":
 		{"type":"record","name":"Borrower","fields":[
-		{"name":"address","type":"string"},{"name":"firstName","type":"string"},{"name":"lastName","type":"string"},{"name":"borrowed","type":{"type":"array","items":
+		{"name":"address","type":"string"}
+		,{"name":"firstName","type":"string"}
+		,{"name":"lastName","type":"string"}
+		,{"name":"borrowed","type":{"type":"array","items":
 				{"type":"record","name":"Lendable","fields":[
-				{"name":"copies","type":"int"},{"name":"borrowers","type":{"type":"array","items":
+				{"name":"copies","type":"int"}
+				,{"name":"borrowers","type":{"type":"array","items":
 						"Borrower"
-				}}]}
-		}}]}
-}},{"name":"title","type":"string"},{"name":"minutesLength","type":"int"},{"name":"damaged","type":"boolean"},{"name":"cast","type":{"type":"array","items":
+				}}
+				]}
+		}}
+		]}
+}}
+,{"name":"title","type":"string"}
+,{"name":"minutesLength","type":"int"}
+,{"name":"damaged","type":"boolean"}
+,{"name":"cast","type":{"type":"array","items":
 		{"type":"record","name":"Person","fields":[
-		{"name":"address","type":"string"},{"name":"firstName","type":"string"},{"name":"lastName","type":"string"}]}
-}}]}
+		{"name":"address","type":"string"}
+		,{"name":"firstName","type":"string"}
+		,{"name":"lastName","type":"string"}
+		]}
+}}
+]}

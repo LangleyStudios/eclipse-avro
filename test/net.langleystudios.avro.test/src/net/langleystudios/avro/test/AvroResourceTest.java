@@ -27,6 +27,7 @@ import org.apache.avro.specific.SpecificData;
 import org.apache.avro.specific.SpecificDatumWriter;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.examples.extlibrary.EXTLibraryFactory;
@@ -78,7 +79,7 @@ public class AvroResourceTest {
 	}
 
 	@Test
-	public void test() {
+	public void testExplicitResource() {
 
 		ResourceSet resourceSet = new ResourceSetImpl();
 		URI uri = URI.createFileURI("tempFile.avro");
@@ -115,4 +116,39 @@ public class AvroResourceTest {
 		}
 	}
 
+	@Test
+	public void testResourceFactory() {
+		ResourceSet resourceSet = new ResourceSetImpl();
+		URI uri = URI.createFileURI("tempFile.library_avro");
+		resourceSet.createResource(uri);
+		AvroResource resource = new AvroResource(uri);
+		ConvertEMFtoAvro converter = new ConvertEMFtoAvro();
+		resource.setConverter(converter);
+		Person person = EXTLibraryFactory.eINSTANCE.createPerson();
+		person.setAddress("123 Sesame Street");
+		person.setFirstName("John");
+		person.setLastName("Smith");
+		resource.getContents().add(person);
+		try {
+			resource.save(null);
+		} catch (IOException e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		} catch (Error error) {
+			error.printStackTrace();
+		}
+		
+		resourceSet = null;
+		ResourceSet newSet = new ResourceSetImpl();
+//		Registry reg = newSet.getResourceFactoryRegistry();
+//		reg.getExtensionToFactoryMap().put("library_avro", new AvroResourceFactory());
+//		for(String key: reg.getContentTypeToFactoryMap().keySet())
+//			System.out.println(key);
+		try {
+		Resource newResource = newSet.getResource(uri,  true);
+		} catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
 }
