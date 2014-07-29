@@ -76,6 +76,13 @@ public Schema getSchema(EObject eobject) {
 public [avroPrefix.concat(eclass.name)/] convert[eclass.name/](
 	[emfPrefix.concat(eclass.name)/] input) {
 
+	[comment
+		If the input is null, then return null 
+	/]
+	if(input == null)
+	{
+		return null;
+	}
 	[avroPrefix.concat(eclass.name)/] output = new [avroPrefix.concat(eclass.name)/]();
 
 [for (aFeature: EStructuralFeature | eclass.eAllStructuralFeatures)]
