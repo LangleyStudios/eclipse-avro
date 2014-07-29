@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Acceleo Gen Module Runtime Plug-in
+Bundle-Name: Eclipse Avro Runtime
 Bundle-SymbolicName: net.langleystudios.avro;singleton:=true
-Bundle-Version: 0.0.1.qualifier
+Bundle-Version: 0.0.2.qualifier
 Bundle-Activator: net.langleystudios.avro.gen.Activator
 Bundle-Vendor: Langley Studios
 Require-Bundle: org.eclipse.core.runtime,
