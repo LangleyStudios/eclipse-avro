@@ -69,7 +69,9 @@
 [if(aFeature.oclIsTypeOf(EAttribute))]
 "[aFeature.eType.printAvroType()/]"
 [else]
-	[if(aFeature.oclIsTypeOf(EReference) and addClass(aFeature.oclAsType(EReference).eReferenceType))]
+	[if(aFeature.oclIsTypeOf(EReference) and not aFeature.oclAsType(EReference).containment)]
+		"string"
+	[elseif(aFeature.oclIsTypeOf(EReference) and addClass(aFeature.oclAsType(EReference).eReferenceType))]
 		[aFeature.oclAsType(EReference).eReferenceType.generateRecord()/]
 	[else]
 		"[aFeature.eType.name/]"
@@ -98,24 +100,40 @@
 	This template generates code for an EReference
 /]
 [template public generateReference(aReference : EReference) post(trim())]
-[if(aReference.upperBound <> 1)]
-	[if(aReference.lowerBound <> 0)]
-		{"name":"[aReference.name/]","type":[aReference.generateArray()/]}
+[if(aReference.containment)]
+	[if(aReference.upperBound <> 1)]
+		[if(aReference.lowerBound <> 0)]
+			{"name":"[aReference.name/]","type":[aReference.generateArray()/]}
+		[else]
+			{"name":"[aReference.name/]","type":['['/]"null",[aReference.generateArray()/][']'/]}
+		[/if]
 	[else]
-		{"name":"[aReference.name/]","type":['['/]"null",[aReference.generateArray()/][']'/]}
+		[if(addClass(aReference.eReferenceType))]
+			[if(aReference.lowerBound <> 0)]
+			{"name":"[aReference.name/]","type":[aReference.eReferenceType.generateRecord()/]}
+			[else]
+			{"name":"[aReference.name/]","type":['['/]"null",[aReference.eReferenceType.generateRecord()/][']'/]}
+			[/if]
+		[else]
+			[if(aReference.lowerBound <> 0)]
+			{"name":"[aReference.name/]","type":"[aReference.eType.name/]"}
+			[else]
+			{"name":"[aReference.name/]","type":['['/]"null","[aReference.eType.name/]"[']'/]}
+			[/if]
+		[/if]
 	[/if]
 [else]
-	[if(addClass(aReference.eReferenceType))]
+	[if(aReference.upperBound <> 1)]
 		[if(aReference.lowerBound <> 0)]
-		{"name":"[aReference.name/]","type":[aReference.eReferenceType.generateRecord()/]}
+			{"name":"[aReference.name/]","type":"string"}
 		[else]
-		{"name":"[aReference.name/]","type":['['/]"null",[aReference.eReferenceType.generateRecord()/][']'/]}
+			{"name":"[aReference.name/]","type":['['/]"null","string"[']'/]}
 		[/if]
 	[else]
 		[if(aReference.lowerBound <> 0)]
-		{"name":"[aReference.name/]","type":"[aReference.eType.name/]"}
+		{"name":"[aReference.name/]","type":"string"}
 		[else]
-		{"name":"[aReference.name/]","type":['['/]"null","[aReference.eType.name/]"[']'/]}
+		{"name":"[aReference.name/]","type":['['/]"null","string"[']'/]}
 		[/if]
 	[/if]
 [/if]
