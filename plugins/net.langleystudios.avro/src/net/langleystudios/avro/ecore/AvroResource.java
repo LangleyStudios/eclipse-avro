@@ -30,13 +30,14 @@ import org.apache.avro.specific.SpecificDatumWriter;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
+import org.eclipse.emf.ecore.util.Diagnostician;
 
 public class AvroResource extends ResourceImpl {
 
 	private ClassLoader loader = null;
 
 	private AvroEMFConverter converter = null;
-	
+
 	public AvroResource() {
 		super();
 	}
@@ -48,17 +49,17 @@ public class AvroResource extends ResourceImpl {
 	public void setClassLoader(ClassLoader loader) {
 		this.loader = loader;
 	}
-	
+
 	public void setConverter(AvroEMFConverter converter) {
 		this.converter = converter;
 	}
-	
+
 	@Override
 	protected void doLoad(InputStream inputStream, Map<?, ?> options)
 			throws IOException {
 
 		Schema unionSchema = converter.getSchema();
-		
+
 		SpecificData sData = new SpecificData(loader);
 		DatumReader reader = sData.createDatumReader(unionSchema);
 		DataFileStream<Object> dataStream = new DataFileStream<Object>(
@@ -78,32 +79,42 @@ public class AvroResource extends ResourceImpl {
 
 		// Create a union schema using only the EObjects that are in contents
 		List<Schema> schemaList = new ArrayList<Schema>();
-		for(EObject eobject : this.contents) {
+		for (EObject eobject : this.contents) {
 			Schema schema = converter.getSchema(eobject);
-			if(schema != null)
-			{
+			if (schema != null) {
 				schemaList.add(schema);
 			}
 		}
 		Schema unionSchema = Schema.createUnion(schemaList);
-
+		DataFileWriter<Object> fileWriter = null;
 		try {
 			DatumWriter<Object> writer = new SpecificDatumWriter<Object>(
 					unionSchema);
-			DataFileWriter<Object> fileWriter = new DataFileWriter<Object>(
+			fileWriter = new DataFileWriter<Object>(
 					writer);
 			fileWriter.setCodec(CodecFactory.deflateCodec(9));
 			fileWriter.create(unionSchema, outputStream);
 			for (EObject eobject : this.contents) {
-				Object o = converter.convertEObject(eobject);
-				fileWriter.append(o);
+				org.eclipse.emf.common.util.Diagnostic diagnostic = Diagnostician.INSTANCE
+						.validate(eobject);
+				if (diagnostic.getCode() == org.eclipse.emf.common.util.Diagnostic.OK) {
+					Object o = converter.convertEObject(eobject);
+					fileWriter.append(o);
+				} else {
+					fileWriter.close();
+					throw new IOException("Could not store invalid object to resource");
+				}
 			}
-			fileWriter.close();
 		} catch (Exception exc) {
 			exc.printStackTrace();
-		} catch(Error error)
-		{
+		} catch (Error error) {
 			error.printStackTrace();
+		}
+		finally {
+			if(fileWriter != null)
+			{
+				fileWriter.close();
+			}
 		}
 	}
 }
