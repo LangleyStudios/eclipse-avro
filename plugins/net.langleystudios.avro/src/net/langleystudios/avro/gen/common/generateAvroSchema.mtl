@@ -82,7 +82,11 @@ TODO: Need to break up this big if/else block
 /]
 [template public generateFeature(aFeature : EStructuralFeature) post(trim())]
 [if(aFeature.upperBound <> 1)]
-{"name":"[aFeature.name/]","type":[aFeature.generateArray()/]}
+	[if(aFeature.lowerBound <> 0)]
+		{"name":"[aFeature.name/]","type":[aFeature.generateArray()/]}
+	[else]
+		{"name":"[aFeature.name/]","type":['['/]"null",[aFeature.generateArray()/][']'/]}
+	[/if]
 [elseif(aFeature.oclIsTypeOf(EAttribute))]
 	[if(aFeature.eType.oclIsTypeOf(EEnum))]
 		{"name":"[aFeature.name/]","type":[aFeature.eType->filter(EEnum).generateEnum()/]}}
