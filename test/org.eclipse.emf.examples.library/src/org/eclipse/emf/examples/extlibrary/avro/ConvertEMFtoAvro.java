@@ -160,9 +160,15 @@ public Schema getSchema(EObject eobject) {
 public org.eclipse.emf.examples.extlibrary.avro.Book convertBook(
 	org.eclipse.emf.examples.extlibrary.Book input) {
 
+	if(input == null)
+	{
+		return null;
+	}
 	org.eclipse.emf.examples.extlibrary.avro.Book output = new org.eclipse.emf.examples.extlibrary.avro.Book();
 
-	output.setPublicationDate(input.getPublicationDate().toString());
+	if(input.getPublicationDate() != null) {
+		output.setPublicationDate(input.getPublicationDate().toString());
+	}
 
 	output.setCopies(input.getCopies());
 
@@ -170,13 +176,20 @@ public org.eclipse.emf.examples.extlibrary.avro.Book convertBook(
 	for(org.eclipse.emf.examples.extlibrary.Borrower itr : input.getBorrowers()) {
 		borrowersList.add(convertBorrower(itr));
 	}
-	output.setBorrowers(borrowersList);
+	if(borrowersList.size() > 0)
+	{
+		output.setBorrowers(borrowersList);
+	} else {
+		output.setBorrowers(null);
+	}
 
 	output.setTitle(input.getTitle());
 
 	output.setPages(input.getPages());
 
-	output.setCategory(org.eclipse.emf.examples.extlibrary.avro.BookCategory.valueOf(input.getCategory().getLiteral()));
+	if(input.getCategory() != null) {
+		output.setCategory(org.eclipse.emf.examples.extlibrary.avro.BookCategory.valueOf(input.getCategory().getLiteral()));
+	}
 
 	output.setAuthor(convertWriter(input.getAuthor()));
 
@@ -187,6 +200,10 @@ public org.eclipse.emf.examples.extlibrary.avro.Book convertBook(
 public org.eclipse.emf.examples.extlibrary.avro.Library convertLibrary(
 	org.eclipse.emf.examples.extlibrary.Library input) {
 
+	if(input == null)
+	{
+		return null;
+	}
 	org.eclipse.emf.examples.extlibrary.avro.Library output = new org.eclipse.emf.examples.extlibrary.avro.Library();
 
 	output.setAddress(input.getAddress());
@@ -197,37 +214,67 @@ public org.eclipse.emf.examples.extlibrary.avro.Library convertLibrary(
 	for(org.eclipse.emf.examples.extlibrary.Writer itr : input.getWriters()) {
 		writersList.add(convertWriter(itr));
 	}
-	output.setWriters(writersList);
+	if(writersList.size() > 0)
+	{
+		output.setWriters(writersList);
+	} else {
+		output.setWriters(null);
+	}
 
 	List<org.eclipse.emf.examples.extlibrary.avro.Employee> employeesList = new ArrayList<org.eclipse.emf.examples.extlibrary.avro.Employee>();
 	for(org.eclipse.emf.examples.extlibrary.Employee itr : input.getEmployees()) {
 		employeesList.add(convertEmployee(itr));
 	}
-	output.setEmployees(employeesList);
+	if(employeesList.size() > 0)
+	{
+		output.setEmployees(employeesList);
+	} else {
+		output.setEmployees(null);
+	}
 
 	List<org.eclipse.emf.examples.extlibrary.avro.Borrower> borrowersList = new ArrayList<org.eclipse.emf.examples.extlibrary.avro.Borrower>();
 	for(org.eclipse.emf.examples.extlibrary.Borrower itr : input.getBorrowers()) {
 		borrowersList.add(convertBorrower(itr));
 	}
-	output.setBorrowers(borrowersList);
+	if(borrowersList.size() > 0)
+	{
+		output.setBorrowers(borrowersList);
+	} else {
+		output.setBorrowers(null);
+	}
 
 	List<org.eclipse.emf.examples.extlibrary.avro.Item> stockList = new ArrayList<org.eclipse.emf.examples.extlibrary.avro.Item>();
 	for(org.eclipse.emf.examples.extlibrary.Item itr : input.getStock()) {
 		stockList.add(convertItem(itr));
 	}
-	output.setStock(stockList);
+	if(stockList.size() > 0)
+	{
+		output.setStock(stockList);
+	} else {
+		output.setStock(null);
+	}
 
 	List<org.eclipse.emf.examples.extlibrary.avro.Book> booksList = new ArrayList<org.eclipse.emf.examples.extlibrary.avro.Book>();
 	for(org.eclipse.emf.examples.extlibrary.Book itr : input.getBooks()) {
 		booksList.add(convertBook(itr));
 	}
-	output.setBooks(booksList);
+	if(booksList.size() > 0)
+	{
+		output.setBooks(booksList);
+	} else {
+		output.setBooks(null);
+	}
 
 	List<org.eclipse.emf.examples.extlibrary.avro.Library> branchesList = new ArrayList<org.eclipse.emf.examples.extlibrary.avro.Library>();
 	for(org.eclipse.emf.examples.extlibrary.Library itr : input.getBranches()) {
 		branchesList.add(convertLibrary(itr));
 	}
-	output.setBranches(branchesList);
+	if(branchesList.size() > 0)
+	{
+		output.setBranches(branchesList);
+	} else {
+		output.setBranches(null);
+	}
 
 	output.setParentBranch(convertLibrary(input.getParentBranch()));
 
@@ -239,6 +286,10 @@ public org.eclipse.emf.examples.extlibrary.avro.Library convertLibrary(
 public org.eclipse.emf.examples.extlibrary.avro.Writer convertWriter(
 	org.eclipse.emf.examples.extlibrary.Writer input) {
 
+	if(input == null)
+	{
+		return null;
+	}
 	org.eclipse.emf.examples.extlibrary.avro.Writer output = new org.eclipse.emf.examples.extlibrary.avro.Writer();
 
 	output.setAddress(input.getAddress());
@@ -253,7 +304,12 @@ public org.eclipse.emf.examples.extlibrary.avro.Writer convertWriter(
 	for(org.eclipse.emf.examples.extlibrary.Book itr : input.getBooks()) {
 		booksList.add(convertBook(itr));
 	}
-	output.setBooks(booksList);
+	if(booksList.size() > 0)
+	{
+		output.setBooks(booksList);
+	} else {
+		output.setBooks(null);
+	}
 
 
 	return output;
@@ -262,9 +318,15 @@ public org.eclipse.emf.examples.extlibrary.avro.Writer convertWriter(
 public org.eclipse.emf.examples.extlibrary.avro.Item convertItem(
 	org.eclipse.emf.examples.extlibrary.Item input) {
 
+	if(input == null)
+	{
+		return null;
+	}
 	org.eclipse.emf.examples.extlibrary.avro.Item output = new org.eclipse.emf.examples.extlibrary.avro.Item();
 
-	output.setPublicationDate(input.getPublicationDate().toString());
+	if(input.getPublicationDate() != null) {
+		output.setPublicationDate(input.getPublicationDate().toString());
+	}
 
 
 	return output;
@@ -273,6 +335,10 @@ public org.eclipse.emf.examples.extlibrary.avro.Item convertItem(
 public org.eclipse.emf.examples.extlibrary.avro.Lendable convertLendable(
 	org.eclipse.emf.examples.extlibrary.Lendable input) {
 
+	if(input == null)
+	{
+		return null;
+	}
 	org.eclipse.emf.examples.extlibrary.avro.Lendable output = new org.eclipse.emf.examples.extlibrary.avro.Lendable();
 
 	output.setCopies(input.getCopies());
@@ -281,7 +347,12 @@ public org.eclipse.emf.examples.extlibrary.avro.Lendable convertLendable(
 	for(org.eclipse.emf.examples.extlibrary.Borrower itr : input.getBorrowers()) {
 		borrowersList.add(convertBorrower(itr));
 	}
-	output.setBorrowers(borrowersList);
+	if(borrowersList.size() > 0)
+	{
+		output.setBorrowers(borrowersList);
+	} else {
+		output.setBorrowers(null);
+	}
 
 
 	return output;
@@ -290,9 +361,15 @@ public org.eclipse.emf.examples.extlibrary.avro.Lendable convertLendable(
 public org.eclipse.emf.examples.extlibrary.avro.CirculatingItem convertCirculatingItem(
 	org.eclipse.emf.examples.extlibrary.CirculatingItem input) {
 
+	if(input == null)
+	{
+		return null;
+	}
 	org.eclipse.emf.examples.extlibrary.avro.CirculatingItem output = new org.eclipse.emf.examples.extlibrary.avro.CirculatingItem();
 
-	output.setPublicationDate(input.getPublicationDate().toString());
+	if(input.getPublicationDate() != null) {
+		output.setPublicationDate(input.getPublicationDate().toString());
+	}
 
 	output.setCopies(input.getCopies());
 
@@ -300,7 +377,12 @@ public org.eclipse.emf.examples.extlibrary.avro.CirculatingItem convertCirculati
 	for(org.eclipse.emf.examples.extlibrary.Borrower itr : input.getBorrowers()) {
 		borrowersList.add(convertBorrower(itr));
 	}
-	output.setBorrowers(borrowersList);
+	if(borrowersList.size() > 0)
+	{
+		output.setBorrowers(borrowersList);
+	} else {
+		output.setBorrowers(null);
+	}
 
 
 	return output;
@@ -309,9 +391,15 @@ public org.eclipse.emf.examples.extlibrary.avro.CirculatingItem convertCirculati
 public org.eclipse.emf.examples.extlibrary.avro.Periodical convertPeriodical(
 	org.eclipse.emf.examples.extlibrary.Periodical input) {
 
+	if(input == null)
+	{
+		return null;
+	}
 	org.eclipse.emf.examples.extlibrary.avro.Periodical output = new org.eclipse.emf.examples.extlibrary.avro.Periodical();
 
-	output.setPublicationDate(input.getPublicationDate().toString());
+	if(input.getPublicationDate() != null) {
+		output.setPublicationDate(input.getPublicationDate().toString());
+	}
 
 	output.setTitle(input.getTitle());
 
@@ -324,9 +412,15 @@ public org.eclipse.emf.examples.extlibrary.avro.Periodical convertPeriodical(
 public org.eclipse.emf.examples.extlibrary.avro.AudioVisualItem convertAudioVisualItem(
 	org.eclipse.emf.examples.extlibrary.AudioVisualItem input) {
 
+	if(input == null)
+	{
+		return null;
+	}
 	org.eclipse.emf.examples.extlibrary.avro.AudioVisualItem output = new org.eclipse.emf.examples.extlibrary.avro.AudioVisualItem();
 
-	output.setPublicationDate(input.getPublicationDate().toString());
+	if(input.getPublicationDate() != null) {
+		output.setPublicationDate(input.getPublicationDate().toString());
+	}
 
 	output.setCopies(input.getCopies());
 
@@ -334,7 +428,12 @@ public org.eclipse.emf.examples.extlibrary.avro.AudioVisualItem convertAudioVisu
 	for(org.eclipse.emf.examples.extlibrary.Borrower itr : input.getBorrowers()) {
 		borrowersList.add(convertBorrower(itr));
 	}
-	output.setBorrowers(borrowersList);
+	if(borrowersList.size() > 0)
+	{
+		output.setBorrowers(borrowersList);
+	} else {
+		output.setBorrowers(null);
+	}
 
 	output.setTitle(input.getTitle());
 
@@ -349,9 +448,15 @@ public org.eclipse.emf.examples.extlibrary.avro.AudioVisualItem convertAudioVisu
 public org.eclipse.emf.examples.extlibrary.avro.BookOnTape convertBookOnTape(
 	org.eclipse.emf.examples.extlibrary.BookOnTape input) {
 
+	if(input == null)
+	{
+		return null;
+	}
 	org.eclipse.emf.examples.extlibrary.avro.BookOnTape output = new org.eclipse.emf.examples.extlibrary.avro.BookOnTape();
 
-	output.setPublicationDate(input.getPublicationDate().toString());
+	if(input.getPublicationDate() != null) {
+		output.setPublicationDate(input.getPublicationDate().toString());
+	}
 
 	output.setCopies(input.getCopies());
 
@@ -359,7 +464,12 @@ public org.eclipse.emf.examples.extlibrary.avro.BookOnTape convertBookOnTape(
 	for(org.eclipse.emf.examples.extlibrary.Borrower itr : input.getBorrowers()) {
 		borrowersList.add(convertBorrower(itr));
 	}
-	output.setBorrowers(borrowersList);
+	if(borrowersList.size() > 0)
+	{
+		output.setBorrowers(borrowersList);
+	} else {
+		output.setBorrowers(null);
+	}
 
 	output.setTitle(input.getTitle());
 
@@ -378,9 +488,15 @@ public org.eclipse.emf.examples.extlibrary.avro.BookOnTape convertBookOnTape(
 public org.eclipse.emf.examples.extlibrary.avro.VideoCassette convertVideoCassette(
 	org.eclipse.emf.examples.extlibrary.VideoCassette input) {
 
+	if(input == null)
+	{
+		return null;
+	}
 	org.eclipse.emf.examples.extlibrary.avro.VideoCassette output = new org.eclipse.emf.examples.extlibrary.avro.VideoCassette();
 
-	output.setPublicationDate(input.getPublicationDate().toString());
+	if(input.getPublicationDate() != null) {
+		output.setPublicationDate(input.getPublicationDate().toString());
+	}
 
 	output.setCopies(input.getCopies());
 
@@ -388,7 +504,12 @@ public org.eclipse.emf.examples.extlibrary.avro.VideoCassette convertVideoCasset
 	for(org.eclipse.emf.examples.extlibrary.Borrower itr : input.getBorrowers()) {
 		borrowersList.add(convertBorrower(itr));
 	}
-	output.setBorrowers(borrowersList);
+	if(borrowersList.size() > 0)
+	{
+		output.setBorrowers(borrowersList);
+	} else {
+		output.setBorrowers(null);
+	}
 
 	output.setTitle(input.getTitle());
 
@@ -400,7 +521,12 @@ public org.eclipse.emf.examples.extlibrary.avro.VideoCassette convertVideoCasset
 	for(org.eclipse.emf.examples.extlibrary.Person itr : input.getCast()) {
 		castList.add(convertPerson(itr));
 	}
-	output.setCast(castList);
+	if(castList.size() > 0)
+	{
+		output.setCast(castList);
+	} else {
+		output.setCast(null);
+	}
 
 
 	return output;
@@ -409,6 +535,10 @@ public org.eclipse.emf.examples.extlibrary.avro.VideoCassette convertVideoCasset
 public org.eclipse.emf.examples.extlibrary.avro.Borrower convertBorrower(
 	org.eclipse.emf.examples.extlibrary.Borrower input) {
 
+	if(input == null)
+	{
+		return null;
+	}
 	org.eclipse.emf.examples.extlibrary.avro.Borrower output = new org.eclipse.emf.examples.extlibrary.avro.Borrower();
 
 	output.setAddress(input.getAddress());
@@ -421,7 +551,12 @@ public org.eclipse.emf.examples.extlibrary.avro.Borrower convertBorrower(
 	for(org.eclipse.emf.examples.extlibrary.Lendable itr : input.getBorrowed()) {
 		borrowedList.add(convertLendable(itr));
 	}
-	output.setBorrowed(borrowedList);
+	if(borrowedList.size() > 0)
+	{
+		output.setBorrowed(borrowedList);
+	} else {
+		output.setBorrowed(null);
+	}
 
 
 	return output;
@@ -430,6 +565,10 @@ public org.eclipse.emf.examples.extlibrary.avro.Borrower convertBorrower(
 public org.eclipse.emf.examples.extlibrary.avro.Person convertPerson(
 	org.eclipse.emf.examples.extlibrary.Person input) {
 
+	if(input == null)
+	{
+		return null;
+	}
 	org.eclipse.emf.examples.extlibrary.avro.Person output = new org.eclipse.emf.examples.extlibrary.avro.Person();
 
 	output.setAddress(input.getAddress());
@@ -445,6 +584,10 @@ public org.eclipse.emf.examples.extlibrary.avro.Person convertPerson(
 public org.eclipse.emf.examples.extlibrary.avro.Employee convertEmployee(
 	org.eclipse.emf.examples.extlibrary.Employee input) {
 
+	if(input == null)
+	{
+		return null;
+	}
 	org.eclipse.emf.examples.extlibrary.avro.Employee output = new org.eclipse.emf.examples.extlibrary.avro.Employee();
 
 	output.setAddress(input.getAddress());
@@ -462,6 +605,10 @@ public org.eclipse.emf.examples.extlibrary.avro.Employee convertEmployee(
 public org.eclipse.emf.examples.extlibrary.avro.Addressable convertAddressable(
 	org.eclipse.emf.examples.extlibrary.Addressable input) {
 
+	if(input == null)
+	{
+		return null;
+	}
 	org.eclipse.emf.examples.extlibrary.avro.Addressable output = new org.eclipse.emf.examples.extlibrary.avro.Addressable();
 
 	output.setAddress(input.getAddress());
@@ -512,6 +659,7 @@ public org.eclipse.emf.examples.extlibrary.Book convertBook(
 
 	org.eclipse.emf.examples.extlibrary.Book output = org.eclipse.emf.examples.extlibrary.EXTLibraryFactory.eINSTANCE.createBook();
 
+	if(input.getPublicationDate() != null) {
 	try {
 		Date publicationDateDate = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH).parse(input.getPublicationDate().toString());
 		output.setPublicationDate(publicationDateDate);
@@ -519,15 +667,29 @@ public org.eclipse.emf.examples.extlibrary.Book convertBook(
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
+	}
+	if(input.getCopies() != null) {
 	output.setCopies(input.getCopies());
+	}
+	if(input.getBorrowers() != null) {
+
 	EList<org.eclipse.emf.examples.extlibrary.Borrower> borrowersList = output.getBorrowers();
 	for(org.eclipse.emf.examples.extlibrary.avro.Borrower itr : input.getBorrowers()) {
 		borrowersList.add((org.eclipse.emf.examples.extlibrary.Borrower)convertAvroObject(itr));
 	}
+	}
+	if(input.getTitle() != null) {
 	output.setTitle(input.getTitle().toString());
+	}
+	if(input.getPages() != null) {
 	output.setPages(input.getPages());
+	}
+	if(input.getCategory() != null) {
 	output.setCategory(org.eclipse.emf.examples.extlibrary.BookCategory.valueOf(input.getCategory().name()));
+	}
+	if(input.getAuthor() != null) {
 	output.setAuthor(convertWriter(input.getAuthor()));
+	}
 
 	return output;
 }
@@ -536,33 +698,57 @@ public org.eclipse.emf.examples.extlibrary.Library convertLibrary(
 
 	org.eclipse.emf.examples.extlibrary.Library output = org.eclipse.emf.examples.extlibrary.EXTLibraryFactory.eINSTANCE.createLibrary();
 
+	if(input.getAddress() != null) {
 	output.setAddress(input.getAddress().toString());
+	}
+	if(input.getName() != null) {
 	output.setName(input.getName().toString());
+	}
+	if(input.getWriters() != null) {
+
 	EList<org.eclipse.emf.examples.extlibrary.Writer> writersList = output.getWriters();
 	for(org.eclipse.emf.examples.extlibrary.avro.Writer itr : input.getWriters()) {
 		writersList.add((org.eclipse.emf.examples.extlibrary.Writer)convertAvroObject(itr));
 	}
+	}
+	if(input.getEmployees() != null) {
+
 	EList<org.eclipse.emf.examples.extlibrary.Employee> employeesList = output.getEmployees();
 	for(org.eclipse.emf.examples.extlibrary.avro.Employee itr : input.getEmployees()) {
 		employeesList.add((org.eclipse.emf.examples.extlibrary.Employee)convertAvroObject(itr));
 	}
+	}
+	if(input.getBorrowers() != null) {
+
 	EList<org.eclipse.emf.examples.extlibrary.Borrower> borrowersList = output.getBorrowers();
 	for(org.eclipse.emf.examples.extlibrary.avro.Borrower itr : input.getBorrowers()) {
 		borrowersList.add((org.eclipse.emf.examples.extlibrary.Borrower)convertAvroObject(itr));
 	}
+	}
+	if(input.getStock() != null) {
+
 	EList<org.eclipse.emf.examples.extlibrary.Item> stockList = output.getStock();
 	for(org.eclipse.emf.examples.extlibrary.avro.Item itr : input.getStock()) {
 		stockList.add((org.eclipse.emf.examples.extlibrary.Item)convertAvroObject(itr));
 	}
+	}
+	if(input.getBooks() != null) {
+
 	EList<org.eclipse.emf.examples.extlibrary.Book> booksList = output.getBooks();
 	for(org.eclipse.emf.examples.extlibrary.avro.Book itr : input.getBooks()) {
 		booksList.add((org.eclipse.emf.examples.extlibrary.Book)convertAvroObject(itr));
 	}
+	}
+	if(input.getBranches() != null) {
+
 	EList<org.eclipse.emf.examples.extlibrary.Library> branchesList = output.getBranches();
 	for(org.eclipse.emf.examples.extlibrary.avro.Library itr : input.getBranches()) {
 		branchesList.add((org.eclipse.emf.examples.extlibrary.Library)convertAvroObject(itr));
 	}
+	}
+	if(input.getParentBranch() != null) {
 	output.setParentBranch(convertLibrary(input.getParentBranch()));
+	}
 
 	return output;
 }
@@ -571,13 +757,24 @@ public org.eclipse.emf.examples.extlibrary.Writer convertWriter(
 
 	org.eclipse.emf.examples.extlibrary.Writer output = org.eclipse.emf.examples.extlibrary.EXTLibraryFactory.eINSTANCE.createWriter();
 
+	if(input.getAddress() != null) {
 	output.setAddress(input.getAddress().toString());
+	}
+	if(input.getFirstName() != null) {
 	output.setFirstName(input.getFirstName().toString());
+	}
+	if(input.getLastName() != null) {
 	output.setLastName(input.getLastName().toString());
+	}
+	if(input.getName() != null) {
 	output.setName(input.getName().toString());
+	}
+	if(input.getBooks() != null) {
+
 	EList<org.eclipse.emf.examples.extlibrary.Book> booksList = output.getBooks();
 	for(org.eclipse.emf.examples.extlibrary.avro.Book itr : input.getBooks()) {
 		booksList.add((org.eclipse.emf.examples.extlibrary.Book)convertAvroObject(itr));
+	}
 	}
 
 	return output;
@@ -587,6 +784,7 @@ public org.eclipse.emf.examples.extlibrary.BookOnTape convertBookOnTape(
 
 	org.eclipse.emf.examples.extlibrary.BookOnTape output = org.eclipse.emf.examples.extlibrary.EXTLibraryFactory.eINSTANCE.createBookOnTape();
 
+	if(input.getPublicationDate() != null) {
 	try {
 		Date publicationDateDate = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH).parse(input.getPublicationDate().toString());
 		output.setPublicationDate(publicationDateDate);
@@ -594,16 +792,32 @@ public org.eclipse.emf.examples.extlibrary.BookOnTape convertBookOnTape(
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
+	}
+	if(input.getCopies() != null) {
 	output.setCopies(input.getCopies());
+	}
+	if(input.getBorrowers() != null) {
+
 	EList<org.eclipse.emf.examples.extlibrary.Borrower> borrowersList = output.getBorrowers();
 	for(org.eclipse.emf.examples.extlibrary.avro.Borrower itr : input.getBorrowers()) {
 		borrowersList.add((org.eclipse.emf.examples.extlibrary.Borrower)convertAvroObject(itr));
 	}
+	}
+	if(input.getTitle() != null) {
 	output.setTitle(input.getTitle().toString());
+	}
+	if(input.getMinutesLength() != null) {
 	output.setMinutesLength(input.getMinutesLength());
+	}
+	if(input.getDamaged() != null) {
 	output.setDamaged(input.getDamaged());
+	}
+	if(input.getReader() != null) {
 	output.setReader(convertPerson(input.getReader()));
+	}
+	if(input.getAuthor() != null) {
 	output.setAuthor(convertWriter(input.getAuthor()));
+	}
 
 	return output;
 }
@@ -612,6 +826,7 @@ public org.eclipse.emf.examples.extlibrary.VideoCassette convertVideoCassette(
 
 	org.eclipse.emf.examples.extlibrary.VideoCassette output = org.eclipse.emf.examples.extlibrary.EXTLibraryFactory.eINSTANCE.createVideoCassette();
 
+	if(input.getPublicationDate() != null) {
 	try {
 		Date publicationDateDate = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH).parse(input.getPublicationDate().toString());
 		output.setPublicationDate(publicationDateDate);
@@ -619,17 +834,32 @@ public org.eclipse.emf.examples.extlibrary.VideoCassette convertVideoCassette(
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
+	}
+	if(input.getCopies() != null) {
 	output.setCopies(input.getCopies());
+	}
+	if(input.getBorrowers() != null) {
+
 	EList<org.eclipse.emf.examples.extlibrary.Borrower> borrowersList = output.getBorrowers();
 	for(org.eclipse.emf.examples.extlibrary.avro.Borrower itr : input.getBorrowers()) {
 		borrowersList.add((org.eclipse.emf.examples.extlibrary.Borrower)convertAvroObject(itr));
 	}
+	}
+	if(input.getTitle() != null) {
 	output.setTitle(input.getTitle().toString());
+	}
+	if(input.getMinutesLength() != null) {
 	output.setMinutesLength(input.getMinutesLength());
+	}
+	if(input.getDamaged() != null) {
 	output.setDamaged(input.getDamaged());
+	}
+	if(input.getCast() != null) {
+
 	EList<org.eclipse.emf.examples.extlibrary.Person> castList = output.getCast();
 	for(org.eclipse.emf.examples.extlibrary.avro.Person itr : input.getCast()) {
 		castList.add((org.eclipse.emf.examples.extlibrary.Person)convertAvroObject(itr));
+	}
 	}
 
 	return output;
@@ -639,12 +869,21 @@ public org.eclipse.emf.examples.extlibrary.Borrower convertBorrower(
 
 	org.eclipse.emf.examples.extlibrary.Borrower output = org.eclipse.emf.examples.extlibrary.EXTLibraryFactory.eINSTANCE.createBorrower();
 
+	if(input.getAddress() != null) {
 	output.setAddress(input.getAddress().toString());
+	}
+	if(input.getFirstName() != null) {
 	output.setFirstName(input.getFirstName().toString());
+	}
+	if(input.getLastName() != null) {
 	output.setLastName(input.getLastName().toString());
+	}
+	if(input.getBorrowed() != null) {
+
 	EList<org.eclipse.emf.examples.extlibrary.Lendable> borrowedList = output.getBorrowed();
 	for(org.eclipse.emf.examples.extlibrary.avro.Lendable itr : input.getBorrowed()) {
 		borrowedList.add((org.eclipse.emf.examples.extlibrary.Lendable)convertAvroObject(itr));
+	}
 	}
 
 	return output;
@@ -654,9 +893,15 @@ public org.eclipse.emf.examples.extlibrary.Person convertPerson(
 
 	org.eclipse.emf.examples.extlibrary.Person output = org.eclipse.emf.examples.extlibrary.EXTLibraryFactory.eINSTANCE.createPerson();
 
+	if(input.getAddress() != null) {
 	output.setAddress(input.getAddress().toString());
+	}
+	if(input.getFirstName() != null) {
 	output.setFirstName(input.getFirstName().toString());
+	}
+	if(input.getLastName() != null) {
 	output.setLastName(input.getLastName().toString());
+	}
 
 	return output;
 }
@@ -665,10 +910,18 @@ public org.eclipse.emf.examples.extlibrary.Employee convertEmployee(
 
 	org.eclipse.emf.examples.extlibrary.Employee output = org.eclipse.emf.examples.extlibrary.EXTLibraryFactory.eINSTANCE.createEmployee();
 
+	if(input.getAddress() != null) {
 	output.setAddress(input.getAddress().toString());
+	}
+	if(input.getFirstName() != null) {
 	output.setFirstName(input.getFirstName().toString());
+	}
+	if(input.getLastName() != null) {
 	output.setLastName(input.getLastName().toString());
+	}
+	if(input.getManager() != null) {
 	output.setManager(convertEmployee(input.getManager()));
+	}
 
 	return output;
 }

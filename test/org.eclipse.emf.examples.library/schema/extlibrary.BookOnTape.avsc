@@ -1,46 +1,46 @@
 {"type":"record","name":"BookOnTape","namespace":"org.eclipse.emf.examples.extlibrary.avro","fields":[
-{"name":"publicationDate","type":"string"}
+{"name":"publicationDate","type":["null","string"]}
 ,{"name":"copies","type":"int"}
-,{"name":"borrowers","type":{"type":"array","items":
-		{"type":"record","name":"Borrower","fields":[
-		{"name":"address","type":"string"}
-		,{"name":"firstName","type":"string"}
-		,{"name":"lastName","type":"string"}
-		,{"name":"borrowed","type":{"type":"array","items":
-				{"type":"record","name":"Lendable","fields":[
-				{"name":"copies","type":"int"}
-				,{"name":"borrowers","type":{"type":"array","items":
-						"Borrower"
-				}}
+,{"name":"borrowers","type":["null",{"type":"array","items":
+				{"type":"record","name":"Borrower","fields":[
+				{"name":"address","type":["null","string"]}
+				,{"name":"firstName","type":"string"}
+				,{"name":"lastName","type":"string"}
+				,{"name":"borrowed","type":["null",{"type":"array","items":
+								{"type":"record","name":"Lendable","fields":[
+								{"name":"copies","type":"int"}
+								,{"name":"borrowers","type":["null",{"type":"array","items":
+												"Borrower"
+										}]}
+								]}
+						}]}
 				]}
-		}}
-		]}
-}}
-,{"name":"title","type":"string"}
+		}]}
+,{"name":"title","type":["null","string"]}
 ,{"name":"minutesLength","type":"int"}
 ,{"name":"damaged","type":"boolean"}
-,{"name":"reader","type":{"type":"record","name":"Person","fields":[
-		{"name":"address","type":"string"}
+,{"name":"reader","type":["null",{"type":"record","name":"Person","fields":[
+		{"name":"address","type":["null","string"]}
 		,{"name":"firstName","type":"string"}
 		,{"name":"lastName","type":"string"}
-		]}}
-,{"name":"author","type":{"type":"record","name":"Writer","fields":[
-		{"name":"address","type":"string"}
+		]}]}
+,{"name":"author","type":["null",{"type":"record","name":"Writer","fields":[
+		{"name":"address","type":["null","string"]}
 		,{"name":"firstName","type":"string"}
 		,{"name":"lastName","type":"string"}
-		,{"name":"name","type":"string"}
-		,{"name":"books","type":{"type":"array","items":
-				{"type":"record","name":"Book","fields":[
-				{"name":"publicationDate","type":"string"}
-				,{"name":"copies","type":"int"}
-				,{"name":"borrowers","type":{"type":"array","items":
-						"Borrower"
-				}}
-				,{"name":"title","type":"string"}
-				,{"name":"pages","type":"int"}
-				,{"name":"category","type":{"type":"enum","name":"BookCategory","symbols":["Mystery","ScienceFiction","Biography"]}}
-				,{"name":"author","type":"Writer"}
-				]}
-		}}
-		]}}
+		,{"name":"name","type":["null","string"]}
+		,{"name":"books","type":["null",{"type":"array","items":
+						{"type":"record","name":"Book","fields":[
+						{"name":"publicationDate","type":["null","string"]}
+						,{"name":"copies","type":"int"}
+						,{"name":"borrowers","type":["null",{"type":"array","items":
+										"Borrower"
+								}]}
+						,{"name":"title","type":["null","string"]}
+						,{"name":"pages","type":"int"}
+						,{"name":"category","type":{"type":"enum","name":"BookCategory","symbols":["Mystery","ScienceFiction","Biography"]}}
+						,{"name":"author","type":"Writer"}
+						]}
+				}]}
+		]}]}
 ]}

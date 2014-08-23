@@ -1,13 +1,13 @@
 {"type":"record","name":"Borrower","namespace":"org.eclipse.emf.examples.extlibrary.avro","fields":[
-{"name":"address","type":"string"}
+{"name":"address","type":["null","string"]}
 ,{"name":"firstName","type":"string"}
 ,{"name":"lastName","type":"string"}
-,{"name":"borrowed","type":{"type":"array","items":
-		{"type":"record","name":"Lendable","fields":[
-		{"name":"copies","type":"int"}
-		,{"name":"borrowers","type":{"type":"array","items":
-				"Borrower"
-		}}
-		]}
-}}
+,{"name":"borrowed","type":["null",{"type":"array","items":
+				{"type":"record","name":"Lendable","fields":[
+				{"name":"copies","type":"int"}
+				,{"name":"borrowers","type":["null",{"type":"array","items":
+								"Borrower"
+						}]}
+				]}
+		}]}
 ]}
