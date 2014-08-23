@@ -10,6 +10,8 @@
  *******************************************************************************/
 package net.langleystudios.avro.test;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.io.File;
@@ -30,10 +32,15 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.examples.extlibrary.Book;
 import org.eclipse.emf.examples.extlibrary.EXTLibraryFactory;
+import org.eclipse.emf.examples.extlibrary.Library;
 import org.eclipse.emf.examples.extlibrary.Person;
 import org.eclipse.emf.examples.extlibrary.avro.ConvertEMFtoAvro;
+import org.eclipse.emf.examples.extlibrary.avro.Writer;
 import org.junit.Test;
+import org.junit.experimental.categories.Categories.ExcludeCategory;
 
 public class AvroResourceTest {
 
@@ -79,7 +86,7 @@ public class AvroResourceTest {
 	}
 
 	@Test
-	public void testExplicitResource() {
+	public void testPersonResource() {
 
 		ResourceSet resourceSet = new ResourceSetImpl();
 		URI uri = URI.createFileURI("tempFile.avro");
@@ -95,6 +102,39 @@ public class AvroResourceTest {
 		try {
 			resource.save(null);
 		} catch (IOException e) {
+			fail(e.getMessage());
+		} catch (Error error) {
+			fail(error.getMessage());
+		}
+
+		AvroResource loadResource = new AvroResource(uri);
+		loadResource.setClassLoader(org.eclipse.emf.examples.extlibrary.avro.Person.class.getClassLoader());
+		loadResource.setConverter(converter);
+		try {
+			loadResource.load(null);
+		} catch (IOException e) {
+			fail(e.getMessage());
+		}
+		assertTrue(loadResource.getContents().size() == 1);
+		EObject eobject = loadResource.getContents().get(0);
+		boolean isequal = EcoreUtil.equals(person,eobject);
+		assertTrue(isequal);
+	}
+
+	@Test
+	public void testLibraryResource() {
+
+		ResourceSet resourceSet = new ResourceSetImpl();
+		URI uri = URI.createFileURI("tempFile.avro");
+		resourceSet.createResource(uri);
+		AvroResource resource = new AvroResource(uri);
+		ConvertEMFtoAvro converter = new ConvertEMFtoAvro();
+		resource.setConverter(converter);
+		Library library = EXTLibraryFactory.eINSTANCE.createLibrary();
+		resource.getContents().add(library);
+		try {
+			resource.save(null);
+		} catch (IOException e) {
 			e.printStackTrace();
 			fail(e.getMessage());
 		} catch (Error error) {
@@ -107,7 +147,55 @@ public class AvroResourceTest {
 		try {
 			loadResource.load(null);
 		} catch (IOException e) {
-			e.printStackTrace();
+			fail(e.getMessage());
+		}
+		for(EObject eobject: loadResource.getContents())
+		{
+			System.out.println(eobject);
+		}
+	}
+
+	@Test(expected=IOException.class)
+	public void testInvalidBookResource() throws IOException {
+
+		ResourceSet resourceSet = new ResourceSetImpl();
+		URI uri = URI.createFileURI("book.avro");
+		resourceSet.createResource(uri);
+		AvroResource resource = new AvroResource(uri);
+		ConvertEMFtoAvro converter = new ConvertEMFtoAvro();
+		resource.setConverter(converter);
+		Book book = EXTLibraryFactory.eINSTANCE.createBook();
+		resource.getContents().add(book);
+		resource.save(null);
+	}
+
+	@Test
+	public void testValidBookResource() {
+
+		ResourceSet resourceSet = new ResourceSetImpl();
+		URI uri = URI.createFileURI("book.avro");
+		resourceSet.createResource(uri);
+		AvroResource resource = new AvroResource(uri);
+		ConvertEMFtoAvro converter = new ConvertEMFtoAvro();
+		resource.setConverter(converter);
+		Book book = EXTLibraryFactory.eINSTANCE.createBook();
+		org.eclipse.emf.examples.extlibrary.Writer writer = EXTLibraryFactory.eINSTANCE.createWriter();
+		book.setAuthor(writer);
+		resource.getContents().add(book);
+		try {
+			resource.save(null);
+		} catch (IOException e) {
+			fail(e.getMessage());
+		} catch (Error error) {
+			fail(error.getMessage());
+		}
+
+		AvroResource loadResource = new AvroResource(uri);
+		loadResource.setClassLoader(org.eclipse.emf.examples.extlibrary.avro.Person.class.getClassLoader());
+		loadResource.setConverter(converter);
+		try {
+			loadResource.load(null);
+		} catch (IOException e) {
 			fail(e.getMessage());
 		}
 		for(EObject eobject: loadResource.getContents())
@@ -132,7 +220,6 @@ public class AvroResourceTest {
 		try {
 			resource.save(null);
 		} catch (IOException e) {
-			e.printStackTrace();
 			fail(e.getMessage());
 		} catch (Error error) {
 			error.printStackTrace();
@@ -140,15 +227,12 @@ public class AvroResourceTest {
 		
 		resourceSet = null;
 		ResourceSet newSet = new ResourceSetImpl();
-//		Registry reg = newSet.getResourceFactoryRegistry();
-//		reg.getExtensionToFactoryMap().put("library_avro", new AvroResourceFactory());
-//		for(String key: reg.getContentTypeToFactoryMap().keySet())
-//			System.out.println(key);
 		try {
-		Resource newResource = newSet.getResource(uri,  true);
+			Resource newResource = newSet.getResource(uri,  true);
+			assertNotNull(newResource);
 		} catch(Exception e)
 		{
-			e.printStackTrace();
+			fail(e.getMessage());
 		}
 	}
 }

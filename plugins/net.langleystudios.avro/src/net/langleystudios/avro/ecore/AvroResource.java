@@ -76,7 +76,9 @@ public class AvroResource extends ResourceImpl {
 	@Override
 	protected void doSave(OutputStream outputStream, Map<?, ?> options)
 			throws IOException {
-
+		Error error = null;
+		Exception exception = null;
+		
 		// Create a union schema using only the EObjects that are in contents
 		List<Schema> schemaList = new ArrayList<Schema>();
 		for (EObject eobject : this.contents) {
@@ -106,15 +108,22 @@ public class AvroResource extends ResourceImpl {
 				}
 			}
 		} catch (Exception exc) {
-			exc.printStackTrace();
-		} catch (Error error) {
-			error.printStackTrace();
+			exception = exc;
+		} catch (Error err) {
+			error = err;
 		}
 		finally {
 			if(fileWriter != null)
 			{
 				fileWriter.close();
 			}
+		}
+		if(exception != null)
+		{
+			throw new IOException(exception);
+		} else if(error != null)
+		{
+			throw new IOException(error);
 		}
 	}
 }
