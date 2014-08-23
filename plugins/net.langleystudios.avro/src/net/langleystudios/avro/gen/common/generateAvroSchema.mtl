@@ -78,7 +78,7 @@
 [/template]
 
 [comment
-TODO: Need to break up this big if/else block
+	This template generates code for an EStructuralFeature
 /]
 [template public generateFeature(aFeature : EStructuralFeature) post(trim())]
 [if(aFeature.upperBound <> 1)]
@@ -88,29 +88,56 @@ TODO: Need to break up this big if/else block
 		{"name":"[aFeature.name/]","type":['['/]"null",[aFeature.generateArray()/][']'/]}
 	[/if]
 [elseif(aFeature.oclIsTypeOf(EAttribute))]
-	[if(aFeature.eType.oclIsTypeOf(EEnum))]
-		{"name":"[aFeature.name/]","type":[aFeature.eType->filter(EEnum).generateEnum()/]}}
+	[aFeature.oclAsType(EAttribute).generateAttribute()/]
+[else]
+	[aFeature.oclAsType(EReference).generateReference()/]
+[/if]
+[/template]
+
+[comment
+	This template generates code for an EReference
+/]
+[template public generateReference(aReference : EReference) post(trim())]
+[if(aReference.upperBound <> 1)]
+	[if(aReference.lowerBound <> 0)]
+		{"name":"[aReference.name/]","type":[aReference.generateArray()/]}
 	[else]
-		[if(aFeature.lowerBound <> 0)]
-		{"name":"[aFeature.name/]","type":"[aFeature.eType.printAvroType()/]"}
-		[elseif(aFeature.eType.name = 'EString' or aFeature.eType.name = 'EDate')]
-		{"name":"[aFeature.name/]","type":['['/]"null","[aFeature.eType.printAvroType()/]"[']'/]}
-		[else]
-		{"name":"[aFeature.name/]","type":"[aFeature.eType.printAvroType()/]"}
-		[/if]
+		{"name":"[aReference.name/]","type":['['/]"null",[aReference.generateArray()/][']'/]}
 	[/if]
 [else]
-	[if(aFeature.oclIsTypeOf(EReference) and addClass(aFeature.oclAsType(EReference).eReferenceType))]
-		[if(aFeature.lowerBound <> 0)]
-		{"name":"[aFeature.name/]","type":[aFeature.oclAsType(EReference).eReferenceType.generateRecord()/]}
+	[if(addClass(aReference.eReferenceType))]
+		[if(aReference.lowerBound <> 0)]
+		{"name":"[aReference.name/]","type":[aReference.eReferenceType.generateRecord()/]}
 		[else]
-		{"name":"[aFeature.name/]","type":['['/]"null",[aFeature.oclAsType(EReference).eReferenceType.generateRecord()/][']'/]}
+		{"name":"[aReference.name/]","type":['['/]"null",[aReference.eReferenceType.generateRecord()/][']'/]}
 		[/if]
 	[else]
-		[if(aFeature.lowerBound <> 0)]
-		{"name":"[aFeature.name/]","type":"[aFeature.eType.name/]"}
+		[if(aReference.lowerBound <> 0)]
+		{"name":"[aReference.name/]","type":"[aReference.eType.name/]"}
 		[else]
-		{"name":"[aFeature.name/]","type":['['/]"null","[aFeature.eType.name/]"[']'/]}
+		{"name":"[aReference.name/]","type":['['/]"null","[aReference.eType.name/]"[']'/]}
+		[/if]
+	[/if]
+[/if]
+[/template]
+
+[template public generateAttribute(anAttribute : EAttribute) post(trim())]
+[if(anAttribute.upperBound <> 1)]
+	[if(anAttribute.lowerBound <> 0)]
+		{"name":"[anAttribute.name/]","type":[anAttribute.generateArray()/]}
+	[else]
+		{"name":"[anAttribute.name/]","type":['['/]"null",[anAttribute.generateArray()/][']'/]}
+	[/if]
+[else]
+	[if(anAttribute.eType.oclIsTypeOf(EEnum))]
+		{"name":"[anAttribute.name/]","type":[anAttribute.eType->filter(EEnum).generateEnum()/]}}
+	[else]
+		[if(anAttribute.lowerBound <> 0)]
+		{"name":"[anAttribute.name/]","type":"[anAttribute.eType.printAvroType()/]"}
+		[elseif(anAttribute.eType.name = 'EString' or anAttribute.eType.name = 'EDate')]
+		{"name":"[anAttribute.name/]","type":['['/]"null","[anAttribute.eType.printAvroType()/]"[']'/]}
+		[else]
+		{"name":"[anAttribute.name/]","type":"[anAttribute.eType.printAvroType()/]"}
 		[/if]
 	[/if]
 [/if]
