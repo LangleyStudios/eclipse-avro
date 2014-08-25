@@ -38,7 +38,10 @@ import net.langleystudios.avro.AvroEMFConverter;
 import org.apache.avro.Schema;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 
 [comment Main class definition /]
 public class ConvertEMFtoAvro implements AvroEMFConverter {
@@ -88,16 +91,31 @@ public [avroPrefix.concat(eclass.name)/] convert[eclass.name/](
 [for (aFeature: EStructuralFeature | eclass.eAllStructuralFeatures)]
 [if( not aFeature.eType.name.equalsIgnoreCase('EFeatureMapEntry'))]
 [if(aFeature.upperBound <> 1)]
-	List<[avroPrefix.concat(aFeature.eType.name)/]> [aFeature.name/]List = new ArrayList<[avroPrefix.concat(aFeature.eType.name)/]>();
-	for([emfPrefix.concat(aFeature.eType.name)/] itr : input.get[aFeature.name.toUpperFirst()/]()) {
-		[aFeature.name/]List.add(convert[aFeature.eType.name/](itr));
-	}
-	if([aFeature.name/]List.size() > 0)
-	{
-		output.set[aFeature.name.toUpperFirst()/]([aFeature.name/]List);
-	} else {
-		output.set[aFeature.name.toUpperFirst()/](null);
-	}
+	[comment]Handle array of non-containment references[/comment]
+	[if(aFeature.oclIsTypeOf(EReference) and not aFeature.oclAsType(EReference).containment)]
+		List<CharSequence> [aFeature.name/]List = new ArrayList<CharSequence>();
+		for([emfPrefix.concat(aFeature.eType.name)/] itr : input.get[aFeature.name.toUpperFirst()/]()) {
+			[aFeature.name/]List.add(EcoreUtil.getURI(itr).toString());
+		}
+		if([aFeature.name/]List.size() > 0)
+		{
+			output.set[aFeature.name.toUpperFirst()/]([aFeature.name/]List);
+		} else {
+			output.set[aFeature.name.toUpperFirst()/](null);
+		}
+	[comment]Now handle normal array[/comment]
+	[else]
+		List<[avroPrefix.concat(aFeature.eType.name)/]> [aFeature.name/]List = new ArrayList<[avroPrefix.concat(aFeature.eType.name)/]>();
+		for([emfPrefix.concat(aFeature.eType.name)/] itr : input.get[aFeature.name.toUpperFirst()/]()) {
+			[aFeature.name/]List.add(convert[aFeature.eType.name/](itr));
+		}
+		if([aFeature.name/]List.size() > 0)
+		{
+			output.set[aFeature.name.toUpperFirst()/]([aFeature.name/]List);
+		} else {
+			output.set[aFeature.name.toUpperFirst()/](null);
+		}
+	[/if]
 [elseif(aFeature.oclIsTypeOf(EAttribute))]
 	[if(aFeature.eType.oclIsTypeOf(EEnum))]
 	if(input.get[aFeature.name.toUpperFirst()/]() != null) {
@@ -113,7 +131,15 @@ public [avroPrefix.concat(eclass.name)/] convert[eclass.name/](
 	output.set[aFeature.name.toUpperFirst()/](input.get[aFeature.name.toUpperFirst()/]());
 	[/if]
 [else]
+	[comment]Handle non-containment references[/comment]
+	[if(aFeature.oclIsTypeOf(EReference) and not aFeature.oclAsType(EReference).containment)]
+	if(input.get[aFeature.name.toUpperFirst()/]() != null)
+	{
+		output.set[aFeature.name.toUpperFirst()/](EcoreUtil.getURI(input.get[aFeature.name.toUpperFirst()/]()).toString());
+	}
+	[else]
 	output.set[aFeature.name.toUpperFirst()/](convert[aFeature.eType.name/](input.get[aFeature.name.toUpperFirst()/]()));
+	[/if]
 [/if]
 [/if]
 
@@ -147,14 +173,24 @@ public [emfPrefix.concat(eclass.name)/] convert[eclass.name/](
 [if( not aFeature.eType.name.equalsIgnoreCase('EFeatureMapEntry'))]
 	if(input.get[aFeature.name.toUpperFirst()/]() != null) {
 [if(aFeature.upperBound <> 1)]
-
+	[if(aFeature.oclIsTypeOf(EReference) and not aFeature.oclAsType(EReference).containment)]
+	EList<[emfPrefix.concat(aFeature.eType.name)/]> [aFeature.name/]List = output.get[aFeature.name.toUpperFirst()/]();
+	for(CharSequence itr : input.get[aFeature.name.toUpperFirst()/]()) {
+		[emfPrefix.concat(aFeature.eType.name)/] [aFeature.name/]Proxy = [emfFactory/].eINSTANCE.create[aFeature.eType.name/]();
+		InternalEObject internalObject = (InternalEObject)[aFeature.name/]Proxy;
+	    URI uri = URI.createURI(itr.toString());
+		internalObject.eSetProxyURI(uri);
+		[aFeature.name/]List.add([aFeature.name/]Proxy);
+	}
+	[else]
 	EList<[emfPrefix.concat(aFeature.eType.name)/]> [aFeature.name/]List = output.get[aFeature.name.toUpperFirst()/]();
 	for([avroPrefix.concat(aFeature.eType.name)/] itr : input.get[aFeature.name.toUpperFirst()/]()) {
 		[aFeature.name/]List.add(([emfPrefix.concat(aFeature.eType.name)/])convertAvroObject(itr));
 	}
+	[/if]
 [elseif(aFeature.oclIsTypeOf(EAttribute))]
 	[if(aFeature.eType.oclIsTypeOf(EEnum))]
-	output.set[aFeature.name.toUpperFirst()/]([emfPrefix.concat(aFeature.eType.name)/].valueOf(input.get[aFeature.name.toUpperFirst()/]().name()));
+	output.set[aFeature.name.toUpperFirst()/]([emfPrefix.concat(aFeature.eType.name)/].get(input.get[aFeature.name.toUpperFirst()/]().name()));
 	[elseif(aFeature.eType.name.equalsIgnoreCase('EBoolean'))]
 	output.set[aFeature.name.toUpperFirst()/](input.get[aFeature.name.toUpperFirst()/]());
 	[elseif(aFeature.eType.name.equalsIgnoreCase('EDate'))]
@@ -171,7 +207,16 @@ public [emfPrefix.concat(eclass.name)/] convert[eclass.name/](
 	output.set[aFeature.name.toUpperFirst()/](input.get[aFeature.name.toUpperFirst()/]());
 	[/if]
 [else]
+	[comment]Handle non-containment references[/comment]
+	[if(aFeature.oclIsTypeOf(EReference) and not aFeature.oclAsType(EReference).containment)]
+	[emfPrefix.concat(aFeature.eType.name)/] [aFeature.name/]Proxy = [emfFactory/].eINSTANCE.create[aFeature.eType.name/]();
+	InternalEObject internalObject = (InternalEObject)[aFeature.name/]Proxy;
+    URI uri = URI.createURI(input.get[aFeature.name.toUpperFirst()/]().toString());
+	internalObject.eSetProxyURI(uri);
+	output.set[aFeature.name.toUpperFirst()/]([aFeature.name/]Proxy);
+	[else]
 	output.set[aFeature.name.toUpperFirst()/](convert[aFeature.eType.name/](input.get[aFeature.name.toUpperFirst()/]()));
+	[/if]
 [/if]
 	}
 [/if]
