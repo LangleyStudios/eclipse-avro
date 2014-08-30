@@ -7,15 +7,15 @@ package org.eclipse.emf.examples.extlibrary.avro;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class VideoCassette extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"VideoCassette\",\"namespace\":\"org.eclipse.emf.examples.extlibrary.avro\",\"fields\":[{\"name\":\"publicationDate\",\"type\":[\"null\",\"string\"]},{\"name\":\"copies\",\"type\":\"int\"},{\"name\":\"borrowers\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Borrower\",\"fields\":[{\"name\":\"address\",\"type\":[\"null\",\"string\"]},{\"name\":\"firstName\",\"type\":\"string\"},{\"name\":\"lastName\",\"type\":\"string\"},{\"name\":\"borrowed\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Lendable\",\"fields\":[{\"name\":\"copies\",\"type\":\"int\"},{\"name\":\"borrowers\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"Borrower\"}]}]}}]}]}}]},{\"name\":\"title\",\"type\":[\"null\",\"string\"]},{\"name\":\"minutesLength\",\"type\":\"int\"},{\"name\":\"damaged\",\"type\":\"boolean\"},{\"name\":\"cast\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Person\",\"fields\":[{\"name\":\"address\",\"type\":[\"null\",\"string\"]},{\"name\":\"firstName\",\"type\":\"string\"},{\"name\":\"lastName\",\"type\":\"string\"}]}}]}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"VideoCassette\",\"namespace\":\"org.eclipse.emf.examples.extlibrary.avro\",\"fields\":[{\"name\":\"publicationDate\",\"type\":[\"null\",\"string\"]},{\"name\":\"copies\",\"type\":\"int\"},{\"name\":\"borrowers\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"string\"}]},{\"name\":\"title\",\"type\":[\"null\",\"string\"]},{\"name\":\"minutesLength\",\"type\":\"int\"},{\"name\":\"damaged\",\"type\":\"boolean\"},{\"name\":\"cast\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"string\"}]}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public java.lang.CharSequence publicationDate;
   @Deprecated public int copies;
-  @Deprecated public java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> borrowers;
+  @Deprecated public java.util.List<java.lang.CharSequence> borrowers;
   @Deprecated public java.lang.CharSequence title;
   @Deprecated public int minutesLength;
   @Deprecated public boolean damaged;
-  @Deprecated public java.util.List<org.eclipse.emf.examples.extlibrary.avro.Person> cast;
+  @Deprecated public java.util.List<java.lang.CharSequence> cast;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -27,7 +27,7 @@ public class VideoCassette extends org.apache.avro.specific.SpecificRecordBase i
   /**
    * All-args constructor.
    */
-  public VideoCassette(java.lang.CharSequence publicationDate, java.lang.Integer copies, java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> borrowers, java.lang.CharSequence title, java.lang.Integer minutesLength, java.lang.Boolean damaged, java.util.List<org.eclipse.emf.examples.extlibrary.avro.Person> cast) {
+  public VideoCassette(java.lang.CharSequence publicationDate, java.lang.Integer copies, java.util.List<java.lang.CharSequence> borrowers, java.lang.CharSequence title, java.lang.Integer minutesLength, java.lang.Boolean damaged, java.util.List<java.lang.CharSequence> cast) {
     this.publicationDate = publicationDate;
     this.copies = copies;
     this.borrowers = borrowers;
@@ -57,11 +57,11 @@ public class VideoCassette extends org.apache.avro.specific.SpecificRecordBase i
     switch (field$) {
     case 0: publicationDate = (java.lang.CharSequence)value$; break;
     case 1: copies = (java.lang.Integer)value$; break;
-    case 2: borrowers = (java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower>)value$; break;
+    case 2: borrowers = (java.util.List<java.lang.CharSequence>)value$; break;
     case 3: title = (java.lang.CharSequence)value$; break;
     case 4: minutesLength = (java.lang.Integer)value$; break;
     case 5: damaged = (java.lang.Boolean)value$; break;
-    case 6: cast = (java.util.List<org.eclipse.emf.examples.extlibrary.avro.Person>)value$; break;
+    case 6: cast = (java.util.List<java.lang.CharSequence>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -99,7 +99,7 @@ public class VideoCassette extends org.apache.avro.specific.SpecificRecordBase i
   /**
    * Gets the value of the 'borrowers' field.
    */
-  public java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> getBorrowers() {
+  public java.util.List<java.lang.CharSequence> getBorrowers() {
     return borrowers;
   }
 
@@ -107,7 +107,7 @@ public class VideoCassette extends org.apache.avro.specific.SpecificRecordBase i
    * Sets the value of the 'borrowers' field.
    * @param value the value to set.
    */
-  public void setBorrowers(java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> value) {
+  public void setBorrowers(java.util.List<java.lang.CharSequence> value) {
     this.borrowers = value;
   }
 
@@ -159,7 +159,7 @@ public class VideoCassette extends org.apache.avro.specific.SpecificRecordBase i
   /**
    * Gets the value of the 'cast' field.
    */
-  public java.util.List<org.eclipse.emf.examples.extlibrary.avro.Person> getCast() {
+  public java.util.List<java.lang.CharSequence> getCast() {
     return cast;
   }
 
@@ -167,7 +167,7 @@ public class VideoCassette extends org.apache.avro.specific.SpecificRecordBase i
    * Sets the value of the 'cast' field.
    * @param value the value to set.
    */
-  public void setCast(java.util.List<org.eclipse.emf.examples.extlibrary.avro.Person> value) {
+  public void setCast(java.util.List<java.lang.CharSequence> value) {
     this.cast = value;
   }
 
@@ -194,11 +194,11 @@ public class VideoCassette extends org.apache.avro.specific.SpecificRecordBase i
 
     private java.lang.CharSequence publicationDate;
     private int copies;
-    private java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> borrowers;
+    private java.util.List<java.lang.CharSequence> borrowers;
     private java.lang.CharSequence title;
     private int minutesLength;
     private boolean damaged;
-    private java.util.List<org.eclipse.emf.examples.extlibrary.avro.Person> cast;
+    private java.util.List<java.lang.CharSequence> cast;
 
     /** Creates a new Builder */
     private Builder() {
@@ -321,12 +321,12 @@ public class VideoCassette extends org.apache.avro.specific.SpecificRecordBase i
     }
 
     /** Gets the value of the 'borrowers' field */
-    public java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> getBorrowers() {
+    public java.util.List<java.lang.CharSequence> getBorrowers() {
       return borrowers;
     }
     
     /** Sets the value of the 'borrowers' field */
-    public org.eclipse.emf.examples.extlibrary.avro.VideoCassette.Builder setBorrowers(java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> value) {
+    public org.eclipse.emf.examples.extlibrary.avro.VideoCassette.Builder setBorrowers(java.util.List<java.lang.CharSequence> value) {
       validate(fields()[2], value);
       this.borrowers = value;
       fieldSetFlags()[2] = true;
@@ -419,12 +419,12 @@ public class VideoCassette extends org.apache.avro.specific.SpecificRecordBase i
     }
 
     /** Gets the value of the 'cast' field */
-    public java.util.List<org.eclipse.emf.examples.extlibrary.avro.Person> getCast() {
+    public java.util.List<java.lang.CharSequence> getCast() {
       return cast;
     }
     
     /** Sets the value of the 'cast' field */
-    public org.eclipse.emf.examples.extlibrary.avro.VideoCassette.Builder setCast(java.util.List<org.eclipse.emf.examples.extlibrary.avro.Person> value) {
+    public org.eclipse.emf.examples.extlibrary.avro.VideoCassette.Builder setCast(java.util.List<java.lang.CharSequence> value) {
       validate(fields()[6], value);
       this.cast = value;
       fieldSetFlags()[6] = true;
@@ -449,11 +449,11 @@ public class VideoCassette extends org.apache.avro.specific.SpecificRecordBase i
         VideoCassette record = new VideoCassette();
         record.publicationDate = fieldSetFlags()[0] ? this.publicationDate : (java.lang.CharSequence) defaultValue(fields()[0]);
         record.copies = fieldSetFlags()[1] ? this.copies : (java.lang.Integer) defaultValue(fields()[1]);
-        record.borrowers = fieldSetFlags()[2] ? this.borrowers : (java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower>) defaultValue(fields()[2]);
+        record.borrowers = fieldSetFlags()[2] ? this.borrowers : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[2]);
         record.title = fieldSetFlags()[3] ? this.title : (java.lang.CharSequence) defaultValue(fields()[3]);
         record.minutesLength = fieldSetFlags()[4] ? this.minutesLength : (java.lang.Integer) defaultValue(fields()[4]);
         record.damaged = fieldSetFlags()[5] ? this.damaged : (java.lang.Boolean) defaultValue(fields()[5]);
-        record.cast = fieldSetFlags()[6] ? this.cast : (java.util.List<org.eclipse.emf.examples.extlibrary.avro.Person>) defaultValue(fields()[6]);
+        record.cast = fieldSetFlags()[6] ? this.cast : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[6]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

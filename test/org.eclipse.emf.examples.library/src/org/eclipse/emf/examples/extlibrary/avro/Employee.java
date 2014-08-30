@@ -7,12 +7,12 @@ package org.eclipse.emf.examples.extlibrary.avro;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class Employee extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Employee\",\"namespace\":\"org.eclipse.emf.examples.extlibrary.avro\",\"fields\":[{\"name\":\"address\",\"type\":[\"null\",\"string\"]},{\"name\":\"firstName\",\"type\":\"string\"},{\"name\":\"lastName\",\"type\":\"string\"},{\"name\":\"manager\",\"type\":[\"null\",\"Employee\"]}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Employee\",\"namespace\":\"org.eclipse.emf.examples.extlibrary.avro\",\"fields\":[{\"name\":\"address\",\"type\":[\"null\",\"string\"]},{\"name\":\"firstName\",\"type\":[\"null\",\"string\"]},{\"name\":\"lastName\",\"type\":[\"null\",\"string\"]},{\"name\":\"manager\",\"type\":[\"null\",\"string\"]}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public java.lang.CharSequence address;
   @Deprecated public java.lang.CharSequence firstName;
   @Deprecated public java.lang.CharSequence lastName;
-  @Deprecated public org.eclipse.emf.examples.extlibrary.avro.Employee manager;
+  @Deprecated public java.lang.CharSequence manager;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -24,7 +24,7 @@ public class Employee extends org.apache.avro.specific.SpecificRecordBase implem
   /**
    * All-args constructor.
    */
-  public Employee(java.lang.CharSequence address, java.lang.CharSequence firstName, java.lang.CharSequence lastName, org.eclipse.emf.examples.extlibrary.avro.Employee manager) {
+  public Employee(java.lang.CharSequence address, java.lang.CharSequence firstName, java.lang.CharSequence lastName, java.lang.CharSequence manager) {
     this.address = address;
     this.firstName = firstName;
     this.lastName = lastName;
@@ -49,7 +49,7 @@ public class Employee extends org.apache.avro.specific.SpecificRecordBase implem
     case 0: address = (java.lang.CharSequence)value$; break;
     case 1: firstName = (java.lang.CharSequence)value$; break;
     case 2: lastName = (java.lang.CharSequence)value$; break;
-    case 3: manager = (org.eclipse.emf.examples.extlibrary.avro.Employee)value$; break;
+    case 3: manager = (java.lang.CharSequence)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -102,7 +102,7 @@ public class Employee extends org.apache.avro.specific.SpecificRecordBase implem
   /**
    * Gets the value of the 'manager' field.
    */
-  public org.eclipse.emf.examples.extlibrary.avro.Employee getManager() {
+  public java.lang.CharSequence getManager() {
     return manager;
   }
 
@@ -110,7 +110,7 @@ public class Employee extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'manager' field.
    * @param value the value to set.
    */
-  public void setManager(org.eclipse.emf.examples.extlibrary.avro.Employee value) {
+  public void setManager(java.lang.CharSequence value) {
     this.manager = value;
   }
 
@@ -138,7 +138,7 @@ public class Employee extends org.apache.avro.specific.SpecificRecordBase implem
     private java.lang.CharSequence address;
     private java.lang.CharSequence firstName;
     private java.lang.CharSequence lastName;
-    private org.eclipse.emf.examples.extlibrary.avro.Employee manager;
+    private java.lang.CharSequence manager;
 
     /** Creates a new Builder */
     private Builder() {
@@ -263,12 +263,12 @@ public class Employee extends org.apache.avro.specific.SpecificRecordBase implem
     }
 
     /** Gets the value of the 'manager' field */
-    public org.eclipse.emf.examples.extlibrary.avro.Employee getManager() {
+    public java.lang.CharSequence getManager() {
       return manager;
     }
     
     /** Sets the value of the 'manager' field */
-    public org.eclipse.emf.examples.extlibrary.avro.Employee.Builder setManager(org.eclipse.emf.examples.extlibrary.avro.Employee value) {
+    public org.eclipse.emf.examples.extlibrary.avro.Employee.Builder setManager(java.lang.CharSequence value) {
       validate(fields()[3], value);
       this.manager = value;
       fieldSetFlags()[3] = true;
@@ -294,7 +294,7 @@ public class Employee extends org.apache.avro.specific.SpecificRecordBase implem
         record.address = fieldSetFlags()[0] ? this.address : (java.lang.CharSequence) defaultValue(fields()[0]);
         record.firstName = fieldSetFlags()[1] ? this.firstName : (java.lang.CharSequence) defaultValue(fields()[1]);
         record.lastName = fieldSetFlags()[2] ? this.lastName : (java.lang.CharSequence) defaultValue(fields()[2]);
-        record.manager = fieldSetFlags()[3] ? this.manager : (org.eclipse.emf.examples.extlibrary.avro.Employee) defaultValue(fields()[3]);
+        record.manager = fieldSetFlags()[3] ? this.manager : (java.lang.CharSequence) defaultValue(fields()[3]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

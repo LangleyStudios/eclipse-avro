@@ -2,62 +2,47 @@
 {"name":"address","type":["null","string"]}
 ,{"name":"name","type":["null","string"]}
 ,{"name":"writers","type":["null",{"type":"array","items":
-				{"type":"record","name":"Writer","fields":[
-				{"name":"address","type":["null","string"]}
-				,{"name":"firstName","type":"string"}
-				,{"name":"lastName","type":"string"}
-				,{"name":"name","type":["null","string"]}
-				,{"name":"books","type":["null",{"type":"array","items":
-								{"type":"record","name":"Book","fields":[
-								{"name":"publicationDate","type":["null","string"]}
-								,{"name":"copies","type":"int"}
-								,{"name":"borrowers","type":["null",{"type":"array","items":
-												{"type":"record","name":"Borrower","fields":[
-												{"name":"address","type":["null","string"]}
-												,{"name":"firstName","type":"string"}
-												,{"name":"lastName","type":"string"}
-												,{"name":"borrowed","type":["null",{"type":"array","items":
-																{"type":"record","name":"Lendable","fields":[
-																{"name":"copies","type":"int"}
-																,{"name":"borrowers","type":["null",{"type":"array","items":
-																				"Borrower"
-																		}]}
-																]}
-														}]}
-												]}
-										}]}
-								,{"name":"title","type":["null","string"]}
-								,{"name":"pages","type":"int"}
-								,{"name":"category","type":{"type":"enum","name":"BookCategory","symbols":["Mystery","ScienceFiction","Biography"]}}
-								,{"name":"author","type":"Writer"}
-								]}
-						}]}
-				]}
-		}]}
+			{"type":"record","name":"Writer","fields":[
+			{"name":"address","type":["null","string"]}
+			,{"name":"firstName","type":["null","string"]}
+			,{"name":"lastName","type":["null","string"]}
+			,{"name":"name","type":["null","string"]}
+			,{"name":"books","type":["null",{"type":"array","items":
+						"string"
+				}]}
+			]}
+	}]}
 ,{"name":"employees","type":["null",{"type":"array","items":
-				{"type":"record","name":"Employee","fields":[
-				{"name":"address","type":["null","string"]}
-				,{"name":"firstName","type":"string"}
-				,{"name":"lastName","type":"string"}
-				,{"name":"manager","type":["null","Employee"]}
-				]}
-		}]}
+			{"type":"record","name":"Employee","fields":[
+			{"name":"address","type":["null","string"]}
+			,{"name":"firstName","type":["null","string"]}
+			,{"name":"lastName","type":["null","string"]}
+			,{"name":"manager","type":["null","string"]}
+			]}
+	}]}
 ,{"name":"borrowers","type":["null",{"type":"array","items":
-				"Borrower"
-		}]}
+			{"type":"record","name":"Borrower","fields":[
+			{"name":"address","type":["null","string"]}
+			,{"name":"firstName","type":["null","string"]}
+			,{"name":"lastName","type":["null","string"]}
+			,{"name":"borrowed","type":["null",{"type":"array","items":
+						"string"
+				}]}
+			]}
+	}]}
 ,{"name":"stock","type":["null",{"type":"array","items":
-				{"type":"record","name":"Item","fields":[
-				{"name":"publicationDate","type":["null","string"]}
-				]}
-		}]}
+			{"type":"record","name":"Item","fields":[
+			{"name":"publicationDate","type":["null","string"]}
+			]}
+	}]}
 ,{"name":"books","type":["null",{"type":"array","items":
-				"Book"
-		}]}
+			"string"
+	}]}
 ,{"name":"branches","type":["null",{"type":"array","items":
-				"Library"
-		}]}
-,{"name":"parentBranch","type":["null","Library"]}
+			"Library"
+	}]}
+,{"name":"parentBranch","type":["null","string"]}
 ,{"name":"people","type":["null",{"type":"array","items":
-		"null"
-		}]}
+	"null"
+	}]}
 ]}

@@ -7,10 +7,10 @@ package org.eclipse.emf.examples.extlibrary.avro;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class Lendable extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Lendable\",\"namespace\":\"org.eclipse.emf.examples.extlibrary.avro\",\"fields\":[{\"name\":\"copies\",\"type\":\"int\"},{\"name\":\"borrowers\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Borrower\",\"fields\":[{\"name\":\"address\",\"type\":[\"null\",\"string\"]},{\"name\":\"firstName\",\"type\":\"string\"},{\"name\":\"lastName\",\"type\":\"string\"},{\"name\":\"borrowed\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"Lendable\"}]}]}}]}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Lendable\",\"namespace\":\"org.eclipse.emf.examples.extlibrary.avro\",\"fields\":[{\"name\":\"copies\",\"type\":\"int\"},{\"name\":\"borrowers\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"string\"}]}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public int copies;
-  @Deprecated public java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> borrowers;
+  @Deprecated public java.util.List<java.lang.CharSequence> borrowers;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -22,7 +22,7 @@ public class Lendable extends org.apache.avro.specific.SpecificRecordBase implem
   /**
    * All-args constructor.
    */
-  public Lendable(java.lang.Integer copies, java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> borrowers) {
+  public Lendable(java.lang.Integer copies, java.util.List<java.lang.CharSequence> borrowers) {
     this.copies = copies;
     this.borrowers = borrowers;
   }
@@ -41,7 +41,7 @@ public class Lendable extends org.apache.avro.specific.SpecificRecordBase implem
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: copies = (java.lang.Integer)value$; break;
-    case 1: borrowers = (java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower>)value$; break;
+    case 1: borrowers = (java.util.List<java.lang.CharSequence>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -64,7 +64,7 @@ public class Lendable extends org.apache.avro.specific.SpecificRecordBase implem
   /**
    * Gets the value of the 'borrowers' field.
    */
-  public java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> getBorrowers() {
+  public java.util.List<java.lang.CharSequence> getBorrowers() {
     return borrowers;
   }
 
@@ -72,7 +72,7 @@ public class Lendable extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'borrowers' field.
    * @param value the value to set.
    */
-  public void setBorrowers(java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> value) {
+  public void setBorrowers(java.util.List<java.lang.CharSequence> value) {
     this.borrowers = value;
   }
 
@@ -98,7 +98,7 @@ public class Lendable extends org.apache.avro.specific.SpecificRecordBase implem
     implements org.apache.avro.data.RecordBuilder<Lendable> {
 
     private int copies;
-    private java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> borrowers;
+    private java.util.List<java.lang.CharSequence> borrowers;
 
     /** Creates a new Builder */
     private Builder() {
@@ -156,12 +156,12 @@ public class Lendable extends org.apache.avro.specific.SpecificRecordBase implem
     }
 
     /** Gets the value of the 'borrowers' field */
-    public java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> getBorrowers() {
+    public java.util.List<java.lang.CharSequence> getBorrowers() {
       return borrowers;
     }
     
     /** Sets the value of the 'borrowers' field */
-    public org.eclipse.emf.examples.extlibrary.avro.Lendable.Builder setBorrowers(java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> value) {
+    public org.eclipse.emf.examples.extlibrary.avro.Lendable.Builder setBorrowers(java.util.List<java.lang.CharSequence> value) {
       validate(fields()[1], value);
       this.borrowers = value;
       fieldSetFlags()[1] = true;
@@ -185,7 +185,7 @@ public class Lendable extends org.apache.avro.specific.SpecificRecordBase implem
       try {
         Lendable record = new Lendable();
         record.copies = fieldSetFlags()[0] ? this.copies : (java.lang.Integer) defaultValue(fields()[0]);
-        record.borrowers = fieldSetFlags()[1] ? this.borrowers : (java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower>) defaultValue(fields()[1]);
+        record.borrowers = fieldSetFlags()[1] ? this.borrowers : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[1]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

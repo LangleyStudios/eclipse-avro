@@ -13,7 +13,13 @@ import net.langleystudios.avro.AvroEMFConverter;
 import org.apache.avro.Schema;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 
 public class ConvertEMFtoAvro implements AvroEMFConverter {
 
@@ -172,16 +178,17 @@ public org.eclipse.emf.examples.extlibrary.avro.Book convertBook(
 
 	output.setCopies(input.getCopies());
 
-	List<org.eclipse.emf.examples.extlibrary.avro.Borrower> borrowersList = new ArrayList<org.eclipse.emf.examples.extlibrary.avro.Borrower>();
-	for(org.eclipse.emf.examples.extlibrary.Borrower itr : input.getBorrowers()) {
-		borrowersList.add(convertBorrower(itr));
-	}
-	if(borrowersList.size() > 0)
-	{
-		output.setBorrowers(borrowersList);
-	} else {
-		output.setBorrowers(null);
-	}
+		List<CharSequence> borrowersList = new ArrayList<CharSequence>();
+		for(org.eclipse.emf.examples.extlibrary.Borrower itr : input.getBorrowers()) {
+			String uri = getURI(itr);
+			borrowersList.add(uri);
+		}
+		if(borrowersList.size() > 0)
+		{
+			output.setBorrowers(borrowersList);
+		} else {
+			output.setBorrowers(null);
+		}
 
 	output.setTitle(input.getTitle());
 
@@ -191,7 +198,11 @@ public org.eclipse.emf.examples.extlibrary.avro.Book convertBook(
 		output.setCategory(org.eclipse.emf.examples.extlibrary.avro.BookCategory.valueOf(input.getCategory().getLiteral()));
 	}
 
-	output.setAuthor(convertWriter(input.getAuthor()));
+	if(input.getAuthor() != null)
+	{
+		String uri = getURI(input.getAuthor());
+		output.setAuthor(uri);
+	}
 
 
 	return output;
@@ -210,73 +221,78 @@ public org.eclipse.emf.examples.extlibrary.avro.Library convertLibrary(
 
 	output.setName(input.getName());
 
-	List<org.eclipse.emf.examples.extlibrary.avro.Writer> writersList = new ArrayList<org.eclipse.emf.examples.extlibrary.avro.Writer>();
-	for(org.eclipse.emf.examples.extlibrary.Writer itr : input.getWriters()) {
-		writersList.add(convertWriter(itr));
-	}
-	if(writersList.size() > 0)
-	{
-		output.setWriters(writersList);
-	} else {
-		output.setWriters(null);
-	}
+		List<org.eclipse.emf.examples.extlibrary.avro.Writer> writersList = new ArrayList<org.eclipse.emf.examples.extlibrary.avro.Writer>();
+		for(org.eclipse.emf.examples.extlibrary.Writer itr : input.getWriters()) {
+			writersList.add(convertWriter(itr));
+		}
+		if(writersList.size() > 0)
+		{
+			output.setWriters(writersList);
+		} else {
+			output.setWriters(null);
+		}
 
-	List<org.eclipse.emf.examples.extlibrary.avro.Employee> employeesList = new ArrayList<org.eclipse.emf.examples.extlibrary.avro.Employee>();
-	for(org.eclipse.emf.examples.extlibrary.Employee itr : input.getEmployees()) {
-		employeesList.add(convertEmployee(itr));
-	}
-	if(employeesList.size() > 0)
-	{
-		output.setEmployees(employeesList);
-	} else {
-		output.setEmployees(null);
-	}
+		List<org.eclipse.emf.examples.extlibrary.avro.Employee> employeesList = new ArrayList<org.eclipse.emf.examples.extlibrary.avro.Employee>();
+		for(org.eclipse.emf.examples.extlibrary.Employee itr : input.getEmployees()) {
+			employeesList.add(convertEmployee(itr));
+		}
+		if(employeesList.size() > 0)
+		{
+			output.setEmployees(employeesList);
+		} else {
+			output.setEmployees(null);
+		}
 
-	List<org.eclipse.emf.examples.extlibrary.avro.Borrower> borrowersList = new ArrayList<org.eclipse.emf.examples.extlibrary.avro.Borrower>();
-	for(org.eclipse.emf.examples.extlibrary.Borrower itr : input.getBorrowers()) {
-		borrowersList.add(convertBorrower(itr));
-	}
-	if(borrowersList.size() > 0)
-	{
-		output.setBorrowers(borrowersList);
-	} else {
-		output.setBorrowers(null);
-	}
+		List<org.eclipse.emf.examples.extlibrary.avro.Borrower> borrowersList = new ArrayList<org.eclipse.emf.examples.extlibrary.avro.Borrower>();
+		for(org.eclipse.emf.examples.extlibrary.Borrower itr : input.getBorrowers()) {
+			borrowersList.add(convertBorrower(itr));
+		}
+		if(borrowersList.size() > 0)
+		{
+			output.setBorrowers(borrowersList);
+		} else {
+			output.setBorrowers(null);
+		}
 
-	List<org.eclipse.emf.examples.extlibrary.avro.Item> stockList = new ArrayList<org.eclipse.emf.examples.extlibrary.avro.Item>();
-	for(org.eclipse.emf.examples.extlibrary.Item itr : input.getStock()) {
-		stockList.add(convertItem(itr));
-	}
-	if(stockList.size() > 0)
-	{
-		output.setStock(stockList);
-	} else {
-		output.setStock(null);
-	}
+		List<org.eclipse.emf.examples.extlibrary.avro.Item> stockList = new ArrayList<org.eclipse.emf.examples.extlibrary.avro.Item>();
+		for(org.eclipse.emf.examples.extlibrary.Item itr : input.getStock()) {
+			stockList.add(convertItem(itr));
+		}
+		if(stockList.size() > 0)
+		{
+			output.setStock(stockList);
+		} else {
+			output.setStock(null);
+		}
 
-	List<org.eclipse.emf.examples.extlibrary.avro.Book> booksList = new ArrayList<org.eclipse.emf.examples.extlibrary.avro.Book>();
-	for(org.eclipse.emf.examples.extlibrary.Book itr : input.getBooks()) {
-		booksList.add(convertBook(itr));
-	}
-	if(booksList.size() > 0)
-	{
-		output.setBooks(booksList);
-	} else {
-		output.setBooks(null);
-	}
+		List<CharSequence> booksList = new ArrayList<CharSequence>();
+		for(org.eclipse.emf.examples.extlibrary.Book itr : input.getBooks()) {
+			String uri = getURI(itr);
+			booksList.add(uri);
+		}
+		if(booksList.size() > 0)
+		{
+			output.setBooks(booksList);
+		} else {
+			output.setBooks(null);
+		}
 
-	List<org.eclipse.emf.examples.extlibrary.avro.Library> branchesList = new ArrayList<org.eclipse.emf.examples.extlibrary.avro.Library>();
-	for(org.eclipse.emf.examples.extlibrary.Library itr : input.getBranches()) {
-		branchesList.add(convertLibrary(itr));
-	}
-	if(branchesList.size() > 0)
-	{
-		output.setBranches(branchesList);
-	} else {
-		output.setBranches(null);
-	}
+		List<org.eclipse.emf.examples.extlibrary.avro.Library> branchesList = new ArrayList<org.eclipse.emf.examples.extlibrary.avro.Library>();
+		for(org.eclipse.emf.examples.extlibrary.Library itr : input.getBranches()) {
+			branchesList.add(convertLibrary(itr));
+		}
+		if(branchesList.size() > 0)
+		{
+			output.setBranches(branchesList);
+		} else {
+			output.setBranches(null);
+		}
 
-	output.setParentBranch(convertLibrary(input.getParentBranch()));
+	if(input.getParentBranch() != null)
+	{
+		String uri = getURI(input.getParentBranch());
+		output.setParentBranch(uri);
+	}
 
 
 
@@ -300,16 +316,17 @@ public org.eclipse.emf.examples.extlibrary.avro.Writer convertWriter(
 
 	output.setName(input.getName());
 
-	List<org.eclipse.emf.examples.extlibrary.avro.Book> booksList = new ArrayList<org.eclipse.emf.examples.extlibrary.avro.Book>();
-	for(org.eclipse.emf.examples.extlibrary.Book itr : input.getBooks()) {
-		booksList.add(convertBook(itr));
-	}
-	if(booksList.size() > 0)
-	{
-		output.setBooks(booksList);
-	} else {
-		output.setBooks(null);
-	}
+		List<CharSequence> booksList = new ArrayList<CharSequence>();
+		for(org.eclipse.emf.examples.extlibrary.Book itr : input.getBooks()) {
+			String uri = getURI(itr);
+			booksList.add(uri);
+		}
+		if(booksList.size() > 0)
+		{
+			output.setBooks(booksList);
+		} else {
+			output.setBooks(null);
+		}
 
 
 	return output;
@@ -343,16 +360,17 @@ public org.eclipse.emf.examples.extlibrary.avro.Lendable convertLendable(
 
 	output.setCopies(input.getCopies());
 
-	List<org.eclipse.emf.examples.extlibrary.avro.Borrower> borrowersList = new ArrayList<org.eclipse.emf.examples.extlibrary.avro.Borrower>();
-	for(org.eclipse.emf.examples.extlibrary.Borrower itr : input.getBorrowers()) {
-		borrowersList.add(convertBorrower(itr));
-	}
-	if(borrowersList.size() > 0)
-	{
-		output.setBorrowers(borrowersList);
-	} else {
-		output.setBorrowers(null);
-	}
+		List<CharSequence> borrowersList = new ArrayList<CharSequence>();
+		for(org.eclipse.emf.examples.extlibrary.Borrower itr : input.getBorrowers()) {
+			String uri = getURI(itr);
+			borrowersList.add(uri);
+		}
+		if(borrowersList.size() > 0)
+		{
+			output.setBorrowers(borrowersList);
+		} else {
+			output.setBorrowers(null);
+		}
 
 
 	return output;
@@ -373,16 +391,17 @@ public org.eclipse.emf.examples.extlibrary.avro.CirculatingItem convertCirculati
 
 	output.setCopies(input.getCopies());
 
-	List<org.eclipse.emf.examples.extlibrary.avro.Borrower> borrowersList = new ArrayList<org.eclipse.emf.examples.extlibrary.avro.Borrower>();
-	for(org.eclipse.emf.examples.extlibrary.Borrower itr : input.getBorrowers()) {
-		borrowersList.add(convertBorrower(itr));
-	}
-	if(borrowersList.size() > 0)
-	{
-		output.setBorrowers(borrowersList);
-	} else {
-		output.setBorrowers(null);
-	}
+		List<CharSequence> borrowersList = new ArrayList<CharSequence>();
+		for(org.eclipse.emf.examples.extlibrary.Borrower itr : input.getBorrowers()) {
+			String uri = getURI(itr);
+			borrowersList.add(uri);
+		}
+		if(borrowersList.size() > 0)
+		{
+			output.setBorrowers(borrowersList);
+		} else {
+			output.setBorrowers(null);
+		}
 
 
 	return output;
@@ -424,16 +443,17 @@ public org.eclipse.emf.examples.extlibrary.avro.AudioVisualItem convertAudioVisu
 
 	output.setCopies(input.getCopies());
 
-	List<org.eclipse.emf.examples.extlibrary.avro.Borrower> borrowersList = new ArrayList<org.eclipse.emf.examples.extlibrary.avro.Borrower>();
-	for(org.eclipse.emf.examples.extlibrary.Borrower itr : input.getBorrowers()) {
-		borrowersList.add(convertBorrower(itr));
-	}
-	if(borrowersList.size() > 0)
-	{
-		output.setBorrowers(borrowersList);
-	} else {
-		output.setBorrowers(null);
-	}
+		List<CharSequence> borrowersList = new ArrayList<CharSequence>();
+		for(org.eclipse.emf.examples.extlibrary.Borrower itr : input.getBorrowers()) {
+			String uri = getURI(itr);
+			borrowersList.add(uri);
+		}
+		if(borrowersList.size() > 0)
+		{
+			output.setBorrowers(borrowersList);
+		} else {
+			output.setBorrowers(null);
+		}
 
 	output.setTitle(input.getTitle());
 
@@ -460,16 +480,17 @@ public org.eclipse.emf.examples.extlibrary.avro.BookOnTape convertBookOnTape(
 
 	output.setCopies(input.getCopies());
 
-	List<org.eclipse.emf.examples.extlibrary.avro.Borrower> borrowersList = new ArrayList<org.eclipse.emf.examples.extlibrary.avro.Borrower>();
-	for(org.eclipse.emf.examples.extlibrary.Borrower itr : input.getBorrowers()) {
-		borrowersList.add(convertBorrower(itr));
-	}
-	if(borrowersList.size() > 0)
-	{
-		output.setBorrowers(borrowersList);
-	} else {
-		output.setBorrowers(null);
-	}
+		List<CharSequence> borrowersList = new ArrayList<CharSequence>();
+		for(org.eclipse.emf.examples.extlibrary.Borrower itr : input.getBorrowers()) {
+			String uri = getURI(itr);
+			borrowersList.add(uri);
+		}
+		if(borrowersList.size() > 0)
+		{
+			output.setBorrowers(borrowersList);
+		} else {
+			output.setBorrowers(null);
+		}
 
 	output.setTitle(input.getTitle());
 
@@ -477,9 +498,17 @@ public org.eclipse.emf.examples.extlibrary.avro.BookOnTape convertBookOnTape(
 
 	output.setDamaged(input.isDamaged());
 
-	output.setReader(convertPerson(input.getReader()));
+	if(input.getReader() != null)
+	{
+		String uri = getURI(input.getReader());
+		output.setReader(uri);
+	}
 
-	output.setAuthor(convertWriter(input.getAuthor()));
+	if(input.getAuthor() != null)
+	{
+		String uri = getURI(input.getAuthor());
+		output.setAuthor(uri);
+	}
 
 
 	return output;
@@ -500,16 +529,17 @@ public org.eclipse.emf.examples.extlibrary.avro.VideoCassette convertVideoCasset
 
 	output.setCopies(input.getCopies());
 
-	List<org.eclipse.emf.examples.extlibrary.avro.Borrower> borrowersList = new ArrayList<org.eclipse.emf.examples.extlibrary.avro.Borrower>();
-	for(org.eclipse.emf.examples.extlibrary.Borrower itr : input.getBorrowers()) {
-		borrowersList.add(convertBorrower(itr));
-	}
-	if(borrowersList.size() > 0)
-	{
-		output.setBorrowers(borrowersList);
-	} else {
-		output.setBorrowers(null);
-	}
+		List<CharSequence> borrowersList = new ArrayList<CharSequence>();
+		for(org.eclipse.emf.examples.extlibrary.Borrower itr : input.getBorrowers()) {
+			String uri = getURI(itr);
+			borrowersList.add(uri);
+		}
+		if(borrowersList.size() > 0)
+		{
+			output.setBorrowers(borrowersList);
+		} else {
+			output.setBorrowers(null);
+		}
 
 	output.setTitle(input.getTitle());
 
@@ -517,16 +547,17 @@ public org.eclipse.emf.examples.extlibrary.avro.VideoCassette convertVideoCasset
 
 	output.setDamaged(input.isDamaged());
 
-	List<org.eclipse.emf.examples.extlibrary.avro.Person> castList = new ArrayList<org.eclipse.emf.examples.extlibrary.avro.Person>();
-	for(org.eclipse.emf.examples.extlibrary.Person itr : input.getCast()) {
-		castList.add(convertPerson(itr));
-	}
-	if(castList.size() > 0)
-	{
-		output.setCast(castList);
-	} else {
-		output.setCast(null);
-	}
+		List<CharSequence> castList = new ArrayList<CharSequence>();
+		for(org.eclipse.emf.examples.extlibrary.Person itr : input.getCast()) {
+			String uri = getURI(itr);
+			castList.add(uri);
+		}
+		if(castList.size() > 0)
+		{
+			output.setCast(castList);
+		} else {
+			output.setCast(null);
+		}
 
 
 	return output;
@@ -547,16 +578,17 @@ public org.eclipse.emf.examples.extlibrary.avro.Borrower convertBorrower(
 
 	output.setLastName(input.getLastName());
 
-	List<org.eclipse.emf.examples.extlibrary.avro.Lendable> borrowedList = new ArrayList<org.eclipse.emf.examples.extlibrary.avro.Lendable>();
-	for(org.eclipse.emf.examples.extlibrary.Lendable itr : input.getBorrowed()) {
-		borrowedList.add(convertLendable(itr));
-	}
-	if(borrowedList.size() > 0)
-	{
-		output.setBorrowed(borrowedList);
-	} else {
-		output.setBorrowed(null);
-	}
+		List<CharSequence> borrowedList = new ArrayList<CharSequence>();
+		for(org.eclipse.emf.examples.extlibrary.Lendable itr : input.getBorrowed()) {
+			String uri = getURI(itr);
+			borrowedList.add(uri);
+		}
+		if(borrowedList.size() > 0)
+		{
+			output.setBorrowed(borrowedList);
+		} else {
+			output.setBorrowed(null);
+		}
 
 
 	return output;
@@ -596,7 +628,11 @@ public org.eclipse.emf.examples.extlibrary.avro.Employee convertEmployee(
 
 	output.setLastName(input.getLastName());
 
-	output.setManager(convertEmployee(input.getManager()));
+	if(input.getManager() != null)
+	{
+		String uri = getURI(input.getManager());
+		output.setManager(uri);
+	}
 
 
 	return output;
@@ -672,10 +708,11 @@ public org.eclipse.emf.examples.extlibrary.Book convertBook(
 	output.setCopies(input.getCopies());
 	}
 	if(input.getBorrowers() != null) {
-
 	EList<org.eclipse.emf.examples.extlibrary.Borrower> borrowersList = output.getBorrowers();
-	for(org.eclipse.emf.examples.extlibrary.avro.Borrower itr : input.getBorrowers()) {
-		borrowersList.add((org.eclipse.emf.examples.extlibrary.Borrower)convertAvroObject(itr));
+	for(CharSequence itr : input.getBorrowers()) {
+		org.eclipse.emf.examples.extlibrary.Borrower borrowersProxy = 
+			(org.eclipse.emf.examples.extlibrary.Borrower)getEObject(itr.toString());
+		borrowersList.add(borrowersProxy);
 	}
 	}
 	if(input.getTitle() != null) {
@@ -685,10 +722,12 @@ public org.eclipse.emf.examples.extlibrary.Book convertBook(
 	output.setPages(input.getPages());
 	}
 	if(input.getCategory() != null) {
-	output.setCategory(org.eclipse.emf.examples.extlibrary.BookCategory.valueOf(input.getCategory().name()));
+	output.setCategory(org.eclipse.emf.examples.extlibrary.BookCategory.get(input.getCategory().name()));
 	}
 	if(input.getAuthor() != null) {
-	output.setAuthor(convertWriter(input.getAuthor()));
+	org.eclipse.emf.examples.extlibrary.Writer authorProxy = 
+		(org.eclipse.emf.examples.extlibrary.Writer)getEObject(input.getAuthor().toString());
+	output.setAuthor(authorProxy);
 	}
 
 	return output;
@@ -705,49 +744,47 @@ public org.eclipse.emf.examples.extlibrary.Library convertLibrary(
 	output.setName(input.getName().toString());
 	}
 	if(input.getWriters() != null) {
-
 	EList<org.eclipse.emf.examples.extlibrary.Writer> writersList = output.getWriters();
 	for(org.eclipse.emf.examples.extlibrary.avro.Writer itr : input.getWriters()) {
 		writersList.add((org.eclipse.emf.examples.extlibrary.Writer)convertAvroObject(itr));
 	}
 	}
 	if(input.getEmployees() != null) {
-
 	EList<org.eclipse.emf.examples.extlibrary.Employee> employeesList = output.getEmployees();
 	for(org.eclipse.emf.examples.extlibrary.avro.Employee itr : input.getEmployees()) {
 		employeesList.add((org.eclipse.emf.examples.extlibrary.Employee)convertAvroObject(itr));
 	}
 	}
 	if(input.getBorrowers() != null) {
-
 	EList<org.eclipse.emf.examples.extlibrary.Borrower> borrowersList = output.getBorrowers();
 	for(org.eclipse.emf.examples.extlibrary.avro.Borrower itr : input.getBorrowers()) {
 		borrowersList.add((org.eclipse.emf.examples.extlibrary.Borrower)convertAvroObject(itr));
 	}
 	}
 	if(input.getStock() != null) {
-
 	EList<org.eclipse.emf.examples.extlibrary.Item> stockList = output.getStock();
 	for(org.eclipse.emf.examples.extlibrary.avro.Item itr : input.getStock()) {
 		stockList.add((org.eclipse.emf.examples.extlibrary.Item)convertAvroObject(itr));
 	}
 	}
 	if(input.getBooks() != null) {
-
 	EList<org.eclipse.emf.examples.extlibrary.Book> booksList = output.getBooks();
-	for(org.eclipse.emf.examples.extlibrary.avro.Book itr : input.getBooks()) {
-		booksList.add((org.eclipse.emf.examples.extlibrary.Book)convertAvroObject(itr));
+	for(CharSequence itr : input.getBooks()) {
+		org.eclipse.emf.examples.extlibrary.Book booksProxy = 
+			(org.eclipse.emf.examples.extlibrary.Book)getEObject(itr.toString());
+		booksList.add(booksProxy);
 	}
 	}
 	if(input.getBranches() != null) {
-
 	EList<org.eclipse.emf.examples.extlibrary.Library> branchesList = output.getBranches();
 	for(org.eclipse.emf.examples.extlibrary.avro.Library itr : input.getBranches()) {
 		branchesList.add((org.eclipse.emf.examples.extlibrary.Library)convertAvroObject(itr));
 	}
 	}
 	if(input.getParentBranch() != null) {
-	output.setParentBranch(convertLibrary(input.getParentBranch()));
+	org.eclipse.emf.examples.extlibrary.Library parentBranchProxy = 
+		(org.eclipse.emf.examples.extlibrary.Library)getEObject(input.getParentBranch().toString());
+	output.setParentBranch(parentBranchProxy);
 	}
 
 	return output;
@@ -770,10 +807,11 @@ public org.eclipse.emf.examples.extlibrary.Writer convertWriter(
 	output.setName(input.getName().toString());
 	}
 	if(input.getBooks() != null) {
-
 	EList<org.eclipse.emf.examples.extlibrary.Book> booksList = output.getBooks();
-	for(org.eclipse.emf.examples.extlibrary.avro.Book itr : input.getBooks()) {
-		booksList.add((org.eclipse.emf.examples.extlibrary.Book)convertAvroObject(itr));
+	for(CharSequence itr : input.getBooks()) {
+		org.eclipse.emf.examples.extlibrary.Book booksProxy = 
+			(org.eclipse.emf.examples.extlibrary.Book)getEObject(itr.toString());
+		booksList.add(booksProxy);
 	}
 	}
 
@@ -797,10 +835,11 @@ public org.eclipse.emf.examples.extlibrary.BookOnTape convertBookOnTape(
 	output.setCopies(input.getCopies());
 	}
 	if(input.getBorrowers() != null) {
-
 	EList<org.eclipse.emf.examples.extlibrary.Borrower> borrowersList = output.getBorrowers();
-	for(org.eclipse.emf.examples.extlibrary.avro.Borrower itr : input.getBorrowers()) {
-		borrowersList.add((org.eclipse.emf.examples.extlibrary.Borrower)convertAvroObject(itr));
+	for(CharSequence itr : input.getBorrowers()) {
+		org.eclipse.emf.examples.extlibrary.Borrower borrowersProxy = 
+			(org.eclipse.emf.examples.extlibrary.Borrower)getEObject(itr.toString());
+		borrowersList.add(borrowersProxy);
 	}
 	}
 	if(input.getTitle() != null) {
@@ -813,10 +852,14 @@ public org.eclipse.emf.examples.extlibrary.BookOnTape convertBookOnTape(
 	output.setDamaged(input.getDamaged());
 	}
 	if(input.getReader() != null) {
-	output.setReader(convertPerson(input.getReader()));
+	org.eclipse.emf.examples.extlibrary.Person readerProxy = 
+		(org.eclipse.emf.examples.extlibrary.Person)getEObject(input.getReader().toString());
+	output.setReader(readerProxy);
 	}
 	if(input.getAuthor() != null) {
-	output.setAuthor(convertWriter(input.getAuthor()));
+	org.eclipse.emf.examples.extlibrary.Writer authorProxy = 
+		(org.eclipse.emf.examples.extlibrary.Writer)getEObject(input.getAuthor().toString());
+	output.setAuthor(authorProxy);
 	}
 
 	return output;
@@ -839,10 +882,11 @@ public org.eclipse.emf.examples.extlibrary.VideoCassette convertVideoCassette(
 	output.setCopies(input.getCopies());
 	}
 	if(input.getBorrowers() != null) {
-
 	EList<org.eclipse.emf.examples.extlibrary.Borrower> borrowersList = output.getBorrowers();
-	for(org.eclipse.emf.examples.extlibrary.avro.Borrower itr : input.getBorrowers()) {
-		borrowersList.add((org.eclipse.emf.examples.extlibrary.Borrower)convertAvroObject(itr));
+	for(CharSequence itr : input.getBorrowers()) {
+		org.eclipse.emf.examples.extlibrary.Borrower borrowersProxy = 
+			(org.eclipse.emf.examples.extlibrary.Borrower)getEObject(itr.toString());
+		borrowersList.add(borrowersProxy);
 	}
 	}
 	if(input.getTitle() != null) {
@@ -855,10 +899,11 @@ public org.eclipse.emf.examples.extlibrary.VideoCassette convertVideoCassette(
 	output.setDamaged(input.getDamaged());
 	}
 	if(input.getCast() != null) {
-
 	EList<org.eclipse.emf.examples.extlibrary.Person> castList = output.getCast();
-	for(org.eclipse.emf.examples.extlibrary.avro.Person itr : input.getCast()) {
-		castList.add((org.eclipse.emf.examples.extlibrary.Person)convertAvroObject(itr));
+	for(CharSequence itr : input.getCast()) {
+		org.eclipse.emf.examples.extlibrary.Person castProxy = 
+			(org.eclipse.emf.examples.extlibrary.Person)getEObject(itr.toString());
+		castList.add(castProxy);
 	}
 	}
 
@@ -879,10 +924,11 @@ public org.eclipse.emf.examples.extlibrary.Borrower convertBorrower(
 	output.setLastName(input.getLastName().toString());
 	}
 	if(input.getBorrowed() != null) {
-
 	EList<org.eclipse.emf.examples.extlibrary.Lendable> borrowedList = output.getBorrowed();
-	for(org.eclipse.emf.examples.extlibrary.avro.Lendable itr : input.getBorrowed()) {
-		borrowedList.add((org.eclipse.emf.examples.extlibrary.Lendable)convertAvroObject(itr));
+	for(CharSequence itr : input.getBorrowed()) {
+		org.eclipse.emf.examples.extlibrary.Lendable borrowedProxy = 
+			(org.eclipse.emf.examples.extlibrary.Lendable)getEObject(itr.toString());
+		borrowedList.add(borrowedProxy);
 	}
 	}
 
@@ -920,10 +966,49 @@ public org.eclipse.emf.examples.extlibrary.Employee convertEmployee(
 	output.setLastName(input.getLastName().toString());
 	}
 	if(input.getManager() != null) {
-	output.setManager(convertEmployee(input.getManager()));
+	org.eclipse.emf.examples.extlibrary.Employee managerProxy = 
+		(org.eclipse.emf.examples.extlibrary.Employee)getEObject(input.getManager().toString());
+	output.setManager(managerProxy);
 	}
 
 	return output;
 }
+
+	private EObject getEObject(String input) {
+		EObject rvalue = null;
+		String[] pieces = input.split(" ");
+		if (pieces.length == 3) {
+			String ns = pieces[0];
+			String className = pieces[1];
+			String fragment = pieces[2];
+			EPackage pkg = EPackage.Registry.INSTANCE.getEPackage(ns);
+			if (pkg != null) {
+				EClassifier classifier = pkg.getEClassifier(className);
+				if (classifier instanceof EClass) {
+					InternalEObject eobject = (InternalEObject) EcoreUtil
+							.create((EClass) classifier);
+					URI uri = URI.createURI(fragment);
+					eobject.eSetProxyURI(uri);
+					rvalue = eobject;
+				}
+			}
+		}
+		return rvalue;
+	}
+
+	private StringBuilder builder = new StringBuilder();
+	private String getURI(EObject eobject) {
+		if(eobject.eResource() == null)
+		{
+			throw new NullPointerException("child object not contained in a resource");
+		}
+		builder.setLength(0);
+		builder.append(eobject.eClass().getEPackage().getNsURI());
+		builder.append(" ");
+		builder.append(eobject.eClass().getName());
+		builder.append(" ");
+		builder.append(EcoreUtil.getURI(eobject));
+		return builder.toString();
+	}
 
 }

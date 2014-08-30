@@ -1,5 +1,5 @@
 {"type":"record","name":"Person","namespace":"org.eclipse.emf.examples.extlibrary.avro","fields":[
 {"name":"address","type":["null","string"]}
-,{"name":"firstName","type":"string"}
-,{"name":"lastName","type":"string"}
+,{"name":"firstName","type":["null","string"]}
+,{"name":"lastName","type":["null","string"]}
 ]}

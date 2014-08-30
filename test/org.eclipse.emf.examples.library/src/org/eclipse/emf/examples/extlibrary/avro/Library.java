@@ -7,7 +7,7 @@ package org.eclipse.emf.examples.extlibrary.avro;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class Library extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Library\",\"namespace\":\"org.eclipse.emf.examples.extlibrary.avro\",\"fields\":[{\"name\":\"address\",\"type\":[\"null\",\"string\"]},{\"name\":\"name\",\"type\":[\"null\",\"string\"]},{\"name\":\"writers\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Writer\",\"fields\":[{\"name\":\"address\",\"type\":[\"null\",\"string\"]},{\"name\":\"firstName\",\"type\":\"string\"},{\"name\":\"lastName\",\"type\":\"string\"},{\"name\":\"name\",\"type\":[\"null\",\"string\"]},{\"name\":\"books\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Book\",\"fields\":[{\"name\":\"publicationDate\",\"type\":[\"null\",\"string\"]},{\"name\":\"copies\",\"type\":\"int\"},{\"name\":\"borrowers\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Borrower\",\"fields\":[{\"name\":\"address\",\"type\":[\"null\",\"string\"]},{\"name\":\"firstName\",\"type\":\"string\"},{\"name\":\"lastName\",\"type\":\"string\"},{\"name\":\"borrowed\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Lendable\",\"fields\":[{\"name\":\"copies\",\"type\":\"int\"},{\"name\":\"borrowers\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"Borrower\"}]}]}}]}]}}]},{\"name\":\"title\",\"type\":[\"null\",\"string\"]},{\"name\":\"pages\",\"type\":\"int\"},{\"name\":\"category\",\"type\":{\"type\":\"enum\",\"name\":\"BookCategory\",\"symbols\":[\"Mystery\",\"ScienceFiction\",\"Biography\"]}},{\"name\":\"author\",\"type\":\"Writer\"}]}}]}]}}]},{\"name\":\"employees\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Employee\",\"fields\":[{\"name\":\"address\",\"type\":[\"null\",\"string\"]},{\"name\":\"firstName\",\"type\":\"string\"},{\"name\":\"lastName\",\"type\":\"string\"},{\"name\":\"manager\",\"type\":[\"null\",\"Employee\"]}]}}]},{\"name\":\"borrowers\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"Borrower\"}]},{\"name\":\"stock\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Item\",\"fields\":[{\"name\":\"publicationDate\",\"type\":[\"null\",\"string\"]}]}}]},{\"name\":\"books\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"Book\"}]},{\"name\":\"branches\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"Library\"}]},{\"name\":\"parentBranch\",\"type\":[\"null\",\"Library\"]},{\"name\":\"people\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"null\"}]}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Library\",\"namespace\":\"org.eclipse.emf.examples.extlibrary.avro\",\"fields\":[{\"name\":\"address\",\"type\":[\"null\",\"string\"]},{\"name\":\"name\",\"type\":[\"null\",\"string\"]},{\"name\":\"writers\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Writer\",\"fields\":[{\"name\":\"address\",\"type\":[\"null\",\"string\"]},{\"name\":\"firstName\",\"type\":[\"null\",\"string\"]},{\"name\":\"lastName\",\"type\":[\"null\",\"string\"]},{\"name\":\"name\",\"type\":[\"null\",\"string\"]},{\"name\":\"books\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"string\"}]}]}}]},{\"name\":\"employees\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Employee\",\"fields\":[{\"name\":\"address\",\"type\":[\"null\",\"string\"]},{\"name\":\"firstName\",\"type\":[\"null\",\"string\"]},{\"name\":\"lastName\",\"type\":[\"null\",\"string\"]},{\"name\":\"manager\",\"type\":[\"null\",\"string\"]}]}}]},{\"name\":\"borrowers\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Borrower\",\"fields\":[{\"name\":\"address\",\"type\":[\"null\",\"string\"]},{\"name\":\"firstName\",\"type\":[\"null\",\"string\"]},{\"name\":\"lastName\",\"type\":[\"null\",\"string\"]},{\"name\":\"borrowed\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"string\"}]}]}}]},{\"name\":\"stock\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Item\",\"fields\":[{\"name\":\"publicationDate\",\"type\":[\"null\",\"string\"]}]}}]},{\"name\":\"books\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"string\"}]},{\"name\":\"branches\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"Library\"}]},{\"name\":\"parentBranch\",\"type\":[\"null\",\"string\"]},{\"name\":\"people\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"null\"}]}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public java.lang.CharSequence address;
   @Deprecated public java.lang.CharSequence name;
@@ -15,9 +15,9 @@ public class Library extends org.apache.avro.specific.SpecificRecordBase impleme
   @Deprecated public java.util.List<org.eclipse.emf.examples.extlibrary.avro.Employee> employees;
   @Deprecated public java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> borrowers;
   @Deprecated public java.util.List<org.eclipse.emf.examples.extlibrary.avro.Item> stock;
-  @Deprecated public java.util.List<org.eclipse.emf.examples.extlibrary.avro.Book> books;
+  @Deprecated public java.util.List<java.lang.CharSequence> books;
   @Deprecated public java.util.List<org.eclipse.emf.examples.extlibrary.avro.Library> branches;
-  @Deprecated public org.eclipse.emf.examples.extlibrary.avro.Library parentBranch;
+  @Deprecated public java.lang.CharSequence parentBranch;
   @Deprecated public java.util.List<java.lang.Void> people;
 
   /**
@@ -30,7 +30,7 @@ public class Library extends org.apache.avro.specific.SpecificRecordBase impleme
   /**
    * All-args constructor.
    */
-  public Library(java.lang.CharSequence address, java.lang.CharSequence name, java.util.List<org.eclipse.emf.examples.extlibrary.avro.Writer> writers, java.util.List<org.eclipse.emf.examples.extlibrary.avro.Employee> employees, java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> borrowers, java.util.List<org.eclipse.emf.examples.extlibrary.avro.Item> stock, java.util.List<org.eclipse.emf.examples.extlibrary.avro.Book> books, java.util.List<org.eclipse.emf.examples.extlibrary.avro.Library> branches, org.eclipse.emf.examples.extlibrary.avro.Library parentBranch, java.util.List<java.lang.Void> people) {
+  public Library(java.lang.CharSequence address, java.lang.CharSequence name, java.util.List<org.eclipse.emf.examples.extlibrary.avro.Writer> writers, java.util.List<org.eclipse.emf.examples.extlibrary.avro.Employee> employees, java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> borrowers, java.util.List<org.eclipse.emf.examples.extlibrary.avro.Item> stock, java.util.List<java.lang.CharSequence> books, java.util.List<org.eclipse.emf.examples.extlibrary.avro.Library> branches, java.lang.CharSequence parentBranch, java.util.List<java.lang.Void> people) {
     this.address = address;
     this.name = name;
     this.writers = writers;
@@ -70,9 +70,9 @@ public class Library extends org.apache.avro.specific.SpecificRecordBase impleme
     case 3: employees = (java.util.List<org.eclipse.emf.examples.extlibrary.avro.Employee>)value$; break;
     case 4: borrowers = (java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower>)value$; break;
     case 5: stock = (java.util.List<org.eclipse.emf.examples.extlibrary.avro.Item>)value$; break;
-    case 6: books = (java.util.List<org.eclipse.emf.examples.extlibrary.avro.Book>)value$; break;
+    case 6: books = (java.util.List<java.lang.CharSequence>)value$; break;
     case 7: branches = (java.util.List<org.eclipse.emf.examples.extlibrary.avro.Library>)value$; break;
-    case 8: parentBranch = (org.eclipse.emf.examples.extlibrary.avro.Library)value$; break;
+    case 8: parentBranch = (java.lang.CharSequence)value$; break;
     case 9: people = (java.util.List<java.lang.Void>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
@@ -171,7 +171,7 @@ public class Library extends org.apache.avro.specific.SpecificRecordBase impleme
   /**
    * Gets the value of the 'books' field.
    */
-  public java.util.List<org.eclipse.emf.examples.extlibrary.avro.Book> getBooks() {
+  public java.util.List<java.lang.CharSequence> getBooks() {
     return books;
   }
 
@@ -179,7 +179,7 @@ public class Library extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'books' field.
    * @param value the value to set.
    */
-  public void setBooks(java.util.List<org.eclipse.emf.examples.extlibrary.avro.Book> value) {
+  public void setBooks(java.util.List<java.lang.CharSequence> value) {
     this.books = value;
   }
 
@@ -201,7 +201,7 @@ public class Library extends org.apache.avro.specific.SpecificRecordBase impleme
   /**
    * Gets the value of the 'parentBranch' field.
    */
-  public org.eclipse.emf.examples.extlibrary.avro.Library getParentBranch() {
+  public java.lang.CharSequence getParentBranch() {
     return parentBranch;
   }
 
@@ -209,7 +209,7 @@ public class Library extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'parentBranch' field.
    * @param value the value to set.
    */
-  public void setParentBranch(org.eclipse.emf.examples.extlibrary.avro.Library value) {
+  public void setParentBranch(java.lang.CharSequence value) {
     this.parentBranch = value;
   }
 
@@ -255,9 +255,9 @@ public class Library extends org.apache.avro.specific.SpecificRecordBase impleme
     private java.util.List<org.eclipse.emf.examples.extlibrary.avro.Employee> employees;
     private java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> borrowers;
     private java.util.List<org.eclipse.emf.examples.extlibrary.avro.Item> stock;
-    private java.util.List<org.eclipse.emf.examples.extlibrary.avro.Book> books;
+    private java.util.List<java.lang.CharSequence> books;
     private java.util.List<org.eclipse.emf.examples.extlibrary.avro.Library> branches;
-    private org.eclipse.emf.examples.extlibrary.avro.Library parentBranch;
+    private java.lang.CharSequence parentBranch;
     private java.util.List<java.lang.Void> people;
 
     /** Creates a new Builder */
@@ -506,12 +506,12 @@ public class Library extends org.apache.avro.specific.SpecificRecordBase impleme
     }
 
     /** Gets the value of the 'books' field */
-    public java.util.List<org.eclipse.emf.examples.extlibrary.avro.Book> getBooks() {
+    public java.util.List<java.lang.CharSequence> getBooks() {
       return books;
     }
     
     /** Sets the value of the 'books' field */
-    public org.eclipse.emf.examples.extlibrary.avro.Library.Builder setBooks(java.util.List<org.eclipse.emf.examples.extlibrary.avro.Book> value) {
+    public org.eclipse.emf.examples.extlibrary.avro.Library.Builder setBooks(java.util.List<java.lang.CharSequence> value) {
       validate(fields()[6], value);
       this.books = value;
       fieldSetFlags()[6] = true;
@@ -556,12 +556,12 @@ public class Library extends org.apache.avro.specific.SpecificRecordBase impleme
     }
 
     /** Gets the value of the 'parentBranch' field */
-    public org.eclipse.emf.examples.extlibrary.avro.Library getParentBranch() {
+    public java.lang.CharSequence getParentBranch() {
       return parentBranch;
     }
     
     /** Sets the value of the 'parentBranch' field */
-    public org.eclipse.emf.examples.extlibrary.avro.Library.Builder setParentBranch(org.eclipse.emf.examples.extlibrary.avro.Library value) {
+    public org.eclipse.emf.examples.extlibrary.avro.Library.Builder setParentBranch(java.lang.CharSequence value) {
       validate(fields()[8], value);
       this.parentBranch = value;
       fieldSetFlags()[8] = true;
@@ -615,9 +615,9 @@ public class Library extends org.apache.avro.specific.SpecificRecordBase impleme
         record.employees = fieldSetFlags()[3] ? this.employees : (java.util.List<org.eclipse.emf.examples.extlibrary.avro.Employee>) defaultValue(fields()[3]);
         record.borrowers = fieldSetFlags()[4] ? this.borrowers : (java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower>) defaultValue(fields()[4]);
         record.stock = fieldSetFlags()[5] ? this.stock : (java.util.List<org.eclipse.emf.examples.extlibrary.avro.Item>) defaultValue(fields()[5]);
-        record.books = fieldSetFlags()[6] ? this.books : (java.util.List<org.eclipse.emf.examples.extlibrary.avro.Book>) defaultValue(fields()[6]);
+        record.books = fieldSetFlags()[6] ? this.books : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[6]);
         record.branches = fieldSetFlags()[7] ? this.branches : (java.util.List<org.eclipse.emf.examples.extlibrary.avro.Library>) defaultValue(fields()[7]);
-        record.parentBranch = fieldSetFlags()[8] ? this.parentBranch : (org.eclipse.emf.examples.extlibrary.avro.Library) defaultValue(fields()[8]);
+        record.parentBranch = fieldSetFlags()[8] ? this.parentBranch : (java.lang.CharSequence) defaultValue(fields()[8]);
         record.people = fieldSetFlags()[9] ? this.people : (java.util.List<java.lang.Void>) defaultValue(fields()[9]);
         return record;
       } catch (Exception e) {

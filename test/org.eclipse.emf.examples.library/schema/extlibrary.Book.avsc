@@ -2,30 +2,10 @@
 {"name":"publicationDate","type":["null","string"]}
 ,{"name":"copies","type":"int"}
 ,{"name":"borrowers","type":["null",{"type":"array","items":
-				{"type":"record","name":"Borrower","fields":[
-				{"name":"address","type":["null","string"]}
-				,{"name":"firstName","type":"string"}
-				,{"name":"lastName","type":"string"}
-				,{"name":"borrowed","type":["null",{"type":"array","items":
-								{"type":"record","name":"Lendable","fields":[
-								{"name":"copies","type":"int"}
-								,{"name":"borrowers","type":["null",{"type":"array","items":
-												"Borrower"
-										}]}
-								]}
-						}]}
-				]}
-		}]}
+			"string"
+	}]}
 ,{"name":"title","type":["null","string"]}
 ,{"name":"pages","type":"int"}
 ,{"name":"category","type":{"type":"enum","name":"BookCategory","symbols":["Mystery","ScienceFiction","Biography"]}}
-,{"name":"author","type":{"type":"record","name":"Writer","fields":[
-		{"name":"address","type":["null","string"]}
-		,{"name":"firstName","type":"string"}
-		,{"name":"lastName","type":"string"}
-		,{"name":"name","type":["null","string"]}
-		,{"name":"books","type":["null",{"type":"array","items":
-						"Book"
-				}]}
-		]}}
+,{"name":"author","type":["null","string"]}
 ]}

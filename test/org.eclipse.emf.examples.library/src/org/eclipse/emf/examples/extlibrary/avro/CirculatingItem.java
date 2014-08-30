@@ -7,11 +7,11 @@ package org.eclipse.emf.examples.extlibrary.avro;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class CirculatingItem extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"CirculatingItem\",\"namespace\":\"org.eclipse.emf.examples.extlibrary.avro\",\"fields\":[{\"name\":\"publicationDate\",\"type\":[\"null\",\"string\"]},{\"name\":\"copies\",\"type\":\"int\"},{\"name\":\"borrowers\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Borrower\",\"fields\":[{\"name\":\"address\",\"type\":[\"null\",\"string\"]},{\"name\":\"firstName\",\"type\":\"string\"},{\"name\":\"lastName\",\"type\":\"string\"},{\"name\":\"borrowed\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Lendable\",\"fields\":[{\"name\":\"copies\",\"type\":\"int\"},{\"name\":\"borrowers\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"Borrower\"}]}]}}]}]}}]}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"CirculatingItem\",\"namespace\":\"org.eclipse.emf.examples.extlibrary.avro\",\"fields\":[{\"name\":\"publicationDate\",\"type\":[\"null\",\"string\"]},{\"name\":\"copies\",\"type\":\"int\"},{\"name\":\"borrowers\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"string\"}]}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public java.lang.CharSequence publicationDate;
   @Deprecated public int copies;
-  @Deprecated public java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> borrowers;
+  @Deprecated public java.util.List<java.lang.CharSequence> borrowers;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -23,7 +23,7 @@ public class CirculatingItem extends org.apache.avro.specific.SpecificRecordBase
   /**
    * All-args constructor.
    */
-  public CirculatingItem(java.lang.CharSequence publicationDate, java.lang.Integer copies, java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> borrowers) {
+  public CirculatingItem(java.lang.CharSequence publicationDate, java.lang.Integer copies, java.util.List<java.lang.CharSequence> borrowers) {
     this.publicationDate = publicationDate;
     this.copies = copies;
     this.borrowers = borrowers;
@@ -45,7 +45,7 @@ public class CirculatingItem extends org.apache.avro.specific.SpecificRecordBase
     switch (field$) {
     case 0: publicationDate = (java.lang.CharSequence)value$; break;
     case 1: copies = (java.lang.Integer)value$; break;
-    case 2: borrowers = (java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower>)value$; break;
+    case 2: borrowers = (java.util.List<java.lang.CharSequence>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -83,7 +83,7 @@ public class CirculatingItem extends org.apache.avro.specific.SpecificRecordBase
   /**
    * Gets the value of the 'borrowers' field.
    */
-  public java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> getBorrowers() {
+  public java.util.List<java.lang.CharSequence> getBorrowers() {
     return borrowers;
   }
 
@@ -91,7 +91,7 @@ public class CirculatingItem extends org.apache.avro.specific.SpecificRecordBase
    * Sets the value of the 'borrowers' field.
    * @param value the value to set.
    */
-  public void setBorrowers(java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> value) {
+  public void setBorrowers(java.util.List<java.lang.CharSequence> value) {
     this.borrowers = value;
   }
 
@@ -118,7 +118,7 @@ public class CirculatingItem extends org.apache.avro.specific.SpecificRecordBase
 
     private java.lang.CharSequence publicationDate;
     private int copies;
-    private java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> borrowers;
+    private java.util.List<java.lang.CharSequence> borrowers;
 
     /** Creates a new Builder */
     private Builder() {
@@ -209,12 +209,12 @@ public class CirculatingItem extends org.apache.avro.specific.SpecificRecordBase
     }
 
     /** Gets the value of the 'borrowers' field */
-    public java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> getBorrowers() {
+    public java.util.List<java.lang.CharSequence> getBorrowers() {
       return borrowers;
     }
     
     /** Sets the value of the 'borrowers' field */
-    public org.eclipse.emf.examples.extlibrary.avro.CirculatingItem.Builder setBorrowers(java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> value) {
+    public org.eclipse.emf.examples.extlibrary.avro.CirculatingItem.Builder setBorrowers(java.util.List<java.lang.CharSequence> value) {
       validate(fields()[2], value);
       this.borrowers = value;
       fieldSetFlags()[2] = true;
@@ -239,7 +239,7 @@ public class CirculatingItem extends org.apache.avro.specific.SpecificRecordBase
         CirculatingItem record = new CirculatingItem();
         record.publicationDate = fieldSetFlags()[0] ? this.publicationDate : (java.lang.CharSequence) defaultValue(fields()[0]);
         record.copies = fieldSetFlags()[1] ? this.copies : (java.lang.Integer) defaultValue(fields()[1]);
-        record.borrowers = fieldSetFlags()[2] ? this.borrowers : (java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower>) defaultValue(fields()[2]);
+        record.borrowers = fieldSetFlags()[2] ? this.borrowers : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[2]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

@@ -7,16 +7,16 @@ package org.eclipse.emf.examples.extlibrary.avro;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class BookOnTape extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"BookOnTape\",\"namespace\":\"org.eclipse.emf.examples.extlibrary.avro\",\"fields\":[{\"name\":\"publicationDate\",\"type\":[\"null\",\"string\"]},{\"name\":\"copies\",\"type\":\"int\"},{\"name\":\"borrowers\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Borrower\",\"fields\":[{\"name\":\"address\",\"type\":[\"null\",\"string\"]},{\"name\":\"firstName\",\"type\":\"string\"},{\"name\":\"lastName\",\"type\":\"string\"},{\"name\":\"borrowed\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Lendable\",\"fields\":[{\"name\":\"copies\",\"type\":\"int\"},{\"name\":\"borrowers\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"Borrower\"}]}]}}]}]}}]},{\"name\":\"title\",\"type\":[\"null\",\"string\"]},{\"name\":\"minutesLength\",\"type\":\"int\"},{\"name\":\"damaged\",\"type\":\"boolean\"},{\"name\":\"reader\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Person\",\"fields\":[{\"name\":\"address\",\"type\":[\"null\",\"string\"]},{\"name\":\"firstName\",\"type\":\"string\"},{\"name\":\"lastName\",\"type\":\"string\"}]}]},{\"name\":\"author\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Writer\",\"fields\":[{\"name\":\"address\",\"type\":[\"null\",\"string\"]},{\"name\":\"firstName\",\"type\":\"string\"},{\"name\":\"lastName\",\"type\":\"string\"},{\"name\":\"name\",\"type\":[\"null\",\"string\"]},{\"name\":\"books\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Book\",\"fields\":[{\"name\":\"publicationDate\",\"type\":[\"null\",\"string\"]},{\"name\":\"copies\",\"type\":\"int\"},{\"name\":\"borrowers\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"Borrower\"}]},{\"name\":\"title\",\"type\":[\"null\",\"string\"]},{\"name\":\"pages\",\"type\":\"int\"},{\"name\":\"category\",\"type\":{\"type\":\"enum\",\"name\":\"BookCategory\",\"symbols\":[\"Mystery\",\"ScienceFiction\",\"Biography\"]}},{\"name\":\"author\",\"type\":\"Writer\"}]}}]}]}]}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"BookOnTape\",\"namespace\":\"org.eclipse.emf.examples.extlibrary.avro\",\"fields\":[{\"name\":\"publicationDate\",\"type\":[\"null\",\"string\"]},{\"name\":\"copies\",\"type\":\"int\"},{\"name\":\"borrowers\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"string\"}]},{\"name\":\"title\",\"type\":[\"null\",\"string\"]},{\"name\":\"minutesLength\",\"type\":\"int\"},{\"name\":\"damaged\",\"type\":\"boolean\"},{\"name\":\"reader\",\"type\":[\"null\",\"string\"]},{\"name\":\"author\",\"type\":[\"null\",\"string\"]}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public java.lang.CharSequence publicationDate;
   @Deprecated public int copies;
-  @Deprecated public java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> borrowers;
+  @Deprecated public java.util.List<java.lang.CharSequence> borrowers;
   @Deprecated public java.lang.CharSequence title;
   @Deprecated public int minutesLength;
   @Deprecated public boolean damaged;
-  @Deprecated public org.eclipse.emf.examples.extlibrary.avro.Person reader;
-  @Deprecated public org.eclipse.emf.examples.extlibrary.avro.Writer author;
+  @Deprecated public java.lang.CharSequence reader;
+  @Deprecated public java.lang.CharSequence author;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -28,7 +28,7 @@ public class BookOnTape extends org.apache.avro.specific.SpecificRecordBase impl
   /**
    * All-args constructor.
    */
-  public BookOnTape(java.lang.CharSequence publicationDate, java.lang.Integer copies, java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> borrowers, java.lang.CharSequence title, java.lang.Integer minutesLength, java.lang.Boolean damaged, org.eclipse.emf.examples.extlibrary.avro.Person reader, org.eclipse.emf.examples.extlibrary.avro.Writer author) {
+  public BookOnTape(java.lang.CharSequence publicationDate, java.lang.Integer copies, java.util.List<java.lang.CharSequence> borrowers, java.lang.CharSequence title, java.lang.Integer minutesLength, java.lang.Boolean damaged, java.lang.CharSequence reader, java.lang.CharSequence author) {
     this.publicationDate = publicationDate;
     this.copies = copies;
     this.borrowers = borrowers;
@@ -60,12 +60,12 @@ public class BookOnTape extends org.apache.avro.specific.SpecificRecordBase impl
     switch (field$) {
     case 0: publicationDate = (java.lang.CharSequence)value$; break;
     case 1: copies = (java.lang.Integer)value$; break;
-    case 2: borrowers = (java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower>)value$; break;
+    case 2: borrowers = (java.util.List<java.lang.CharSequence>)value$; break;
     case 3: title = (java.lang.CharSequence)value$; break;
     case 4: minutesLength = (java.lang.Integer)value$; break;
     case 5: damaged = (java.lang.Boolean)value$; break;
-    case 6: reader = (org.eclipse.emf.examples.extlibrary.avro.Person)value$; break;
-    case 7: author = (org.eclipse.emf.examples.extlibrary.avro.Writer)value$; break;
+    case 6: reader = (java.lang.CharSequence)value$; break;
+    case 7: author = (java.lang.CharSequence)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -103,7 +103,7 @@ public class BookOnTape extends org.apache.avro.specific.SpecificRecordBase impl
   /**
    * Gets the value of the 'borrowers' field.
    */
-  public java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> getBorrowers() {
+  public java.util.List<java.lang.CharSequence> getBorrowers() {
     return borrowers;
   }
 
@@ -111,7 +111,7 @@ public class BookOnTape extends org.apache.avro.specific.SpecificRecordBase impl
    * Sets the value of the 'borrowers' field.
    * @param value the value to set.
    */
-  public void setBorrowers(java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> value) {
+  public void setBorrowers(java.util.List<java.lang.CharSequence> value) {
     this.borrowers = value;
   }
 
@@ -163,7 +163,7 @@ public class BookOnTape extends org.apache.avro.specific.SpecificRecordBase impl
   /**
    * Gets the value of the 'reader' field.
    */
-  public org.eclipse.emf.examples.extlibrary.avro.Person getReader() {
+  public java.lang.CharSequence getReader() {
     return reader;
   }
 
@@ -171,14 +171,14 @@ public class BookOnTape extends org.apache.avro.specific.SpecificRecordBase impl
    * Sets the value of the 'reader' field.
    * @param value the value to set.
    */
-  public void setReader(org.eclipse.emf.examples.extlibrary.avro.Person value) {
+  public void setReader(java.lang.CharSequence value) {
     this.reader = value;
   }
 
   /**
    * Gets the value of the 'author' field.
    */
-  public org.eclipse.emf.examples.extlibrary.avro.Writer getAuthor() {
+  public java.lang.CharSequence getAuthor() {
     return author;
   }
 
@@ -186,7 +186,7 @@ public class BookOnTape extends org.apache.avro.specific.SpecificRecordBase impl
    * Sets the value of the 'author' field.
    * @param value the value to set.
    */
-  public void setAuthor(org.eclipse.emf.examples.extlibrary.avro.Writer value) {
+  public void setAuthor(java.lang.CharSequence value) {
     this.author = value;
   }
 
@@ -213,12 +213,12 @@ public class BookOnTape extends org.apache.avro.specific.SpecificRecordBase impl
 
     private java.lang.CharSequence publicationDate;
     private int copies;
-    private java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> borrowers;
+    private java.util.List<java.lang.CharSequence> borrowers;
     private java.lang.CharSequence title;
     private int minutesLength;
     private boolean damaged;
-    private org.eclipse.emf.examples.extlibrary.avro.Person reader;
-    private org.eclipse.emf.examples.extlibrary.avro.Writer author;
+    private java.lang.CharSequence reader;
+    private java.lang.CharSequence author;
 
     /** Creates a new Builder */
     private Builder() {
@@ -349,12 +349,12 @@ public class BookOnTape extends org.apache.avro.specific.SpecificRecordBase impl
     }
 
     /** Gets the value of the 'borrowers' field */
-    public java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> getBorrowers() {
+    public java.util.List<java.lang.CharSequence> getBorrowers() {
       return borrowers;
     }
     
     /** Sets the value of the 'borrowers' field */
-    public org.eclipse.emf.examples.extlibrary.avro.BookOnTape.Builder setBorrowers(java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower> value) {
+    public org.eclipse.emf.examples.extlibrary.avro.BookOnTape.Builder setBorrowers(java.util.List<java.lang.CharSequence> value) {
       validate(fields()[2], value);
       this.borrowers = value;
       fieldSetFlags()[2] = true;
@@ -447,12 +447,12 @@ public class BookOnTape extends org.apache.avro.specific.SpecificRecordBase impl
     }
 
     /** Gets the value of the 'reader' field */
-    public org.eclipse.emf.examples.extlibrary.avro.Person getReader() {
+    public java.lang.CharSequence getReader() {
       return reader;
     }
     
     /** Sets the value of the 'reader' field */
-    public org.eclipse.emf.examples.extlibrary.avro.BookOnTape.Builder setReader(org.eclipse.emf.examples.extlibrary.avro.Person value) {
+    public org.eclipse.emf.examples.extlibrary.avro.BookOnTape.Builder setReader(java.lang.CharSequence value) {
       validate(fields()[6], value);
       this.reader = value;
       fieldSetFlags()[6] = true;
@@ -472,12 +472,12 @@ public class BookOnTape extends org.apache.avro.specific.SpecificRecordBase impl
     }
 
     /** Gets the value of the 'author' field */
-    public org.eclipse.emf.examples.extlibrary.avro.Writer getAuthor() {
+    public java.lang.CharSequence getAuthor() {
       return author;
     }
     
     /** Sets the value of the 'author' field */
-    public org.eclipse.emf.examples.extlibrary.avro.BookOnTape.Builder setAuthor(org.eclipse.emf.examples.extlibrary.avro.Writer value) {
+    public org.eclipse.emf.examples.extlibrary.avro.BookOnTape.Builder setAuthor(java.lang.CharSequence value) {
       validate(fields()[7], value);
       this.author = value;
       fieldSetFlags()[7] = true;
@@ -502,12 +502,12 @@ public class BookOnTape extends org.apache.avro.specific.SpecificRecordBase impl
         BookOnTape record = new BookOnTape();
         record.publicationDate = fieldSetFlags()[0] ? this.publicationDate : (java.lang.CharSequence) defaultValue(fields()[0]);
         record.copies = fieldSetFlags()[1] ? this.copies : (java.lang.Integer) defaultValue(fields()[1]);
-        record.borrowers = fieldSetFlags()[2] ? this.borrowers : (java.util.List<org.eclipse.emf.examples.extlibrary.avro.Borrower>) defaultValue(fields()[2]);
+        record.borrowers = fieldSetFlags()[2] ? this.borrowers : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[2]);
         record.title = fieldSetFlags()[3] ? this.title : (java.lang.CharSequence) defaultValue(fields()[3]);
         record.minutesLength = fieldSetFlags()[4] ? this.minutesLength : (java.lang.Integer) defaultValue(fields()[4]);
         record.damaged = fieldSetFlags()[5] ? this.damaged : (java.lang.Boolean) defaultValue(fields()[5]);
-        record.reader = fieldSetFlags()[6] ? this.reader : (org.eclipse.emf.examples.extlibrary.avro.Person) defaultValue(fields()[6]);
-        record.author = fieldSetFlags()[7] ? this.author : (org.eclipse.emf.examples.extlibrary.avro.Writer) defaultValue(fields()[7]);
+        record.reader = fieldSetFlags()[6] ? this.reader : (java.lang.CharSequence) defaultValue(fields()[6]);
+        record.author = fieldSetFlags()[7] ? this.author : (java.lang.CharSequence) defaultValue(fields()[7]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

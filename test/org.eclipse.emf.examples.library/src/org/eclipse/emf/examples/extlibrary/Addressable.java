@@ -33,25 +33,25 @@ import org.eclipse.emf.ecore.EObject;
 public interface Addressable extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Address</b></em>' attribute.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Address</b></em>' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Address</em>' attribute.
-   * @see #setAddress(String)
-   * @see org.eclipse.emf.examples.extlibrary.EXTLibraryPackage#getAddressable_Address()
-   * @model
-   * @generated
-   */
+	 * @return the value of the '<em>Address</em>' attribute.
+	 * @see #setAddress(String)
+	 * @see org.eclipse.emf.examples.extlibrary.EXTLibraryPackage#getAddressable_Address()
+	 * @model
+	 * @generated
+	 */
   String getAddress();
 
   /**
-   * Sets the value of the '{@link org.eclipse.emf.examples.extlibrary.Addressable#getAddress <em>Address</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.eclipse.emf.examples.extlibrary.Addressable#getAddress <em>Address</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Address</em>' attribute.
-   * @see #getAddress()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Address</em>' attribute.
+	 * @see #getAddress()
+	 * @generated
+	 */
   void setAddress(String value);
 
 } // Addressable
