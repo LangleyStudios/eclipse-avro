@@ -39,6 +39,9 @@ import org.apache.avro.Schema;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -95,7 +98,8 @@ public [avroPrefix.concat(eclass.name)/] convert[eclass.name/](
 	[if(aFeature.oclIsTypeOf(EReference) and not aFeature.oclAsType(EReference).containment)]
 		List<CharSequence> [aFeature.name/]List = new ArrayList<CharSequence>();
 		for([emfPrefix.concat(aFeature.eType.name)/] itr : input.get[aFeature.name.toUpperFirst()/]()) {
-			[aFeature.name/]List.add(EcoreUtil.getURI(itr).toString());
+			String uri = getURI(itr);
+			[aFeature.name/]List.add(uri);
 		}
 		if([aFeature.name/]List.size() > 0)
 		{
@@ -135,7 +139,8 @@ public [avroPrefix.concat(eclass.name)/] convert[eclass.name/](
 	[if(aFeature.oclIsTypeOf(EReference) and not aFeature.oclAsType(EReference).containment)]
 	if(input.get[aFeature.name.toUpperFirst()/]() != null)
 	{
-		output.set[aFeature.name.toUpperFirst()/](EcoreUtil.getURI(input.get[aFeature.name.toUpperFirst()/]()).toString());
+		String uri = getURI(input.get[aFeature.name.toUpperFirst()/]());
+		output.set[aFeature.name.toUpperFirst()/](uri);
 	}
 	[else]
 	output.set[aFeature.name.toUpperFirst()/](convert[aFeature.eType.name/](input.get[aFeature.name.toUpperFirst()/]()));
@@ -176,10 +181,8 @@ public [emfPrefix.concat(eclass.name)/] convert[eclass.name/](
 	[if(aFeature.oclIsTypeOf(EReference) and not aFeature.oclAsType(EReference).containment)]
 	EList<[emfPrefix.concat(aFeature.eType.name)/]> [aFeature.name/]List = output.get[aFeature.name.toUpperFirst()/]();
 	for(CharSequence itr : input.get[aFeature.name.toUpperFirst()/]()) {
-		[emfPrefix.concat(aFeature.eType.name)/] [aFeature.name/]Proxy = [emfFactory/].eINSTANCE.create[aFeature.eType.name/]();
-		InternalEObject internalObject = (InternalEObject)[aFeature.name/]Proxy;
-	    URI uri = URI.createURI(itr.toString());
-		internalObject.eSetProxyURI(uri);
+		[emfPrefix.concat(aFeature.eType.name)/] [aFeature.name/]Proxy = 
+			([emfPrefix.concat(aFeature.eType.name)/])getEObject(itr.toString());
 		[aFeature.name/]List.add([aFeature.name/]Proxy);
 	}
 	[else]
@@ -209,10 +212,8 @@ public [emfPrefix.concat(eclass.name)/] convert[eclass.name/](
 [else]
 	[comment]Handle non-containment references[/comment]
 	[if(aFeature.oclIsTypeOf(EReference) and not aFeature.oclAsType(EReference).containment)]
-	[emfPrefix.concat(aFeature.eType.name)/] [aFeature.name/]Proxy = [emfFactory/].eINSTANCE.create[aFeature.eType.name/]();
-	InternalEObject internalObject = (InternalEObject)[aFeature.name/]Proxy;
-    URI uri = URI.createURI(input.get[aFeature.name.toUpperFirst()/]().toString());
-	internalObject.eSetProxyURI(uri);
+	[emfPrefix.concat(aFeature.eType.name)/] [aFeature.name/]Proxy = 
+		([emfPrefix.concat(aFeature.eType.name)/])getEObject(input.get[aFeature.name.toUpperFirst()/]().toString());
 	output.set[aFeature.name.toUpperFirst()/]([aFeature.name/]Proxy);
 	[else]
 	output.set[aFeature.name.toUpperFirst()/](convert[aFeature.eType.name/](input.get[aFeature.name.toUpperFirst()/]()));
@@ -226,6 +227,43 @@ public [emfPrefix.concat(eclass.name)/] convert[eclass.name/](
 }
 [/if]
 [/for]
+
+	private EObject getEObject(String input) {
+		EObject rvalue = null;
+		String['['/][']'/] pieces = input.split(" ");
+		if (pieces.length == 3) {
+			String ns = pieces['['/]0[']'/];
+			String className = pieces['['/]1[']'/];
+			String fragment = pieces['['/]2[']'/];
+			EPackage pkg = EPackage.Registry.INSTANCE.getEPackage(ns);
+			if (pkg != null) {
+				EClassifier classifier = pkg.getEClassifier(className);
+				if (classifier instanceof EClass) {
+					InternalEObject eobject = (InternalEObject) EcoreUtil
+							.create((EClass) classifier);
+					URI uri = URI.createURI(fragment);
+					eobject.eSetProxyURI(uri);
+					rvalue = eobject;
+				}
+			}
+		}
+		return rvalue;
+	}
+
+	private StringBuilder builder = new StringBuilder();
+	private String getURI(EObject eobject) {
+		if(eobject.eResource() == null)
+		{
+			throw new NullPointerException("child object not contained in a resource");
+		}
+		builder.setLength(0);
+		builder.append(eobject.eClass().getEPackage().getNsURI());
+		builder.append(" ");
+		builder.append(eobject.eClass().getName());
+		builder.append(" ");
+		builder.append(EcoreUtil.getURI(eobject));
+		return builder.toString();
+	}
 
 }
 [/file]
