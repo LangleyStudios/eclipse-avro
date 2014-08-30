@@ -288,13 +288,22 @@ public interface AvroSchemaPackage extends EPackage
   int FIELD__FIXED = 7;
 
   /**
+   * The feature id for the '<em><b>Union</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD__UNION = 8;
+
+  /**
    * The number of structural features of the '<em>Field</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FIELD_FEATURE_COUNT = 8;
+  int FIELD_FEATURE_COUNT = 9;
 
   /**
    * The meta object id for the '{@link net.langleystudios.dsl.avroSchema.impl.EnumTypeImpl <em>Enum Type</em>}' class.
@@ -733,6 +742,17 @@ public interface AvroSchemaPackage extends EPackage
   EReference getField_Fixed();
 
   /**
+   * Returns the meta object for the containment reference '{@link net.langleystudios.dsl.avroSchema.Field#getUnion <em>Union</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Union</em>'.
+   * @see net.langleystudios.dsl.avroSchema.Field#getUnion()
+   * @see #getField()
+   * @generated
+   */
+  EReference getField_Union();
+
+  /**
    * Returns the meta object for class '{@link net.langleystudios.dsl.avroSchema.EnumType <em>Enum Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1130,6 +1150,14 @@ public interface AvroSchemaPackage extends EPackage
      * @generated
      */
     EReference FIELD__FIXED = eINSTANCE.getField_Fixed();
+
+    /**
+     * The meta object literal for the '<em><b>Union</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FIELD__UNION = eINSTANCE.getField_Union();
 
     /**
      * The meta object literal for the '{@link net.langleystudios.dsl.avroSchema.impl.EnumTypeImpl <em>Enum Type</em>}' class.

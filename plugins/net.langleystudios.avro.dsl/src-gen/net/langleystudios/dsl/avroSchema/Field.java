@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link net.langleystudios.dsl.avroSchema.Field#getArray <em>Array</em>}</li>
  *   <li>{@link net.langleystudios.dsl.avroSchema.Field#getMap <em>Map</em>}</li>
  *   <li>{@link net.langleystudios.dsl.avroSchema.Field#getFixed <em>Fixed</em>}</li>
+ *   <li>{@link net.langleystudios.dsl.avroSchema.Field#getUnion <em>Union</em>}</li>
  * </ul>
  * </p>
  *
@@ -236,5 +237,31 @@ public interface Field extends EObject
    * @generated
    */
   void setFixed(FixedType value);
+
+  /**
+   * Returns the value of the '<em><b>Union</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Union</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Union</em>' containment reference.
+   * @see #setUnion(UnionType)
+   * @see net.langleystudios.dsl.avroSchema.AvroSchemaPackage#getField_Union()
+   * @model containment="true"
+   * @generated
+   */
+  UnionType getUnion();
+
+  /**
+   * Sets the value of the '{@link net.langleystudios.dsl.avroSchema.Field#getUnion <em>Union</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Union</em>' containment reference.
+   * @see #getUnion()
+   * @generated
+   */
+  void setUnion(UnionType value);
 
 } // Field

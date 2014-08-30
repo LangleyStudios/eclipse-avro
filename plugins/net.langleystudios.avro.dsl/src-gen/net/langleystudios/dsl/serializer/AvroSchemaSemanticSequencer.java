@@ -142,7 +142,8 @@ public class AvroSchemaSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *             etype=EnumType | 
 	 *             array=ArrayType | 
 	 *             map=MapType | 
-	 *             fixed=FixedType
+	 *             fixed=FixedType | 
+	 *             union=UnionType
 	 *         )
 	 *     )
 	 */

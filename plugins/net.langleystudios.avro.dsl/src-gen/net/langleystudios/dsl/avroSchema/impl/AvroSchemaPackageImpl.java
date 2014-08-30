@@ -376,6 +376,16 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getField_Union()
+  {
+    return (EReference)fieldEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getEnumType()
   {
     return enumTypeEClass;
@@ -616,6 +626,7 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
     createEReference(fieldEClass, FIELD__ARRAY);
     createEReference(fieldEClass, FIELD__MAP);
     createEReference(fieldEClass, FIELD__FIXED);
+    createEReference(fieldEClass, FIELD__UNION);
 
     enumTypeEClass = createEClass(ENUM_TYPE);
     createEAttribute(enumTypeEClass, ENUM_TYPE__NAME);
@@ -704,6 +715,7 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
     initEReference(getField_Array(), this.getArrayType(), null, "array", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getField_Map(), this.getMapType(), null, "map", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getField_Fixed(), this.getFixedType(), null, "fixed", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getField_Union(), this.getUnionType(), null, "union", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(enumTypeEClass, EnumType.class, "EnumType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEnumType_Name(), ecorePackage.getEString(), "name", null, 0, 1, EnumType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

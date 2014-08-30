@@ -393,16 +393,19 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cMapMapTypeParserRuleCall_13_5_0 = (RuleCall)cMapAssignment_13_5.eContents().get(0);
 		private final Assignment cFixedAssignment_13_6 = (Assignment)cAlternatives_13.eContents().get(6);
 		private final RuleCall cFixedFixedTypeParserRuleCall_13_6_0 = (RuleCall)cFixedAssignment_13_6.eContents().get(0);
+		private final Assignment cUnionAssignment_13_7 = (Assignment)cAlternatives_13.eContents().get(7);
+		private final RuleCall cUnionUnionTypeParserRuleCall_13_7_0 = (RuleCall)cUnionAssignment_13_7.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_14 = (Keyword)cGroup.eContents().get(14);
 		
 		//Field:
 		//	"{" "\"" "name" "\"" ":" "\"" name=("name" | ID) "\"" "," "\"" "type" "\"" ":" (primitive=Primitive |
 		//	record=RecordType | "\"" recordRef=[RecordType] "\"" | etype=EnumType | array=ArrayType | map=MapType |
-		//	fixed=FixedType) "}";
+		//	fixed=FixedType | union=UnionType) "}";
 		public ParserRule getRule() { return rule; }
 
 		//"{" "\"" "name" "\"" ":" "\"" name=("name" | ID) "\"" "," "\"" "type" "\"" ":" (primitive=Primitive | record=RecordType
-		//| "\"" recordRef=[RecordType] "\"" | etype=EnumType | array=ArrayType | map=MapType | fixed=FixedType) "}"
+		//| "\"" recordRef=[RecordType] "\"" | etype=EnumType | array=ArrayType | map=MapType | fixed=FixedType |
+		//union=UnionType) "}"
 		public Group getGroup() { return cGroup; }
 
 		//"{"
@@ -454,7 +457,7 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getColonKeyword_12() { return cColonKeyword_12; }
 
 		//primitive=Primitive | record=RecordType | "\"" recordRef=[RecordType] "\"" | etype=EnumType | array=ArrayType |
-		//map=MapType | fixed=FixedType
+		//map=MapType | fixed=FixedType | union=UnionType
 		public Alternatives getAlternatives_13() { return cAlternatives_13; }
 
 		//primitive=Primitive
@@ -510,6 +513,12 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 
 		//FixedType
 		public RuleCall getFixedFixedTypeParserRuleCall_13_6_0() { return cFixedFixedTypeParserRuleCall_13_6_0; }
+
+		//union=UnionType
+		public Assignment getUnionAssignment_13_7() { return cUnionAssignment_13_7; }
+
+		//UnionType
+		public RuleCall getUnionUnionTypeParserRuleCall_13_7_0() { return cUnionUnionTypeParserRuleCall_13_7_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_14() { return cRightCurlyBracketKeyword_14; }
@@ -1213,7 +1222,7 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 	//Field:
 	//	"{" "\"" "name" "\"" ":" "\"" name=("name" | ID) "\"" "," "\"" "type" "\"" ":" (primitive=Primitive |
 	//	record=RecordType | "\"" recordRef=[RecordType] "\"" | etype=EnumType | array=ArrayType | map=MapType |
-	//	fixed=FixedType) "}";
+	//	fixed=FixedType | union=UnionType) "}";
 	public FieldElements getFieldAccess() {
 		return (pField != null) ? pField : (pField = new FieldElements());
 	}

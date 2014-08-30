@@ -802,9 +802,28 @@ ruleField returns [EObject current=null]
 	    }
 
 )
-))	otherlv_22='}' 
+)
+    |(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getFieldAccess().getUnionUnionTypeParserRuleCall_13_7_0()); 
+	    }
+		lv_union_22_0=ruleUnionType		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getFieldRule());
+	        }
+       		set(
+       			$current, 
+       			"union",
+        		lv_union_22_0, 
+        		"UnionType");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))	otherlv_23='}' 
     {
-    	newLeafNode(otherlv_22, grammarAccess.getFieldAccess().getRightCurlyBracketKeyword_14());
+    	newLeafNode(otherlv_23, grammarAccess.getFieldAccess().getRightCurlyBracketKeyword_14());
     }
 )
 ;

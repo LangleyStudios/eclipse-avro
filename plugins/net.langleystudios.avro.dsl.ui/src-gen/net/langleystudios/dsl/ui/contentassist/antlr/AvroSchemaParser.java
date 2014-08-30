@@ -79,6 +79,7 @@ public class AvroSchemaParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFieldAccess().getArrayAssignment_13_4(), "rule__Field__ArrayAssignment_13_4");
 					put(grammarAccess.getFieldAccess().getMapAssignment_13_5(), "rule__Field__MapAssignment_13_5");
 					put(grammarAccess.getFieldAccess().getFixedAssignment_13_6(), "rule__Field__FixedAssignment_13_6");
+					put(grammarAccess.getFieldAccess().getUnionAssignment_13_7(), "rule__Field__UnionAssignment_13_7");
 					put(grammarAccess.getEnumTypeAccess().getNameAssignment_14(), "rule__EnumType__NameAssignment_14");
 					put(grammarAccess.getEnumTypeAccess().getSymbolsAssignment_22_1(), "rule__EnumType__SymbolsAssignment_22_1");
 					put(grammarAccess.getEnumTypeAccess().getSymbolsAssignment_23_2(), "rule__EnumType__SymbolsAssignment_23_2");

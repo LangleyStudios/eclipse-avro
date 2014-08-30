@@ -10,6 +10,7 @@ import net.langleystudios.dsl.avroSchema.FixedType;
 import net.langleystudios.dsl.avroSchema.MapType;
 import net.langleystudios.dsl.avroSchema.Primitive;
 import net.langleystudios.dsl.avroSchema.RecordType;
+import net.langleystudios.dsl.avroSchema.UnionType;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -35,6 +36,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link net.langleystudios.dsl.avroSchema.impl.FieldImpl#getArray <em>Array</em>}</li>
  *   <li>{@link net.langleystudios.dsl.avroSchema.impl.FieldImpl#getMap <em>Map</em>}</li>
  *   <li>{@link net.langleystudios.dsl.avroSchema.impl.FieldImpl#getFixed <em>Fixed</em>}</li>
+ *   <li>{@link net.langleystudios.dsl.avroSchema.impl.FieldImpl#getUnion <em>Union</em>}</li>
  * </ul>
  * </p>
  *
@@ -131,6 +133,16 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * @ordered
    */
   protected FixedType fixed;
+
+  /**
+   * The cached value of the '{@link #getUnion() <em>Union</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUnion()
+   * @generated
+   * @ordered
+   */
+  protected UnionType union;
 
   /**
    * <!-- begin-user-doc -->
@@ -512,6 +524,54 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
+  public UnionType getUnion()
+  {
+    return union;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetUnion(UnionType newUnion, NotificationChain msgs)
+  {
+    UnionType oldUnion = union;
+    union = newUnion;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AvroSchemaPackage.FIELD__UNION, oldUnion, newUnion);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setUnion(UnionType newUnion)
+  {
+    if (newUnion != union)
+    {
+      NotificationChain msgs = null;
+      if (union != null)
+        msgs = ((InternalEObject)union).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AvroSchemaPackage.FIELD__UNION, null, msgs);
+      if (newUnion != null)
+        msgs = ((InternalEObject)newUnion).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AvroSchemaPackage.FIELD__UNION, null, msgs);
+      msgs = basicSetUnion(newUnion, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AvroSchemaPackage.FIELD__UNION, newUnion, newUnion));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -529,6 +589,8 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
         return basicSetMap(null, msgs);
       case AvroSchemaPackage.FIELD__FIXED:
         return basicSetFixed(null, msgs);
+      case AvroSchemaPackage.FIELD__UNION:
+        return basicSetUnion(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -560,6 +622,8 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
         return getMap();
       case AvroSchemaPackage.FIELD__FIXED:
         return getFixed();
+      case AvroSchemaPackage.FIELD__UNION:
+        return getUnion();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -597,6 +661,9 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
         return;
       case AvroSchemaPackage.FIELD__FIXED:
         setFixed((FixedType)newValue);
+        return;
+      case AvroSchemaPackage.FIELD__UNION:
+        setUnion((UnionType)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -636,6 +703,9 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
       case AvroSchemaPackage.FIELD__FIXED:
         setFixed((FixedType)null);
         return;
+      case AvroSchemaPackage.FIELD__UNION:
+        setUnion((UnionType)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -666,6 +736,8 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
         return map != null;
       case AvroSchemaPackage.FIELD__FIXED:
         return fixed != null;
+      case AvroSchemaPackage.FIELD__UNION:
+        return union != null;
     }
     return super.eIsSet(featureID);
   }

@@ -538,6 +538,12 @@ rule__Field__Alternatives_13
 { after(grammarAccess.getFieldAccess().getFixedAssignment_13_6()); }
 )
 
+    |(
+{ before(grammarAccess.getFieldAccess().getUnionAssignment_13_7()); }
+(rule__Field__UnionAssignment_13_7)
+{ after(grammarAccess.getFieldAccess().getUnionAssignment_13_7()); }
+)
+
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -6303,6 +6309,21 @@ rule__Field__FixedAssignment_13_6
 (
 { before(grammarAccess.getFieldAccess().getFixedFixedTypeParserRuleCall_13_6_0()); }
 	ruleFixedType{ after(grammarAccess.getFieldAccess().getFixedFixedTypeParserRuleCall_13_6_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Field__UnionAssignment_13_7
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getFieldAccess().getUnionUnionTypeParserRuleCall_13_7_0()); }
+	ruleUnionType{ after(grammarAccess.getFieldAccess().getUnionUnionTypeParserRuleCall_13_7_0()); }
 )
 
 ;
