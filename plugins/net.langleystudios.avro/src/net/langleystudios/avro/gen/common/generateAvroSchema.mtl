@@ -84,11 +84,7 @@
 /]
 [template public generateFeature(aFeature : EStructuralFeature) post(trim())]
 [if(aFeature.upperBound <> 1)]
-	[if(aFeature.lowerBound <> 0)]
-		{"name":"[aFeature.name/]","type":[aFeature.generateArray()/]}
-	[else]
-		{"name":"[aFeature.name/]","type":['['/]"null",[aFeature.generateArray()/][']'/]}
-	[/if]
+	{"name":"[aFeature.name/]","type":['['/]"null",[aFeature.generateArray()/][']'/]}
 [elseif(aFeature.oclIsTypeOf(EAttribute))]
 	[aFeature.oclAsType(EAttribute).generateAttribute()/]
 [else]
@@ -101,62 +97,24 @@
 /]
 [template public generateReference(aReference : EReference) post(trim())]
 [if(aReference.containment)]
-	[if(aReference.upperBound <> 1)]
-		[if(aReference.lowerBound <> 0)]
-			{"name":"[aReference.name/]","type":[aReference.generateArray()/]}
-		[else]
-			{"name":"[aReference.name/]","type":['['/]"null",[aReference.generateArray()/][']'/]}
-		[/if]
+	[if(addClass(aReference.eReferenceType))]
+		{"name":"[aReference.name/]","type":['['/]"null",[aReference.eReferenceType.generateRecord()/][']'/]}
 	[else]
-		[if(addClass(aReference.eReferenceType))]
-			[if(aReference.lowerBound <> 0)]
-			{"name":"[aReference.name/]","type":[aReference.eReferenceType.generateRecord()/]}
-			[else]
-			{"name":"[aReference.name/]","type":['['/]"null",[aReference.eReferenceType.generateRecord()/][']'/]}
-			[/if]
-		[else]
-			[if(aReference.lowerBound <> 0)]
-			{"name":"[aReference.name/]","type":"[aReference.eType.name/]"}
-			[else]
-			{"name":"[aReference.name/]","type":['['/]"null","[aReference.eType.name/]"[']'/]}
-			[/if]
-		[/if]
+		{"name":"[aReference.name/]","type":['['/]"null","[aReference.eType.name/]"[']'/]}
 	[/if]
 [else]
-	[if(aReference.upperBound <> 1)]
-		[if(aReference.lowerBound <> 0)]
-			{"name":"[aReference.name/]","type":"string"}
-		[else]
-			{"name":"[aReference.name/]","type":['['/]"null","string"[']'/]}
-		[/if]
-	[else]
-		[if(aReference.lowerBound <> 0)]
-		{"name":"[aReference.name/]","type":"string"}
-		[else]
-		{"name":"[aReference.name/]","type":['['/]"null","string"[']'/]}
-		[/if]
-	[/if]
+	{"name":"[aReference.name/]","type":['['/]"null","string"[']'/]}
 [/if]
 [/template]
 
 [template public generateAttribute(anAttribute : EAttribute) post(trim())]
-[if(anAttribute.upperBound <> 1)]
-	[if(anAttribute.lowerBound <> 0)]
-		{"name":"[anAttribute.name/]","type":[anAttribute.generateArray()/]}
-	[else]
-		{"name":"[anAttribute.name/]","type":['['/]"null",[anAttribute.generateArray()/][']'/]}
-	[/if]
+[if(anAttribute.eType.oclIsTypeOf(EEnum))]
+	{"name":"[anAttribute.name/]","type":[anAttribute.eType->filter(EEnum).generateEnum()/]}}
 [else]
-	[if(anAttribute.eType.oclIsTypeOf(EEnum))]
-		{"name":"[anAttribute.name/]","type":[anAttribute.eType->filter(EEnum).generateEnum()/]}}
+	[if(anAttribute.eType.name = 'EString' or anAttribute.eType.name = 'EDate')]
+	{"name":"[anAttribute.name/]","type":['['/]"null","[anAttribute.eType.printAvroType()/]"[']'/]}
 	[else]
-		[if(anAttribute.lowerBound <> 0)]
-		{"name":"[anAttribute.name/]","type":"[anAttribute.eType.printAvroType()/]"}
-		[elseif(anAttribute.eType.name = 'EString' or anAttribute.eType.name = 'EDate')]
-		{"name":"[anAttribute.name/]","type":['['/]"null","[anAttribute.eType.printAvroType()/]"[']'/]}
-		[else]
-		{"name":"[anAttribute.name/]","type":"[anAttribute.eType.printAvroType()/]"}
-		[/if]
+	{"name":"[anAttribute.name/]","type":"[anAttribute.eType.printAvroType()/]"}
 	[/if]
 [/if]
 [/template]
