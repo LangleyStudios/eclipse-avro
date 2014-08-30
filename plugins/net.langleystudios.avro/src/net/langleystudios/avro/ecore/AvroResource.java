@@ -79,7 +79,12 @@ public class AvroResource extends ResourceImpl {
 			throws IOException {
 		Error error = null;
 		Exception exception = null;
-		
+
+		// Bail early if we have nothing to save
+		if (this.contents == null && this.contents.size() == 0) {
+			return;
+		}
+
 		// Create a union schema using only the EObjects that are in contents
 		List<Schema> schemaList = new ArrayList<Schema>();
 		for (EObject eobject : this.contents) {
@@ -93,37 +98,25 @@ public class AvroResource extends ResourceImpl {
 		try {
 			DatumWriter<Object> writer = new SpecificDatumWriter<Object>(
 					unionSchema);
-			fileWriter = new DataFileWriter<Object>(
-					writer);
+			fileWriter = new DataFileWriter<Object>(writer);
 			fileWriter.setCodec(CodecFactory.deflateCodec(9));
 			fileWriter.create(unionSchema, outputStream);
 			for (EObject eobject : this.contents) {
-				org.eclipse.emf.common.util.Diagnostic diagnostic = Diagnostician.INSTANCE
-						.validate(eobject);
-				if (diagnostic.getCode() == org.eclipse.emf.common.util.Diagnostic.OK) {
-					Object o = converter.convertEObject(eobject);
-					fileWriter.append(o);
-				} else {
-					fileWriter.close();
-					throw new IOException("Could not store invalid object to resource");
-				}
+				Object o = converter.convertEObject(eobject);
+				fileWriter.append(o);
 			}
 		} catch (Exception exc) {
 			exception = exc;
 		} catch (Error err) {
 			error = err;
-		}
-		finally {
-			if(fileWriter != null)
-			{
+		} finally {
+			if (fileWriter != null) {
 				fileWriter.close();
 			}
 		}
-		if(exception != null)
-		{
+		if (exception != null) {
 			throw new IOException(exception);
-		} else if(error != null)
-		{
+		} else if (error != null) {
 			throw new IOException(error);
 		}
 	}
