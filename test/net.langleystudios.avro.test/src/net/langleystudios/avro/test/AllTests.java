@@ -7,7 +7,8 @@ import org.junit.runners.Suite.SuiteClasses;
 @RunWith(Suite.class)
 @SuiteClasses({ TestAvroSchemaGen.class, TestAvroJavaGen.class,
 		TestConverterGen.class, AvroResourceTest.class,
-		TestResourceFactoryGen.class })
+		TestResourceFactoryGen.class,
+		BinaryAvroResourceTest.class })
 public class AllTests {
 
 }

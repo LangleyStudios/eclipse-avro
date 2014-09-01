@@ -16,6 +16,8 @@ import static org.junit.Assert.fail;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import net.langleystudios.avro.ecore.AvroResource;
 
@@ -39,10 +41,20 @@ import org.eclipse.emf.examples.extlibrary.EXTLibraryFactory;
 import org.eclipse.emf.examples.extlibrary.Library;
 import org.eclipse.emf.examples.extlibrary.Person;
 import org.eclipse.emf.examples.extlibrary.avro.ConvertEMFtoAvro;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class AvroResourceTest {
+public class BinaryAvroResourceTest {
 
+	private static Map<String, Object> options = new HashMap<String, Object>();
+	
+	@BeforeClass
+	public static void setup()
+	{
+		options.put(AvroResource.OPTION_AVRO_BINARY, Boolean.TRUE);
+		options.put(AvroResource.OPTION_AVRO_ZIP, Boolean.TRUE);
+	}
+	
 	@Test
 	public void testEncoding() {
 		Person person = EXTLibraryFactory.eINSTANCE.createPerson();
@@ -102,7 +114,7 @@ public class AvroResourceTest {
 		person.setLastName("Smith");
 		resource.getContents().add(person);
 		try {
-			resource.save(null);
+			resource.save(options);
 		} catch (IOException e) {
 			fail(e.getMessage());
 		} catch (Error error) {
@@ -115,7 +127,7 @@ public class AvroResourceTest {
 						.getClassLoader());
 		loadResource.setConverter(converter);
 		try {
-			loadResource.load(null);
+			loadResource.load(options);
 		} catch (IOException e) {
 			fail(e.getMessage());
 		}
@@ -134,7 +146,7 @@ public class AvroResourceTest {
 		Library library = EXTLibraryFactory.eINSTANCE.createLibrary();
 		resource.getContents().add(library);
 		try {
-			resource.save(null);
+			resource.save(options);
 		} catch (IOException e) {
 			e.printStackTrace();
 			fail(e.getMessage());
@@ -144,7 +156,7 @@ public class AvroResourceTest {
 
 		AvroResource loadResource = (AvroResource)resourceSet.getResource(uri, true);
 		try {
-			loadResource.load(null);
+			loadResource.load(options);
 		} catch (IOException e) {
 			fail(e.getMessage());
 		}
@@ -173,7 +185,7 @@ public class AvroResourceTest {
 
 		book.setAuthor(writer);
 		resource.getContents().add(book);
-		resource.save(null);
+		resource.save(options);
 	}
 
 	@Test
@@ -194,7 +206,7 @@ public class AvroResourceTest {
 		writerResource.setConverter(converter);
 
 		writerResource.getContents().add(writer);
-		writerResource.save(null);
+		writerResource.save(options);
 
 		URI uri = URI.createFileURI("book.library_avro");
 		AvroResource resource = (AvroResource) resourceSet.createResource(uri);
@@ -204,7 +216,7 @@ public class AvroResourceTest {
 		book.setAuthor(writer);
 		resource.getContents().add(book);
 		try {
-			resource.save(null);
+			resource.save(options);
 		} catch (IOException e) {
 			fail(e.getMessage());
 		} catch (Error error) {
@@ -214,7 +226,7 @@ public class AvroResourceTest {
 		AvroResource loadResource = (AvroResource) resourceSet.getResource(uri,
 				false);
 		try {
-			loadResource.load(null);
+			loadResource.load(options);
 		} catch (IOException e) {
 			fail(e.getMessage());
 		}
@@ -228,6 +240,7 @@ public class AvroResourceTest {
 	@Test
 	public void testResourceFactory() {
 		ResourceSet resourceSet = new ResourceSetImpl();
+		resourceSet.getLoadOptions().putAll(options);
 		URI uri = URI.createFileURI("tempFile.library_avro");
 		resourceSet.createResource(uri);
 		AvroResource resource = new AvroResource(uri);
@@ -239,7 +252,7 @@ public class AvroResourceTest {
 		person.setLastName("Smith");
 		resource.getContents().add(person);
 		try {
-			resource.save(null);
+			resource.save(options);
 		} catch (IOException e) {
 			fail(e.getMessage());
 		} catch (Error error) {
@@ -248,6 +261,7 @@ public class AvroResourceTest {
 
 		resourceSet = null;
 		ResourceSet newSet = new ResourceSetImpl();
+		newSet.getLoadOptions().putAll(options);
 		try {
 			Resource newResource = newSet.getResource(uri, true);
 			assertNotNull(newResource);
@@ -265,18 +279,19 @@ public class AvroResourceTest {
 		AvroResource resource = (AvroResource) resourceSet.createResource(borrowedURI);
 		Book book = EXTLibraryFactory.eINSTANCE.createBook();
 		resource.getContents().add(book);
-		resource.save(null);
+		resource.save(options);
 		
 		Borrower borrower = EXTLibraryFactory.eINSTANCE.createBorrower();
 		borrower.getBorrowed().add(book);
 		URI borrowerURI = URI.createFileURI("borrower.library_avro");
 		AvroResource borrowerResource = (AvroResource) resourceSet.createResource(borrowerURI);
 		borrowerResource.getContents().add(borrower);
-		borrowerResource.save(null);
+		borrowerResource.save(options);
 		
 		resourceSet.getResources().clear();
+		resourceSet.getLoadOptions().putAll(options);
 		AvroResource temp = (AvroResource) resourceSet.getResource(borrowerURI, true);
-		temp.load(null);
+		temp.load(options);
 		assertTrue(temp.getContents().size() == 1);
 		
 	}
