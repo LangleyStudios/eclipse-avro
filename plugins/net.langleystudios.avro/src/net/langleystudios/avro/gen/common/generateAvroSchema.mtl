@@ -125,7 +125,6 @@
 
 [template private printAvroType(eClass: EClassifier) post(trim())]
 [if (eClass.name = 'EInt')]int
-[elseif (eClass.name = 'EShort')]short
 [elseif (eClass.name = 'EShort')]int
 [elseif (eClass.name = 'ELong')]long
 [elseif (eClass.name = 'EDouble')]double
