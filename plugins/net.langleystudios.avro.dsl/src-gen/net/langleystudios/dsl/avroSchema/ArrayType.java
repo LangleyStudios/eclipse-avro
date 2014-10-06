@@ -13,7 +13,6 @@ package net.langleystudios.dsl.avroSchema;
  * <ul>
  *   <li>{@link net.langleystudios.dsl.avroSchema.ArrayType#getPrimitive <em>Primitive</em>}</li>
  *   <li>{@link net.langleystudios.dsl.avroSchema.ArrayType#getRecord <em>Record</em>}</li>
- *   <li>{@link net.langleystudios.dsl.avroSchema.ArrayType#getRecordRef <em>Record Ref</em>}</li>
  *   <li>{@link net.langleystudios.dsl.avroSchema.ArrayType#getEtype <em>Etype</em>}</li>
  * </ul>
  * </p>
@@ -75,32 +74,6 @@ public interface ArrayType extends UnionMember
    * @generated
    */
   void setRecord(RecordType value);
-
-  /**
-   * Returns the value of the '<em><b>Record Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Record Ref</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Record Ref</em>' reference.
-   * @see #setRecordRef(RecordType)
-   * @see net.langleystudios.dsl.avroSchema.AvroSchemaPackage#getArrayType_RecordRef()
-   * @model
-   * @generated
-   */
-  RecordType getRecordRef();
-
-  /**
-   * Sets the value of the '{@link net.langleystudios.dsl.avroSchema.ArrayType#getRecordRef <em>Record Ref</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Record Ref</em>' reference.
-   * @see #getRecordRef()
-   * @generated
-   */
-  void setRecordRef(RecordType value);
 
   /**
    * Returns the value of the '<em><b>Etype</b></em>' containment reference.

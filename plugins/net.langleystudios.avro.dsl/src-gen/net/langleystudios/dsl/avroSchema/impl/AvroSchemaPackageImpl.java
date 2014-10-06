@@ -226,6 +226,16 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getUnionMember_RecordRef()
+  {
+    return (EReference)unionMemberEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getJsonType()
   {
     return jsonTypeEClass;
@@ -446,19 +456,9 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getArrayType_RecordRef()
-  {
-    return (EReference)arrayTypeEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getArrayType_Etype()
   {
-    return (EReference)arrayTypeEClass.getEStructuralFeatures().get(3);
+    return (EReference)arrayTypeEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -496,7 +496,7 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMapType_RecordRef()
+  public EReference getMapType_Etype()
   {
     return (EReference)mapTypeEClass.getEStructuralFeatures().get(2);
   }
@@ -506,19 +506,9 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMapType_Etype()
-  {
-    return (EReference)mapTypeEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getMapType_Atype()
   {
-    return (EReference)mapTypeEClass.getEStructuralFeatures().get(4);
+    return (EReference)mapTypeEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -608,6 +598,7 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
     createEReference(unionTypeEClass, UNION_TYPE__TYPES);
 
     unionMemberEClass = createEClass(UNION_MEMBER);
+    createEReference(unionMemberEClass, UNION_MEMBER__RECORD_REF);
 
     jsonTypeEClass = createEClass(JSON_TYPE);
     createEReference(jsonTypeEClass, JSON_TYPE__TYPE);
@@ -635,13 +626,11 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
     arrayTypeEClass = createEClass(ARRAY_TYPE);
     createEReference(arrayTypeEClass, ARRAY_TYPE__PRIMITIVE);
     createEReference(arrayTypeEClass, ARRAY_TYPE__RECORD);
-    createEReference(arrayTypeEClass, ARRAY_TYPE__RECORD_REF);
     createEReference(arrayTypeEClass, ARRAY_TYPE__ETYPE);
 
     mapTypeEClass = createEClass(MAP_TYPE);
     createEReference(mapTypeEClass, MAP_TYPE__PRIMITIVE);
     createEReference(mapTypeEClass, MAP_TYPE__RECORD);
-    createEReference(mapTypeEClass, MAP_TYPE__RECORD_REF);
     createEReference(mapTypeEClass, MAP_TYPE__ETYPE);
     createEReference(mapTypeEClass, MAP_TYPE__ATYPE);
 
@@ -697,6 +686,7 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
     initEReference(getUnionType_Types(), this.getUnionMember(), null, "types", null, 0, -1, UnionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(unionMemberEClass, UnionMember.class, "UnionMember", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getUnionMember_RecordRef(), this.getRecordType(), null, "recordRef", null, 0, 1, UnionMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(jsonTypeEClass, JsonType.class, "JsonType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getJsonType_Type(), this.getPrimitive(), null, "type", null, 0, 1, JsonType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -724,13 +714,11 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
     initEClass(arrayTypeEClass, ArrayType.class, "ArrayType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getArrayType_Primitive(), this.getPrimitive(), null, "primitive", null, 0, 1, ArrayType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getArrayType_Record(), this.getRecordType(), null, "record", null, 0, 1, ArrayType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getArrayType_RecordRef(), this.getRecordType(), null, "recordRef", null, 0, 1, ArrayType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getArrayType_Etype(), this.getEnumType(), null, "etype", null, 0, 1, ArrayType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mapTypeEClass, MapType.class, "MapType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMapType_Primitive(), this.getPrimitive(), null, "primitive", null, 0, 1, MapType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMapType_Record(), this.getRecordType(), null, "record", null, 0, 1, MapType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMapType_RecordRef(), this.getRecordType(), null, "recordRef", null, 0, 1, MapType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMapType_Etype(), this.getEnumType(), null, "etype", null, 0, 1, MapType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMapType_Atype(), this.getArrayType(), null, "atype", null, 0, 1, MapType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

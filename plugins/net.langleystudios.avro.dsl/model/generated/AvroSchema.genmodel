@@ -13,7 +13,9 @@
     <genClasses ecoreClass="AvroSchema.ecore#//UnionType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//UnionType/types"/>
     </genClasses>
-    <genClasses ecoreClass="AvroSchema.ecore#//UnionMember"/>
+    <genClasses ecoreClass="AvroSchema.ecore#//UnionMember">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//UnionMember/recordRef"/>
+    </genClasses>
     <genClasses ecoreClass="AvroSchema.ecore#//JsonType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//JsonType/type"/>
     </genClasses>
@@ -40,13 +42,11 @@
     <genClasses ecoreClass="AvroSchema.ecore#//ArrayType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//ArrayType/primitive"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//ArrayType/record"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//ArrayType/recordRef"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//ArrayType/etype"/>
     </genClasses>
     <genClasses ecoreClass="AvroSchema.ecore#//MapType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//MapType/primitive"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//MapType/record"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//MapType/recordRef"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//MapType/etype"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//MapType/atype"/>
     </genClasses>

@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'['", "','", "']'", "'{'", "'\"'", "'type'", "':'", "'}'", "'record'", "'name'", "'namespace'", "'fields'", "'enum'", "'symbols'", "'array'", "'items'", "'map'", "'fixed'", "'size'", "'null'", "'boolean'", "'int'", "'long'", "'float'", "'double'", "'bytes'", "'string'", "'.'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'['", "','", "']'", "'\"'", "'{'", "'type'", "':'", "'}'", "'record'", "'name'", "'namespace'", "'fields'", "'enum'", "'symbols'", "'array'", "'items'", "'map'", "'fixed'", "'size'", "'null'", "'boolean'", "'int'", "'long'", "'float'", "'double'", "'bytes'", "'string'", "'.'"
     };
     public static final int RULE_ID=4;
     public static final int T__29=29;
@@ -475,10 +475,13 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleUnionMember"
-    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:217:1: ruleUnionMember returns [EObject current=null] : (this_RecordType_0= ruleRecordType | this_ArrayType_1= ruleArrayType | this_Primitive_2= rulePrimitive | this_MapType_3= ruleMapType | this_EnumType_4= ruleEnumType | this_FixedType_5= ruleFixedType ) ;
+    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:217:1: ruleUnionMember returns [EObject current=null] : (this_RecordType_0= ruleRecordType | this_ArrayType_1= ruleArrayType | this_Primitive_2= rulePrimitive | this_MapType_3= ruleMapType | this_EnumType_4= ruleEnumType | this_FixedType_5= ruleFixedType | (otherlv_6= '\"' ( (otherlv_7= RULE_ID ) ) otherlv_8= '\"' ) ) ;
     public final EObject ruleUnionMember() throws RecognitionException {
         EObject current = null;
 
+        Token otherlv_6=null;
+        Token otherlv_7=null;
+        Token otherlv_8=null;
         EObject this_RecordType_0 = null;
 
         EObject this_ArrayType_1 = null;
@@ -495,11 +498,11 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:220:28: ( (this_RecordType_0= ruleRecordType | this_ArrayType_1= ruleArrayType | this_Primitive_2= rulePrimitive | this_MapType_3= ruleMapType | this_EnumType_4= ruleEnumType | this_FixedType_5= ruleFixedType ) )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:221:1: (this_RecordType_0= ruleRecordType | this_ArrayType_1= ruleArrayType | this_Primitive_2= rulePrimitive | this_MapType_3= ruleMapType | this_EnumType_4= ruleEnumType | this_FixedType_5= ruleFixedType )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:220:28: ( (this_RecordType_0= ruleRecordType | this_ArrayType_1= ruleArrayType | this_Primitive_2= rulePrimitive | this_MapType_3= ruleMapType | this_EnumType_4= ruleEnumType | this_FixedType_5= ruleFixedType | (otherlv_6= '\"' ( (otherlv_7= RULE_ID ) ) otherlv_8= '\"' ) ) )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:221:1: (this_RecordType_0= ruleRecordType | this_ArrayType_1= ruleArrayType | this_Primitive_2= rulePrimitive | this_MapType_3= ruleMapType | this_EnumType_4= ruleEnumType | this_FixedType_5= ruleFixedType | (otherlv_6= '\"' ( (otherlv_7= RULE_ID ) ) otherlv_8= '\"' ) )
             {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:221:1: (this_RecordType_0= ruleRecordType | this_ArrayType_1= ruleArrayType | this_Primitive_2= rulePrimitive | this_MapType_3= ruleMapType | this_EnumType_4= ruleEnumType | this_FixedType_5= ruleFixedType )
-            int alt3=6;
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:221:1: (this_RecordType_0= ruleRecordType | this_ArrayType_1= ruleArrayType | this_Primitive_2= rulePrimitive | this_MapType_3= ruleMapType | this_EnumType_4= ruleEnumType | this_FixedType_5= ruleFixedType | (otherlv_6= '\"' ( (otherlv_7= RULE_ID ) ) otherlv_8= '\"' ) )
+            int alt3=7;
             alt3 = dfa3.predict(input);
             switch (alt3) {
                 case 1 :
@@ -610,6 +613,47 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
+                case 7 :
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:281:6: (otherlv_6= '\"' ( (otherlv_7= RULE_ID ) ) otherlv_8= '\"' )
+                    {
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:281:6: (otherlv_6= '\"' ( (otherlv_7= RULE_ID ) ) otherlv_8= '\"' )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:281:8: otherlv_6= '\"' ( (otherlv_7= RULE_ID ) ) otherlv_8= '\"'
+                    {
+                    otherlv_6=(Token)match(input,13,FOLLOW_13_in_ruleUnionMember570); 
+
+                        	newLeafNode(otherlv_6, grammarAccess.getUnionMemberAccess().getQuotationMarkKeyword_6_0());
+                        
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:285:1: ( (otherlv_7= RULE_ID ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:286:1: (otherlv_7= RULE_ID )
+                    {
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:286:1: (otherlv_7= RULE_ID )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:287:3: otherlv_7= RULE_ID
+                    {
+
+                    			if (current==null) {
+                    	            current = createModelElement(grammarAccess.getUnionMemberRule());
+                    	        }
+                            
+                    otherlv_7=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleUnionMember590); 
+
+                    		newLeafNode(otherlv_7, grammarAccess.getUnionMemberAccess().getRecordRefRecordTypeCrossReference_6_1_0()); 
+                    	
+
+                    }
+
+
+                    }
+
+                    otherlv_8=(Token)match(input,13,FOLLOW_13_in_ruleUnionMember602); 
+
+                        	newLeafNode(otherlv_8, grammarAccess.getUnionMemberAccess().getQuotationMarkKeyword_6_2());
+                        
+
+                    }
+
+
+                    }
+                    break;
 
             }
 
@@ -631,7 +675,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleJsonType"
-    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:288:1: entryRuleJsonType returns [EObject current=null] : iv_ruleJsonType= ruleJsonType EOF ;
+    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:310:1: entryRuleJsonType returns [EObject current=null] : iv_ruleJsonType= ruleJsonType EOF ;
     public final EObject entryRuleJsonType() throws RecognitionException {
         EObject current = null;
 
@@ -639,17 +683,17 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:289:2: (iv_ruleJsonType= ruleJsonType EOF )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:290:2: iv_ruleJsonType= ruleJsonType EOF
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:311:2: (iv_ruleJsonType= ruleJsonType EOF )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:312:2: iv_ruleJsonType= ruleJsonType EOF
             {
              newCompositeNode(grammarAccess.getJsonTypeRule()); 
-            pushFollow(FOLLOW_ruleJsonType_in_entryRuleJsonType587);
+            pushFollow(FOLLOW_ruleJsonType_in_entryRuleJsonType639);
             iv_ruleJsonType=ruleJsonType();
 
             state._fsp--;
 
              current =iv_ruleJsonType; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleJsonType597); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleJsonType649); 
 
             }
 
@@ -667,7 +711,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleJsonType"
-    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:297:1: ruleJsonType returns [EObject current=null] : (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' ( (lv_type_6_0= rulePrimitive ) ) otherlv_7= '\"' otherlv_8= '}' ) ;
+    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:319:1: ruleJsonType returns [EObject current=null] : (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' ( (lv_type_6_0= rulePrimitive ) ) otherlv_7= '\"' otherlv_8= '}' ) ;
     public final EObject ruleJsonType() throws RecognitionException {
         EObject current = null;
 
@@ -685,46 +729,46 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:300:28: ( (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' ( (lv_type_6_0= rulePrimitive ) ) otherlv_7= '\"' otherlv_8= '}' ) )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:301:1: (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' ( (lv_type_6_0= rulePrimitive ) ) otherlv_7= '\"' otherlv_8= '}' )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:322:28: ( (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' ( (lv_type_6_0= rulePrimitive ) ) otherlv_7= '\"' otherlv_8= '}' ) )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:323:1: (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' ( (lv_type_6_0= rulePrimitive ) ) otherlv_7= '\"' otherlv_8= '}' )
             {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:301:1: (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' ( (lv_type_6_0= rulePrimitive ) ) otherlv_7= '\"' otherlv_8= '}' )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:301:3: otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' ( (lv_type_6_0= rulePrimitive ) ) otherlv_7= '\"' otherlv_8= '}'
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:323:1: (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' ( (lv_type_6_0= rulePrimitive ) ) otherlv_7= '\"' otherlv_8= '}' )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:323:3: otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' ( (lv_type_6_0= rulePrimitive ) ) otherlv_7= '\"' otherlv_8= '}'
             {
-            otherlv_0=(Token)match(input,13,FOLLOW_13_in_ruleJsonType634); 
+            otherlv_0=(Token)match(input,14,FOLLOW_14_in_ruleJsonType686); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getJsonTypeAccess().getLeftCurlyBracketKeyword_0());
                 
-            otherlv_1=(Token)match(input,14,FOLLOW_14_in_ruleJsonType646); 
+            otherlv_1=(Token)match(input,13,FOLLOW_13_in_ruleJsonType698); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getJsonTypeAccess().getQuotationMarkKeyword_1());
                 
-            otherlv_2=(Token)match(input,15,FOLLOW_15_in_ruleJsonType658); 
+            otherlv_2=(Token)match(input,15,FOLLOW_15_in_ruleJsonType710); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getJsonTypeAccess().getTypeKeyword_2());
                 
-            otherlv_3=(Token)match(input,14,FOLLOW_14_in_ruleJsonType670); 
+            otherlv_3=(Token)match(input,13,FOLLOW_13_in_ruleJsonType722); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getJsonTypeAccess().getQuotationMarkKeyword_3());
                 
-            otherlv_4=(Token)match(input,16,FOLLOW_16_in_ruleJsonType682); 
+            otherlv_4=(Token)match(input,16,FOLLOW_16_in_ruleJsonType734); 
 
                 	newLeafNode(otherlv_4, grammarAccess.getJsonTypeAccess().getColonKeyword_4());
                 
-            otherlv_5=(Token)match(input,14,FOLLOW_14_in_ruleJsonType694); 
+            otherlv_5=(Token)match(input,13,FOLLOW_13_in_ruleJsonType746); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getJsonTypeAccess().getQuotationMarkKeyword_5());
                 
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:325:1: ( (lv_type_6_0= rulePrimitive ) )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:326:1: (lv_type_6_0= rulePrimitive )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:347:1: ( (lv_type_6_0= rulePrimitive ) )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:348:1: (lv_type_6_0= rulePrimitive )
             {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:326:1: (lv_type_6_0= rulePrimitive )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:327:3: lv_type_6_0= rulePrimitive
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:348:1: (lv_type_6_0= rulePrimitive )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:349:3: lv_type_6_0= rulePrimitive
             {
              
             	        newCompositeNode(grammarAccess.getJsonTypeAccess().getTypePrimitiveParserRuleCall_6_0()); 
             	    
-            pushFollow(FOLLOW_rulePrimitive_in_ruleJsonType715);
+            pushFollow(FOLLOW_rulePrimitive_in_ruleJsonType767);
             lv_type_6_0=rulePrimitive();
 
             state._fsp--;
@@ -746,11 +790,11 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_7=(Token)match(input,14,FOLLOW_14_in_ruleJsonType727); 
+            otherlv_7=(Token)match(input,13,FOLLOW_13_in_ruleJsonType779); 
 
                 	newLeafNode(otherlv_7, grammarAccess.getJsonTypeAccess().getQuotationMarkKeyword_7());
                 
-            otherlv_8=(Token)match(input,17,FOLLOW_17_in_ruleJsonType739); 
+            otherlv_8=(Token)match(input,17,FOLLOW_17_in_ruleJsonType791); 
 
                 	newLeafNode(otherlv_8, grammarAccess.getJsonTypeAccess().getRightCurlyBracketKeyword_8());
                 
@@ -775,7 +819,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleRecordType"
-    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:359:1: entryRuleRecordType returns [EObject current=null] : iv_ruleRecordType= ruleRecordType EOF ;
+    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:381:1: entryRuleRecordType returns [EObject current=null] : iv_ruleRecordType= ruleRecordType EOF ;
     public final EObject entryRuleRecordType() throws RecognitionException {
         EObject current = null;
 
@@ -783,17 +827,17 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:360:2: (iv_ruleRecordType= ruleRecordType EOF )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:361:2: iv_ruleRecordType= ruleRecordType EOF
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:382:2: (iv_ruleRecordType= ruleRecordType EOF )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:383:2: iv_ruleRecordType= ruleRecordType EOF
             {
              newCompositeNode(grammarAccess.getRecordTypeRule()); 
-            pushFollow(FOLLOW_ruleRecordType_in_entryRuleRecordType775);
+            pushFollow(FOLLOW_ruleRecordType_in_entryRuleRecordType827);
             iv_ruleRecordType=ruleRecordType();
 
             state._fsp--;
 
              current =iv_ruleRecordType; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleRecordType785); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRecordType837); 
 
             }
 
@@ -811,7 +855,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRecordType"
-    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:368:1: ruleRecordType returns [EObject current=null] : (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'record' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'name' otherlv_11= '\"' otherlv_12= ':' otherlv_13= '\"' ( (lv_name_14_0= RULE_ID ) ) otherlv_15= '\"' (otherlv_16= ',' otherlv_17= '\"' otherlv_18= 'namespace' otherlv_19= '\"' otherlv_20= ':' otherlv_21= '\"' ( (lv_namespace_22_0= ruleNamespace ) ) otherlv_23= '\"' )? otherlv_24= ',' otherlv_25= '\"' otherlv_26= 'fields' otherlv_27= '\"' otherlv_28= ':' otherlv_29= '[' ( (lv_fields_30_0= ruleField ) ) (otherlv_31= ',' ( (lv_fields_32_0= ruleField ) ) )* otherlv_33= ']' otherlv_34= '}' ) ;
+    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:390:1: ruleRecordType returns [EObject current=null] : (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'record' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'name' otherlv_11= '\"' otherlv_12= ':' otherlv_13= '\"' ( (lv_name_14_0= RULE_ID ) ) otherlv_15= '\"' (otherlv_16= ',' otherlv_17= '\"' otherlv_18= 'namespace' otherlv_19= '\"' otherlv_20= ':' otherlv_21= '\"' ( (lv_namespace_22_0= ruleNamespace ) ) otherlv_23= '\"' )? otherlv_24= ',' otherlv_25= '\"' otherlv_26= 'fields' otherlv_27= '\"' otherlv_28= ':' otherlv_29= '[' ( (lv_fields_30_0= ruleField ) ) (otherlv_31= ',' ( (lv_fields_32_0= ruleField ) ) )* otherlv_33= ']' otherlv_34= '}' ) ;
     public final EObject ruleRecordType() throws RecognitionException {
         EObject current = null;
 
@@ -857,75 +901,75 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:371:28: ( (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'record' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'name' otherlv_11= '\"' otherlv_12= ':' otherlv_13= '\"' ( (lv_name_14_0= RULE_ID ) ) otherlv_15= '\"' (otherlv_16= ',' otherlv_17= '\"' otherlv_18= 'namespace' otherlv_19= '\"' otherlv_20= ':' otherlv_21= '\"' ( (lv_namespace_22_0= ruleNamespace ) ) otherlv_23= '\"' )? otherlv_24= ',' otherlv_25= '\"' otherlv_26= 'fields' otherlv_27= '\"' otherlv_28= ':' otherlv_29= '[' ( (lv_fields_30_0= ruleField ) ) (otherlv_31= ',' ( (lv_fields_32_0= ruleField ) ) )* otherlv_33= ']' otherlv_34= '}' ) )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:372:1: (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'record' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'name' otherlv_11= '\"' otherlv_12= ':' otherlv_13= '\"' ( (lv_name_14_0= RULE_ID ) ) otherlv_15= '\"' (otherlv_16= ',' otherlv_17= '\"' otherlv_18= 'namespace' otherlv_19= '\"' otherlv_20= ':' otherlv_21= '\"' ( (lv_namespace_22_0= ruleNamespace ) ) otherlv_23= '\"' )? otherlv_24= ',' otherlv_25= '\"' otherlv_26= 'fields' otherlv_27= '\"' otherlv_28= ':' otherlv_29= '[' ( (lv_fields_30_0= ruleField ) ) (otherlv_31= ',' ( (lv_fields_32_0= ruleField ) ) )* otherlv_33= ']' otherlv_34= '}' )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:393:28: ( (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'record' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'name' otherlv_11= '\"' otherlv_12= ':' otherlv_13= '\"' ( (lv_name_14_0= RULE_ID ) ) otherlv_15= '\"' (otherlv_16= ',' otherlv_17= '\"' otherlv_18= 'namespace' otherlv_19= '\"' otherlv_20= ':' otherlv_21= '\"' ( (lv_namespace_22_0= ruleNamespace ) ) otherlv_23= '\"' )? otherlv_24= ',' otherlv_25= '\"' otherlv_26= 'fields' otherlv_27= '\"' otherlv_28= ':' otherlv_29= '[' ( (lv_fields_30_0= ruleField ) ) (otherlv_31= ',' ( (lv_fields_32_0= ruleField ) ) )* otherlv_33= ']' otherlv_34= '}' ) )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:394:1: (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'record' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'name' otherlv_11= '\"' otherlv_12= ':' otherlv_13= '\"' ( (lv_name_14_0= RULE_ID ) ) otherlv_15= '\"' (otherlv_16= ',' otherlv_17= '\"' otherlv_18= 'namespace' otherlv_19= '\"' otherlv_20= ':' otherlv_21= '\"' ( (lv_namespace_22_0= ruleNamespace ) ) otherlv_23= '\"' )? otherlv_24= ',' otherlv_25= '\"' otherlv_26= 'fields' otherlv_27= '\"' otherlv_28= ':' otherlv_29= '[' ( (lv_fields_30_0= ruleField ) ) (otherlv_31= ',' ( (lv_fields_32_0= ruleField ) ) )* otherlv_33= ']' otherlv_34= '}' )
             {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:372:1: (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'record' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'name' otherlv_11= '\"' otherlv_12= ':' otherlv_13= '\"' ( (lv_name_14_0= RULE_ID ) ) otherlv_15= '\"' (otherlv_16= ',' otherlv_17= '\"' otherlv_18= 'namespace' otherlv_19= '\"' otherlv_20= ':' otherlv_21= '\"' ( (lv_namespace_22_0= ruleNamespace ) ) otherlv_23= '\"' )? otherlv_24= ',' otherlv_25= '\"' otherlv_26= 'fields' otherlv_27= '\"' otherlv_28= ':' otherlv_29= '[' ( (lv_fields_30_0= ruleField ) ) (otherlv_31= ',' ( (lv_fields_32_0= ruleField ) ) )* otherlv_33= ']' otherlv_34= '}' )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:372:3: otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'record' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'name' otherlv_11= '\"' otherlv_12= ':' otherlv_13= '\"' ( (lv_name_14_0= RULE_ID ) ) otherlv_15= '\"' (otherlv_16= ',' otherlv_17= '\"' otherlv_18= 'namespace' otherlv_19= '\"' otherlv_20= ':' otherlv_21= '\"' ( (lv_namespace_22_0= ruleNamespace ) ) otherlv_23= '\"' )? otherlv_24= ',' otherlv_25= '\"' otherlv_26= 'fields' otherlv_27= '\"' otherlv_28= ':' otherlv_29= '[' ( (lv_fields_30_0= ruleField ) ) (otherlv_31= ',' ( (lv_fields_32_0= ruleField ) ) )* otherlv_33= ']' otherlv_34= '}'
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:394:1: (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'record' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'name' otherlv_11= '\"' otherlv_12= ':' otherlv_13= '\"' ( (lv_name_14_0= RULE_ID ) ) otherlv_15= '\"' (otherlv_16= ',' otherlv_17= '\"' otherlv_18= 'namespace' otherlv_19= '\"' otherlv_20= ':' otherlv_21= '\"' ( (lv_namespace_22_0= ruleNamespace ) ) otherlv_23= '\"' )? otherlv_24= ',' otherlv_25= '\"' otherlv_26= 'fields' otherlv_27= '\"' otherlv_28= ':' otherlv_29= '[' ( (lv_fields_30_0= ruleField ) ) (otherlv_31= ',' ( (lv_fields_32_0= ruleField ) ) )* otherlv_33= ']' otherlv_34= '}' )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:394:3: otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'record' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'name' otherlv_11= '\"' otherlv_12= ':' otherlv_13= '\"' ( (lv_name_14_0= RULE_ID ) ) otherlv_15= '\"' (otherlv_16= ',' otherlv_17= '\"' otherlv_18= 'namespace' otherlv_19= '\"' otherlv_20= ':' otherlv_21= '\"' ( (lv_namespace_22_0= ruleNamespace ) ) otherlv_23= '\"' )? otherlv_24= ',' otherlv_25= '\"' otherlv_26= 'fields' otherlv_27= '\"' otherlv_28= ':' otherlv_29= '[' ( (lv_fields_30_0= ruleField ) ) (otherlv_31= ',' ( (lv_fields_32_0= ruleField ) ) )* otherlv_33= ']' otherlv_34= '}'
             {
-            otherlv_0=(Token)match(input,13,FOLLOW_13_in_ruleRecordType822); 
+            otherlv_0=(Token)match(input,14,FOLLOW_14_in_ruleRecordType874); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getRecordTypeAccess().getLeftCurlyBracketKeyword_0());
                 
-            otherlv_1=(Token)match(input,14,FOLLOW_14_in_ruleRecordType834); 
+            otherlv_1=(Token)match(input,13,FOLLOW_13_in_ruleRecordType886); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getRecordTypeAccess().getQuotationMarkKeyword_1());
                 
-            otherlv_2=(Token)match(input,15,FOLLOW_15_in_ruleRecordType846); 
+            otherlv_2=(Token)match(input,15,FOLLOW_15_in_ruleRecordType898); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getRecordTypeAccess().getTypeKeyword_2());
                 
-            otherlv_3=(Token)match(input,14,FOLLOW_14_in_ruleRecordType858); 
+            otherlv_3=(Token)match(input,13,FOLLOW_13_in_ruleRecordType910); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getRecordTypeAccess().getQuotationMarkKeyword_3());
                 
-            otherlv_4=(Token)match(input,16,FOLLOW_16_in_ruleRecordType870); 
+            otherlv_4=(Token)match(input,16,FOLLOW_16_in_ruleRecordType922); 
 
                 	newLeafNode(otherlv_4, grammarAccess.getRecordTypeAccess().getColonKeyword_4());
                 
-            otherlv_5=(Token)match(input,14,FOLLOW_14_in_ruleRecordType882); 
+            otherlv_5=(Token)match(input,13,FOLLOW_13_in_ruleRecordType934); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getRecordTypeAccess().getQuotationMarkKeyword_5());
                 
-            otherlv_6=(Token)match(input,18,FOLLOW_18_in_ruleRecordType894); 
+            otherlv_6=(Token)match(input,18,FOLLOW_18_in_ruleRecordType946); 
 
                 	newLeafNode(otherlv_6, grammarAccess.getRecordTypeAccess().getRecordKeyword_6());
                 
-            otherlv_7=(Token)match(input,14,FOLLOW_14_in_ruleRecordType906); 
+            otherlv_7=(Token)match(input,13,FOLLOW_13_in_ruleRecordType958); 
 
                 	newLeafNode(otherlv_7, grammarAccess.getRecordTypeAccess().getQuotationMarkKeyword_7());
                 
-            otherlv_8=(Token)match(input,11,FOLLOW_11_in_ruleRecordType918); 
+            otherlv_8=(Token)match(input,11,FOLLOW_11_in_ruleRecordType970); 
 
                 	newLeafNode(otherlv_8, grammarAccess.getRecordTypeAccess().getCommaKeyword_8());
                 
-            otherlv_9=(Token)match(input,14,FOLLOW_14_in_ruleRecordType930); 
+            otherlv_9=(Token)match(input,13,FOLLOW_13_in_ruleRecordType982); 
 
                 	newLeafNode(otherlv_9, grammarAccess.getRecordTypeAccess().getQuotationMarkKeyword_9());
                 
-            otherlv_10=(Token)match(input,19,FOLLOW_19_in_ruleRecordType942); 
+            otherlv_10=(Token)match(input,19,FOLLOW_19_in_ruleRecordType994); 
 
                 	newLeafNode(otherlv_10, grammarAccess.getRecordTypeAccess().getNameKeyword_10());
                 
-            otherlv_11=(Token)match(input,14,FOLLOW_14_in_ruleRecordType954); 
+            otherlv_11=(Token)match(input,13,FOLLOW_13_in_ruleRecordType1006); 
 
                 	newLeafNode(otherlv_11, grammarAccess.getRecordTypeAccess().getQuotationMarkKeyword_11());
                 
-            otherlv_12=(Token)match(input,16,FOLLOW_16_in_ruleRecordType966); 
+            otherlv_12=(Token)match(input,16,FOLLOW_16_in_ruleRecordType1018); 
 
                 	newLeafNode(otherlv_12, grammarAccess.getRecordTypeAccess().getColonKeyword_12());
                 
-            otherlv_13=(Token)match(input,14,FOLLOW_14_in_ruleRecordType978); 
+            otherlv_13=(Token)match(input,13,FOLLOW_13_in_ruleRecordType1030); 
 
                 	newLeafNode(otherlv_13, grammarAccess.getRecordTypeAccess().getQuotationMarkKeyword_13());
                 
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:428:1: ( (lv_name_14_0= RULE_ID ) )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:429:1: (lv_name_14_0= RULE_ID )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:450:1: ( (lv_name_14_0= RULE_ID ) )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:451:1: (lv_name_14_0= RULE_ID )
             {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:429:1: (lv_name_14_0= RULE_ID )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:430:3: lv_name_14_0= RULE_ID
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:451:1: (lv_name_14_0= RULE_ID )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:452:3: lv_name_14_0= RULE_ID
             {
-            lv_name_14_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleRecordType995); 
+            lv_name_14_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleRecordType1047); 
 
             			newLeafNode(lv_name_14_0, grammarAccess.getRecordTypeAccess().getNameIDTerminalRuleCall_14_0()); 
             		
@@ -945,18 +989,18 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_15=(Token)match(input,14,FOLLOW_14_in_ruleRecordType1012); 
+            otherlv_15=(Token)match(input,13,FOLLOW_13_in_ruleRecordType1064); 
 
                 	newLeafNode(otherlv_15, grammarAccess.getRecordTypeAccess().getQuotationMarkKeyword_15());
                 
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:450:1: (otherlv_16= ',' otherlv_17= '\"' otherlv_18= 'namespace' otherlv_19= '\"' otherlv_20= ':' otherlv_21= '\"' ( (lv_namespace_22_0= ruleNamespace ) ) otherlv_23= '\"' )?
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:472:1: (otherlv_16= ',' otherlv_17= '\"' otherlv_18= 'namespace' otherlv_19= '\"' otherlv_20= ':' otherlv_21= '\"' ( (lv_namespace_22_0= ruleNamespace ) ) otherlv_23= '\"' )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
             if ( (LA4_0==11) ) {
                 int LA4_1 = input.LA(2);
 
-                if ( (LA4_1==14) ) {
+                if ( (LA4_1==13) ) {
                     int LA4_2 = input.LA(3);
 
                     if ( (LA4_2==20) ) {
@@ -966,42 +1010,42 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
             }
             switch (alt4) {
                 case 1 :
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:450:3: otherlv_16= ',' otherlv_17= '\"' otherlv_18= 'namespace' otherlv_19= '\"' otherlv_20= ':' otherlv_21= '\"' ( (lv_namespace_22_0= ruleNamespace ) ) otherlv_23= '\"'
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:472:3: otherlv_16= ',' otherlv_17= '\"' otherlv_18= 'namespace' otherlv_19= '\"' otherlv_20= ':' otherlv_21= '\"' ( (lv_namespace_22_0= ruleNamespace ) ) otherlv_23= '\"'
                     {
-                    otherlv_16=(Token)match(input,11,FOLLOW_11_in_ruleRecordType1025); 
+                    otherlv_16=(Token)match(input,11,FOLLOW_11_in_ruleRecordType1077); 
 
                         	newLeafNode(otherlv_16, grammarAccess.getRecordTypeAccess().getCommaKeyword_16_0());
                         
-                    otherlv_17=(Token)match(input,14,FOLLOW_14_in_ruleRecordType1037); 
+                    otherlv_17=(Token)match(input,13,FOLLOW_13_in_ruleRecordType1089); 
 
                         	newLeafNode(otherlv_17, grammarAccess.getRecordTypeAccess().getQuotationMarkKeyword_16_1());
                         
-                    otherlv_18=(Token)match(input,20,FOLLOW_20_in_ruleRecordType1049); 
+                    otherlv_18=(Token)match(input,20,FOLLOW_20_in_ruleRecordType1101); 
 
                         	newLeafNode(otherlv_18, grammarAccess.getRecordTypeAccess().getNamespaceKeyword_16_2());
                         
-                    otherlv_19=(Token)match(input,14,FOLLOW_14_in_ruleRecordType1061); 
+                    otherlv_19=(Token)match(input,13,FOLLOW_13_in_ruleRecordType1113); 
 
                         	newLeafNode(otherlv_19, grammarAccess.getRecordTypeAccess().getQuotationMarkKeyword_16_3());
                         
-                    otherlv_20=(Token)match(input,16,FOLLOW_16_in_ruleRecordType1073); 
+                    otherlv_20=(Token)match(input,16,FOLLOW_16_in_ruleRecordType1125); 
 
                         	newLeafNode(otherlv_20, grammarAccess.getRecordTypeAccess().getColonKeyword_16_4());
                         
-                    otherlv_21=(Token)match(input,14,FOLLOW_14_in_ruleRecordType1085); 
+                    otherlv_21=(Token)match(input,13,FOLLOW_13_in_ruleRecordType1137); 
 
                         	newLeafNode(otherlv_21, grammarAccess.getRecordTypeAccess().getQuotationMarkKeyword_16_5());
                         
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:474:1: ( (lv_namespace_22_0= ruleNamespace ) )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:475:1: (lv_namespace_22_0= ruleNamespace )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:496:1: ( (lv_namespace_22_0= ruleNamespace ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:497:1: (lv_namespace_22_0= ruleNamespace )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:475:1: (lv_namespace_22_0= ruleNamespace )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:476:3: lv_namespace_22_0= ruleNamespace
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:497:1: (lv_namespace_22_0= ruleNamespace )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:498:3: lv_namespace_22_0= ruleNamespace
                     {
                      
                     	        newCompositeNode(grammarAccess.getRecordTypeAccess().getNamespaceNamespaceParserRuleCall_16_6_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleNamespace_in_ruleRecordType1106);
+                    pushFollow(FOLLOW_ruleNamespace_in_ruleRecordType1158);
                     lv_namespace_22_0=ruleNamespace();
 
                     state._fsp--;
@@ -1023,7 +1067,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_23=(Token)match(input,14,FOLLOW_14_in_ruleRecordType1118); 
+                    otherlv_23=(Token)match(input,13,FOLLOW_13_in_ruleRecordType1170); 
 
                         	newLeafNode(otherlv_23, grammarAccess.getRecordTypeAccess().getQuotationMarkKeyword_16_7());
                         
@@ -1033,40 +1077,40 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_24=(Token)match(input,11,FOLLOW_11_in_ruleRecordType1132); 
+            otherlv_24=(Token)match(input,11,FOLLOW_11_in_ruleRecordType1184); 
 
                 	newLeafNode(otherlv_24, grammarAccess.getRecordTypeAccess().getCommaKeyword_17());
                 
-            otherlv_25=(Token)match(input,14,FOLLOW_14_in_ruleRecordType1144); 
+            otherlv_25=(Token)match(input,13,FOLLOW_13_in_ruleRecordType1196); 
 
                 	newLeafNode(otherlv_25, grammarAccess.getRecordTypeAccess().getQuotationMarkKeyword_18());
                 
-            otherlv_26=(Token)match(input,21,FOLLOW_21_in_ruleRecordType1156); 
+            otherlv_26=(Token)match(input,21,FOLLOW_21_in_ruleRecordType1208); 
 
                 	newLeafNode(otherlv_26, grammarAccess.getRecordTypeAccess().getFieldsKeyword_19());
                 
-            otherlv_27=(Token)match(input,14,FOLLOW_14_in_ruleRecordType1168); 
+            otherlv_27=(Token)match(input,13,FOLLOW_13_in_ruleRecordType1220); 
 
                 	newLeafNode(otherlv_27, grammarAccess.getRecordTypeAccess().getQuotationMarkKeyword_20());
                 
-            otherlv_28=(Token)match(input,16,FOLLOW_16_in_ruleRecordType1180); 
+            otherlv_28=(Token)match(input,16,FOLLOW_16_in_ruleRecordType1232); 
 
                 	newLeafNode(otherlv_28, grammarAccess.getRecordTypeAccess().getColonKeyword_21());
                 
-            otherlv_29=(Token)match(input,10,FOLLOW_10_in_ruleRecordType1192); 
+            otherlv_29=(Token)match(input,10,FOLLOW_10_in_ruleRecordType1244); 
 
                 	newLeafNode(otherlv_29, grammarAccess.getRecordTypeAccess().getLeftSquareBracketKeyword_22());
                 
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:520:1: ( (lv_fields_30_0= ruleField ) )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:521:1: (lv_fields_30_0= ruleField )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:542:1: ( (lv_fields_30_0= ruleField ) )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:543:1: (lv_fields_30_0= ruleField )
             {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:521:1: (lv_fields_30_0= ruleField )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:522:3: lv_fields_30_0= ruleField
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:543:1: (lv_fields_30_0= ruleField )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:544:3: lv_fields_30_0= ruleField
             {
              
             	        newCompositeNode(grammarAccess.getRecordTypeAccess().getFieldsFieldParserRuleCall_23_0()); 
             	    
-            pushFollow(FOLLOW_ruleField_in_ruleRecordType1213);
+            pushFollow(FOLLOW_ruleField_in_ruleRecordType1265);
             lv_fields_30_0=ruleField();
 
             state._fsp--;
@@ -1088,7 +1132,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:538:2: (otherlv_31= ',' ( (lv_fields_32_0= ruleField ) ) )*
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:560:2: (otherlv_31= ',' ( (lv_fields_32_0= ruleField ) ) )*
             loop5:
             do {
                 int alt5=2;
@@ -1101,22 +1145,22 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
                 switch (alt5) {
             	case 1 :
-            	    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:538:4: otherlv_31= ',' ( (lv_fields_32_0= ruleField ) )
+            	    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:560:4: otherlv_31= ',' ( (lv_fields_32_0= ruleField ) )
             	    {
-            	    otherlv_31=(Token)match(input,11,FOLLOW_11_in_ruleRecordType1226); 
+            	    otherlv_31=(Token)match(input,11,FOLLOW_11_in_ruleRecordType1278); 
 
             	        	newLeafNode(otherlv_31, grammarAccess.getRecordTypeAccess().getCommaKeyword_24_0());
             	        
-            	    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:542:1: ( (lv_fields_32_0= ruleField ) )
-            	    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:543:1: (lv_fields_32_0= ruleField )
+            	    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:564:1: ( (lv_fields_32_0= ruleField ) )
+            	    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:565:1: (lv_fields_32_0= ruleField )
             	    {
-            	    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:543:1: (lv_fields_32_0= ruleField )
-            	    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:544:3: lv_fields_32_0= ruleField
+            	    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:565:1: (lv_fields_32_0= ruleField )
+            	    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:566:3: lv_fields_32_0= ruleField
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getRecordTypeAccess().getFieldsFieldParserRuleCall_24_1_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleField_in_ruleRecordType1247);
+            	    pushFollow(FOLLOW_ruleField_in_ruleRecordType1299);
             	    lv_fields_32_0=ruleField();
 
             	    state._fsp--;
@@ -1147,11 +1191,11 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_33=(Token)match(input,12,FOLLOW_12_in_ruleRecordType1261); 
+            otherlv_33=(Token)match(input,12,FOLLOW_12_in_ruleRecordType1313); 
 
                 	newLeafNode(otherlv_33, grammarAccess.getRecordTypeAccess().getRightSquareBracketKeyword_25());
                 
-            otherlv_34=(Token)match(input,17,FOLLOW_17_in_ruleRecordType1273); 
+            otherlv_34=(Token)match(input,17,FOLLOW_17_in_ruleRecordType1325); 
 
                 	newLeafNode(otherlv_34, grammarAccess.getRecordTypeAccess().getRightCurlyBracketKeyword_26());
                 
@@ -1176,7 +1220,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleField"
-    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:576:1: entryRuleField returns [EObject current=null] : iv_ruleField= ruleField EOF ;
+    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:598:1: entryRuleField returns [EObject current=null] : iv_ruleField= ruleField EOF ;
     public final EObject entryRuleField() throws RecognitionException {
         EObject current = null;
 
@@ -1184,17 +1228,17 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:577:2: (iv_ruleField= ruleField EOF )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:578:2: iv_ruleField= ruleField EOF
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:599:2: (iv_ruleField= ruleField EOF )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:600:2: iv_ruleField= ruleField EOF
             {
              newCompositeNode(grammarAccess.getFieldRule()); 
-            pushFollow(FOLLOW_ruleField_in_entryRuleField1309);
+            pushFollow(FOLLOW_ruleField_in_entryRuleField1361);
             iv_ruleField=ruleField();
 
             state._fsp--;
 
              current =iv_ruleField; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleField1319); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleField1371); 
 
             }
 
@@ -1212,7 +1256,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleField"
-    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:585:1: ruleField returns [EObject current=null] : (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'name' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' ( ( (lv_name_6_1= 'name' | lv_name_6_2= RULE_ID ) ) ) otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'type' otherlv_11= '\"' otherlv_12= ':' ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) | ( (lv_array_19_0= ruleArrayType ) ) | ( (lv_map_20_0= ruleMapType ) ) | ( (lv_fixed_21_0= ruleFixedType ) ) | ( (lv_union_22_0= ruleUnionType ) ) ) otherlv_23= '}' ) ;
+    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:607:1: ruleField returns [EObject current=null] : (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'name' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' ( ( (lv_name_6_1= 'name' | lv_name_6_2= RULE_ID ) ) ) otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'type' otherlv_11= '\"' otherlv_12= ':' ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) | ( (lv_array_19_0= ruleArrayType ) ) | ( (lv_map_20_0= ruleMapType ) ) | ( (lv_fixed_21_0= ruleFixedType ) ) | ( (lv_union_22_0= ruleUnionType ) ) ) otherlv_23= '}' ) ;
     public final EObject ruleField() throws RecognitionException {
         EObject current = null;
 
@@ -1252,43 +1296,43 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:588:28: ( (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'name' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' ( ( (lv_name_6_1= 'name' | lv_name_6_2= RULE_ID ) ) ) otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'type' otherlv_11= '\"' otherlv_12= ':' ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) | ( (lv_array_19_0= ruleArrayType ) ) | ( (lv_map_20_0= ruleMapType ) ) | ( (lv_fixed_21_0= ruleFixedType ) ) | ( (lv_union_22_0= ruleUnionType ) ) ) otherlv_23= '}' ) )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:589:1: (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'name' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' ( ( (lv_name_6_1= 'name' | lv_name_6_2= RULE_ID ) ) ) otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'type' otherlv_11= '\"' otherlv_12= ':' ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) | ( (lv_array_19_0= ruleArrayType ) ) | ( (lv_map_20_0= ruleMapType ) ) | ( (lv_fixed_21_0= ruleFixedType ) ) | ( (lv_union_22_0= ruleUnionType ) ) ) otherlv_23= '}' )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:610:28: ( (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'name' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' ( ( (lv_name_6_1= 'name' | lv_name_6_2= RULE_ID ) ) ) otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'type' otherlv_11= '\"' otherlv_12= ':' ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) | ( (lv_array_19_0= ruleArrayType ) ) | ( (lv_map_20_0= ruleMapType ) ) | ( (lv_fixed_21_0= ruleFixedType ) ) | ( (lv_union_22_0= ruleUnionType ) ) ) otherlv_23= '}' ) )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:611:1: (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'name' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' ( ( (lv_name_6_1= 'name' | lv_name_6_2= RULE_ID ) ) ) otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'type' otherlv_11= '\"' otherlv_12= ':' ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) | ( (lv_array_19_0= ruleArrayType ) ) | ( (lv_map_20_0= ruleMapType ) ) | ( (lv_fixed_21_0= ruleFixedType ) ) | ( (lv_union_22_0= ruleUnionType ) ) ) otherlv_23= '}' )
             {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:589:1: (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'name' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' ( ( (lv_name_6_1= 'name' | lv_name_6_2= RULE_ID ) ) ) otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'type' otherlv_11= '\"' otherlv_12= ':' ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) | ( (lv_array_19_0= ruleArrayType ) ) | ( (lv_map_20_0= ruleMapType ) ) | ( (lv_fixed_21_0= ruleFixedType ) ) | ( (lv_union_22_0= ruleUnionType ) ) ) otherlv_23= '}' )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:589:3: otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'name' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' ( ( (lv_name_6_1= 'name' | lv_name_6_2= RULE_ID ) ) ) otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'type' otherlv_11= '\"' otherlv_12= ':' ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) | ( (lv_array_19_0= ruleArrayType ) ) | ( (lv_map_20_0= ruleMapType ) ) | ( (lv_fixed_21_0= ruleFixedType ) ) | ( (lv_union_22_0= ruleUnionType ) ) ) otherlv_23= '}'
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:611:1: (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'name' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' ( ( (lv_name_6_1= 'name' | lv_name_6_2= RULE_ID ) ) ) otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'type' otherlv_11= '\"' otherlv_12= ':' ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) | ( (lv_array_19_0= ruleArrayType ) ) | ( (lv_map_20_0= ruleMapType ) ) | ( (lv_fixed_21_0= ruleFixedType ) ) | ( (lv_union_22_0= ruleUnionType ) ) ) otherlv_23= '}' )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:611:3: otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'name' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' ( ( (lv_name_6_1= 'name' | lv_name_6_2= RULE_ID ) ) ) otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'type' otherlv_11= '\"' otherlv_12= ':' ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) | ( (lv_array_19_0= ruleArrayType ) ) | ( (lv_map_20_0= ruleMapType ) ) | ( (lv_fixed_21_0= ruleFixedType ) ) | ( (lv_union_22_0= ruleUnionType ) ) ) otherlv_23= '}'
             {
-            otherlv_0=(Token)match(input,13,FOLLOW_13_in_ruleField1356); 
+            otherlv_0=(Token)match(input,14,FOLLOW_14_in_ruleField1408); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getFieldAccess().getLeftCurlyBracketKeyword_0());
                 
-            otherlv_1=(Token)match(input,14,FOLLOW_14_in_ruleField1368); 
+            otherlv_1=(Token)match(input,13,FOLLOW_13_in_ruleField1420); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getFieldAccess().getQuotationMarkKeyword_1());
                 
-            otherlv_2=(Token)match(input,19,FOLLOW_19_in_ruleField1380); 
+            otherlv_2=(Token)match(input,19,FOLLOW_19_in_ruleField1432); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getFieldAccess().getNameKeyword_2());
                 
-            otherlv_3=(Token)match(input,14,FOLLOW_14_in_ruleField1392); 
+            otherlv_3=(Token)match(input,13,FOLLOW_13_in_ruleField1444); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getFieldAccess().getQuotationMarkKeyword_3());
                 
-            otherlv_4=(Token)match(input,16,FOLLOW_16_in_ruleField1404); 
+            otherlv_4=(Token)match(input,16,FOLLOW_16_in_ruleField1456); 
 
                 	newLeafNode(otherlv_4, grammarAccess.getFieldAccess().getColonKeyword_4());
                 
-            otherlv_5=(Token)match(input,14,FOLLOW_14_in_ruleField1416); 
+            otherlv_5=(Token)match(input,13,FOLLOW_13_in_ruleField1468); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getFieldAccess().getQuotationMarkKeyword_5());
                 
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:613:1: ( ( (lv_name_6_1= 'name' | lv_name_6_2= RULE_ID ) ) )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:614:1: ( (lv_name_6_1= 'name' | lv_name_6_2= RULE_ID ) )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:635:1: ( ( (lv_name_6_1= 'name' | lv_name_6_2= RULE_ID ) ) )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:636:1: ( (lv_name_6_1= 'name' | lv_name_6_2= RULE_ID ) )
             {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:614:1: ( (lv_name_6_1= 'name' | lv_name_6_2= RULE_ID ) )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:615:1: (lv_name_6_1= 'name' | lv_name_6_2= RULE_ID )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:636:1: ( (lv_name_6_1= 'name' | lv_name_6_2= RULE_ID ) )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:637:1: (lv_name_6_1= 'name' | lv_name_6_2= RULE_ID )
             {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:615:1: (lv_name_6_1= 'name' | lv_name_6_2= RULE_ID )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:637:1: (lv_name_6_1= 'name' | lv_name_6_2= RULE_ID )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -1306,9 +1350,9 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
             }
             switch (alt6) {
                 case 1 :
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:616:3: lv_name_6_1= 'name'
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:638:3: lv_name_6_1= 'name'
                     {
-                    lv_name_6_1=(Token)match(input,19,FOLLOW_19_in_ruleField1436); 
+                    lv_name_6_1=(Token)match(input,19,FOLLOW_19_in_ruleField1488); 
 
                             newLeafNode(lv_name_6_1, grammarAccess.getFieldAccess().getNameNameKeyword_6_0_0());
                         
@@ -1322,9 +1366,9 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:628:8: lv_name_6_2= RULE_ID
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:650:8: lv_name_6_2= RULE_ID
                     {
-                    lv_name_6_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleField1464); 
+                    lv_name_6_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleField1516); 
 
                     			newLeafNode(lv_name_6_2, grammarAccess.getFieldAccess().getNameIDTerminalRuleCall_6_0_1()); 
                     		
@@ -1350,47 +1394,47 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_7=(Token)match(input,14,FOLLOW_14_in_ruleField1484); 
+            otherlv_7=(Token)match(input,13,FOLLOW_13_in_ruleField1536); 
 
                 	newLeafNode(otherlv_7, grammarAccess.getFieldAccess().getQuotationMarkKeyword_7());
                 
-            otherlv_8=(Token)match(input,11,FOLLOW_11_in_ruleField1496); 
+            otherlv_8=(Token)match(input,11,FOLLOW_11_in_ruleField1548); 
 
                 	newLeafNode(otherlv_8, grammarAccess.getFieldAccess().getCommaKeyword_8());
                 
-            otherlv_9=(Token)match(input,14,FOLLOW_14_in_ruleField1508); 
+            otherlv_9=(Token)match(input,13,FOLLOW_13_in_ruleField1560); 
 
                 	newLeafNode(otherlv_9, grammarAccess.getFieldAccess().getQuotationMarkKeyword_9());
                 
-            otherlv_10=(Token)match(input,15,FOLLOW_15_in_ruleField1520); 
+            otherlv_10=(Token)match(input,15,FOLLOW_15_in_ruleField1572); 
 
                 	newLeafNode(otherlv_10, grammarAccess.getFieldAccess().getTypeKeyword_10());
                 
-            otherlv_11=(Token)match(input,14,FOLLOW_14_in_ruleField1532); 
+            otherlv_11=(Token)match(input,13,FOLLOW_13_in_ruleField1584); 
 
                 	newLeafNode(otherlv_11, grammarAccess.getFieldAccess().getQuotationMarkKeyword_11());
                 
-            otherlv_12=(Token)match(input,16,FOLLOW_16_in_ruleField1544); 
+            otherlv_12=(Token)match(input,16,FOLLOW_16_in_ruleField1596); 
 
                 	newLeafNode(otherlv_12, grammarAccess.getFieldAccess().getColonKeyword_12());
                 
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:670:1: ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) | ( (lv_array_19_0= ruleArrayType ) ) | ( (lv_map_20_0= ruleMapType ) ) | ( (lv_fixed_21_0= ruleFixedType ) ) | ( (lv_union_22_0= ruleUnionType ) ) )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:692:1: ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) | ( (lv_array_19_0= ruleArrayType ) ) | ( (lv_map_20_0= ruleMapType ) ) | ( (lv_fixed_21_0= ruleFixedType ) ) | ( (lv_union_22_0= ruleUnionType ) ) )
             int alt7=8;
             alt7 = dfa7.predict(input);
             switch (alt7) {
                 case 1 :
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:670:2: ( (lv_primitive_13_0= rulePrimitive ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:692:2: ( (lv_primitive_13_0= rulePrimitive ) )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:670:2: ( (lv_primitive_13_0= rulePrimitive ) )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:671:1: (lv_primitive_13_0= rulePrimitive )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:692:2: ( (lv_primitive_13_0= rulePrimitive ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:693:1: (lv_primitive_13_0= rulePrimitive )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:671:1: (lv_primitive_13_0= rulePrimitive )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:672:3: lv_primitive_13_0= rulePrimitive
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:693:1: (lv_primitive_13_0= rulePrimitive )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:694:3: lv_primitive_13_0= rulePrimitive
                     {
                      
                     	        newCompositeNode(grammarAccess.getFieldAccess().getPrimitivePrimitiveParserRuleCall_13_0_0()); 
                     	    
-                    pushFollow(FOLLOW_rulePrimitive_in_ruleField1566);
+                    pushFollow(FOLLOW_rulePrimitive_in_ruleField1618);
                     lv_primitive_13_0=rulePrimitive();
 
                     state._fsp--;
@@ -1416,18 +1460,18 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:689:6: ( (lv_record_14_0= ruleRecordType ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:711:6: ( (lv_record_14_0= ruleRecordType ) )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:689:6: ( (lv_record_14_0= ruleRecordType ) )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:690:1: (lv_record_14_0= ruleRecordType )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:711:6: ( (lv_record_14_0= ruleRecordType ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:712:1: (lv_record_14_0= ruleRecordType )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:690:1: (lv_record_14_0= ruleRecordType )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:691:3: lv_record_14_0= ruleRecordType
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:712:1: (lv_record_14_0= ruleRecordType )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:713:3: lv_record_14_0= ruleRecordType
                     {
                      
                     	        newCompositeNode(grammarAccess.getFieldAccess().getRecordRecordTypeParserRuleCall_13_1_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleRecordType_in_ruleField1593);
+                    pushFollow(FOLLOW_ruleRecordType_in_ruleField1645);
                     lv_record_14_0=ruleRecordType();
 
                     state._fsp--;
@@ -1453,27 +1497,27 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:708:6: (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:730:6: (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:708:6: (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:708:8: otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"'
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:730:6: (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:730:8: otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"'
                     {
-                    otherlv_15=(Token)match(input,14,FOLLOW_14_in_ruleField1612); 
+                    otherlv_15=(Token)match(input,13,FOLLOW_13_in_ruleField1664); 
 
                         	newLeafNode(otherlv_15, grammarAccess.getFieldAccess().getQuotationMarkKeyword_13_2_0());
                         
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:712:1: ( (otherlv_16= RULE_ID ) )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:713:1: (otherlv_16= RULE_ID )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:734:1: ( (otherlv_16= RULE_ID ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:735:1: (otherlv_16= RULE_ID )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:713:1: (otherlv_16= RULE_ID )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:714:3: otherlv_16= RULE_ID
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:735:1: (otherlv_16= RULE_ID )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:736:3: otherlv_16= RULE_ID
                     {
 
                     			if (current==null) {
                     	            current = createModelElement(grammarAccess.getFieldRule());
                     	        }
                             
-                    otherlv_16=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleField1632); 
+                    otherlv_16=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleField1684); 
 
                     		newLeafNode(otherlv_16, grammarAccess.getFieldAccess().getRecordRefRecordTypeCrossReference_13_2_1_0()); 
                     	
@@ -1483,7 +1527,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_17=(Token)match(input,14,FOLLOW_14_in_ruleField1644); 
+                    otherlv_17=(Token)match(input,13,FOLLOW_13_in_ruleField1696); 
 
                         	newLeafNode(otherlv_17, grammarAccess.getFieldAccess().getQuotationMarkKeyword_13_2_2());
                         
@@ -1494,18 +1538,18 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:730:6: ( (lv_etype_18_0= ruleEnumType ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:752:6: ( (lv_etype_18_0= ruleEnumType ) )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:730:6: ( (lv_etype_18_0= ruleEnumType ) )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:731:1: (lv_etype_18_0= ruleEnumType )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:752:6: ( (lv_etype_18_0= ruleEnumType ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:753:1: (lv_etype_18_0= ruleEnumType )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:731:1: (lv_etype_18_0= ruleEnumType )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:732:3: lv_etype_18_0= ruleEnumType
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:753:1: (lv_etype_18_0= ruleEnumType )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:754:3: lv_etype_18_0= ruleEnumType
                     {
                      
                     	        newCompositeNode(grammarAccess.getFieldAccess().getEtypeEnumTypeParserRuleCall_13_3_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleEnumType_in_ruleField1672);
+                    pushFollow(FOLLOW_ruleEnumType_in_ruleField1724);
                     lv_etype_18_0=ruleEnumType();
 
                     state._fsp--;
@@ -1531,18 +1575,18 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:749:6: ( (lv_array_19_0= ruleArrayType ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:771:6: ( (lv_array_19_0= ruleArrayType ) )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:749:6: ( (lv_array_19_0= ruleArrayType ) )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:750:1: (lv_array_19_0= ruleArrayType )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:771:6: ( (lv_array_19_0= ruleArrayType ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:772:1: (lv_array_19_0= ruleArrayType )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:750:1: (lv_array_19_0= ruleArrayType )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:751:3: lv_array_19_0= ruleArrayType
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:772:1: (lv_array_19_0= ruleArrayType )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:773:3: lv_array_19_0= ruleArrayType
                     {
                      
                     	        newCompositeNode(grammarAccess.getFieldAccess().getArrayArrayTypeParserRuleCall_13_4_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleArrayType_in_ruleField1699);
+                    pushFollow(FOLLOW_ruleArrayType_in_ruleField1751);
                     lv_array_19_0=ruleArrayType();
 
                     state._fsp--;
@@ -1568,18 +1612,18 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:768:6: ( (lv_map_20_0= ruleMapType ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:790:6: ( (lv_map_20_0= ruleMapType ) )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:768:6: ( (lv_map_20_0= ruleMapType ) )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:769:1: (lv_map_20_0= ruleMapType )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:790:6: ( (lv_map_20_0= ruleMapType ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:791:1: (lv_map_20_0= ruleMapType )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:769:1: (lv_map_20_0= ruleMapType )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:770:3: lv_map_20_0= ruleMapType
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:791:1: (lv_map_20_0= ruleMapType )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:792:3: lv_map_20_0= ruleMapType
                     {
                      
                     	        newCompositeNode(grammarAccess.getFieldAccess().getMapMapTypeParserRuleCall_13_5_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleMapType_in_ruleField1726);
+                    pushFollow(FOLLOW_ruleMapType_in_ruleField1778);
                     lv_map_20_0=ruleMapType();
 
                     state._fsp--;
@@ -1605,18 +1649,18 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:787:6: ( (lv_fixed_21_0= ruleFixedType ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:809:6: ( (lv_fixed_21_0= ruleFixedType ) )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:787:6: ( (lv_fixed_21_0= ruleFixedType ) )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:788:1: (lv_fixed_21_0= ruleFixedType )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:809:6: ( (lv_fixed_21_0= ruleFixedType ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:810:1: (lv_fixed_21_0= ruleFixedType )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:788:1: (lv_fixed_21_0= ruleFixedType )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:789:3: lv_fixed_21_0= ruleFixedType
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:810:1: (lv_fixed_21_0= ruleFixedType )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:811:3: lv_fixed_21_0= ruleFixedType
                     {
                      
                     	        newCompositeNode(grammarAccess.getFieldAccess().getFixedFixedTypeParserRuleCall_13_6_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleFixedType_in_ruleField1753);
+                    pushFollow(FOLLOW_ruleFixedType_in_ruleField1805);
                     lv_fixed_21_0=ruleFixedType();
 
                     state._fsp--;
@@ -1642,18 +1686,18 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:806:6: ( (lv_union_22_0= ruleUnionType ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:828:6: ( (lv_union_22_0= ruleUnionType ) )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:806:6: ( (lv_union_22_0= ruleUnionType ) )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:807:1: (lv_union_22_0= ruleUnionType )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:828:6: ( (lv_union_22_0= ruleUnionType ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:829:1: (lv_union_22_0= ruleUnionType )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:807:1: (lv_union_22_0= ruleUnionType )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:808:3: lv_union_22_0= ruleUnionType
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:829:1: (lv_union_22_0= ruleUnionType )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:830:3: lv_union_22_0= ruleUnionType
                     {
                      
                     	        newCompositeNode(grammarAccess.getFieldAccess().getUnionUnionTypeParserRuleCall_13_7_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleUnionType_in_ruleField1780);
+                    pushFollow(FOLLOW_ruleUnionType_in_ruleField1832);
                     lv_union_22_0=ruleUnionType();
 
                     state._fsp--;
@@ -1681,7 +1725,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_23=(Token)match(input,17,FOLLOW_17_in_ruleField1793); 
+            otherlv_23=(Token)match(input,17,FOLLOW_17_in_ruleField1845); 
 
                 	newLeafNode(otherlv_23, grammarAccess.getFieldAccess().getRightCurlyBracketKeyword_14());
                 
@@ -1706,7 +1750,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEnumType"
-    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:836:1: entryRuleEnumType returns [EObject current=null] : iv_ruleEnumType= ruleEnumType EOF ;
+    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:858:1: entryRuleEnumType returns [EObject current=null] : iv_ruleEnumType= ruleEnumType EOF ;
     public final EObject entryRuleEnumType() throws RecognitionException {
         EObject current = null;
 
@@ -1714,17 +1758,17 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:837:2: (iv_ruleEnumType= ruleEnumType EOF )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:838:2: iv_ruleEnumType= ruleEnumType EOF
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:859:2: (iv_ruleEnumType= ruleEnumType EOF )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:860:2: iv_ruleEnumType= ruleEnumType EOF
             {
              newCompositeNode(grammarAccess.getEnumTypeRule()); 
-            pushFollow(FOLLOW_ruleEnumType_in_entryRuleEnumType1829);
+            pushFollow(FOLLOW_ruleEnumType_in_entryRuleEnumType1881);
             iv_ruleEnumType=ruleEnumType();
 
             state._fsp--;
 
              current =iv_ruleEnumType; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleEnumType1839); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleEnumType1891); 
 
             }
 
@@ -1742,7 +1786,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEnumType"
-    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:845:1: ruleEnumType returns [EObject current=null] : (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'enum' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'name' otherlv_11= '\"' otherlv_12= ':' otherlv_13= '\"' ( (lv_name_14_0= RULE_ID ) ) otherlv_15= '\"' otherlv_16= ',' otherlv_17= '\"' otherlv_18= 'symbols' otherlv_19= '\"' otherlv_20= ':' otherlv_21= '[' (otherlv_22= '\"' ( (lv_symbols_23_0= RULE_ID ) ) otherlv_24= '\"' ) (otherlv_25= ',' otherlv_26= '\"' ( (lv_symbols_27_0= RULE_ID ) ) otherlv_28= '\"' )* otherlv_29= ']' otherlv_30= '}' ) ;
+    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:867:1: ruleEnumType returns [EObject current=null] : (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'enum' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'name' otherlv_11= '\"' otherlv_12= ':' otherlv_13= '\"' ( (lv_name_14_0= RULE_ID ) ) otherlv_15= '\"' otherlv_16= ',' otherlv_17= '\"' otherlv_18= 'symbols' otherlv_19= '\"' otherlv_20= ':' otherlv_21= '[' (otherlv_22= '\"' ( (lv_symbols_23_0= RULE_ID ) ) otherlv_24= '\"' ) (otherlv_25= ',' otherlv_26= '\"' ( (lv_symbols_27_0= RULE_ID ) ) otherlv_28= '\"' )* otherlv_29= ']' otherlv_30= '}' ) ;
     public final EObject ruleEnumType() throws RecognitionException {
         EObject current = null;
 
@@ -1781,75 +1825,75 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:848:28: ( (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'enum' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'name' otherlv_11= '\"' otherlv_12= ':' otherlv_13= '\"' ( (lv_name_14_0= RULE_ID ) ) otherlv_15= '\"' otherlv_16= ',' otherlv_17= '\"' otherlv_18= 'symbols' otherlv_19= '\"' otherlv_20= ':' otherlv_21= '[' (otherlv_22= '\"' ( (lv_symbols_23_0= RULE_ID ) ) otherlv_24= '\"' ) (otherlv_25= ',' otherlv_26= '\"' ( (lv_symbols_27_0= RULE_ID ) ) otherlv_28= '\"' )* otherlv_29= ']' otherlv_30= '}' ) )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:849:1: (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'enum' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'name' otherlv_11= '\"' otherlv_12= ':' otherlv_13= '\"' ( (lv_name_14_0= RULE_ID ) ) otherlv_15= '\"' otherlv_16= ',' otherlv_17= '\"' otherlv_18= 'symbols' otherlv_19= '\"' otherlv_20= ':' otherlv_21= '[' (otherlv_22= '\"' ( (lv_symbols_23_0= RULE_ID ) ) otherlv_24= '\"' ) (otherlv_25= ',' otherlv_26= '\"' ( (lv_symbols_27_0= RULE_ID ) ) otherlv_28= '\"' )* otherlv_29= ']' otherlv_30= '}' )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:870:28: ( (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'enum' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'name' otherlv_11= '\"' otherlv_12= ':' otherlv_13= '\"' ( (lv_name_14_0= RULE_ID ) ) otherlv_15= '\"' otherlv_16= ',' otherlv_17= '\"' otherlv_18= 'symbols' otherlv_19= '\"' otherlv_20= ':' otherlv_21= '[' (otherlv_22= '\"' ( (lv_symbols_23_0= RULE_ID ) ) otherlv_24= '\"' ) (otherlv_25= ',' otherlv_26= '\"' ( (lv_symbols_27_0= RULE_ID ) ) otherlv_28= '\"' )* otherlv_29= ']' otherlv_30= '}' ) )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:871:1: (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'enum' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'name' otherlv_11= '\"' otherlv_12= ':' otherlv_13= '\"' ( (lv_name_14_0= RULE_ID ) ) otherlv_15= '\"' otherlv_16= ',' otherlv_17= '\"' otherlv_18= 'symbols' otherlv_19= '\"' otherlv_20= ':' otherlv_21= '[' (otherlv_22= '\"' ( (lv_symbols_23_0= RULE_ID ) ) otherlv_24= '\"' ) (otherlv_25= ',' otherlv_26= '\"' ( (lv_symbols_27_0= RULE_ID ) ) otherlv_28= '\"' )* otherlv_29= ']' otherlv_30= '}' )
             {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:849:1: (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'enum' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'name' otherlv_11= '\"' otherlv_12= ':' otherlv_13= '\"' ( (lv_name_14_0= RULE_ID ) ) otherlv_15= '\"' otherlv_16= ',' otherlv_17= '\"' otherlv_18= 'symbols' otherlv_19= '\"' otherlv_20= ':' otherlv_21= '[' (otherlv_22= '\"' ( (lv_symbols_23_0= RULE_ID ) ) otherlv_24= '\"' ) (otherlv_25= ',' otherlv_26= '\"' ( (lv_symbols_27_0= RULE_ID ) ) otherlv_28= '\"' )* otherlv_29= ']' otherlv_30= '}' )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:849:3: otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'enum' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'name' otherlv_11= '\"' otherlv_12= ':' otherlv_13= '\"' ( (lv_name_14_0= RULE_ID ) ) otherlv_15= '\"' otherlv_16= ',' otherlv_17= '\"' otherlv_18= 'symbols' otherlv_19= '\"' otherlv_20= ':' otherlv_21= '[' (otherlv_22= '\"' ( (lv_symbols_23_0= RULE_ID ) ) otherlv_24= '\"' ) (otherlv_25= ',' otherlv_26= '\"' ( (lv_symbols_27_0= RULE_ID ) ) otherlv_28= '\"' )* otherlv_29= ']' otherlv_30= '}'
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:871:1: (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'enum' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'name' otherlv_11= '\"' otherlv_12= ':' otherlv_13= '\"' ( (lv_name_14_0= RULE_ID ) ) otherlv_15= '\"' otherlv_16= ',' otherlv_17= '\"' otherlv_18= 'symbols' otherlv_19= '\"' otherlv_20= ':' otherlv_21= '[' (otherlv_22= '\"' ( (lv_symbols_23_0= RULE_ID ) ) otherlv_24= '\"' ) (otherlv_25= ',' otherlv_26= '\"' ( (lv_symbols_27_0= RULE_ID ) ) otherlv_28= '\"' )* otherlv_29= ']' otherlv_30= '}' )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:871:3: otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'enum' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'name' otherlv_11= '\"' otherlv_12= ':' otherlv_13= '\"' ( (lv_name_14_0= RULE_ID ) ) otherlv_15= '\"' otherlv_16= ',' otherlv_17= '\"' otherlv_18= 'symbols' otherlv_19= '\"' otherlv_20= ':' otherlv_21= '[' (otherlv_22= '\"' ( (lv_symbols_23_0= RULE_ID ) ) otherlv_24= '\"' ) (otherlv_25= ',' otherlv_26= '\"' ( (lv_symbols_27_0= RULE_ID ) ) otherlv_28= '\"' )* otherlv_29= ']' otherlv_30= '}'
             {
-            otherlv_0=(Token)match(input,13,FOLLOW_13_in_ruleEnumType1876); 
+            otherlv_0=(Token)match(input,14,FOLLOW_14_in_ruleEnumType1928); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getEnumTypeAccess().getLeftCurlyBracketKeyword_0());
                 
-            otherlv_1=(Token)match(input,14,FOLLOW_14_in_ruleEnumType1888); 
+            otherlv_1=(Token)match(input,13,FOLLOW_13_in_ruleEnumType1940); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getEnumTypeAccess().getQuotationMarkKeyword_1());
                 
-            otherlv_2=(Token)match(input,15,FOLLOW_15_in_ruleEnumType1900); 
+            otherlv_2=(Token)match(input,15,FOLLOW_15_in_ruleEnumType1952); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getEnumTypeAccess().getTypeKeyword_2());
                 
-            otherlv_3=(Token)match(input,14,FOLLOW_14_in_ruleEnumType1912); 
+            otherlv_3=(Token)match(input,13,FOLLOW_13_in_ruleEnumType1964); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getEnumTypeAccess().getQuotationMarkKeyword_3());
                 
-            otherlv_4=(Token)match(input,16,FOLLOW_16_in_ruleEnumType1924); 
+            otherlv_4=(Token)match(input,16,FOLLOW_16_in_ruleEnumType1976); 
 
                 	newLeafNode(otherlv_4, grammarAccess.getEnumTypeAccess().getColonKeyword_4());
                 
-            otherlv_5=(Token)match(input,14,FOLLOW_14_in_ruleEnumType1936); 
+            otherlv_5=(Token)match(input,13,FOLLOW_13_in_ruleEnumType1988); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getEnumTypeAccess().getQuotationMarkKeyword_5());
                 
-            otherlv_6=(Token)match(input,22,FOLLOW_22_in_ruleEnumType1948); 
+            otherlv_6=(Token)match(input,22,FOLLOW_22_in_ruleEnumType2000); 
 
                 	newLeafNode(otherlv_6, grammarAccess.getEnumTypeAccess().getEnumKeyword_6());
                 
-            otherlv_7=(Token)match(input,14,FOLLOW_14_in_ruleEnumType1960); 
+            otherlv_7=(Token)match(input,13,FOLLOW_13_in_ruleEnumType2012); 
 
                 	newLeafNode(otherlv_7, grammarAccess.getEnumTypeAccess().getQuotationMarkKeyword_7());
                 
-            otherlv_8=(Token)match(input,11,FOLLOW_11_in_ruleEnumType1972); 
+            otherlv_8=(Token)match(input,11,FOLLOW_11_in_ruleEnumType2024); 
 
                 	newLeafNode(otherlv_8, grammarAccess.getEnumTypeAccess().getCommaKeyword_8());
                 
-            otherlv_9=(Token)match(input,14,FOLLOW_14_in_ruleEnumType1984); 
+            otherlv_9=(Token)match(input,13,FOLLOW_13_in_ruleEnumType2036); 
 
                 	newLeafNode(otherlv_9, grammarAccess.getEnumTypeAccess().getQuotationMarkKeyword_9());
                 
-            otherlv_10=(Token)match(input,19,FOLLOW_19_in_ruleEnumType1996); 
+            otherlv_10=(Token)match(input,19,FOLLOW_19_in_ruleEnumType2048); 
 
                 	newLeafNode(otherlv_10, grammarAccess.getEnumTypeAccess().getNameKeyword_10());
                 
-            otherlv_11=(Token)match(input,14,FOLLOW_14_in_ruleEnumType2008); 
+            otherlv_11=(Token)match(input,13,FOLLOW_13_in_ruleEnumType2060); 
 
                 	newLeafNode(otherlv_11, grammarAccess.getEnumTypeAccess().getQuotationMarkKeyword_11());
                 
-            otherlv_12=(Token)match(input,16,FOLLOW_16_in_ruleEnumType2020); 
+            otherlv_12=(Token)match(input,16,FOLLOW_16_in_ruleEnumType2072); 
 
                 	newLeafNode(otherlv_12, grammarAccess.getEnumTypeAccess().getColonKeyword_12());
                 
-            otherlv_13=(Token)match(input,14,FOLLOW_14_in_ruleEnumType2032); 
+            otherlv_13=(Token)match(input,13,FOLLOW_13_in_ruleEnumType2084); 
 
                 	newLeafNode(otherlv_13, grammarAccess.getEnumTypeAccess().getQuotationMarkKeyword_13());
                 
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:905:1: ( (lv_name_14_0= RULE_ID ) )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:906:1: (lv_name_14_0= RULE_ID )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:927:1: ( (lv_name_14_0= RULE_ID ) )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:928:1: (lv_name_14_0= RULE_ID )
             {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:906:1: (lv_name_14_0= RULE_ID )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:907:3: lv_name_14_0= RULE_ID
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:928:1: (lv_name_14_0= RULE_ID )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:929:3: lv_name_14_0= RULE_ID
             {
-            lv_name_14_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEnumType2049); 
+            lv_name_14_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEnumType2101); 
 
             			newLeafNode(lv_name_14_0, grammarAccess.getEnumTypeAccess().getNameIDTerminalRuleCall_14_0()); 
             		
@@ -1869,48 +1913,48 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_15=(Token)match(input,14,FOLLOW_14_in_ruleEnumType2066); 
+            otherlv_15=(Token)match(input,13,FOLLOW_13_in_ruleEnumType2118); 
 
                 	newLeafNode(otherlv_15, grammarAccess.getEnumTypeAccess().getQuotationMarkKeyword_15());
                 
-            otherlv_16=(Token)match(input,11,FOLLOW_11_in_ruleEnumType2078); 
+            otherlv_16=(Token)match(input,11,FOLLOW_11_in_ruleEnumType2130); 
 
                 	newLeafNode(otherlv_16, grammarAccess.getEnumTypeAccess().getCommaKeyword_16());
                 
-            otherlv_17=(Token)match(input,14,FOLLOW_14_in_ruleEnumType2090); 
+            otherlv_17=(Token)match(input,13,FOLLOW_13_in_ruleEnumType2142); 
 
                 	newLeafNode(otherlv_17, grammarAccess.getEnumTypeAccess().getQuotationMarkKeyword_17());
                 
-            otherlv_18=(Token)match(input,23,FOLLOW_23_in_ruleEnumType2102); 
+            otherlv_18=(Token)match(input,23,FOLLOW_23_in_ruleEnumType2154); 
 
                 	newLeafNode(otherlv_18, grammarAccess.getEnumTypeAccess().getSymbolsKeyword_18());
                 
-            otherlv_19=(Token)match(input,14,FOLLOW_14_in_ruleEnumType2114); 
+            otherlv_19=(Token)match(input,13,FOLLOW_13_in_ruleEnumType2166); 
 
                 	newLeafNode(otherlv_19, grammarAccess.getEnumTypeAccess().getQuotationMarkKeyword_19());
                 
-            otherlv_20=(Token)match(input,16,FOLLOW_16_in_ruleEnumType2126); 
+            otherlv_20=(Token)match(input,16,FOLLOW_16_in_ruleEnumType2178); 
 
                 	newLeafNode(otherlv_20, grammarAccess.getEnumTypeAccess().getColonKeyword_20());
                 
-            otherlv_21=(Token)match(input,10,FOLLOW_10_in_ruleEnumType2138); 
+            otherlv_21=(Token)match(input,10,FOLLOW_10_in_ruleEnumType2190); 
 
                 	newLeafNode(otherlv_21, grammarAccess.getEnumTypeAccess().getLeftSquareBracketKeyword_21());
                 
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:951:1: (otherlv_22= '\"' ( (lv_symbols_23_0= RULE_ID ) ) otherlv_24= '\"' )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:951:3: otherlv_22= '\"' ( (lv_symbols_23_0= RULE_ID ) ) otherlv_24= '\"'
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:973:1: (otherlv_22= '\"' ( (lv_symbols_23_0= RULE_ID ) ) otherlv_24= '\"' )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:973:3: otherlv_22= '\"' ( (lv_symbols_23_0= RULE_ID ) ) otherlv_24= '\"'
             {
-            otherlv_22=(Token)match(input,14,FOLLOW_14_in_ruleEnumType2151); 
+            otherlv_22=(Token)match(input,13,FOLLOW_13_in_ruleEnumType2203); 
 
                 	newLeafNode(otherlv_22, grammarAccess.getEnumTypeAccess().getQuotationMarkKeyword_22_0());
                 
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:955:1: ( (lv_symbols_23_0= RULE_ID ) )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:956:1: (lv_symbols_23_0= RULE_ID )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:977:1: ( (lv_symbols_23_0= RULE_ID ) )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:978:1: (lv_symbols_23_0= RULE_ID )
             {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:956:1: (lv_symbols_23_0= RULE_ID )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:957:3: lv_symbols_23_0= RULE_ID
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:978:1: (lv_symbols_23_0= RULE_ID )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:979:3: lv_symbols_23_0= RULE_ID
             {
-            lv_symbols_23_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEnumType2168); 
+            lv_symbols_23_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEnumType2220); 
 
             			newLeafNode(lv_symbols_23_0, grammarAccess.getEnumTypeAccess().getSymbolsIDTerminalRuleCall_22_1_0()); 
             		
@@ -1930,14 +1974,14 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_24=(Token)match(input,14,FOLLOW_14_in_ruleEnumType2185); 
+            otherlv_24=(Token)match(input,13,FOLLOW_13_in_ruleEnumType2237); 
 
                 	newLeafNode(otherlv_24, grammarAccess.getEnumTypeAccess().getQuotationMarkKeyword_22_2());
                 
 
             }
 
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:977:2: (otherlv_25= ',' otherlv_26= '\"' ( (lv_symbols_27_0= RULE_ID ) ) otherlv_28= '\"' )*
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:999:2: (otherlv_25= ',' otherlv_26= '\"' ( (lv_symbols_27_0= RULE_ID ) ) otherlv_28= '\"' )*
             loop8:
             do {
                 int alt8=2;
@@ -1950,23 +1994,23 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:977:4: otherlv_25= ',' otherlv_26= '\"' ( (lv_symbols_27_0= RULE_ID ) ) otherlv_28= '\"'
+            	    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:999:4: otherlv_25= ',' otherlv_26= '\"' ( (lv_symbols_27_0= RULE_ID ) ) otherlv_28= '\"'
             	    {
-            	    otherlv_25=(Token)match(input,11,FOLLOW_11_in_ruleEnumType2199); 
+            	    otherlv_25=(Token)match(input,11,FOLLOW_11_in_ruleEnumType2251); 
 
             	        	newLeafNode(otherlv_25, grammarAccess.getEnumTypeAccess().getCommaKeyword_23_0());
             	        
-            	    otherlv_26=(Token)match(input,14,FOLLOW_14_in_ruleEnumType2211); 
+            	    otherlv_26=(Token)match(input,13,FOLLOW_13_in_ruleEnumType2263); 
 
             	        	newLeafNode(otherlv_26, grammarAccess.getEnumTypeAccess().getQuotationMarkKeyword_23_1());
             	        
-            	    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:985:1: ( (lv_symbols_27_0= RULE_ID ) )
-            	    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:986:1: (lv_symbols_27_0= RULE_ID )
+            	    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1007:1: ( (lv_symbols_27_0= RULE_ID ) )
+            	    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1008:1: (lv_symbols_27_0= RULE_ID )
             	    {
-            	    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:986:1: (lv_symbols_27_0= RULE_ID )
-            	    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:987:3: lv_symbols_27_0= RULE_ID
+            	    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1008:1: (lv_symbols_27_0= RULE_ID )
+            	    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1009:3: lv_symbols_27_0= RULE_ID
             	    {
-            	    lv_symbols_27_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEnumType2228); 
+            	    lv_symbols_27_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEnumType2280); 
 
             	    			newLeafNode(lv_symbols_27_0, grammarAccess.getEnumTypeAccess().getSymbolsIDTerminalRuleCall_23_2_0()); 
             	    		
@@ -1986,7 +2030,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    otherlv_28=(Token)match(input,14,FOLLOW_14_in_ruleEnumType2245); 
+            	    otherlv_28=(Token)match(input,13,FOLLOW_13_in_ruleEnumType2297); 
 
             	        	newLeafNode(otherlv_28, grammarAccess.getEnumTypeAccess().getQuotationMarkKeyword_23_3());
             	        
@@ -1999,11 +2043,11 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_29=(Token)match(input,12,FOLLOW_12_in_ruleEnumType2259); 
+            otherlv_29=(Token)match(input,12,FOLLOW_12_in_ruleEnumType2311); 
 
                 	newLeafNode(otherlv_29, grammarAccess.getEnumTypeAccess().getRightSquareBracketKeyword_24());
                 
-            otherlv_30=(Token)match(input,17,FOLLOW_17_in_ruleEnumType2271); 
+            otherlv_30=(Token)match(input,17,FOLLOW_17_in_ruleEnumType2323); 
 
                 	newLeafNode(otherlv_30, grammarAccess.getEnumTypeAccess().getRightCurlyBracketKeyword_25());
                 
@@ -2028,7 +2072,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleArrayType"
-    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1023:1: entryRuleArrayType returns [EObject current=null] : iv_ruleArrayType= ruleArrayType EOF ;
+    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1045:1: entryRuleArrayType returns [EObject current=null] : iv_ruleArrayType= ruleArrayType EOF ;
     public final EObject entryRuleArrayType() throws RecognitionException {
         EObject current = null;
 
@@ -2036,17 +2080,17 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1024:2: (iv_ruleArrayType= ruleArrayType EOF )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1025:2: iv_ruleArrayType= ruleArrayType EOF
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1046:2: (iv_ruleArrayType= ruleArrayType EOF )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1047:2: iv_ruleArrayType= ruleArrayType EOF
             {
              newCompositeNode(grammarAccess.getArrayTypeRule()); 
-            pushFollow(FOLLOW_ruleArrayType_in_entryRuleArrayType2307);
+            pushFollow(FOLLOW_ruleArrayType_in_entryRuleArrayType2359);
             iv_ruleArrayType=ruleArrayType();
 
             state._fsp--;
 
              current =iv_ruleArrayType; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleArrayType2317); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleArrayType2369); 
 
             }
 
@@ -2064,7 +2108,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleArrayType"
-    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1032:1: ruleArrayType returns [EObject current=null] : (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'array' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'items' otherlv_11= '\"' otherlv_12= ':' ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) ) otherlv_19= '}' ) ;
+    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1054:1: ruleArrayType returns [EObject current=null] : (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'array' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'items' otherlv_11= '\"' otherlv_12= ':' ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) ) otherlv_19= '}' ) ;
     public final EObject ruleArrayType() throws RecognitionException {
         EObject current = null;
 
@@ -2095,81 +2139,81 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1035:28: ( (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'array' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'items' otherlv_11= '\"' otherlv_12= ':' ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) ) otherlv_19= '}' ) )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1036:1: (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'array' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'items' otherlv_11= '\"' otherlv_12= ':' ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) ) otherlv_19= '}' )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1057:28: ( (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'array' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'items' otherlv_11= '\"' otherlv_12= ':' ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) ) otherlv_19= '}' ) )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1058:1: (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'array' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'items' otherlv_11= '\"' otherlv_12= ':' ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) ) otherlv_19= '}' )
             {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1036:1: (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'array' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'items' otherlv_11= '\"' otherlv_12= ':' ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) ) otherlv_19= '}' )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1036:3: otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'array' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'items' otherlv_11= '\"' otherlv_12= ':' ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) ) otherlv_19= '}'
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1058:1: (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'array' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'items' otherlv_11= '\"' otherlv_12= ':' ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) ) otherlv_19= '}' )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1058:3: otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'array' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'items' otherlv_11= '\"' otherlv_12= ':' ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) ) otherlv_19= '}'
             {
-            otherlv_0=(Token)match(input,13,FOLLOW_13_in_ruleArrayType2354); 
+            otherlv_0=(Token)match(input,14,FOLLOW_14_in_ruleArrayType2406); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getArrayTypeAccess().getLeftCurlyBracketKeyword_0());
                 
-            otherlv_1=(Token)match(input,14,FOLLOW_14_in_ruleArrayType2366); 
+            otherlv_1=(Token)match(input,13,FOLLOW_13_in_ruleArrayType2418); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getArrayTypeAccess().getQuotationMarkKeyword_1());
                 
-            otherlv_2=(Token)match(input,15,FOLLOW_15_in_ruleArrayType2378); 
+            otherlv_2=(Token)match(input,15,FOLLOW_15_in_ruleArrayType2430); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getArrayTypeAccess().getTypeKeyword_2());
                 
-            otherlv_3=(Token)match(input,14,FOLLOW_14_in_ruleArrayType2390); 
+            otherlv_3=(Token)match(input,13,FOLLOW_13_in_ruleArrayType2442); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getArrayTypeAccess().getQuotationMarkKeyword_3());
                 
-            otherlv_4=(Token)match(input,16,FOLLOW_16_in_ruleArrayType2402); 
+            otherlv_4=(Token)match(input,16,FOLLOW_16_in_ruleArrayType2454); 
 
                 	newLeafNode(otherlv_4, grammarAccess.getArrayTypeAccess().getColonKeyword_4());
                 
-            otherlv_5=(Token)match(input,14,FOLLOW_14_in_ruleArrayType2414); 
+            otherlv_5=(Token)match(input,13,FOLLOW_13_in_ruleArrayType2466); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getArrayTypeAccess().getQuotationMarkKeyword_5());
                 
-            otherlv_6=(Token)match(input,24,FOLLOW_24_in_ruleArrayType2426); 
+            otherlv_6=(Token)match(input,24,FOLLOW_24_in_ruleArrayType2478); 
 
                 	newLeafNode(otherlv_6, grammarAccess.getArrayTypeAccess().getArrayKeyword_6());
                 
-            otherlv_7=(Token)match(input,14,FOLLOW_14_in_ruleArrayType2438); 
+            otherlv_7=(Token)match(input,13,FOLLOW_13_in_ruleArrayType2490); 
 
                 	newLeafNode(otherlv_7, grammarAccess.getArrayTypeAccess().getQuotationMarkKeyword_7());
                 
-            otherlv_8=(Token)match(input,11,FOLLOW_11_in_ruleArrayType2450); 
+            otherlv_8=(Token)match(input,11,FOLLOW_11_in_ruleArrayType2502); 
 
                 	newLeafNode(otherlv_8, grammarAccess.getArrayTypeAccess().getCommaKeyword_8());
                 
-            otherlv_9=(Token)match(input,14,FOLLOW_14_in_ruleArrayType2462); 
+            otherlv_9=(Token)match(input,13,FOLLOW_13_in_ruleArrayType2514); 
 
                 	newLeafNode(otherlv_9, grammarAccess.getArrayTypeAccess().getQuotationMarkKeyword_9());
                 
-            otherlv_10=(Token)match(input,25,FOLLOW_25_in_ruleArrayType2474); 
+            otherlv_10=(Token)match(input,25,FOLLOW_25_in_ruleArrayType2526); 
 
                 	newLeafNode(otherlv_10, grammarAccess.getArrayTypeAccess().getItemsKeyword_10());
                 
-            otherlv_11=(Token)match(input,14,FOLLOW_14_in_ruleArrayType2486); 
+            otherlv_11=(Token)match(input,13,FOLLOW_13_in_ruleArrayType2538); 
 
                 	newLeafNode(otherlv_11, grammarAccess.getArrayTypeAccess().getQuotationMarkKeyword_11());
                 
-            otherlv_12=(Token)match(input,16,FOLLOW_16_in_ruleArrayType2498); 
+            otherlv_12=(Token)match(input,16,FOLLOW_16_in_ruleArrayType2550); 
 
                 	newLeafNode(otherlv_12, grammarAccess.getArrayTypeAccess().getColonKeyword_12());
                 
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1088:1: ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1110:1: ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) )
             int alt9=4;
             alt9 = dfa9.predict(input);
             switch (alt9) {
                 case 1 :
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1088:2: ( (lv_primitive_13_0= rulePrimitive ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1110:2: ( (lv_primitive_13_0= rulePrimitive ) )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1088:2: ( (lv_primitive_13_0= rulePrimitive ) )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1089:1: (lv_primitive_13_0= rulePrimitive )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1110:2: ( (lv_primitive_13_0= rulePrimitive ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1111:1: (lv_primitive_13_0= rulePrimitive )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1089:1: (lv_primitive_13_0= rulePrimitive )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1090:3: lv_primitive_13_0= rulePrimitive
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1111:1: (lv_primitive_13_0= rulePrimitive )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1112:3: lv_primitive_13_0= rulePrimitive
                     {
                      
                     	        newCompositeNode(grammarAccess.getArrayTypeAccess().getPrimitivePrimitiveParserRuleCall_13_0_0()); 
                     	    
-                    pushFollow(FOLLOW_rulePrimitive_in_ruleArrayType2520);
+                    pushFollow(FOLLOW_rulePrimitive_in_ruleArrayType2572);
                     lv_primitive_13_0=rulePrimitive();
 
                     state._fsp--;
@@ -2195,18 +2239,18 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1107:6: ( (lv_record_14_0= ruleRecordType ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1129:6: ( (lv_record_14_0= ruleRecordType ) )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1107:6: ( (lv_record_14_0= ruleRecordType ) )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1108:1: (lv_record_14_0= ruleRecordType )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1129:6: ( (lv_record_14_0= ruleRecordType ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1130:1: (lv_record_14_0= ruleRecordType )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1108:1: (lv_record_14_0= ruleRecordType )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1109:3: lv_record_14_0= ruleRecordType
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1130:1: (lv_record_14_0= ruleRecordType )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1131:3: lv_record_14_0= ruleRecordType
                     {
                      
                     	        newCompositeNode(grammarAccess.getArrayTypeAccess().getRecordRecordTypeParserRuleCall_13_1_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleRecordType_in_ruleArrayType2547);
+                    pushFollow(FOLLOW_ruleRecordType_in_ruleArrayType2599);
                     lv_record_14_0=ruleRecordType();
 
                     state._fsp--;
@@ -2232,27 +2276,27 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1126:6: (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1148:6: (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1126:6: (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1126:8: otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"'
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1148:6: (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1148:8: otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"'
                     {
-                    otherlv_15=(Token)match(input,14,FOLLOW_14_in_ruleArrayType2566); 
+                    otherlv_15=(Token)match(input,13,FOLLOW_13_in_ruleArrayType2618); 
 
                         	newLeafNode(otherlv_15, grammarAccess.getArrayTypeAccess().getQuotationMarkKeyword_13_2_0());
                         
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1130:1: ( (otherlv_16= RULE_ID ) )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1131:1: (otherlv_16= RULE_ID )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1152:1: ( (otherlv_16= RULE_ID ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1153:1: (otherlv_16= RULE_ID )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1131:1: (otherlv_16= RULE_ID )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1132:3: otherlv_16= RULE_ID
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1153:1: (otherlv_16= RULE_ID )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1154:3: otherlv_16= RULE_ID
                     {
 
                     			if (current==null) {
                     	            current = createModelElement(grammarAccess.getArrayTypeRule());
                     	        }
                             
-                    otherlv_16=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleArrayType2586); 
+                    otherlv_16=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleArrayType2638); 
 
                     		newLeafNode(otherlv_16, grammarAccess.getArrayTypeAccess().getRecordRefRecordTypeCrossReference_13_2_1_0()); 
                     	
@@ -2262,7 +2306,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_17=(Token)match(input,14,FOLLOW_14_in_ruleArrayType2598); 
+                    otherlv_17=(Token)match(input,13,FOLLOW_13_in_ruleArrayType2650); 
 
                         	newLeafNode(otherlv_17, grammarAccess.getArrayTypeAccess().getQuotationMarkKeyword_13_2_2());
                         
@@ -2273,18 +2317,18 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1148:6: ( (lv_etype_18_0= ruleEnumType ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1170:6: ( (lv_etype_18_0= ruleEnumType ) )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1148:6: ( (lv_etype_18_0= ruleEnumType ) )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1149:1: (lv_etype_18_0= ruleEnumType )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1170:6: ( (lv_etype_18_0= ruleEnumType ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1171:1: (lv_etype_18_0= ruleEnumType )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1149:1: (lv_etype_18_0= ruleEnumType )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1150:3: lv_etype_18_0= ruleEnumType
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1171:1: (lv_etype_18_0= ruleEnumType )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1172:3: lv_etype_18_0= ruleEnumType
                     {
                      
                     	        newCompositeNode(grammarAccess.getArrayTypeAccess().getEtypeEnumTypeParserRuleCall_13_3_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleEnumType_in_ruleArrayType2626);
+                    pushFollow(FOLLOW_ruleEnumType_in_ruleArrayType2678);
                     lv_etype_18_0=ruleEnumType();
 
                     state._fsp--;
@@ -2312,7 +2356,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_19=(Token)match(input,17,FOLLOW_17_in_ruleArrayType2639); 
+            otherlv_19=(Token)match(input,17,FOLLOW_17_in_ruleArrayType2691); 
 
                 	newLeafNode(otherlv_19, grammarAccess.getArrayTypeAccess().getRightCurlyBracketKeyword_14());
                 
@@ -2337,7 +2381,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMapType"
-    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1178:1: entryRuleMapType returns [EObject current=null] : iv_ruleMapType= ruleMapType EOF ;
+    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1200:1: entryRuleMapType returns [EObject current=null] : iv_ruleMapType= ruleMapType EOF ;
     public final EObject entryRuleMapType() throws RecognitionException {
         EObject current = null;
 
@@ -2345,17 +2389,17 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1179:2: (iv_ruleMapType= ruleMapType EOF )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1180:2: iv_ruleMapType= ruleMapType EOF
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1201:2: (iv_ruleMapType= ruleMapType EOF )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1202:2: iv_ruleMapType= ruleMapType EOF
             {
              newCompositeNode(grammarAccess.getMapTypeRule()); 
-            pushFollow(FOLLOW_ruleMapType_in_entryRuleMapType2675);
+            pushFollow(FOLLOW_ruleMapType_in_entryRuleMapType2727);
             iv_ruleMapType=ruleMapType();
 
             state._fsp--;
 
              current =iv_ruleMapType; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleMapType2685); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleMapType2737); 
 
             }
 
@@ -2373,7 +2417,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMapType"
-    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1187:1: ruleMapType returns [EObject current=null] : (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'map' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'items' otherlv_11= '\"' otherlv_12= ':' ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) | ( (lv_atype_19_0= ruleArrayType ) ) ) otherlv_20= '}' ) ;
+    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1209:1: ruleMapType returns [EObject current=null] : (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'map' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'items' otherlv_11= '\"' otherlv_12= ':' ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) | ( (lv_atype_19_0= ruleArrayType ) ) ) otherlv_20= '}' ) ;
     public final EObject ruleMapType() throws RecognitionException {
         EObject current = null;
 
@@ -2406,81 +2450,81 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1190:28: ( (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'map' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'items' otherlv_11= '\"' otherlv_12= ':' ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) | ( (lv_atype_19_0= ruleArrayType ) ) ) otherlv_20= '}' ) )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1191:1: (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'map' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'items' otherlv_11= '\"' otherlv_12= ':' ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) | ( (lv_atype_19_0= ruleArrayType ) ) ) otherlv_20= '}' )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1212:28: ( (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'map' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'items' otherlv_11= '\"' otherlv_12= ':' ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) | ( (lv_atype_19_0= ruleArrayType ) ) ) otherlv_20= '}' ) )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1213:1: (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'map' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'items' otherlv_11= '\"' otherlv_12= ':' ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) | ( (lv_atype_19_0= ruleArrayType ) ) ) otherlv_20= '}' )
             {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1191:1: (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'map' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'items' otherlv_11= '\"' otherlv_12= ':' ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) | ( (lv_atype_19_0= ruleArrayType ) ) ) otherlv_20= '}' )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1191:3: otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'map' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'items' otherlv_11= '\"' otherlv_12= ':' ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) | ( (lv_atype_19_0= ruleArrayType ) ) ) otherlv_20= '}'
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1213:1: (otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'map' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'items' otherlv_11= '\"' otherlv_12= ':' ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) | ( (lv_atype_19_0= ruleArrayType ) ) ) otherlv_20= '}' )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1213:3: otherlv_0= '{' otherlv_1= '\"' otherlv_2= 'type' otherlv_3= '\"' otherlv_4= ':' otherlv_5= '\"' otherlv_6= 'map' otherlv_7= '\"' otherlv_8= ',' otherlv_9= '\"' otherlv_10= 'items' otherlv_11= '\"' otherlv_12= ':' ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) | ( (lv_atype_19_0= ruleArrayType ) ) ) otherlv_20= '}'
             {
-            otherlv_0=(Token)match(input,13,FOLLOW_13_in_ruleMapType2722); 
+            otherlv_0=(Token)match(input,14,FOLLOW_14_in_ruleMapType2774); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getMapTypeAccess().getLeftCurlyBracketKeyword_0());
                 
-            otherlv_1=(Token)match(input,14,FOLLOW_14_in_ruleMapType2734); 
+            otherlv_1=(Token)match(input,13,FOLLOW_13_in_ruleMapType2786); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getMapTypeAccess().getQuotationMarkKeyword_1());
                 
-            otherlv_2=(Token)match(input,15,FOLLOW_15_in_ruleMapType2746); 
+            otherlv_2=(Token)match(input,15,FOLLOW_15_in_ruleMapType2798); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getMapTypeAccess().getTypeKeyword_2());
                 
-            otherlv_3=(Token)match(input,14,FOLLOW_14_in_ruleMapType2758); 
+            otherlv_3=(Token)match(input,13,FOLLOW_13_in_ruleMapType2810); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getMapTypeAccess().getQuotationMarkKeyword_3());
                 
-            otherlv_4=(Token)match(input,16,FOLLOW_16_in_ruleMapType2770); 
+            otherlv_4=(Token)match(input,16,FOLLOW_16_in_ruleMapType2822); 
 
                 	newLeafNode(otherlv_4, grammarAccess.getMapTypeAccess().getColonKeyword_4());
                 
-            otherlv_5=(Token)match(input,14,FOLLOW_14_in_ruleMapType2782); 
+            otherlv_5=(Token)match(input,13,FOLLOW_13_in_ruleMapType2834); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getMapTypeAccess().getQuotationMarkKeyword_5());
                 
-            otherlv_6=(Token)match(input,26,FOLLOW_26_in_ruleMapType2794); 
+            otherlv_6=(Token)match(input,26,FOLLOW_26_in_ruleMapType2846); 
 
                 	newLeafNode(otherlv_6, grammarAccess.getMapTypeAccess().getMapKeyword_6());
                 
-            otherlv_7=(Token)match(input,14,FOLLOW_14_in_ruleMapType2806); 
+            otherlv_7=(Token)match(input,13,FOLLOW_13_in_ruleMapType2858); 
 
                 	newLeafNode(otherlv_7, grammarAccess.getMapTypeAccess().getQuotationMarkKeyword_7());
                 
-            otherlv_8=(Token)match(input,11,FOLLOW_11_in_ruleMapType2818); 
+            otherlv_8=(Token)match(input,11,FOLLOW_11_in_ruleMapType2870); 
 
                 	newLeafNode(otherlv_8, grammarAccess.getMapTypeAccess().getCommaKeyword_8());
                 
-            otherlv_9=(Token)match(input,14,FOLLOW_14_in_ruleMapType2830); 
+            otherlv_9=(Token)match(input,13,FOLLOW_13_in_ruleMapType2882); 
 
                 	newLeafNode(otherlv_9, grammarAccess.getMapTypeAccess().getQuotationMarkKeyword_9());
                 
-            otherlv_10=(Token)match(input,25,FOLLOW_25_in_ruleMapType2842); 
+            otherlv_10=(Token)match(input,25,FOLLOW_25_in_ruleMapType2894); 
 
                 	newLeafNode(otherlv_10, grammarAccess.getMapTypeAccess().getItemsKeyword_10());
                 
-            otherlv_11=(Token)match(input,14,FOLLOW_14_in_ruleMapType2854); 
+            otherlv_11=(Token)match(input,13,FOLLOW_13_in_ruleMapType2906); 
 
                 	newLeafNode(otherlv_11, grammarAccess.getMapTypeAccess().getQuotationMarkKeyword_11());
                 
-            otherlv_12=(Token)match(input,16,FOLLOW_16_in_ruleMapType2866); 
+            otherlv_12=(Token)match(input,16,FOLLOW_16_in_ruleMapType2918); 
 
                 	newLeafNode(otherlv_12, grammarAccess.getMapTypeAccess().getColonKeyword_12());
                 
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1243:1: ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) | ( (lv_atype_19_0= ruleArrayType ) ) )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1265:1: ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) | ( (lv_atype_19_0= ruleArrayType ) ) )
             int alt10=5;
             alt10 = dfa10.predict(input);
             switch (alt10) {
                 case 1 :
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1243:2: ( (lv_primitive_13_0= rulePrimitive ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1265:2: ( (lv_primitive_13_0= rulePrimitive ) )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1243:2: ( (lv_primitive_13_0= rulePrimitive ) )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1244:1: (lv_primitive_13_0= rulePrimitive )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1265:2: ( (lv_primitive_13_0= rulePrimitive ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1266:1: (lv_primitive_13_0= rulePrimitive )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1244:1: (lv_primitive_13_0= rulePrimitive )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1245:3: lv_primitive_13_0= rulePrimitive
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1266:1: (lv_primitive_13_0= rulePrimitive )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1267:3: lv_primitive_13_0= rulePrimitive
                     {
                      
                     	        newCompositeNode(grammarAccess.getMapTypeAccess().getPrimitivePrimitiveParserRuleCall_13_0_0()); 
                     	    
-                    pushFollow(FOLLOW_rulePrimitive_in_ruleMapType2888);
+                    pushFollow(FOLLOW_rulePrimitive_in_ruleMapType2940);
                     lv_primitive_13_0=rulePrimitive();
 
                     state._fsp--;
@@ -2506,18 +2550,18 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1262:6: ( (lv_record_14_0= ruleRecordType ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1284:6: ( (lv_record_14_0= ruleRecordType ) )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1262:6: ( (lv_record_14_0= ruleRecordType ) )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1263:1: (lv_record_14_0= ruleRecordType )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1284:6: ( (lv_record_14_0= ruleRecordType ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1285:1: (lv_record_14_0= ruleRecordType )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1263:1: (lv_record_14_0= ruleRecordType )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1264:3: lv_record_14_0= ruleRecordType
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1285:1: (lv_record_14_0= ruleRecordType )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1286:3: lv_record_14_0= ruleRecordType
                     {
                      
                     	        newCompositeNode(grammarAccess.getMapTypeAccess().getRecordRecordTypeParserRuleCall_13_1_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleRecordType_in_ruleMapType2915);
+                    pushFollow(FOLLOW_ruleRecordType_in_ruleMapType2967);
                     lv_record_14_0=ruleRecordType();
 
                     state._fsp--;
@@ -2543,27 +2587,27 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1281:6: (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1303:6: (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1281:6: (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1281:8: otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"'
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1303:6: (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1303:8: otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"'
                     {
-                    otherlv_15=(Token)match(input,14,FOLLOW_14_in_ruleMapType2934); 
+                    otherlv_15=(Token)match(input,13,FOLLOW_13_in_ruleMapType2986); 
 
                         	newLeafNode(otherlv_15, grammarAccess.getMapTypeAccess().getQuotationMarkKeyword_13_2_0());
                         
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1285:1: ( (otherlv_16= RULE_ID ) )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1286:1: (otherlv_16= RULE_ID )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1307:1: ( (otherlv_16= RULE_ID ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1308:1: (otherlv_16= RULE_ID )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1286:1: (otherlv_16= RULE_ID )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1287:3: otherlv_16= RULE_ID
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1308:1: (otherlv_16= RULE_ID )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1309:3: otherlv_16= RULE_ID
                     {
 
                     			if (current==null) {
                     	            current = createModelElement(grammarAccess.getMapTypeRule());
                     	        }
                             
-                    otherlv_16=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleMapType2954); 
+                    otherlv_16=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleMapType3006); 
 
                     		newLeafNode(otherlv_16, grammarAccess.getMapTypeAccess().getRecordRefRecordTypeCrossReference_13_2_1_0()); 
                     	
@@ -2573,7 +2617,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_17=(Token)match(input,14,FOLLOW_14_in_ruleMapType2966); 
+                    otherlv_17=(Token)match(input,13,FOLLOW_13_in_ruleMapType3018); 
 
                         	newLeafNode(otherlv_17, grammarAccess.getMapTypeAccess().getQuotationMarkKeyword_13_2_2());
                         
@@ -2584,18 +2628,18 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1303:6: ( (lv_etype_18_0= ruleEnumType ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1325:6: ( (lv_etype_18_0= ruleEnumType ) )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1303:6: ( (lv_etype_18_0= ruleEnumType ) )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1304:1: (lv_etype_18_0= ruleEnumType )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1325:6: ( (lv_etype_18_0= ruleEnumType ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1326:1: (lv_etype_18_0= ruleEnumType )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1304:1: (lv_etype_18_0= ruleEnumType )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1305:3: lv_etype_18_0= ruleEnumType
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1326:1: (lv_etype_18_0= ruleEnumType )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1327:3: lv_etype_18_0= ruleEnumType
                     {
                      
                     	        newCompositeNode(grammarAccess.getMapTypeAccess().getEtypeEnumTypeParserRuleCall_13_3_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleEnumType_in_ruleMapType2994);
+                    pushFollow(FOLLOW_ruleEnumType_in_ruleMapType3046);
                     lv_etype_18_0=ruleEnumType();
 
                     state._fsp--;
@@ -2621,18 +2665,18 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1322:6: ( (lv_atype_19_0= ruleArrayType ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1344:6: ( (lv_atype_19_0= ruleArrayType ) )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1322:6: ( (lv_atype_19_0= ruleArrayType ) )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1323:1: (lv_atype_19_0= ruleArrayType )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1344:6: ( (lv_atype_19_0= ruleArrayType ) )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1345:1: (lv_atype_19_0= ruleArrayType )
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1323:1: (lv_atype_19_0= ruleArrayType )
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1324:3: lv_atype_19_0= ruleArrayType
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1345:1: (lv_atype_19_0= ruleArrayType )
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1346:3: lv_atype_19_0= ruleArrayType
                     {
                      
                     	        newCompositeNode(grammarAccess.getMapTypeAccess().getAtypeArrayTypeParserRuleCall_13_4_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleArrayType_in_ruleMapType3021);
+                    pushFollow(FOLLOW_ruleArrayType_in_ruleMapType3073);
                     lv_atype_19_0=ruleArrayType();
 
                     state._fsp--;
@@ -2660,7 +2704,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_20=(Token)match(input,17,FOLLOW_17_in_ruleMapType3034); 
+            otherlv_20=(Token)match(input,17,FOLLOW_17_in_ruleMapType3086); 
 
                 	newLeafNode(otherlv_20, grammarAccess.getMapTypeAccess().getRightCurlyBracketKeyword_14());
                 
@@ -2685,7 +2729,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleFixedType"
-    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1352:1: entryRuleFixedType returns [EObject current=null] : iv_ruleFixedType= ruleFixedType EOF ;
+    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1374:1: entryRuleFixedType returns [EObject current=null] : iv_ruleFixedType= ruleFixedType EOF ;
     public final EObject entryRuleFixedType() throws RecognitionException {
         EObject current = null;
 
@@ -2693,17 +2737,17 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1353:2: (iv_ruleFixedType= ruleFixedType EOF )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1354:2: iv_ruleFixedType= ruleFixedType EOF
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1375:2: (iv_ruleFixedType= ruleFixedType EOF )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1376:2: iv_ruleFixedType= ruleFixedType EOF
             {
              newCompositeNode(grammarAccess.getFixedTypeRule()); 
-            pushFollow(FOLLOW_ruleFixedType_in_entryRuleFixedType3070);
+            pushFollow(FOLLOW_ruleFixedType_in_entryRuleFixedType3122);
             iv_ruleFixedType=ruleFixedType();
 
             state._fsp--;
 
              current =iv_ruleFixedType; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFixedType3080); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFixedType3132); 
 
             }
 
@@ -2721,7 +2765,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFixedType"
-    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1361:1: ruleFixedType returns [EObject current=null] : (otherlv_0= '\"' otherlv_1= 'fixed' otherlv_2= '\"' otherlv_3= ',' otherlv_4= '\"' otherlv_5= 'name' otherlv_6= '\"' otherlv_7= ':' otherlv_8= '\"' ( (lv_name_9_0= RULE_ID ) ) otherlv_10= '\"' otherlv_11= ',' otherlv_12= '\"' otherlv_13= 'size' otherlv_14= '\"' otherlv_15= ':' otherlv_16= '\"' ( (lv_size_17_0= RULE_INT ) ) otherlv_18= '\"' ) ;
+    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1383:1: ruleFixedType returns [EObject current=null] : (otherlv_0= '\"' otherlv_1= 'fixed' otherlv_2= '\"' otherlv_3= ',' otherlv_4= '\"' otherlv_5= 'name' otherlv_6= '\"' otherlv_7= ':' otherlv_8= '\"' ( (lv_name_9_0= RULE_ID ) ) otherlv_10= '\"' otherlv_11= ',' otherlv_12= '\"' otherlv_13= 'size' otherlv_14= '\"' otherlv_15= ':' otherlv_16= '\"' ( (lv_size_17_0= RULE_INT ) ) otherlv_18= '\"' ) ;
     public final EObject ruleFixedType() throws RecognitionException {
         EObject current = null;
 
@@ -2748,55 +2792,55 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1364:28: ( (otherlv_0= '\"' otherlv_1= 'fixed' otherlv_2= '\"' otherlv_3= ',' otherlv_4= '\"' otherlv_5= 'name' otherlv_6= '\"' otherlv_7= ':' otherlv_8= '\"' ( (lv_name_9_0= RULE_ID ) ) otherlv_10= '\"' otherlv_11= ',' otherlv_12= '\"' otherlv_13= 'size' otherlv_14= '\"' otherlv_15= ':' otherlv_16= '\"' ( (lv_size_17_0= RULE_INT ) ) otherlv_18= '\"' ) )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1365:1: (otherlv_0= '\"' otherlv_1= 'fixed' otherlv_2= '\"' otherlv_3= ',' otherlv_4= '\"' otherlv_5= 'name' otherlv_6= '\"' otherlv_7= ':' otherlv_8= '\"' ( (lv_name_9_0= RULE_ID ) ) otherlv_10= '\"' otherlv_11= ',' otherlv_12= '\"' otherlv_13= 'size' otherlv_14= '\"' otherlv_15= ':' otherlv_16= '\"' ( (lv_size_17_0= RULE_INT ) ) otherlv_18= '\"' )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1386:28: ( (otherlv_0= '\"' otherlv_1= 'fixed' otherlv_2= '\"' otherlv_3= ',' otherlv_4= '\"' otherlv_5= 'name' otherlv_6= '\"' otherlv_7= ':' otherlv_8= '\"' ( (lv_name_9_0= RULE_ID ) ) otherlv_10= '\"' otherlv_11= ',' otherlv_12= '\"' otherlv_13= 'size' otherlv_14= '\"' otherlv_15= ':' otherlv_16= '\"' ( (lv_size_17_0= RULE_INT ) ) otherlv_18= '\"' ) )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1387:1: (otherlv_0= '\"' otherlv_1= 'fixed' otherlv_2= '\"' otherlv_3= ',' otherlv_4= '\"' otherlv_5= 'name' otherlv_6= '\"' otherlv_7= ':' otherlv_8= '\"' ( (lv_name_9_0= RULE_ID ) ) otherlv_10= '\"' otherlv_11= ',' otherlv_12= '\"' otherlv_13= 'size' otherlv_14= '\"' otherlv_15= ':' otherlv_16= '\"' ( (lv_size_17_0= RULE_INT ) ) otherlv_18= '\"' )
             {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1365:1: (otherlv_0= '\"' otherlv_1= 'fixed' otherlv_2= '\"' otherlv_3= ',' otherlv_4= '\"' otherlv_5= 'name' otherlv_6= '\"' otherlv_7= ':' otherlv_8= '\"' ( (lv_name_9_0= RULE_ID ) ) otherlv_10= '\"' otherlv_11= ',' otherlv_12= '\"' otherlv_13= 'size' otherlv_14= '\"' otherlv_15= ':' otherlv_16= '\"' ( (lv_size_17_0= RULE_INT ) ) otherlv_18= '\"' )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1365:3: otherlv_0= '\"' otherlv_1= 'fixed' otherlv_2= '\"' otherlv_3= ',' otherlv_4= '\"' otherlv_5= 'name' otherlv_6= '\"' otherlv_7= ':' otherlv_8= '\"' ( (lv_name_9_0= RULE_ID ) ) otherlv_10= '\"' otherlv_11= ',' otherlv_12= '\"' otherlv_13= 'size' otherlv_14= '\"' otherlv_15= ':' otherlv_16= '\"' ( (lv_size_17_0= RULE_INT ) ) otherlv_18= '\"'
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1387:1: (otherlv_0= '\"' otherlv_1= 'fixed' otherlv_2= '\"' otherlv_3= ',' otherlv_4= '\"' otherlv_5= 'name' otherlv_6= '\"' otherlv_7= ':' otherlv_8= '\"' ( (lv_name_9_0= RULE_ID ) ) otherlv_10= '\"' otherlv_11= ',' otherlv_12= '\"' otherlv_13= 'size' otherlv_14= '\"' otherlv_15= ':' otherlv_16= '\"' ( (lv_size_17_0= RULE_INT ) ) otherlv_18= '\"' )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1387:3: otherlv_0= '\"' otherlv_1= 'fixed' otherlv_2= '\"' otherlv_3= ',' otherlv_4= '\"' otherlv_5= 'name' otherlv_6= '\"' otherlv_7= ':' otherlv_8= '\"' ( (lv_name_9_0= RULE_ID ) ) otherlv_10= '\"' otherlv_11= ',' otherlv_12= '\"' otherlv_13= 'size' otherlv_14= '\"' otherlv_15= ':' otherlv_16= '\"' ( (lv_size_17_0= RULE_INT ) ) otherlv_18= '\"'
             {
-            otherlv_0=(Token)match(input,14,FOLLOW_14_in_ruleFixedType3117); 
+            otherlv_0=(Token)match(input,13,FOLLOW_13_in_ruleFixedType3169); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getFixedTypeAccess().getQuotationMarkKeyword_0());
                 
-            otherlv_1=(Token)match(input,27,FOLLOW_27_in_ruleFixedType3129); 
+            otherlv_1=(Token)match(input,27,FOLLOW_27_in_ruleFixedType3181); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getFixedTypeAccess().getFixedKeyword_1());
                 
-            otherlv_2=(Token)match(input,14,FOLLOW_14_in_ruleFixedType3141); 
+            otherlv_2=(Token)match(input,13,FOLLOW_13_in_ruleFixedType3193); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getFixedTypeAccess().getQuotationMarkKeyword_2());
                 
-            otherlv_3=(Token)match(input,11,FOLLOW_11_in_ruleFixedType3153); 
+            otherlv_3=(Token)match(input,11,FOLLOW_11_in_ruleFixedType3205); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getFixedTypeAccess().getCommaKeyword_3());
                 
-            otherlv_4=(Token)match(input,14,FOLLOW_14_in_ruleFixedType3165); 
+            otherlv_4=(Token)match(input,13,FOLLOW_13_in_ruleFixedType3217); 
 
                 	newLeafNode(otherlv_4, grammarAccess.getFixedTypeAccess().getQuotationMarkKeyword_4());
                 
-            otherlv_5=(Token)match(input,19,FOLLOW_19_in_ruleFixedType3177); 
+            otherlv_5=(Token)match(input,19,FOLLOW_19_in_ruleFixedType3229); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getFixedTypeAccess().getNameKeyword_5());
                 
-            otherlv_6=(Token)match(input,14,FOLLOW_14_in_ruleFixedType3189); 
+            otherlv_6=(Token)match(input,13,FOLLOW_13_in_ruleFixedType3241); 
 
                 	newLeafNode(otherlv_6, grammarAccess.getFixedTypeAccess().getQuotationMarkKeyword_6());
                 
-            otherlv_7=(Token)match(input,16,FOLLOW_16_in_ruleFixedType3201); 
+            otherlv_7=(Token)match(input,16,FOLLOW_16_in_ruleFixedType3253); 
 
                 	newLeafNode(otherlv_7, grammarAccess.getFixedTypeAccess().getColonKeyword_7());
                 
-            otherlv_8=(Token)match(input,14,FOLLOW_14_in_ruleFixedType3213); 
+            otherlv_8=(Token)match(input,13,FOLLOW_13_in_ruleFixedType3265); 
 
                 	newLeafNode(otherlv_8, grammarAccess.getFixedTypeAccess().getQuotationMarkKeyword_8());
                 
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1401:1: ( (lv_name_9_0= RULE_ID ) )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1402:1: (lv_name_9_0= RULE_ID )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1423:1: ( (lv_name_9_0= RULE_ID ) )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1424:1: (lv_name_9_0= RULE_ID )
             {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1402:1: (lv_name_9_0= RULE_ID )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1403:3: lv_name_9_0= RULE_ID
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1424:1: (lv_name_9_0= RULE_ID )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1425:3: lv_name_9_0= RULE_ID
             {
-            lv_name_9_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleFixedType3230); 
+            lv_name_9_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleFixedType3282); 
 
             			newLeafNode(lv_name_9_0, grammarAccess.getFixedTypeAccess().getNameIDTerminalRuleCall_9_0()); 
             		
@@ -2816,41 +2860,41 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_10=(Token)match(input,14,FOLLOW_14_in_ruleFixedType3247); 
+            otherlv_10=(Token)match(input,13,FOLLOW_13_in_ruleFixedType3299); 
 
                 	newLeafNode(otherlv_10, grammarAccess.getFixedTypeAccess().getQuotationMarkKeyword_10());
                 
-            otherlv_11=(Token)match(input,11,FOLLOW_11_in_ruleFixedType3259); 
+            otherlv_11=(Token)match(input,11,FOLLOW_11_in_ruleFixedType3311); 
 
                 	newLeafNode(otherlv_11, grammarAccess.getFixedTypeAccess().getCommaKeyword_11());
                 
-            otherlv_12=(Token)match(input,14,FOLLOW_14_in_ruleFixedType3271); 
+            otherlv_12=(Token)match(input,13,FOLLOW_13_in_ruleFixedType3323); 
 
                 	newLeafNode(otherlv_12, grammarAccess.getFixedTypeAccess().getQuotationMarkKeyword_12());
                 
-            otherlv_13=(Token)match(input,28,FOLLOW_28_in_ruleFixedType3283); 
+            otherlv_13=(Token)match(input,28,FOLLOW_28_in_ruleFixedType3335); 
 
                 	newLeafNode(otherlv_13, grammarAccess.getFixedTypeAccess().getSizeKeyword_13());
                 
-            otherlv_14=(Token)match(input,14,FOLLOW_14_in_ruleFixedType3295); 
+            otherlv_14=(Token)match(input,13,FOLLOW_13_in_ruleFixedType3347); 
 
                 	newLeafNode(otherlv_14, grammarAccess.getFixedTypeAccess().getQuotationMarkKeyword_14());
                 
-            otherlv_15=(Token)match(input,16,FOLLOW_16_in_ruleFixedType3307); 
+            otherlv_15=(Token)match(input,16,FOLLOW_16_in_ruleFixedType3359); 
 
                 	newLeafNode(otherlv_15, grammarAccess.getFixedTypeAccess().getColonKeyword_15());
                 
-            otherlv_16=(Token)match(input,14,FOLLOW_14_in_ruleFixedType3319); 
+            otherlv_16=(Token)match(input,13,FOLLOW_13_in_ruleFixedType3371); 
 
                 	newLeafNode(otherlv_16, grammarAccess.getFixedTypeAccess().getQuotationMarkKeyword_16());
                 
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1447:1: ( (lv_size_17_0= RULE_INT ) )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1448:1: (lv_size_17_0= RULE_INT )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1469:1: ( (lv_size_17_0= RULE_INT ) )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1470:1: (lv_size_17_0= RULE_INT )
             {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1448:1: (lv_size_17_0= RULE_INT )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1449:3: lv_size_17_0= RULE_INT
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1470:1: (lv_size_17_0= RULE_INT )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1471:3: lv_size_17_0= RULE_INT
             {
-            lv_size_17_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleFixedType3336); 
+            lv_size_17_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleFixedType3388); 
 
             			newLeafNode(lv_size_17_0, grammarAccess.getFixedTypeAccess().getSizeINTTerminalRuleCall_17_0()); 
             		
@@ -2870,7 +2914,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_18=(Token)match(input,14,FOLLOW_14_in_ruleFixedType3353); 
+            otherlv_18=(Token)match(input,13,FOLLOW_13_in_ruleFixedType3405); 
 
                 	newLeafNode(otherlv_18, grammarAccess.getFixedTypeAccess().getQuotationMarkKeyword_18());
                 
@@ -2895,7 +2939,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePrimitive"
-    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1477:1: entryRulePrimitive returns [EObject current=null] : iv_rulePrimitive= rulePrimitive EOF ;
+    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1499:1: entryRulePrimitive returns [EObject current=null] : iv_rulePrimitive= rulePrimitive EOF ;
     public final EObject entryRulePrimitive() throws RecognitionException {
         EObject current = null;
 
@@ -2903,17 +2947,17 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1478:2: (iv_rulePrimitive= rulePrimitive EOF )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1479:2: iv_rulePrimitive= rulePrimitive EOF
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1500:2: (iv_rulePrimitive= rulePrimitive EOF )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1501:2: iv_rulePrimitive= rulePrimitive EOF
             {
              newCompositeNode(grammarAccess.getPrimitiveRule()); 
-            pushFollow(FOLLOW_rulePrimitive_in_entryRulePrimitive3389);
+            pushFollow(FOLLOW_rulePrimitive_in_entryRulePrimitive3441);
             iv_rulePrimitive=rulePrimitive();
 
             state._fsp--;
 
              current =iv_rulePrimitive; 
-            match(input,EOF,FOLLOW_EOF_in_entryRulePrimitive3399); 
+            match(input,EOF,FOLLOW_EOF_in_entryRulePrimitive3451); 
 
             }
 
@@ -2931,7 +2975,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePrimitive"
-    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1486:1: rulePrimitive returns [EObject current=null] : (otherlv_0= '\"' ( ( (lv_type_1_1= 'null' | lv_type_1_2= 'boolean' | lv_type_1_3= 'int' | lv_type_1_4= 'long' | lv_type_1_5= 'float' | lv_type_1_6= 'double' | lv_type_1_7= 'bytes' | lv_type_1_8= 'string' ) ) ) otherlv_2= '\"' ) ;
+    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1508:1: rulePrimitive returns [EObject current=null] : (otherlv_0= '\"' ( ( (lv_type_1_1= 'null' | lv_type_1_2= 'boolean' | lv_type_1_3= 'int' | lv_type_1_4= 'long' | lv_type_1_5= 'float' | lv_type_1_6= 'double' | lv_type_1_7= 'bytes' | lv_type_1_8= 'string' ) ) ) otherlv_2= '\"' ) ;
     public final EObject rulePrimitive() throws RecognitionException {
         EObject current = null;
 
@@ -2949,23 +2993,23 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1489:28: ( (otherlv_0= '\"' ( ( (lv_type_1_1= 'null' | lv_type_1_2= 'boolean' | lv_type_1_3= 'int' | lv_type_1_4= 'long' | lv_type_1_5= 'float' | lv_type_1_6= 'double' | lv_type_1_7= 'bytes' | lv_type_1_8= 'string' ) ) ) otherlv_2= '\"' ) )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1490:1: (otherlv_0= '\"' ( ( (lv_type_1_1= 'null' | lv_type_1_2= 'boolean' | lv_type_1_3= 'int' | lv_type_1_4= 'long' | lv_type_1_5= 'float' | lv_type_1_6= 'double' | lv_type_1_7= 'bytes' | lv_type_1_8= 'string' ) ) ) otherlv_2= '\"' )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1511:28: ( (otherlv_0= '\"' ( ( (lv_type_1_1= 'null' | lv_type_1_2= 'boolean' | lv_type_1_3= 'int' | lv_type_1_4= 'long' | lv_type_1_5= 'float' | lv_type_1_6= 'double' | lv_type_1_7= 'bytes' | lv_type_1_8= 'string' ) ) ) otherlv_2= '\"' ) )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1512:1: (otherlv_0= '\"' ( ( (lv_type_1_1= 'null' | lv_type_1_2= 'boolean' | lv_type_1_3= 'int' | lv_type_1_4= 'long' | lv_type_1_5= 'float' | lv_type_1_6= 'double' | lv_type_1_7= 'bytes' | lv_type_1_8= 'string' ) ) ) otherlv_2= '\"' )
             {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1490:1: (otherlv_0= '\"' ( ( (lv_type_1_1= 'null' | lv_type_1_2= 'boolean' | lv_type_1_3= 'int' | lv_type_1_4= 'long' | lv_type_1_5= 'float' | lv_type_1_6= 'double' | lv_type_1_7= 'bytes' | lv_type_1_8= 'string' ) ) ) otherlv_2= '\"' )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1490:3: otherlv_0= '\"' ( ( (lv_type_1_1= 'null' | lv_type_1_2= 'boolean' | lv_type_1_3= 'int' | lv_type_1_4= 'long' | lv_type_1_5= 'float' | lv_type_1_6= 'double' | lv_type_1_7= 'bytes' | lv_type_1_8= 'string' ) ) ) otherlv_2= '\"'
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1512:1: (otherlv_0= '\"' ( ( (lv_type_1_1= 'null' | lv_type_1_2= 'boolean' | lv_type_1_3= 'int' | lv_type_1_4= 'long' | lv_type_1_5= 'float' | lv_type_1_6= 'double' | lv_type_1_7= 'bytes' | lv_type_1_8= 'string' ) ) ) otherlv_2= '\"' )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1512:3: otherlv_0= '\"' ( ( (lv_type_1_1= 'null' | lv_type_1_2= 'boolean' | lv_type_1_3= 'int' | lv_type_1_4= 'long' | lv_type_1_5= 'float' | lv_type_1_6= 'double' | lv_type_1_7= 'bytes' | lv_type_1_8= 'string' ) ) ) otherlv_2= '\"'
             {
-            otherlv_0=(Token)match(input,14,FOLLOW_14_in_rulePrimitive3436); 
+            otherlv_0=(Token)match(input,13,FOLLOW_13_in_rulePrimitive3488); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getPrimitiveAccess().getQuotationMarkKeyword_0());
                 
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1494:1: ( ( (lv_type_1_1= 'null' | lv_type_1_2= 'boolean' | lv_type_1_3= 'int' | lv_type_1_4= 'long' | lv_type_1_5= 'float' | lv_type_1_6= 'double' | lv_type_1_7= 'bytes' | lv_type_1_8= 'string' ) ) )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1495:1: ( (lv_type_1_1= 'null' | lv_type_1_2= 'boolean' | lv_type_1_3= 'int' | lv_type_1_4= 'long' | lv_type_1_5= 'float' | lv_type_1_6= 'double' | lv_type_1_7= 'bytes' | lv_type_1_8= 'string' ) )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1516:1: ( ( (lv_type_1_1= 'null' | lv_type_1_2= 'boolean' | lv_type_1_3= 'int' | lv_type_1_4= 'long' | lv_type_1_5= 'float' | lv_type_1_6= 'double' | lv_type_1_7= 'bytes' | lv_type_1_8= 'string' ) ) )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1517:1: ( (lv_type_1_1= 'null' | lv_type_1_2= 'boolean' | lv_type_1_3= 'int' | lv_type_1_4= 'long' | lv_type_1_5= 'float' | lv_type_1_6= 'double' | lv_type_1_7= 'bytes' | lv_type_1_8= 'string' ) )
             {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1495:1: ( (lv_type_1_1= 'null' | lv_type_1_2= 'boolean' | lv_type_1_3= 'int' | lv_type_1_4= 'long' | lv_type_1_5= 'float' | lv_type_1_6= 'double' | lv_type_1_7= 'bytes' | lv_type_1_8= 'string' ) )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1496:1: (lv_type_1_1= 'null' | lv_type_1_2= 'boolean' | lv_type_1_3= 'int' | lv_type_1_4= 'long' | lv_type_1_5= 'float' | lv_type_1_6= 'double' | lv_type_1_7= 'bytes' | lv_type_1_8= 'string' )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1517:1: ( (lv_type_1_1= 'null' | lv_type_1_2= 'boolean' | lv_type_1_3= 'int' | lv_type_1_4= 'long' | lv_type_1_5= 'float' | lv_type_1_6= 'double' | lv_type_1_7= 'bytes' | lv_type_1_8= 'string' ) )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1518:1: (lv_type_1_1= 'null' | lv_type_1_2= 'boolean' | lv_type_1_3= 'int' | lv_type_1_4= 'long' | lv_type_1_5= 'float' | lv_type_1_6= 'double' | lv_type_1_7= 'bytes' | lv_type_1_8= 'string' )
             {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1496:1: (lv_type_1_1= 'null' | lv_type_1_2= 'boolean' | lv_type_1_3= 'int' | lv_type_1_4= 'long' | lv_type_1_5= 'float' | lv_type_1_6= 'double' | lv_type_1_7= 'bytes' | lv_type_1_8= 'string' )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1518:1: (lv_type_1_1= 'null' | lv_type_1_2= 'boolean' | lv_type_1_3= 'int' | lv_type_1_4= 'long' | lv_type_1_5= 'float' | lv_type_1_6= 'double' | lv_type_1_7= 'bytes' | lv_type_1_8= 'string' )
             int alt11=8;
             switch ( input.LA(1) ) {
             case 29:
@@ -3017,9 +3061,9 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
             switch (alt11) {
                 case 1 :
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1497:3: lv_type_1_1= 'null'
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1519:3: lv_type_1_1= 'null'
                     {
-                    lv_type_1_1=(Token)match(input,29,FOLLOW_29_in_rulePrimitive3456); 
+                    lv_type_1_1=(Token)match(input,29,FOLLOW_29_in_rulePrimitive3508); 
 
                             newLeafNode(lv_type_1_1, grammarAccess.getPrimitiveAccess().getTypeNullKeyword_1_0_0());
                         
@@ -3033,9 +3077,9 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1509:8: lv_type_1_2= 'boolean'
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1531:8: lv_type_1_2= 'boolean'
                     {
-                    lv_type_1_2=(Token)match(input,30,FOLLOW_30_in_rulePrimitive3485); 
+                    lv_type_1_2=(Token)match(input,30,FOLLOW_30_in_rulePrimitive3537); 
 
                             newLeafNode(lv_type_1_2, grammarAccess.getPrimitiveAccess().getTypeBooleanKeyword_1_0_1());
                         
@@ -3049,9 +3093,9 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1521:8: lv_type_1_3= 'int'
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1543:8: lv_type_1_3= 'int'
                     {
-                    lv_type_1_3=(Token)match(input,31,FOLLOW_31_in_rulePrimitive3514); 
+                    lv_type_1_3=(Token)match(input,31,FOLLOW_31_in_rulePrimitive3566); 
 
                             newLeafNode(lv_type_1_3, grammarAccess.getPrimitiveAccess().getTypeIntKeyword_1_0_2());
                         
@@ -3065,9 +3109,9 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1533:8: lv_type_1_4= 'long'
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1555:8: lv_type_1_4= 'long'
                     {
-                    lv_type_1_4=(Token)match(input,32,FOLLOW_32_in_rulePrimitive3543); 
+                    lv_type_1_4=(Token)match(input,32,FOLLOW_32_in_rulePrimitive3595); 
 
                             newLeafNode(lv_type_1_4, grammarAccess.getPrimitiveAccess().getTypeLongKeyword_1_0_3());
                         
@@ -3081,9 +3125,9 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1545:8: lv_type_1_5= 'float'
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1567:8: lv_type_1_5= 'float'
                     {
-                    lv_type_1_5=(Token)match(input,33,FOLLOW_33_in_rulePrimitive3572); 
+                    lv_type_1_5=(Token)match(input,33,FOLLOW_33_in_rulePrimitive3624); 
 
                             newLeafNode(lv_type_1_5, grammarAccess.getPrimitiveAccess().getTypeFloatKeyword_1_0_4());
                         
@@ -3097,9 +3141,9 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1557:8: lv_type_1_6= 'double'
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1579:8: lv_type_1_6= 'double'
                     {
-                    lv_type_1_6=(Token)match(input,34,FOLLOW_34_in_rulePrimitive3601); 
+                    lv_type_1_6=(Token)match(input,34,FOLLOW_34_in_rulePrimitive3653); 
 
                             newLeafNode(lv_type_1_6, grammarAccess.getPrimitiveAccess().getTypeDoubleKeyword_1_0_5());
                         
@@ -3113,9 +3157,9 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1569:8: lv_type_1_7= 'bytes'
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1591:8: lv_type_1_7= 'bytes'
                     {
-                    lv_type_1_7=(Token)match(input,35,FOLLOW_35_in_rulePrimitive3630); 
+                    lv_type_1_7=(Token)match(input,35,FOLLOW_35_in_rulePrimitive3682); 
 
                             newLeafNode(lv_type_1_7, grammarAccess.getPrimitiveAccess().getTypeBytesKeyword_1_0_6());
                         
@@ -3129,9 +3173,9 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1581:8: lv_type_1_8= 'string'
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1603:8: lv_type_1_8= 'string'
                     {
-                    lv_type_1_8=(Token)match(input,36,FOLLOW_36_in_rulePrimitive3659); 
+                    lv_type_1_8=(Token)match(input,36,FOLLOW_36_in_rulePrimitive3711); 
 
                             newLeafNode(lv_type_1_8, grammarAccess.getPrimitiveAccess().getTypeStringKeyword_1_0_7());
                         
@@ -3153,7 +3197,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,14,FOLLOW_14_in_rulePrimitive3687); 
+            otherlv_2=(Token)match(input,13,FOLLOW_13_in_rulePrimitive3739); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getPrimitiveAccess().getQuotationMarkKeyword_2());
                 
@@ -3178,7 +3222,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNamespace"
-    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1608:1: entryRuleNamespace returns [String current=null] : iv_ruleNamespace= ruleNamespace EOF ;
+    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1630:1: entryRuleNamespace returns [String current=null] : iv_ruleNamespace= ruleNamespace EOF ;
     public final String entryRuleNamespace() throws RecognitionException {
         String current = null;
 
@@ -3186,17 +3230,17 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1609:2: (iv_ruleNamespace= ruleNamespace EOF )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1610:2: iv_ruleNamespace= ruleNamespace EOF
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1631:2: (iv_ruleNamespace= ruleNamespace EOF )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1632:2: iv_ruleNamespace= ruleNamespace EOF
             {
              newCompositeNode(grammarAccess.getNamespaceRule()); 
-            pushFollow(FOLLOW_ruleNamespace_in_entryRuleNamespace3724);
+            pushFollow(FOLLOW_ruleNamespace_in_entryRuleNamespace3776);
             iv_ruleNamespace=ruleNamespace();
 
             state._fsp--;
 
              current =iv_ruleNamespace.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNamespace3735); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNamespace3787); 
 
             }
 
@@ -3214,7 +3258,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNamespace"
-    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1617:1: ruleNamespace returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
+    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1639:1: ruleNamespace returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
     public final AntlrDatatypeRuleToken ruleNamespace() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -3225,20 +3269,20 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1620:28: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1621:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1642:28: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1643:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
             {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1621:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1621:6: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1643:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1643:6: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
             {
-            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleNamespace3775); 
+            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleNamespace3827); 
 
             		current.merge(this_ID_0);
                 
              
                 newLeafNode(this_ID_0, grammarAccess.getNamespaceAccess().getIDTerminalRuleCall_0()); 
                 
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1628:1: (kw= '.' this_ID_2= RULE_ID )*
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1650:1: (kw= '.' this_ID_2= RULE_ID )*
             loop12:
             do {
                 int alt12=2;
@@ -3251,14 +3295,14 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
 
                 switch (alt12) {
             	case 1 :
-            	    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1629:2: kw= '.' this_ID_2= RULE_ID
+            	    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1651:2: kw= '.' this_ID_2= RULE_ID
             	    {
-            	    kw=(Token)match(input,37,FOLLOW_37_in_ruleNamespace3794); 
+            	    kw=(Token)match(input,37,FOLLOW_37_in_ruleNamespace3846); 
 
             	            current.merge(kw);
             	            newLeafNode(kw, grammarAccess.getNamespaceAccess().getFullStopKeyword_1_0()); 
             	        
-            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleNamespace3809); 
+            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleNamespace3861); 
 
             	    		current.merge(this_ID_2);
             	        
@@ -3306,22 +3350,22 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
     static final String DFA1_eofS =
         "\12\uffff";
     static final String DFA1_minS =
-        "\1\12\1\16\1\uffff\1\17\1\16\1\20\2\16\2\uffff";
+        "\1\12\1\15\1\uffff\1\17\1\15\1\20\2\15\2\uffff";
     static final String DFA1_maxS =
-        "\1\15\1\16\1\uffff\1\17\1\16\1\20\1\16\1\22\2\uffff";
+        "\1\16\1\15\1\uffff\1\17\1\15\1\20\1\15\1\22\2\uffff";
     static final String DFA1_acceptS =
         "\2\uffff\1\3\5\uffff\1\1\1\2";
     static final String DFA1_specialS =
         "\12\uffff}>";
     static final String[] DFA1_transitionS = {
-            "\1\2\2\uffff\1\1",
+            "\1\2\3\uffff\1\1",
             "\1\3",
             "",
             "\1\4",
             "\1\5",
             "\1\6",
             "\1\7",
-            "\1\10\3\uffff\1\11",
+            "\1\10\4\uffff\1\11",
             "",
             ""
     };
@@ -3360,28 +3404,29 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
         }
     }
     static final String DFA3_eotS =
-        "\16\uffff";
+        "\17\uffff";
     static final String DFA3_eofS =
-        "\16\uffff";
+        "\17\uffff";
     static final String DFA3_minS =
-        "\1\15\1\16\1\33\1\17\2\uffff\1\16\1\20\1\16\1\22\4\uffff";
+        "\2\15\1\4\1\17\3\uffff\1\15\1\20\1\15\1\22\4\uffff";
     static final String DFA3_maxS =
-        "\2\16\1\44\1\17\2\uffff\1\16\1\20\1\16\1\32\4\uffff";
+        "\1\16\1\15\1\44\1\17\3\uffff\1\15\1\20\1\15\1\32\4\uffff";
     static final String DFA3_acceptS =
-        "\4\uffff\1\3\1\6\4\uffff\1\5\1\4\1\2\1\1";
+        "\4\uffff\1\7\1\6\1\3\4\uffff\1\5\1\1\1\4\1\2";
     static final String DFA3_specialS =
-        "\16\uffff}>";
+        "\17\uffff}>";
     static final String[] DFA3_transitionS = {
-            "\1\1\1\2",
+            "\1\2\1\1",
             "\1\3",
-            "\1\5\1\uffff\10\4",
-            "\1\6",
-            "",
-            "",
+            "\1\4\26\uffff\1\5\1\uffff\10\6",
             "\1\7",
+            "",
+            "",
+            "",
             "\1\10",
             "\1\11",
-            "\1\15\3\uffff\1\12\1\uffff\1\14\1\uffff\1\13",
+            "\1\12",
+            "\1\14\3\uffff\1\13\1\uffff\1\16\1\uffff\1\15",
             "",
             "",
             "",
@@ -3418,7 +3463,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
             this.transition = DFA3_transition;
         }
         public String getDescription() {
-            return "221:1: (this_RecordType_0= ruleRecordType | this_ArrayType_1= ruleArrayType | this_Primitive_2= rulePrimitive | this_MapType_3= ruleMapType | this_EnumType_4= ruleEnumType | this_FixedType_5= ruleFixedType )";
+            return "221:1: (this_RecordType_0= ruleRecordType | this_ArrayType_1= ruleArrayType | this_Primitive_2= rulePrimitive | this_MapType_3= ruleMapType | this_EnumType_4= ruleEnumType | this_FixedType_5= ruleFixedType | (otherlv_6= '\"' ( (otherlv_7= RULE_ID ) ) otherlv_8= '\"' ) )";
         }
     }
     static final String DFA7_eotS =
@@ -3426,16 +3471,16 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
     static final String DFA7_eofS =
         "\20\uffff";
     static final String DFA7_minS =
-        "\1\12\1\4\1\16\4\uffff\1\17\1\16\1\20\1\16\1\22\4\uffff";
+        "\1\12\1\4\1\15\4\uffff\1\17\1\15\1\20\1\15\1\22\4\uffff";
     static final String DFA7_maxS =
-        "\1\16\1\44\1\16\4\uffff\1\17\1\16\1\20\1\16\1\32\4\uffff";
+        "\1\16\1\44\1\15\4\uffff\1\17\1\15\1\20\1\15\1\32\4\uffff";
     static final String DFA7_acceptS =
-        "\3\uffff\1\10\1\3\1\7\1\1\5\uffff\1\2\1\6\1\4\1\5";
+        "\3\uffff\1\10\1\1\1\7\1\3\5\uffff\1\5\1\2\1\4\1\6";
     static final String DFA7_specialS =
         "\20\uffff}>";
     static final String[] DFA7_transitionS = {
-            "\1\3\2\uffff\1\2\1\1",
-            "\1\4\26\uffff\1\5\1\uffff\10\6",
+            "\1\3\2\uffff\1\1\1\2",
+            "\1\6\26\uffff\1\5\1\uffff\10\4",
             "\1\7",
             "",
             "",
@@ -3445,7 +3490,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
             "\1\11",
             "\1\12",
             "\1\13",
-            "\1\14\3\uffff\1\16\1\uffff\1\17\1\uffff\1\15",
+            "\1\15\3\uffff\1\16\1\uffff\1\14\1\uffff\1\17",
             "",
             "",
             "",
@@ -3482,7 +3527,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
             this.transition = DFA7_transition;
         }
         public String getDescription() {
-            return "670:1: ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) | ( (lv_array_19_0= ruleArrayType ) ) | ( (lv_map_20_0= ruleMapType ) ) | ( (lv_fixed_21_0= ruleFixedType ) ) | ( (lv_union_22_0= ruleUnionType ) ) )";
+            return "692:1: ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) | ( (lv_array_19_0= ruleArrayType ) ) | ( (lv_map_20_0= ruleMapType ) ) | ( (lv_fixed_21_0= ruleFixedType ) ) | ( (lv_union_22_0= ruleUnionType ) ) )";
         }
     }
     static final String DFA9_eotS =
@@ -3490,16 +3535,16 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
     static final String DFA9_eofS =
         "\14\uffff";
     static final String DFA9_minS =
-        "\1\15\1\4\1\16\2\uffff\1\17\1\16\1\20\1\16\1\22\2\uffff";
+        "\1\15\1\4\1\15\2\uffff\1\17\1\15\1\20\1\15\1\22\2\uffff";
     static final String DFA9_maxS =
-        "\1\16\1\44\1\16\2\uffff\1\17\1\16\1\20\1\16\1\26\2\uffff";
+        "\1\16\1\44\1\15\2\uffff\1\17\1\15\1\20\1\15\1\26\2\uffff";
     static final String DFA9_acceptS =
-        "\3\uffff\1\1\1\3\5\uffff\1\4\1\2";
+        "\3\uffff\1\3\1\1\5\uffff\1\2\1\4";
     static final String DFA9_specialS =
         "\14\uffff}>";
     static final String[] DFA9_transitionS = {
-            "\1\2\1\1",
-            "\1\4\30\uffff\10\3",
+            "\1\1\1\2",
+            "\1\3\30\uffff\10\4",
             "\1\5",
             "",
             "",
@@ -3507,7 +3552,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
             "\1\7",
             "\1\10",
             "\1\11",
-            "\1\13\3\uffff\1\12",
+            "\1\12\3\uffff\1\13",
             "",
             ""
     };
@@ -3542,7 +3587,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
             this.transition = DFA9_transition;
         }
         public String getDescription() {
-            return "1088:1: ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) )";
+            return "1110:1: ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) )";
         }
     }
     static final String DFA10_eotS =
@@ -3550,15 +3595,15 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
     static final String DFA10_eofS =
         "\15\uffff";
     static final String DFA10_minS =
-        "\1\15\1\4\1\16\2\uffff\1\17\1\16\1\20\1\16\1\22\3\uffff";
+        "\1\15\1\4\1\15\2\uffff\1\17\1\15\1\20\1\15\1\22\3\uffff";
     static final String DFA10_maxS =
-        "\1\16\1\44\1\16\2\uffff\1\17\1\16\1\20\1\16\1\30\3\uffff";
+        "\1\16\1\44\1\15\2\uffff\1\17\1\15\1\20\1\15\1\30\3\uffff";
     static final String DFA10_acceptS =
-        "\3\uffff\1\1\1\3\5\uffff\1\4\1\5\1\2";
+        "\3\uffff\1\1\1\3\5\uffff\1\5\1\4\1\2";
     static final String DFA10_specialS =
         "\15\uffff}>";
     static final String[] DFA10_transitionS = {
-            "\1\2\1\1",
+            "\1\1\1\2",
             "\1\4\30\uffff\10\3",
             "\1\5",
             "",
@@ -3567,7 +3612,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
             "\1\7",
             "\1\10",
             "\1\11",
-            "\1\14\3\uffff\1\12\1\uffff\1\13",
+            "\1\14\3\uffff\1\13\1\uffff\1\12",
             "",
             "",
             ""
@@ -3603,7 +3648,7 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
             this.transition = DFA10_transition;
         }
         public String getDescription() {
-            return "1243:1: ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) | ( (lv_atype_19_0= ruleArrayType ) ) )";
+            return "1265:1: ( ( (lv_primitive_13_0= rulePrimitive ) ) | ( (lv_record_14_0= ruleRecordType ) ) | (otherlv_15= '\"' ( (otherlv_16= RULE_ID ) ) otherlv_17= '\"' ) | ( (lv_etype_18_0= ruleEnumType ) ) | ( (lv_atype_19_0= ruleArrayType ) ) )";
         }
     }
  
@@ -3628,196 +3673,199 @@ public class InternalAvroSchemaParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleMapType_in_ruleUnionMember498 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleEnumType_in_ruleUnionMember525 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleFixedType_in_ruleUnionMember552 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJsonType_in_entryRuleJsonType587 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleJsonType597 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_ruleJsonType634 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleJsonType646 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleJsonType658 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleJsonType670 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleJsonType682 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleJsonType694 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_rulePrimitive_in_ruleJsonType715 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleJsonType727 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleJsonType739 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRecordType_in_entryRuleRecordType775 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleRecordType785 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_ruleRecordType822 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleRecordType834 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleRecordType846 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleRecordType858 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleRecordType870 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleRecordType882 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleRecordType894 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleRecordType906 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_11_in_ruleRecordType918 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleRecordType930 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_19_in_ruleRecordType942 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleRecordType954 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleRecordType966 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleRecordType978 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleRecordType995 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleRecordType1012 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_11_in_ruleRecordType1025 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleRecordType1037 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ruleRecordType1049 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleRecordType1061 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleRecordType1073 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleRecordType1085 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleNamespace_in_ruleRecordType1106 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleRecordType1118 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_11_in_ruleRecordType1132 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleRecordType1144 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_ruleRecordType1156 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleRecordType1168 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleRecordType1180 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_10_in_ruleRecordType1192 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_ruleField_in_ruleRecordType1213 = new BitSet(new long[]{0x0000000000001800L});
-    public static final BitSet FOLLOW_11_in_ruleRecordType1226 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_ruleField_in_ruleRecordType1247 = new BitSet(new long[]{0x0000000000001800L});
-    public static final BitSet FOLLOW_12_in_ruleRecordType1261 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleRecordType1273 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleField_in_entryRuleField1309 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleField1319 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_ruleField1356 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleField1368 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_19_in_ruleField1380 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleField1392 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleField1404 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleField1416 = new BitSet(new long[]{0x0000000000080010L});
-    public static final BitSet FOLLOW_19_in_ruleField1436 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleField1464 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleField1484 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_11_in_ruleField1496 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleField1508 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleField1520 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleField1532 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleField1544 = new BitSet(new long[]{0x0000000000006400L});
-    public static final BitSet FOLLOW_rulePrimitive_in_ruleField1566 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_ruleRecordType_in_ruleField1593 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_14_in_ruleField1612 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleField1632 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleField1644 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_ruleEnumType_in_ruleField1672 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_ruleArrayType_in_ruleField1699 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_ruleMapType_in_ruleField1726 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_ruleFixedType_in_ruleField1753 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_ruleUnionType_in_ruleField1780 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleField1793 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEnumType_in_entryRuleEnumType1829 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleEnumType1839 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_ruleEnumType1876 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleEnumType1888 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleEnumType1900 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleEnumType1912 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleEnumType1924 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleEnumType1936 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_22_in_ruleEnumType1948 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleEnumType1960 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_11_in_ruleEnumType1972 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleEnumType1984 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_19_in_ruleEnumType1996 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleEnumType2008 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleEnumType2020 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleEnumType2032 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleEnumType2049 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleEnumType2066 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_11_in_ruleEnumType2078 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleEnumType2090 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_23_in_ruleEnumType2102 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleEnumType2114 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleEnumType2126 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_10_in_ruleEnumType2138 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleEnumType2151 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleEnumType2168 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleEnumType2185 = new BitSet(new long[]{0x0000000000001800L});
-    public static final BitSet FOLLOW_11_in_ruleEnumType2199 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleEnumType2211 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleEnumType2228 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleEnumType2245 = new BitSet(new long[]{0x0000000000001800L});
-    public static final BitSet FOLLOW_12_in_ruleEnumType2259 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleEnumType2271 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleArrayType_in_entryRuleArrayType2307 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleArrayType2317 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_ruleArrayType2354 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleArrayType2366 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleArrayType2378 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleArrayType2390 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleArrayType2402 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleArrayType2414 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_24_in_ruleArrayType2426 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleArrayType2438 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_11_in_ruleArrayType2450 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleArrayType2462 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_25_in_ruleArrayType2474 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleArrayType2486 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleArrayType2498 = new BitSet(new long[]{0x0000000000006000L});
-    public static final BitSet FOLLOW_rulePrimitive_in_ruleArrayType2520 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_ruleRecordType_in_ruleArrayType2547 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_14_in_ruleArrayType2566 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleArrayType2586 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleArrayType2598 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_ruleEnumType_in_ruleArrayType2626 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleArrayType2639 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMapType_in_entryRuleMapType2675 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleMapType2685 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_ruleMapType2722 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleMapType2734 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleMapType2746 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleMapType2758 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleMapType2770 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleMapType2782 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_26_in_ruleMapType2794 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleMapType2806 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_11_in_ruleMapType2818 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleMapType2830 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_25_in_ruleMapType2842 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleMapType2854 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleMapType2866 = new BitSet(new long[]{0x0000000000006000L});
-    public static final BitSet FOLLOW_rulePrimitive_in_ruleMapType2888 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_ruleRecordType_in_ruleMapType2915 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_14_in_ruleMapType2934 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleMapType2954 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleMapType2966 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_ruleEnumType_in_ruleMapType2994 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_ruleArrayType_in_ruleMapType3021 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleMapType3034 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFixedType_in_entryRuleFixedType3070 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFixedType3080 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_ruleFixedType3117 = new BitSet(new long[]{0x0000000008000000L});
-    public static final BitSet FOLLOW_27_in_ruleFixedType3129 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleFixedType3141 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_11_in_ruleFixedType3153 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleFixedType3165 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_19_in_ruleFixedType3177 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleFixedType3189 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleFixedType3201 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleFixedType3213 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleFixedType3230 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleFixedType3247 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_11_in_ruleFixedType3259 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleFixedType3271 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_28_in_ruleFixedType3283 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleFixedType3295 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleFixedType3307 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleFixedType3319 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleFixedType3336 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleFixedType3353 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePrimitive_in_entryRulePrimitive3389 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRulePrimitive3399 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_rulePrimitive3436 = new BitSet(new long[]{0x0000001FE0000000L});
-    public static final BitSet FOLLOW_29_in_rulePrimitive3456 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_30_in_rulePrimitive3485 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_31_in_rulePrimitive3514 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_32_in_rulePrimitive3543 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_33_in_rulePrimitive3572 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_34_in_rulePrimitive3601 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_35_in_rulePrimitive3630 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_36_in_rulePrimitive3659 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_rulePrimitive3687 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNamespace_in_entryRuleNamespace3724 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNamespace3735 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleNamespace3775 = new BitSet(new long[]{0x0000002000000002L});
-    public static final BitSet FOLLOW_37_in_ruleNamespace3794 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleNamespace3809 = new BitSet(new long[]{0x0000002000000002L});
+    public static final BitSet FOLLOW_13_in_ruleUnionMember570 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleUnionMember590 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleUnionMember602 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJsonType_in_entryRuleJsonType639 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleJsonType649 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_14_in_ruleJsonType686 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleJsonType698 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleJsonType710 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleJsonType722 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleJsonType734 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleJsonType746 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_rulePrimitive_in_ruleJsonType767 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleJsonType779 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleJsonType791 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRecordType_in_entryRuleRecordType827 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRecordType837 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_14_in_ruleRecordType874 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleRecordType886 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleRecordType898 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleRecordType910 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleRecordType922 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleRecordType934 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleRecordType946 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleRecordType958 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_11_in_ruleRecordType970 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleRecordType982 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_19_in_ruleRecordType994 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleRecordType1006 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleRecordType1018 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleRecordType1030 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleRecordType1047 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleRecordType1064 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_11_in_ruleRecordType1077 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleRecordType1089 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_ruleRecordType1101 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleRecordType1113 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleRecordType1125 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleRecordType1137 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleNamespace_in_ruleRecordType1158 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleRecordType1170 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_11_in_ruleRecordType1184 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleRecordType1196 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_21_in_ruleRecordType1208 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleRecordType1220 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleRecordType1232 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_10_in_ruleRecordType1244 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_ruleField_in_ruleRecordType1265 = new BitSet(new long[]{0x0000000000001800L});
+    public static final BitSet FOLLOW_11_in_ruleRecordType1278 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_ruleField_in_ruleRecordType1299 = new BitSet(new long[]{0x0000000000001800L});
+    public static final BitSet FOLLOW_12_in_ruleRecordType1313 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleRecordType1325 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleField_in_entryRuleField1361 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleField1371 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_14_in_ruleField1408 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleField1420 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_19_in_ruleField1432 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleField1444 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleField1456 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleField1468 = new BitSet(new long[]{0x0000000000080010L});
+    public static final BitSet FOLLOW_19_in_ruleField1488 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleField1516 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleField1536 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_11_in_ruleField1548 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleField1560 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleField1572 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleField1584 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleField1596 = new BitSet(new long[]{0x0000000000006400L});
+    public static final BitSet FOLLOW_rulePrimitive_in_ruleField1618 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_ruleRecordType_in_ruleField1645 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_13_in_ruleField1664 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleField1684 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleField1696 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_ruleEnumType_in_ruleField1724 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_ruleArrayType_in_ruleField1751 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_ruleMapType_in_ruleField1778 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_ruleFixedType_in_ruleField1805 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_ruleUnionType_in_ruleField1832 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleField1845 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEnumType_in_entryRuleEnumType1881 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleEnumType1891 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_14_in_ruleEnumType1928 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleEnumType1940 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleEnumType1952 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleEnumType1964 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleEnumType1976 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleEnumType1988 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_22_in_ruleEnumType2000 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleEnumType2012 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_11_in_ruleEnumType2024 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleEnumType2036 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_19_in_ruleEnumType2048 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleEnumType2060 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleEnumType2072 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleEnumType2084 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleEnumType2101 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleEnumType2118 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_11_in_ruleEnumType2130 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleEnumType2142 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_23_in_ruleEnumType2154 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleEnumType2166 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleEnumType2178 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_10_in_ruleEnumType2190 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleEnumType2203 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleEnumType2220 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleEnumType2237 = new BitSet(new long[]{0x0000000000001800L});
+    public static final BitSet FOLLOW_11_in_ruleEnumType2251 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleEnumType2263 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleEnumType2280 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleEnumType2297 = new BitSet(new long[]{0x0000000000001800L});
+    public static final BitSet FOLLOW_12_in_ruleEnumType2311 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleEnumType2323 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleArrayType_in_entryRuleArrayType2359 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleArrayType2369 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_14_in_ruleArrayType2406 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleArrayType2418 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleArrayType2430 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleArrayType2442 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleArrayType2454 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleArrayType2466 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_24_in_ruleArrayType2478 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleArrayType2490 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_11_in_ruleArrayType2502 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleArrayType2514 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_25_in_ruleArrayType2526 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleArrayType2538 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleArrayType2550 = new BitSet(new long[]{0x0000000000006000L});
+    public static final BitSet FOLLOW_rulePrimitive_in_ruleArrayType2572 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_ruleRecordType_in_ruleArrayType2599 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_13_in_ruleArrayType2618 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleArrayType2638 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleArrayType2650 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_ruleEnumType_in_ruleArrayType2678 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleArrayType2691 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMapType_in_entryRuleMapType2727 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleMapType2737 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_14_in_ruleMapType2774 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleMapType2786 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleMapType2798 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleMapType2810 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleMapType2822 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleMapType2834 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_26_in_ruleMapType2846 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleMapType2858 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_11_in_ruleMapType2870 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleMapType2882 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_25_in_ruleMapType2894 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleMapType2906 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleMapType2918 = new BitSet(new long[]{0x0000000000006000L});
+    public static final BitSet FOLLOW_rulePrimitive_in_ruleMapType2940 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_ruleRecordType_in_ruleMapType2967 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_13_in_ruleMapType2986 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleMapType3006 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleMapType3018 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_ruleEnumType_in_ruleMapType3046 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_ruleArrayType_in_ruleMapType3073 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleMapType3086 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFixedType_in_entryRuleFixedType3122 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFixedType3132 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_ruleFixedType3169 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_27_in_ruleFixedType3181 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleFixedType3193 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_11_in_ruleFixedType3205 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleFixedType3217 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_19_in_ruleFixedType3229 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleFixedType3241 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleFixedType3253 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleFixedType3265 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleFixedType3282 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleFixedType3299 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_11_in_ruleFixedType3311 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleFixedType3323 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_28_in_ruleFixedType3335 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleFixedType3347 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleFixedType3359 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleFixedType3371 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleFixedType3388 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleFixedType3405 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePrimitive_in_entryRulePrimitive3441 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRulePrimitive3451 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_rulePrimitive3488 = new BitSet(new long[]{0x0000001FE0000000L});
+    public static final BitSet FOLLOW_29_in_rulePrimitive3508 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_30_in_rulePrimitive3537 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_31_in_rulePrimitive3566 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_32_in_rulePrimitive3595 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_33_in_rulePrimitive3624 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_34_in_rulePrimitive3653 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_35_in_rulePrimitive3682 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_36_in_rulePrimitive3711 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_rulePrimitive3739 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNamespace_in_entryRuleNamespace3776 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNamespace3787 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleNamespace3827 = new BitSet(new long[]{0x0000002000000002L});
+    public static final BitSet FOLLOW_37_in_ruleNamespace3846 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleNamespace3861 = new BitSet(new long[]{0x0000002000000002L});
 
 }

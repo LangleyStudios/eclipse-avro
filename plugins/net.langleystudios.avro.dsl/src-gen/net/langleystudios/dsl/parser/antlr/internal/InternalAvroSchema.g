@@ -277,7 +277,29 @@ ruleUnionMember returns [EObject current=null]
         $current = $this_FixedType_5.current; 
         afterParserOrEnumRuleCall();
     }
+
+    |(	otherlv_6='"' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getUnionMemberAccess().getQuotationMarkKeyword_6_0());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUnionMemberRule());
+	        }
+        }
+	otherlv_7=RULE_ID
+	{
+		newLeafNode(otherlv_7, grammarAccess.getUnionMemberAccess().getRecordRefRecordTypeCrossReference_6_1_0()); 
+	}
+
 )
+)	otherlv_8='"' 
+    {
+    	newLeafNode(otherlv_8, grammarAccess.getUnionMemberAccess().getQuotationMarkKeyword_6_2());
+    }
+))
 ;
 
 

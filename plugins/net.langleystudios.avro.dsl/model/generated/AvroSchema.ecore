@@ -10,7 +10,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
         eType="#//UnionMember" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UnionMember"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UnionMember">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="recordRef" eType="#//RecordType"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JsonType">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Primitive"
         containment="true"/>
@@ -49,7 +51,6 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="record" eType="#//RecordType"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="recordRef" eType="#//RecordType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="etype" eType="#//EnumType"
         containment="true"/>
   </eClassifiers>
@@ -58,7 +59,6 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="record" eType="#//RecordType"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="recordRef" eType="#//RecordType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="etype" eType="#//EnumType"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="atype" eType="#//ArrayType"

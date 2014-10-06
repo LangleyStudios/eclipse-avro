@@ -98,12 +98,18 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cMapTypeParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cEnumTypeParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cFixedTypeParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final Group cGroup_6 = (Group)cAlternatives.eContents().get(6);
+		private final Keyword cQuotationMarkKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cRecordRefAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final CrossReference cRecordRefRecordTypeCrossReference_6_1_0 = (CrossReference)cRecordRefAssignment_6_1.eContents().get(0);
+		private final RuleCall cRecordRefRecordTypeIDTerminalRuleCall_6_1_0_1 = (RuleCall)cRecordRefRecordTypeCrossReference_6_1_0.eContents().get(1);
+		private final Keyword cQuotationMarkKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
 		
 		//UnionMember:
-		//	RecordType | ArrayType | Primitive | MapType | EnumType | FixedType;
+		//	RecordType | ArrayType | Primitive | MapType | EnumType | FixedType | "\"" recordRef=[RecordType] "\"";
 		public ParserRule getRule() { return rule; }
 
-		//RecordType | ArrayType | Primitive | MapType | EnumType | FixedType
+		//RecordType | ArrayType | Primitive | MapType | EnumType | FixedType | "\"" recordRef=[RecordType] "\""
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//RecordType
@@ -123,6 +129,24 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 
 		//FixedType
 		public RuleCall getFixedTypeParserRuleCall_5() { return cFixedTypeParserRuleCall_5; }
+
+		//"\"" recordRef=[RecordType] "\""
+		public Group getGroup_6() { return cGroup_6; }
+
+		//"\""
+		public Keyword getQuotationMarkKeyword_6_0() { return cQuotationMarkKeyword_6_0; }
+
+		//recordRef=[RecordType]
+		public Assignment getRecordRefAssignment_6_1() { return cRecordRefAssignment_6_1; }
+
+		//[RecordType]
+		public CrossReference getRecordRefRecordTypeCrossReference_6_1_0() { return cRecordRefRecordTypeCrossReference_6_1_0; }
+
+		//ID
+		public RuleCall getRecordRefRecordTypeIDTerminalRuleCall_6_1_0_1() { return cRecordRefRecordTypeIDTerminalRuleCall_6_1_0_1; }
+
+		//"\""
+		public Keyword getQuotationMarkKeyword_6_2() { return cQuotationMarkKeyword_6_2; }
 	}
 
 	public class JsonTypeElements extends AbstractParserRuleElementFinder {
@@ -1189,7 +1213,7 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UnionMember:
-	//	RecordType | ArrayType | Primitive | MapType | EnumType | FixedType;
+	//	RecordType | ArrayType | Primitive | MapType | EnumType | FixedType | "\"" recordRef=[RecordType] "\"";
 	public UnionMemberElements getUnionMemberAccess() {
 		return (pUnionMember != null) ? pUnionMember : (pUnionMember = new UnionMemberElements());
 	}

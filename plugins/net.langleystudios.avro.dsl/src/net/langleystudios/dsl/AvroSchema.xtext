@@ -12,7 +12,7 @@ UnionType:
 	;
 
 UnionMember:
-	(RecordType|ArrayType|Primitive|MapType|EnumType|FixedType)
+	(RecordType|ArrayType|Primitive|MapType|EnumType|FixedType|'"' recordRef = [RecordType] '"')
 ;
 
 JsonType:

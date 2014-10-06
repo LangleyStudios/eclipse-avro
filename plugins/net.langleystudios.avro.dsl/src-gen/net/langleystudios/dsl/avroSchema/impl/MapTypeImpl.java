@@ -26,7 +26,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link net.langleystudios.dsl.avroSchema.impl.MapTypeImpl#getPrimitive <em>Primitive</em>}</li>
  *   <li>{@link net.langleystudios.dsl.avroSchema.impl.MapTypeImpl#getRecord <em>Record</em>}</li>
- *   <li>{@link net.langleystudios.dsl.avroSchema.impl.MapTypeImpl#getRecordRef <em>Record Ref</em>}</li>
  *   <li>{@link net.langleystudios.dsl.avroSchema.impl.MapTypeImpl#getEtype <em>Etype</em>}</li>
  *   <li>{@link net.langleystudios.dsl.avroSchema.impl.MapTypeImpl#getAtype <em>Atype</em>}</li>
  * </ul>
@@ -55,16 +54,6 @@ public class MapTypeImpl extends UnionMemberImpl implements MapType
    * @ordered
    */
   protected RecordType record;
-
-  /**
-   * The cached value of the '{@link #getRecordRef() <em>Record Ref</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRecordRef()
-   * @generated
-   * @ordered
-   */
-  protected RecordType recordRef;
 
   /**
    * The cached value of the '{@link #getEtype() <em>Etype</em>}' containment reference.
@@ -208,49 +197,6 @@ public class MapTypeImpl extends UnionMemberImpl implements MapType
    * <!-- end-user-doc -->
    * @generated
    */
-  public RecordType getRecordRef()
-  {
-    if (recordRef != null && recordRef.eIsProxy())
-    {
-      InternalEObject oldRecordRef = (InternalEObject)recordRef;
-      recordRef = (RecordType)eResolveProxy(oldRecordRef);
-      if (recordRef != oldRecordRef)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AvroSchemaPackage.MAP_TYPE__RECORD_REF, oldRecordRef, recordRef));
-      }
-    }
-    return recordRef;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RecordType basicGetRecordRef()
-  {
-    return recordRef;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRecordRef(RecordType newRecordRef)
-  {
-    RecordType oldRecordRef = recordRef;
-    recordRef = newRecordRef;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AvroSchemaPackage.MAP_TYPE__RECORD_REF, oldRecordRef, recordRef));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EnumType getEtype()
   {
     return etype;
@@ -378,9 +324,6 @@ public class MapTypeImpl extends UnionMemberImpl implements MapType
         return getPrimitive();
       case AvroSchemaPackage.MAP_TYPE__RECORD:
         return getRecord();
-      case AvroSchemaPackage.MAP_TYPE__RECORD_REF:
-        if (resolve) return getRecordRef();
-        return basicGetRecordRef();
       case AvroSchemaPackage.MAP_TYPE__ETYPE:
         return getEtype();
       case AvroSchemaPackage.MAP_TYPE__ATYPE:
@@ -404,9 +347,6 @@ public class MapTypeImpl extends UnionMemberImpl implements MapType
         return;
       case AvroSchemaPackage.MAP_TYPE__RECORD:
         setRecord((RecordType)newValue);
-        return;
-      case AvroSchemaPackage.MAP_TYPE__RECORD_REF:
-        setRecordRef((RecordType)newValue);
         return;
       case AvroSchemaPackage.MAP_TYPE__ETYPE:
         setEtype((EnumType)newValue);
@@ -434,9 +374,6 @@ public class MapTypeImpl extends UnionMemberImpl implements MapType
       case AvroSchemaPackage.MAP_TYPE__RECORD:
         setRecord((RecordType)null);
         return;
-      case AvroSchemaPackage.MAP_TYPE__RECORD_REF:
-        setRecordRef((RecordType)null);
-        return;
       case AvroSchemaPackage.MAP_TYPE__ETYPE:
         setEtype((EnumType)null);
         return;
@@ -461,8 +398,6 @@ public class MapTypeImpl extends UnionMemberImpl implements MapType
         return primitive != null;
       case AvroSchemaPackage.MAP_TYPE__RECORD:
         return record != null;
-      case AvroSchemaPackage.MAP_TYPE__RECORD_REF:
-        return recordRef != null;
       case AvroSchemaPackage.MAP_TYPE__ETYPE:
         return etype != null;
       case AvroSchemaPackage.MAP_TYPE__ATYPE:

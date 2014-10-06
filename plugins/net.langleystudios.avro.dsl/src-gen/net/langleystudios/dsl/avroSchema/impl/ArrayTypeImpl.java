@@ -25,7 +25,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link net.langleystudios.dsl.avroSchema.impl.ArrayTypeImpl#getPrimitive <em>Primitive</em>}</li>
  *   <li>{@link net.langleystudios.dsl.avroSchema.impl.ArrayTypeImpl#getRecord <em>Record</em>}</li>
- *   <li>{@link net.langleystudios.dsl.avroSchema.impl.ArrayTypeImpl#getRecordRef <em>Record Ref</em>}</li>
  *   <li>{@link net.langleystudios.dsl.avroSchema.impl.ArrayTypeImpl#getEtype <em>Etype</em>}</li>
  * </ul>
  * </p>
@@ -53,16 +52,6 @@ public class ArrayTypeImpl extends UnionMemberImpl implements ArrayType
    * @ordered
    */
   protected RecordType record;
-
-  /**
-   * The cached value of the '{@link #getRecordRef() <em>Record Ref</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRecordRef()
-   * @generated
-   * @ordered
-   */
-  protected RecordType recordRef;
 
   /**
    * The cached value of the '{@link #getEtype() <em>Etype</em>}' containment reference.
@@ -196,49 +185,6 @@ public class ArrayTypeImpl extends UnionMemberImpl implements ArrayType
    * <!-- end-user-doc -->
    * @generated
    */
-  public RecordType getRecordRef()
-  {
-    if (recordRef != null && recordRef.eIsProxy())
-    {
-      InternalEObject oldRecordRef = (InternalEObject)recordRef;
-      recordRef = (RecordType)eResolveProxy(oldRecordRef);
-      if (recordRef != oldRecordRef)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AvroSchemaPackage.ARRAY_TYPE__RECORD_REF, oldRecordRef, recordRef));
-      }
-    }
-    return recordRef;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RecordType basicGetRecordRef()
-  {
-    return recordRef;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRecordRef(RecordType newRecordRef)
-  {
-    RecordType oldRecordRef = recordRef;
-    recordRef = newRecordRef;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AvroSchemaPackage.ARRAY_TYPE__RECORD_REF, oldRecordRef, recordRef));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EnumType getEtype()
   {
     return etype;
@@ -316,9 +262,6 @@ public class ArrayTypeImpl extends UnionMemberImpl implements ArrayType
         return getPrimitive();
       case AvroSchemaPackage.ARRAY_TYPE__RECORD:
         return getRecord();
-      case AvroSchemaPackage.ARRAY_TYPE__RECORD_REF:
-        if (resolve) return getRecordRef();
-        return basicGetRecordRef();
       case AvroSchemaPackage.ARRAY_TYPE__ETYPE:
         return getEtype();
     }
@@ -340,9 +283,6 @@ public class ArrayTypeImpl extends UnionMemberImpl implements ArrayType
         return;
       case AvroSchemaPackage.ARRAY_TYPE__RECORD:
         setRecord((RecordType)newValue);
-        return;
-      case AvroSchemaPackage.ARRAY_TYPE__RECORD_REF:
-        setRecordRef((RecordType)newValue);
         return;
       case AvroSchemaPackage.ARRAY_TYPE__ETYPE:
         setEtype((EnumType)newValue);
@@ -367,9 +307,6 @@ public class ArrayTypeImpl extends UnionMemberImpl implements ArrayType
       case AvroSchemaPackage.ARRAY_TYPE__RECORD:
         setRecord((RecordType)null);
         return;
-      case AvroSchemaPackage.ARRAY_TYPE__RECORD_REF:
-        setRecordRef((RecordType)null);
-        return;
       case AvroSchemaPackage.ARRAY_TYPE__ETYPE:
         setEtype((EnumType)null);
         return;
@@ -391,8 +328,6 @@ public class ArrayTypeImpl extends UnionMemberImpl implements ArrayType
         return primitive != null;
       case AvroSchemaPackage.ARRAY_TYPE__RECORD:
         return record != null;
-      case AvroSchemaPackage.ARRAY_TYPE__RECORD_REF:
-        return recordRef != null;
       case AvroSchemaPackage.ARRAY_TYPE__ETYPE:
         return etype != null;
     }

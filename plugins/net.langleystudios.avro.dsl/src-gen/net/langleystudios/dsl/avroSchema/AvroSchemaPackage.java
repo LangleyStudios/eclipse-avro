@@ -123,13 +123,22 @@ public interface AvroSchemaPackage extends EPackage
   int UNION_MEMBER = 2;
 
   /**
+   * The feature id for the '<em><b>Record Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNION_MEMBER__RECORD_REF = 0;
+
+  /**
    * The number of structural features of the '<em>Union Member</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UNION_MEMBER_FEATURE_COUNT = 0;
+  int UNION_MEMBER_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link net.langleystudios.dsl.avroSchema.impl.JsonTypeImpl <em>Json Type</em>}' class.
@@ -168,6 +177,15 @@ public interface AvroSchemaPackage extends EPackage
    * @generated
    */
   int RECORD_TYPE = 4;
+
+  /**
+   * The feature id for the '<em><b>Record Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RECORD_TYPE__RECORD_REF = UNION_MEMBER__RECORD_REF;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -316,6 +334,15 @@ public interface AvroSchemaPackage extends EPackage
   int ENUM_TYPE = 6;
 
   /**
+   * The feature id for the '<em><b>Record Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUM_TYPE__RECORD_REF = UNION_MEMBER__RECORD_REF;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -353,6 +380,15 @@ public interface AvroSchemaPackage extends EPackage
   int ARRAY_TYPE = 7;
 
   /**
+   * The feature id for the '<em><b>Record Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_TYPE__RECORD_REF = UNION_MEMBER__RECORD_REF;
+
+  /**
    * The feature id for the '<em><b>Primitive</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -371,22 +407,13 @@ public interface AvroSchemaPackage extends EPackage
   int ARRAY_TYPE__RECORD = UNION_MEMBER_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Record Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAY_TYPE__RECORD_REF = UNION_MEMBER_FEATURE_COUNT + 2;
-
-  /**
    * The feature id for the '<em><b>Etype</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ARRAY_TYPE__ETYPE = UNION_MEMBER_FEATURE_COUNT + 3;
+  int ARRAY_TYPE__ETYPE = UNION_MEMBER_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Array Type</em>' class.
@@ -395,7 +422,7 @@ public interface AvroSchemaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARRAY_TYPE_FEATURE_COUNT = UNION_MEMBER_FEATURE_COUNT + 4;
+  int ARRAY_TYPE_FEATURE_COUNT = UNION_MEMBER_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link net.langleystudios.dsl.avroSchema.impl.MapTypeImpl <em>Map Type</em>}' class.
@@ -406,6 +433,15 @@ public interface AvroSchemaPackage extends EPackage
    * @generated
    */
   int MAP_TYPE = 8;
+
+  /**
+   * The feature id for the '<em><b>Record Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAP_TYPE__RECORD_REF = UNION_MEMBER__RECORD_REF;
 
   /**
    * The feature id for the '<em><b>Primitive</b></em>' containment reference.
@@ -426,22 +462,13 @@ public interface AvroSchemaPackage extends EPackage
   int MAP_TYPE__RECORD = UNION_MEMBER_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Record Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MAP_TYPE__RECORD_REF = UNION_MEMBER_FEATURE_COUNT + 2;
-
-  /**
    * The feature id for the '<em><b>Etype</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MAP_TYPE__ETYPE = UNION_MEMBER_FEATURE_COUNT + 3;
+  int MAP_TYPE__ETYPE = UNION_MEMBER_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Atype</b></em>' containment reference.
@@ -450,7 +477,7 @@ public interface AvroSchemaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MAP_TYPE__ATYPE = UNION_MEMBER_FEATURE_COUNT + 4;
+  int MAP_TYPE__ATYPE = UNION_MEMBER_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Map Type</em>' class.
@@ -459,7 +486,7 @@ public interface AvroSchemaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MAP_TYPE_FEATURE_COUNT = UNION_MEMBER_FEATURE_COUNT + 5;
+  int MAP_TYPE_FEATURE_COUNT = UNION_MEMBER_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link net.langleystudios.dsl.avroSchema.impl.FixedTypeImpl <em>Fixed Type</em>}' class.
@@ -470,6 +497,15 @@ public interface AvroSchemaPackage extends EPackage
    * @generated
    */
   int FIXED_TYPE = 9;
+
+  /**
+   * The feature id for the '<em><b>Record Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIXED_TYPE__RECORD_REF = UNION_MEMBER__RECORD_REF;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -507,6 +543,15 @@ public interface AvroSchemaPackage extends EPackage
    * @generated
    */
   int PRIMITIVE = 10;
+
+  /**
+   * The feature id for the '<em><b>Record Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMITIVE__RECORD_REF = UNION_MEMBER__RECORD_REF;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -578,6 +623,17 @@ public interface AvroSchemaPackage extends EPackage
    * @generated
    */
   EClass getUnionMember();
+
+  /**
+   * Returns the meta object for the reference '{@link net.langleystudios.dsl.avroSchema.UnionMember#getRecordRef <em>Record Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Record Ref</em>'.
+   * @see net.langleystudios.dsl.avroSchema.UnionMember#getRecordRef()
+   * @see #getUnionMember()
+   * @generated
+   */
+  EReference getUnionMember_RecordRef();
 
   /**
    * Returns the meta object for class '{@link net.langleystudios.dsl.avroSchema.JsonType <em>Json Type</em>}'.
@@ -817,17 +873,6 @@ public interface AvroSchemaPackage extends EPackage
   EReference getArrayType_Record();
 
   /**
-   * Returns the meta object for the reference '{@link net.langleystudios.dsl.avroSchema.ArrayType#getRecordRef <em>Record Ref</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Record Ref</em>'.
-   * @see net.langleystudios.dsl.avroSchema.ArrayType#getRecordRef()
-   * @see #getArrayType()
-   * @generated
-   */
-  EReference getArrayType_RecordRef();
-
-  /**
    * Returns the meta object for the containment reference '{@link net.langleystudios.dsl.avroSchema.ArrayType#getEtype <em>Etype</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -869,17 +914,6 @@ public interface AvroSchemaPackage extends EPackage
    * @generated
    */
   EReference getMapType_Record();
-
-  /**
-   * Returns the meta object for the reference '{@link net.langleystudios.dsl.avroSchema.MapType#getRecordRef <em>Record Ref</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Record Ref</em>'.
-   * @see net.langleystudios.dsl.avroSchema.MapType#getRecordRef()
-   * @see #getMapType()
-   * @generated
-   */
-  EReference getMapType_RecordRef();
 
   /**
    * Returns the meta object for the containment reference '{@link net.langleystudios.dsl.avroSchema.MapType#getEtype <em>Etype</em>}'.
@@ -1024,6 +1058,14 @@ public interface AvroSchemaPackage extends EPackage
      * @generated
      */
     EClass UNION_MEMBER = eINSTANCE.getUnionMember();
+
+    /**
+     * The meta object literal for the '<em><b>Record Ref</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UNION_MEMBER__RECORD_REF = eINSTANCE.getUnionMember_RecordRef();
 
     /**
      * The meta object literal for the '{@link net.langleystudios.dsl.avroSchema.impl.JsonTypeImpl <em>Json Type</em>}' class.
@@ -1212,14 +1254,6 @@ public interface AvroSchemaPackage extends EPackage
     EReference ARRAY_TYPE__RECORD = eINSTANCE.getArrayType_Record();
 
     /**
-     * The meta object literal for the '<em><b>Record Ref</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ARRAY_TYPE__RECORD_REF = eINSTANCE.getArrayType_RecordRef();
-
-    /**
      * The meta object literal for the '<em><b>Etype</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1252,14 +1286,6 @@ public interface AvroSchemaPackage extends EPackage
      * @generated
      */
     EReference MAP_TYPE__RECORD = eINSTANCE.getMapType_Record();
-
-    /**
-     * The meta object literal for the '<em><b>Record Ref</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MAP_TYPE__RECORD_REF = eINSTANCE.getMapType_RecordRef();
 
     /**
      * The meta object literal for the '<em><b>Etype</b></em>' containment reference feature.

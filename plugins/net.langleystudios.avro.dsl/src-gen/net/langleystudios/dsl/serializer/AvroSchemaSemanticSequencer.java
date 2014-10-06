@@ -12,6 +12,7 @@ import net.langleystudios.dsl.avroSchema.JsonType;
 import net.langleystudios.dsl.avroSchema.MapType;
 import net.langleystudios.dsl.avroSchema.Primitive;
 import net.langleystudios.dsl.avroSchema.RecordType;
+import net.langleystudios.dsl.avroSchema.UnionMember;
 import net.langleystudios.dsl.avroSchema.UnionType;
 import net.langleystudios.dsl.services.AvroSchemaGrammarAccess;
 import org.eclipse.emf.ecore.EObject;
@@ -94,6 +95,12 @@ public class AvroSchemaSemanticSequencer extends AbstractDelegatingSemanticSeque
 					return; 
 				}
 				else break;
+			case AvroSchemaPackage.UNION_MEMBER:
+				if(context == grammarAccess.getUnionMemberRule()) {
+					sequence_UnionMember(context, (UnionMember) semanticObject); 
+					return; 
+				}
+				else break;
 			case AvroSchemaPackage.UNION_TYPE:
 				if(context == grammarAccess.getUnionTypeRule()) {
 					sequence_UnionType(context, (UnionType) semanticObject); 
@@ -157,17 +164,7 @@ public class AvroSchemaSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     (name=ID size=INT)
 	 */
 	protected void sequence_FixedType(EObject context, FixedType semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AvroSchemaPackage.Literals.FIXED_TYPE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AvroSchemaPackage.Literals.FIXED_TYPE__NAME));
-			if(transientValues.isValueTransient(semanticObject, AvroSchemaPackage.Literals.FIXED_TYPE__SIZE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AvroSchemaPackage.Literals.FIXED_TYPE__SIZE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getFixedTypeAccess().getNameIDTerminalRuleCall_9_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getFixedTypeAccess().getSizeINTTerminalRuleCall_17_0(), semanticObject.getSize());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -220,6 +217,22 @@ public class AvroSchemaSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_RecordType(EObject context, RecordType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     recordRef=[RecordType|ID]
+	 */
+	protected void sequence_UnionMember(EObject context, UnionMember semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, AvroSchemaPackage.Literals.UNION_MEMBER__RECORD_REF) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AvroSchemaPackage.Literals.UNION_MEMBER__RECORD_REF));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getUnionMemberAccess().getRecordRefRecordTypeIDTerminalRuleCall_6_1_0_1(), semanticObject.getRecordRef());
+		feeder.finish();
 	}
 	
 	

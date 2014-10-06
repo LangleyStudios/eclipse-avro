@@ -27,8 +27,8 @@ public class InternalAvroSchemaLexer extends Lexer {
     public static final int EOF=-1;
     public static final int RULE_SL_COMMENT=7;
     public static final int RULE_ML_COMMENT=6;
-    public static final int T__30=30;
     public static final int T__19=19;
+    public static final int T__30=30;
     public static final int T__31=31;
     public static final int T__32=32;
     public static final int T__16=16;
@@ -315,10 +315,10 @@ public class InternalAvroSchemaLexer extends Lexer {
         try {
             int _type = T__22;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:23:7: ( '{' )
-            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:23:9: '{'
+            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:23:7: ( '\"' )
+            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:23:9: '\"'
             {
-            match('{'); 
+            match('\"'); 
 
             }
 
@@ -335,10 +335,10 @@ public class InternalAvroSchemaLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:24:7: ( '\"' )
-            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:24:9: '\"'
+            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:24:7: ( '{' )
+            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:24:9: '{'
             {
-            match('\"'); 
+            match('{'); 
 
             }
 
@@ -646,10 +646,10 @@ public class InternalAvroSchemaLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6569:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6569:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6690:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6690:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6569:11: ( '^' )?
+            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6690:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -658,7 +658,7 @@ public class InternalAvroSchemaLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6569:11: '^'
+                    // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6690:11: '^'
                     {
                     match('^'); 
 
@@ -676,7 +676,7 @@ public class InternalAvroSchemaLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6569:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6690:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -725,10 +725,10 @@ public class InternalAvroSchemaLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6571:10: ( ( '0' .. '9' )+ )
-            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6571:12: ( '0' .. '9' )+
+            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6692:10: ( ( '0' .. '9' )+ )
+            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6692:12: ( '0' .. '9' )+
             {
-            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6571:12: ( '0' .. '9' )+
+            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6692:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -742,7 +742,7 @@ public class InternalAvroSchemaLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6571:13: '0' .. '9'
+            	    // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6692:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -774,12 +774,12 @@ public class InternalAvroSchemaLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6573:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6573:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6694:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6694:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6573:24: ( options {greedy=false; } : . )*
+            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6694:24: ( options {greedy=false; } : . )*
             loop4:
             do {
                 int alt4=2;
@@ -804,7 +804,7 @@ public class InternalAvroSchemaLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6573:52: .
+            	    // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6694:52: .
             	    {
             	    matchAny(); 
 
@@ -834,12 +834,12 @@ public class InternalAvroSchemaLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6575:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6575:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6696:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6696:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6575:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6696:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop5:
             do {
                 int alt5=2;
@@ -852,7 +852,7 @@ public class InternalAvroSchemaLexer extends Lexer {
 
                 switch (alt5) {
             	case 1 :
-            	    // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6575:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6696:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -872,7 +872,7 @@ public class InternalAvroSchemaLexer extends Lexer {
                 }
             } while (true);
 
-            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6575:40: ( ( '\\r' )? '\\n' )?
+            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6696:40: ( ( '\\r' )? '\\n' )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -881,9 +881,9 @@ public class InternalAvroSchemaLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6575:41: ( '\\r' )? '\\n'
+                    // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6696:41: ( '\\r' )? '\\n'
                     {
-                    // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6575:41: ( '\\r' )?
+                    // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6696:41: ( '\\r' )?
                     int alt6=2;
                     int LA6_0 = input.LA(1);
 
@@ -892,7 +892,7 @@ public class InternalAvroSchemaLexer extends Lexer {
                     }
                     switch (alt6) {
                         case 1 :
-                            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6575:41: '\\r'
+                            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6696:41: '\\r'
                             {
                             match('\r'); 
 
@@ -924,10 +924,10 @@ public class InternalAvroSchemaLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6577:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6577:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6698:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6698:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6577:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6698:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt8=0;
             loop8:
             do {
@@ -981,8 +981,8 @@ public class InternalAvroSchemaLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6579:16: ( . )
-            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6579:18: .
+            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6700:16: ( . )
+            // ../net.langleystudios.avro.dsl.ui/src-gen/net/langleystudios/dsl/ui/contentassist/antlr/internal/InternalAvroSchema.g:6700:18: .
             {
             matchAny(); 
 
@@ -1291,10 +1291,10 @@ public class InternalAvroSchemaLexer extends Lexer {
     static final String DFA9_specialS =
         "\1\0\u0089\uffff}>";
     static final String[] DFA9_transitionS = {
-            "\11\32\2\31\2\32\1\31\22\32\1\31\1\32\1\14\11\32\1\12\1\32\1"+
+            "\11\32\2\31\2\32\1\31\22\32\1\31\1\32\1\13\11\32\1\12\1\32\1"+
             "\24\1\30\12\27\1\16\6\32\32\26\1\10\1\32\1\11\1\25\1\26\1\32"+
             "\1\22\1\2\1\26\1\6\1\21\1\5\2\26\1\3\2\26\1\4\1\23\1\1\3\26"+
-            "\1\20\1\7\1\15\6\26\1\13\1\32\1\17\uff82\32",
+            "\1\20\1\7\1\15\6\26\1\14\1\32\1\17\uff82\32",
             "\1\33\23\uffff\1\34",
             "\1\36\11\uffff\1\37",
             "\1\40\5\uffff\1\41",
@@ -1494,9 +1494,9 @@ public class InternalAvroSchemaLexer extends Lexer {
 
                         else if ( (LA9_0==',') ) {s = 10;}
 
-                        else if ( (LA9_0=='{') ) {s = 11;}
+                        else if ( (LA9_0=='\"') ) {s = 11;}
 
-                        else if ( (LA9_0=='\"') ) {s = 12;}
+                        else if ( (LA9_0=='{') ) {s = 12;}
 
                         else if ( (LA9_0=='t') ) {s = 13;}
 

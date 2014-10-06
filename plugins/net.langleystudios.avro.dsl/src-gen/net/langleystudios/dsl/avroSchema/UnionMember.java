@@ -9,6 +9,12 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Union Member</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * <ul>
+ *   <li>{@link net.langleystudios.dsl.avroSchema.UnionMember#getRecordRef <em>Record Ref</em>}</li>
+ * </ul>
+ * </p>
  *
  * @see net.langleystudios.dsl.avroSchema.AvroSchemaPackage#getUnionMember()
  * @model
@@ -16,4 +22,30 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface UnionMember extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Record Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Record Ref</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Record Ref</em>' reference.
+   * @see #setRecordRef(RecordType)
+   * @see net.langleystudios.dsl.avroSchema.AvroSchemaPackage#getUnionMember_RecordRef()
+   * @model
+   * @generated
+   */
+  RecordType getRecordRef();
+
+  /**
+   * Sets the value of the '{@link net.langleystudios.dsl.avroSchema.UnionMember#getRecordRef <em>Record Ref</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Record Ref</em>' reference.
+   * @see #getRecordRef()
+   * @generated
+   */
+  void setRecordRef(RecordType value);
+
 } // UnionMember

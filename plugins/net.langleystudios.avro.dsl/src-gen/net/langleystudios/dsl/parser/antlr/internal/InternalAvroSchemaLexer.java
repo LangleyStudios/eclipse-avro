@@ -27,8 +27,8 @@ public class InternalAvroSchemaLexer extends Lexer {
     public static final int EOF=-1;
     public static final int RULE_SL_COMMENT=7;
     public static final int RULE_ML_COMMENT=6;
-    public static final int T__30=30;
     public static final int T__19=19;
+    public static final int T__30=30;
     public static final int T__31=31;
     public static final int T__32=32;
     public static final int T__16=16;
@@ -126,10 +126,10 @@ public class InternalAvroSchemaLexer extends Lexer {
         try {
             int _type = T__13;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:14:7: ( '{' )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:14:9: '{'
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:14:7: ( '\"' )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:14:9: '\"'
             {
-            match('{'); 
+            match('\"'); 
 
             }
 
@@ -146,10 +146,10 @@ public class InternalAvroSchemaLexer extends Lexer {
         try {
             int _type = T__14;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:15:7: ( '\"' )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:15:9: '\"'
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:15:7: ( '{' )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:15:9: '{'
             {
-            match('\"'); 
+            match('{'); 
 
             }
 
@@ -646,10 +646,10 @@ public class InternalAvroSchemaLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1648:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1648:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1670:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1670:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1648:11: ( '^' )?
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1670:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -658,7 +658,7 @@ public class InternalAvroSchemaLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1648:11: '^'
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1670:11: '^'
                     {
                     match('^'); 
 
@@ -676,7 +676,7 @@ public class InternalAvroSchemaLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1648:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1670:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -725,10 +725,10 @@ public class InternalAvroSchemaLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1650:10: ( ( '0' .. '9' )+ )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1650:12: ( '0' .. '9' )+
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1672:10: ( ( '0' .. '9' )+ )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1672:12: ( '0' .. '9' )+
             {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1650:12: ( '0' .. '9' )+
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1672:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -742,7 +742,7 @@ public class InternalAvroSchemaLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1650:13: '0' .. '9'
+            	    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1672:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -774,12 +774,12 @@ public class InternalAvroSchemaLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1652:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1652:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1674:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1674:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1652:24: ( options {greedy=false; } : . )*
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1674:24: ( options {greedy=false; } : . )*
             loop4:
             do {
                 int alt4=2;
@@ -804,7 +804,7 @@ public class InternalAvroSchemaLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1652:52: .
+            	    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1674:52: .
             	    {
             	    matchAny(); 
 
@@ -834,12 +834,12 @@ public class InternalAvroSchemaLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1654:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1654:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1676:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1676:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1654:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1676:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop5:
             do {
                 int alt5=2;
@@ -852,7 +852,7 @@ public class InternalAvroSchemaLexer extends Lexer {
 
                 switch (alt5) {
             	case 1 :
-            	    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1654:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1676:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -872,7 +872,7 @@ public class InternalAvroSchemaLexer extends Lexer {
                 }
             } while (true);
 
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1654:40: ( ( '\\r' )? '\\n' )?
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1676:40: ( ( '\\r' )? '\\n' )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -881,9 +881,9 @@ public class InternalAvroSchemaLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1654:41: ( '\\r' )? '\\n'
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1676:41: ( '\\r' )? '\\n'
                     {
-                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1654:41: ( '\\r' )?
+                    // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1676:41: ( '\\r' )?
                     int alt6=2;
                     int LA6_0 = input.LA(1);
 
@@ -892,7 +892,7 @@ public class InternalAvroSchemaLexer extends Lexer {
                     }
                     switch (alt6) {
                         case 1 :
-                            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1654:41: '\\r'
+                            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1676:41: '\\r'
                             {
                             match('\r'); 
 
@@ -924,10 +924,10 @@ public class InternalAvroSchemaLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1656:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1656:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1678:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1678:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1656:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1678:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt8=0;
             loop8:
             do {
@@ -981,8 +981,8 @@ public class InternalAvroSchemaLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1658:16: ( . )
-            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1658:18: .
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1680:16: ( . )
+            // ../net.langleystudios.avro.dsl/src-gen/net/langleystudios/dsl/parser/antlr/internal/InternalAvroSchema.g:1680:18: .
             {
             matchAny(); 
 
@@ -1290,10 +1290,10 @@ public class InternalAvroSchemaLexer extends Lexer {
     static final String DFA9_specialS =
         "\1\0\u0089\uffff}>";
     static final String[] DFA9_transitionS = {
-            "\11\32\2\31\2\32\1\31\22\32\1\31\1\32\1\5\11\32\1\2\1\32\1\24"+
+            "\11\32\2\31\2\32\1\31\22\32\1\31\1\32\1\4\11\32\1\2\1\32\1\24"+
             "\1\30\12\27\1\7\6\32\32\26\1\1\1\32\1\3\1\25\1\26\1\32\1\16"+
             "\1\21\1\26\1\23\1\14\1\13\2\26\1\17\2\26\1\22\1\20\1\12\3\26"+
-            "\1\11\1\15\1\6\6\26\1\4\1\32\1\10\uff82\32",
+            "\1\11\1\15\1\6\6\26\1\5\1\32\1\10\uff82\32",
             "",
             "",
             "",
@@ -1479,9 +1479,9 @@ public class InternalAvroSchemaLexer extends Lexer {
 
                         else if ( (LA9_0==']') ) {s = 3;}
 
-                        else if ( (LA9_0=='{') ) {s = 4;}
+                        else if ( (LA9_0=='\"') ) {s = 4;}
 
-                        else if ( (LA9_0=='\"') ) {s = 5;}
+                        else if ( (LA9_0=='{') ) {s = 5;}
 
                         else if ( (LA9_0=='t') ) {s = 6;}
 

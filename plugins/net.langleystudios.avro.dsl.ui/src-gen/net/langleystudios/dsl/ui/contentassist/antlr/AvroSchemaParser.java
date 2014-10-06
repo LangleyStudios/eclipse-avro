@@ -46,6 +46,7 @@ public class AvroSchemaParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPrimitiveAccess().getTypeAlternatives_1_0(), "rule__Primitive__TypeAlternatives_1_0");
 					put(grammarAccess.getUnionTypeAccess().getGroup(), "rule__UnionType__Group__0");
 					put(grammarAccess.getUnionTypeAccess().getGroup_2(), "rule__UnionType__Group_2__0");
+					put(grammarAccess.getUnionMemberAccess().getGroup_6(), "rule__UnionMember__Group_6__0");
 					put(grammarAccess.getJsonTypeAccess().getGroup(), "rule__JsonType__Group__0");
 					put(grammarAccess.getRecordTypeAccess().getGroup(), "rule__RecordType__Group__0");
 					put(grammarAccess.getRecordTypeAccess().getGroup_16(), "rule__RecordType__Group_16__0");
@@ -66,6 +67,7 @@ public class AvroSchemaParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAvroSchemaAccess().getTypesAssignment(), "rule__AvroSchema__TypesAssignment");
 					put(grammarAccess.getUnionTypeAccess().getTypesAssignment_1(), "rule__UnionType__TypesAssignment_1");
 					put(grammarAccess.getUnionTypeAccess().getTypesAssignment_2_1(), "rule__UnionType__TypesAssignment_2_1");
+					put(grammarAccess.getUnionMemberAccess().getRecordRefAssignment_6_1(), "rule__UnionMember__RecordRefAssignment_6_1");
 					put(grammarAccess.getJsonTypeAccess().getTypeAssignment_6(), "rule__JsonType__TypeAssignment_6");
 					put(grammarAccess.getRecordTypeAccess().getNameAssignment_14(), "rule__RecordType__NameAssignment_14");
 					put(grammarAccess.getRecordTypeAccess().getNamespaceAssignment_16_6(), "rule__RecordType__NamespaceAssignment_16_6");
