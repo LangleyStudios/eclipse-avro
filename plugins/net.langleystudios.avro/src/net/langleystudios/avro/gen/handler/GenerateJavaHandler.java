@@ -36,19 +36,20 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * The GenerateJavaHandler will use the Avro Tools package to generate java source
- * for an Apache Avro schema.  The command is enabled by the selection of a single
- * Avro Schema or a directory containing Avro Schemas.
+ * The GenerateJavaHandler will use the Avro Tools package to generate java
+ * source for an Apache Avro schema. The command is enabled by the selection of
+ * a single Avro Schema or a directory containing Avro Schemas.
  * 
  * @author jlangley
  *
  */
 public class GenerateJavaHandler {
 
-	private static final Logger logger = LoggerFactory.getLogger(GenerateJavaHandler.class);
-	
+	private static final Logger logger = LoggerFactory
+			.getLogger(GenerateJavaHandler.class);
+
 	private static final String extension = "avsc";
-	private IResource selectedResource;
+	private List<IResource> selectedResources = new ArrayList<IResource>();
 
 	@Execute
 	public void execute() {
@@ -56,6 +57,7 @@ public class GenerateJavaHandler {
 		ContainerSelectionDialog dialog = new ContainerSelectionDialog(Display
 				.getCurrent().getActiveShell(), null, true,
 				"Select a folder to contain the generated java");
+		
 		if (dialog.open() == ContainerSelectionDialog.OK) {
 			Object[] results = dialog.getResult();
 			if (results != null && results.length > 0) {
@@ -69,42 +71,51 @@ public class GenerateJavaHandler {
 					java.net.URI fileURI = selectedDirectory.getLocationURI();
 					File locationFile = new File(fileURI);
 
-					if (selectedResource instanceof IContainer) {
-						IContainer container = (IContainer) selectedResource;
-						try {
-							for (IResource resource : container.members()) {
-								if (extension.equals(resource
-										.getFileExtension())) {
+					// Now get through the list of selected resources
+					for (IResource selectedResource : selectedResources) {
+						
+						// Handle the container first
+						if (selectedResource instanceof IContainer) {
+							IContainer container = (IContainer) selectedResource;
+							try {
+								for (IResource resource : container.members()) {
+									if (extension.equals(resource
+											.getFileExtension())) {
 
-									IResource schemaResource = workspaceRoot
-											.findMember(resource.getFullPath()
-													.toFile().toString());
+										IResource schemaResource = workspaceRoot
+												.findMember(resource
+														.getFullPath().toFile()
+														.toString());
 
-									if (selectedDirectory != null) {
-										java.net.URI schemaURI = schemaResource
-												.getLocationURI();
-										File schemaFile = new File(schemaURI);
+										if (selectedDirectory != null) {
+											java.net.URI schemaURI = schemaResource
+													.getLocationURI();
+											File schemaFile = new File(
+													schemaURI);
 
-										generateCode(schemaFile, locationFile);
+											generateCode(schemaFile,
+													locationFile);
 
+										}
 									}
 								}
+							} catch (CoreException e) {
+								e.printStackTrace();
 							}
-						} catch (CoreException e) {
-							e.printStackTrace();
-						}
-					} else {
-						IResource schemaResource = workspaceRoot
-								.findMember(selectedResource.getFullPath()
-										.toFile().toString());
+						// Now go through each resource
+						} else {
+							IResource schemaResource = workspaceRoot
+									.findMember(selectedResource.getFullPath()
+											.toFile().toString());
 
-						if (selectedDirectory != null) {
-							java.net.URI schemaURI = schemaResource
-									.getLocationURI();
-							File schemaFile = new File(schemaURI);
+							if (selectedDirectory != null) {
+								java.net.URI schemaURI = schemaResource
+										.getLocationURI();
+								File schemaFile = new File(schemaURI);
 
-							generateCode(schemaFile, locationFile);
+								generateCode(schemaFile, locationFile);
 
+							}
 						}
 					}
 				}
@@ -112,7 +123,8 @@ public class GenerateJavaHandler {
 		}
 	}
 
-	public synchronized static int generateCode(File schemaFile, File locationFile) {
+	public synchronized static int generateCode(File schemaFile,
+			File locationFile) {
 		int rvalue = -1;
 		try {
 			SpecificCompilerTool tool = new SpecificCompilerTool();
@@ -122,7 +134,8 @@ public class GenerateJavaHandler {
 			args.add(locationFile.getAbsolutePath());
 			rvalue = tool.run(System.in, System.out, System.err, args);
 		} catch (Exception e) {
-			logger.error("Problem generating java code for {}", schemaFile.getName());
+			logger.error("Problem generating java code for {}",
+					schemaFile.getName());
 			logger.error(e.getMessage());
 		}
 		return rvalue;
@@ -132,32 +145,32 @@ public class GenerateJavaHandler {
 	public boolean canExecute(
 			@Optional @Named(IServiceConstants.ACTIVE_SELECTION) ISelection selection) {
 		boolean rvalue = false;
-		selectedResource = null;
+		selectedResources.clear();
 
 		if (selection instanceof IStructuredSelection) {
 			IStructuredSelection structured = (IStructuredSelection) selection;
-			Object object = structured.getFirstElement();
-			if (object instanceof IContainer) {
-				IContainer container = (IContainer) object;
-				try {
-					for (IResource resource : container.members()) {
-						if (extension.equals(resource.getFileExtension())) {
-							selectedResource = container;
-							rvalue = true;
-							break;
+			for (Object object : structured.toArray()) {
+
+				if (object instanceof IContainer) {
+					IContainer container = (IContainer) object;
+					try {
+						for (IResource resource : container.members()) {
+							if (extension.equals(resource.getFileExtension())) {
+								selectedResources.add(container);
+							}
 						}
+					} catch (CoreException e) {
+						e.printStackTrace();
 					}
-				} catch (CoreException e) {
-					e.printStackTrace();
-				}
-			} else if (object instanceof IResource) {
-				IResource resource = (IResource) object;
-				if (extension.equals(resource.getFileExtension())) {
-					selectedResource = resource;
-					rvalue = true;
+				} else if (object instanceof IResource) {
+					IResource resource = (IResource) object;
+					if (extension.equals(resource.getFileExtension())) {
+						selectedResources.add(resource);
+					}
 				}
 			}
 		}
+		rvalue = selectedResources.size() > 0;
 		return rvalue;
 	}
 
