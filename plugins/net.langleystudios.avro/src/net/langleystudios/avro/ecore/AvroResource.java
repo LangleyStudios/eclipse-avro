@@ -51,6 +51,12 @@ public class AvroResource extends ResourceImpl {
 	 */
 	public final static String OPTION_AVRO_ZIP = "AVRO_ZIP";
 
+	/**
+	 * A key used for storing a list of package URIs as metadata in the
+	 * Avro file.
+	 */
+	public final static String AVRO_PACKAGE_LIST = "AVRO_PACKAGE_LIST";
+	
 	private ClassLoader loader = null;
 
 	private AvroEMFConverter converter = null;
@@ -124,11 +130,18 @@ public class AvroResource extends ResourceImpl {
 		}
 
 		// Create a union schema using only the EObjects that are in contents
+		// and build a list of unique URIs for the packages
 		List<Schema> schemaList = new ArrayList<Schema>();
+		List<String> uriList = new ArrayList<String>();
 		for (EObject eobject : this.contents) {
 			Schema schema = converter.getSchema(eobject);
 			if (schema != null) {
 				schemaList.add(schema);
+			}
+			String uri = eobject.eClass().getEPackage().getNsURI();
+			if(!uriList.contains(uri))
+			{
+				uriList.add(uri);
 			}
 		}
 		Schema unionSchema = Schema.createUnion(schemaList);
@@ -136,6 +149,18 @@ public class AvroResource extends ResourceImpl {
 		DatumWriter<Object> writer = new SpecificDatumWriter<Object>(
 				unionSchema);
 
+		// Build the package list
+		StringBuilder builder = new StringBuilder();
+		if(uriList.size() > 0)
+		{
+			builder.append(uriList.get(0));
+			for(int i = 1; i < uriList.size(); i++)
+			{
+				builder.append(",");
+				builder.append(uriList.get(i));
+			}
+		}
+		
 		Object zipOption = null;
 		Object binaryOption = null;
 		if (options != null) {
@@ -147,7 +172,7 @@ public class AvroResource extends ResourceImpl {
 			DataFileWriter<Object> fileWriter = null;
 			try {
 				fileWriter = new DataFileWriter<Object>(writer);
-
+				fileWriter.setMeta(AVRO_PACKAGE_LIST, builder.toString());
 				// Check to see if we're using compression
 				if (Boolean.TRUE.equals(zipOption)) {
 					fileWriter.setCodec(CodecFactory.deflateCodec(9));
