@@ -49,8 +49,8 @@
 [startList(anEClass)/]
 
 [comment Create a file for each schema/]
-[file ('schema/'.concat(anEClass.ePackage.name).concat('.'.concat(anEClass.name.concat('.avsc'))), false, 'UTF-8')]
-{"type":"record","name":"[anEClass.name/]","namespace":"[basePackage.concat('.').concat(anEClass.ePackage.name).concat('.avro')/]","fields":['['/]
+[file ('schema/'.concat(anEClass.name.concat('.avsc')), false, 'UTF-8')]
+{"type":"record","name":"[anEClass.name/]","namespace":"avro.dds","fields":['['/]
 [for (aFeature: EStructuralFeature | anEClass.eAllStructuralFeatures)]
 [if(i > 1)],[/if][aFeature.generateFeature()/]
 [/for][']'/]}
@@ -109,7 +109,7 @@
 
 [template public generateAttribute(anAttribute : EAttribute) post(trim())]
 [if(anAttribute.eType.oclIsTypeOf(EEnum))]
-	{"name":"[anAttribute.name/]","type":[anAttribute.eType->filter(EEnum).generateEnum()/]}}
+	{"name":"[anAttribute.name/]","type":[anAttribute.eType->filter(EEnum).generateEnum()/]}
 [else]
 	[if(anAttribute.eType.name = 'EString' or anAttribute.eType.name = 'EDate')]
 	{"name":"[anAttribute.name/]","type":['['/]"null","[anAttribute.eType.printAvroType()/]"[']'/]}
@@ -120,7 +120,11 @@
 [/template]
 
 [template private generateEnum(eEnum: EEnum) post(trim()) ]
-{"type":"enum","name":"[eEnum.name/]","symbols":['['/][for (eLiteral : EEnumLiteral | eEnum.eLiterals)][if(i > 1)],[/if]"[eLiteral.name/]"[/for][']'/]
+	[if(addEnum(eEnum))]
+{"type":"enum","name":"[eEnum.name/]","symbols":['['/][for (eLiteral : EEnumLiteral | eEnum.eLiterals)][if(i > 1)],[/if]"[eLiteral.name/]"[/for][']'/]}
+	[else]
+"[eEnum.name/]"
+	[/if]
 [/template]
 
 [template private printAvroType(eClass: EClassifier) post(trim())]
@@ -132,9 +136,13 @@
 [elseif (eClass.name = 'EString')]string
 [elseif (eClass.name = 'EBoolean')]boolean
 [elseif (eClass.name = 'EDate')]string
+[elseif (eClass.name = 'EChar')]int
 [else]null[/if]
 [/template]
 
+[query public addEnum(arg0 : EEnum) : Boolean
+	= invoke('net.langleystudios.avro.gen.Utility', 'addEnum(org.eclipse.emf.ecore.EEnum)', Sequence{arg0})
+/]
 [query public addClass(arg0 : EClass) : Boolean
 	= invoke('net.langleystudios.avro.gen.Utility', 'addClass(org.eclipse.emf.ecore.EClass)', Sequence{arg0})
 /]

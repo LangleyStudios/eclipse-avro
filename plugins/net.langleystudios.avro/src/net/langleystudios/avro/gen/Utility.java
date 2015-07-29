@@ -13,12 +13,14 @@ package net.langleystudios.avro.gen;
 import java.util.ArrayList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 public class Utility {
 	
-	private ArrayList<String> list = new ArrayList<String>();
+	private ArrayList<String> classList = new ArrayList<String>();
+	private ArrayList<String> enumList = new ArrayList<String>();
 
 	private static String basePackage = "org.eclipse.emf.examples";
 	private static String packageName = "EXTLibraryPackage";
@@ -50,7 +52,8 @@ public class Utility {
 	}
 	
 	public void startList(EClass eclass) {
-		list.clear();
+		classList.clear();
+		enumList.clear();
 		StringBuilder builder = new StringBuilder();
 		builder.setLength(0);
 		EPackage epackage = eclass.getEPackage();
@@ -59,7 +62,7 @@ public class Utility {
 		builder.append(epackage.getName());
 		builder.append('.');
 		builder.append(eclass.getName());
-		list.add(builder.toString());
+		classList.add(builder.toString());
 	}
 	
 	public void printFeature(EStructuralFeature feature)
@@ -81,10 +84,27 @@ public class Utility {
 		builder.append(epackage.getName());
 		builder.append('.');
 		builder.append(eclass.getName());
-		if (list.contains(builder.toString())) {
+		if (classList.contains(builder.toString())) {
 			return false;
 		} else {
-			list.add(builder.toString());
+			classList.add(builder.toString());
+		}
+		return true;
+	}
+	
+	public boolean addEnum(EEnum enumeration) {
+		StringBuilder builder = new StringBuilder();
+		builder.setLength(0);
+		EPackage epackage = enumeration.getEPackage();
+		builder.append(epackage.getNsURI());
+		builder.append("/");
+		builder.append(epackage.getName());
+		builder.append('.');
+		builder.append(enumeration.getName());
+		if (enumList.contains(builder.toString())) {
+			return false;
+		} else {
+			enumList.add(builder.toString());
 		}
 		return true;
 	}
