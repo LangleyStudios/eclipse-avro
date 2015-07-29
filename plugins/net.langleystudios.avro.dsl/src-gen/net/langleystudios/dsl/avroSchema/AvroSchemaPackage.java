@@ -169,14 +169,14 @@ public interface AvroSchemaPackage extends EPackage
   int JSON_TYPE_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link net.langleystudios.dsl.avroSchema.impl.RecordTypeImpl <em>Record Type</em>}' class.
+   * The meta object id for the '{@link net.langleystudios.dsl.avroSchema.impl.RecordImpl <em>Record</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see net.langleystudios.dsl.avroSchema.impl.RecordTypeImpl
-   * @see net.langleystudios.dsl.avroSchema.impl.AvroSchemaPackageImpl#getRecordType()
+   * @see net.langleystudios.dsl.avroSchema.impl.RecordImpl
+   * @see net.langleystudios.dsl.avroSchema.impl.AvroSchemaPackageImpl#getRecord()
    * @generated
    */
-  int RECORD_TYPE = 4;
+  int RECORD = 4;
 
   /**
    * The feature id for the '<em><b>Record Ref</b></em>' reference.
@@ -185,7 +185,7 @@ public interface AvroSchemaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RECORD_TYPE__RECORD_REF = UNION_MEMBER__RECORD_REF;
+  int RECORD__RECORD_REF = UNION_MEMBER__RECORD_REF;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -194,7 +194,7 @@ public interface AvroSchemaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RECORD_TYPE__NAME = UNION_MEMBER_FEATURE_COUNT + 0;
+  int RECORD__NAME = UNION_MEMBER_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Namespace</b></em>' attribute.
@@ -203,7 +203,35 @@ public interface AvroSchemaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RECORD_TYPE__NAMESPACE = UNION_MEMBER_FEATURE_COUNT + 1;
+  int RECORD__NAMESPACE = UNION_MEMBER_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Field List</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RECORD__FIELD_LIST = UNION_MEMBER_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Record</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RECORD_FEATURE_COUNT = UNION_MEMBER_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link net.langleystudios.dsl.avroSchema.impl.FieldListImpl <em>Field List</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see net.langleystudios.dsl.avroSchema.impl.FieldListImpl
+   * @see net.langleystudios.dsl.avroSchema.impl.AvroSchemaPackageImpl#getFieldList()
+   * @generated
+   */
+  int FIELD_LIST = 5;
 
   /**
    * The feature id for the '<em><b>Fields</b></em>' containment reference list.
@@ -212,16 +240,16 @@ public interface AvroSchemaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RECORD_TYPE__FIELDS = UNION_MEMBER_FEATURE_COUNT + 2;
+  int FIELD_LIST__FIELDS = 0;
 
   /**
-   * The number of structural features of the '<em>Record Type</em>' class.
+   * The number of structural features of the '<em>Field List</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RECORD_TYPE_FEATURE_COUNT = UNION_MEMBER_FEATURE_COUNT + 3;
+  int FIELD_LIST_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link net.langleystudios.dsl.avroSchema.impl.FieldImpl <em>Field</em>}' class.
@@ -231,7 +259,7 @@ public interface AvroSchemaPackage extends EPackage
    * @see net.langleystudios.dsl.avroSchema.impl.AvroSchemaPackageImpl#getField()
    * @generated
    */
-  int FIELD = 5;
+  int FIELD = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -331,7 +359,7 @@ public interface AvroSchemaPackage extends EPackage
    * @see net.langleystudios.dsl.avroSchema.impl.AvroSchemaPackageImpl#getEnumType()
    * @generated
    */
-  int ENUM_TYPE = 6;
+  int ENUM_TYPE = 7;
 
   /**
    * The feature id for the '<em><b>Record Ref</b></em>' reference.
@@ -377,7 +405,7 @@ public interface AvroSchemaPackage extends EPackage
    * @see net.langleystudios.dsl.avroSchema.impl.AvroSchemaPackageImpl#getArrayType()
    * @generated
    */
-  int ARRAY_TYPE = 7;
+  int ARRAY_TYPE = 8;
 
   /**
    * The feature id for the '<em><b>Record Ref</b></em>' reference.
@@ -432,7 +460,7 @@ public interface AvroSchemaPackage extends EPackage
    * @see net.langleystudios.dsl.avroSchema.impl.AvroSchemaPackageImpl#getMapType()
    * @generated
    */
-  int MAP_TYPE = 8;
+  int MAP_TYPE = 9;
 
   /**
    * The feature id for the '<em><b>Record Ref</b></em>' reference.
@@ -496,7 +524,7 @@ public interface AvroSchemaPackage extends EPackage
    * @see net.langleystudios.dsl.avroSchema.impl.AvroSchemaPackageImpl#getFixedType()
    * @generated
    */
-  int FIXED_TYPE = 9;
+  int FIXED_TYPE = 10;
 
   /**
    * The feature id for the '<em><b>Record Ref</b></em>' reference.
@@ -542,7 +570,7 @@ public interface AvroSchemaPackage extends EPackage
    * @see net.langleystudios.dsl.avroSchema.impl.AvroSchemaPackageImpl#getPrimitive()
    * @generated
    */
-  int PRIMITIVE = 10;
+  int PRIMITIVE = 11;
 
   /**
    * The feature id for the '<em><b>Record Ref</b></em>' reference.
@@ -657,47 +685,68 @@ public interface AvroSchemaPackage extends EPackage
   EReference getJsonType_Type();
 
   /**
-   * Returns the meta object for class '{@link net.langleystudios.dsl.avroSchema.RecordType <em>Record Type</em>}'.
+   * Returns the meta object for class '{@link net.langleystudios.dsl.avroSchema.Record <em>Record</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Record Type</em>'.
-   * @see net.langleystudios.dsl.avroSchema.RecordType
+   * @return the meta object for class '<em>Record</em>'.
+   * @see net.langleystudios.dsl.avroSchema.Record
    * @generated
    */
-  EClass getRecordType();
+  EClass getRecord();
 
   /**
-   * Returns the meta object for the attribute '{@link net.langleystudios.dsl.avroSchema.RecordType#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link net.langleystudios.dsl.avroSchema.Record#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see net.langleystudios.dsl.avroSchema.RecordType#getName()
-   * @see #getRecordType()
+   * @see net.langleystudios.dsl.avroSchema.Record#getName()
+   * @see #getRecord()
    * @generated
    */
-  EAttribute getRecordType_Name();
+  EAttribute getRecord_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link net.langleystudios.dsl.avroSchema.RecordType#getNamespace <em>Namespace</em>}'.
+   * Returns the meta object for the attribute '{@link net.langleystudios.dsl.avroSchema.Record#getNamespace <em>Namespace</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Namespace</em>'.
-   * @see net.langleystudios.dsl.avroSchema.RecordType#getNamespace()
-   * @see #getRecordType()
+   * @see net.langleystudios.dsl.avroSchema.Record#getNamespace()
+   * @see #getRecord()
    * @generated
    */
-  EAttribute getRecordType_Namespace();
+  EAttribute getRecord_Namespace();
 
   /**
-   * Returns the meta object for the containment reference list '{@link net.langleystudios.dsl.avroSchema.RecordType#getFields <em>Fields</em>}'.
+   * Returns the meta object for the containment reference '{@link net.langleystudios.dsl.avroSchema.Record#getFieldList <em>Field List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Field List</em>'.
+   * @see net.langleystudios.dsl.avroSchema.Record#getFieldList()
+   * @see #getRecord()
+   * @generated
+   */
+  EReference getRecord_FieldList();
+
+  /**
+   * Returns the meta object for class '{@link net.langleystudios.dsl.avroSchema.FieldList <em>Field List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Field List</em>'.
+   * @see net.langleystudios.dsl.avroSchema.FieldList
+   * @generated
+   */
+  EClass getFieldList();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link net.langleystudios.dsl.avroSchema.FieldList#getFields <em>Fields</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Fields</em>'.
-   * @see net.langleystudios.dsl.avroSchema.RecordType#getFields()
-   * @see #getRecordType()
+   * @see net.langleystudios.dsl.avroSchema.FieldList#getFields()
+   * @see #getFieldList()
    * @generated
    */
-  EReference getRecordType_Fields();
+  EReference getFieldList_Fields();
 
   /**
    * Returns the meta object for class '{@link net.langleystudios.dsl.avroSchema.Field <em>Field</em>}'.
@@ -1086,14 +1135,14 @@ public interface AvroSchemaPackage extends EPackage
     EReference JSON_TYPE__TYPE = eINSTANCE.getJsonType_Type();
 
     /**
-     * The meta object literal for the '{@link net.langleystudios.dsl.avroSchema.impl.RecordTypeImpl <em>Record Type</em>}' class.
+     * The meta object literal for the '{@link net.langleystudios.dsl.avroSchema.impl.RecordImpl <em>Record</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see net.langleystudios.dsl.avroSchema.impl.RecordTypeImpl
-     * @see net.langleystudios.dsl.avroSchema.impl.AvroSchemaPackageImpl#getRecordType()
+     * @see net.langleystudios.dsl.avroSchema.impl.RecordImpl
+     * @see net.langleystudios.dsl.avroSchema.impl.AvroSchemaPackageImpl#getRecord()
      * @generated
      */
-    EClass RECORD_TYPE = eINSTANCE.getRecordType();
+    EClass RECORD = eINSTANCE.getRecord();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1101,7 +1150,7 @@ public interface AvroSchemaPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute RECORD_TYPE__NAME = eINSTANCE.getRecordType_Name();
+    EAttribute RECORD__NAME = eINSTANCE.getRecord_Name();
 
     /**
      * The meta object literal for the '<em><b>Namespace</b></em>' attribute feature.
@@ -1109,7 +1158,25 @@ public interface AvroSchemaPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute RECORD_TYPE__NAMESPACE = eINSTANCE.getRecordType_Namespace();
+    EAttribute RECORD__NAMESPACE = eINSTANCE.getRecord_Namespace();
+
+    /**
+     * The meta object literal for the '<em><b>Field List</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RECORD__FIELD_LIST = eINSTANCE.getRecord_FieldList();
+
+    /**
+     * The meta object literal for the '{@link net.langleystudios.dsl.avroSchema.impl.FieldListImpl <em>Field List</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see net.langleystudios.dsl.avroSchema.impl.FieldListImpl
+     * @see net.langleystudios.dsl.avroSchema.impl.AvroSchemaPackageImpl#getFieldList()
+     * @generated
+     */
+    EClass FIELD_LIST = eINSTANCE.getFieldList();
 
     /**
      * The meta object literal for the '<em><b>Fields</b></em>' containment reference list feature.
@@ -1117,7 +1184,7 @@ public interface AvroSchemaPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference RECORD_TYPE__FIELDS = eINSTANCE.getRecordType_Fields();
+    EReference FIELD_LIST__FIELDS = eINSTANCE.getFieldList_Fields();
 
     /**
      * The meta object literal for the '{@link net.langleystudios.dsl.avroSchema.impl.FieldImpl <em>Field</em>}' class.

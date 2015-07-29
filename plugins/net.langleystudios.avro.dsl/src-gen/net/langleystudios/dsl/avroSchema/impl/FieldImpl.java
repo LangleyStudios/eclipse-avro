@@ -9,7 +9,7 @@ import net.langleystudios.dsl.avroSchema.Field;
 import net.langleystudios.dsl.avroSchema.FixedType;
 import net.langleystudios.dsl.avroSchema.MapType;
 import net.langleystudios.dsl.avroSchema.Primitive;
-import net.langleystudios.dsl.avroSchema.RecordType;
+import net.langleystudios.dsl.avroSchema.Record;
 import net.langleystudios.dsl.avroSchema.UnionType;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -82,7 +82,7 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * @generated
    * @ordered
    */
-  protected RecordType record;
+  protected Record record;
 
   /**
    * The cached value of the '{@link #getRecordRef() <em>Record Ref</em>}' reference.
@@ -92,7 +92,7 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * @generated
    * @ordered
    */
-  protected RecordType recordRef;
+  protected Record recordRef;
 
   /**
    * The cached value of the '{@link #getEtype() <em>Etype</em>}' containment reference.
@@ -241,7 +241,7 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public RecordType getRecord()
+  public Record getRecord()
   {
     return record;
   }
@@ -251,9 +251,9 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRecord(RecordType newRecord, NotificationChain msgs)
+  public NotificationChain basicSetRecord(Record newRecord, NotificationChain msgs)
   {
-    RecordType oldRecord = record;
+    Record oldRecord = record;
     record = newRecord;
     if (eNotificationRequired())
     {
@@ -268,7 +268,7 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRecord(RecordType newRecord)
+  public void setRecord(Record newRecord)
   {
     if (newRecord != record)
     {
@@ -289,12 +289,12 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public RecordType getRecordRef()
+  public Record getRecordRef()
   {
     if (recordRef != null && recordRef.eIsProxy())
     {
       InternalEObject oldRecordRef = (InternalEObject)recordRef;
-      recordRef = (RecordType)eResolveProxy(oldRecordRef);
+      recordRef = (Record)eResolveProxy(oldRecordRef);
       if (recordRef != oldRecordRef)
       {
         if (eNotificationRequired())
@@ -309,7 +309,7 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public RecordType basicGetRecordRef()
+  public Record basicGetRecordRef()
   {
     return recordRef;
   }
@@ -319,9 +319,9 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRecordRef(RecordType newRecordRef)
+  public void setRecordRef(Record newRecordRef)
   {
-    RecordType oldRecordRef = recordRef;
+    Record oldRecordRef = recordRef;
     recordRef = newRecordRef;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, AvroSchemaPackage.FIELD__RECORD_REF, oldRecordRef, recordRef));
@@ -645,10 +645,10 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
         setPrimitive((Primitive)newValue);
         return;
       case AvroSchemaPackage.FIELD__RECORD:
-        setRecord((RecordType)newValue);
+        setRecord((Record)newValue);
         return;
       case AvroSchemaPackage.FIELD__RECORD_REF:
-        setRecordRef((RecordType)newValue);
+        setRecordRef((Record)newValue);
         return;
       case AvroSchemaPackage.FIELD__ETYPE:
         setEtype((EnumType)newValue);
@@ -686,10 +686,10 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
         setPrimitive((Primitive)null);
         return;
       case AvroSchemaPackage.FIELD__RECORD:
-        setRecord((RecordType)null);
+        setRecord((Record)null);
         return;
       case AvroSchemaPackage.FIELD__RECORD_REF:
-        setRecordRef((RecordType)null);
+        setRecordRef((Record)null);
         return;
       case AvroSchemaPackage.FIELD__ETYPE:
         setEtype((EnumType)null);

@@ -19,10 +19,13 @@
     <genClasses ecoreClass="AvroSchema.ecore#//JsonType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//JsonType/type"/>
     </genClasses>
-    <genClasses ecoreClass="AvroSchema.ecore#//RecordType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AvroSchema.ecore#//RecordType/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AvroSchema.ecore#//RecordType/namespace"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//RecordType/fields"/>
+    <genClasses ecoreClass="AvroSchema.ecore#//Record">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AvroSchema.ecore#//Record/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AvroSchema.ecore#//Record/namespace"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//Record/fieldList"/>
+    </genClasses>
+    <genClasses ecoreClass="AvroSchema.ecore#//FieldList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AvroSchema.ecore#//FieldList/fields"/>
     </genClasses>
     <genClasses ecoreClass="AvroSchema.ecore#//Field">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AvroSchema.ecore#//Field/name"/>

@@ -59,13 +59,22 @@ public interface AvroSchemaFactory extends EFactory
   JsonType createJsonType();
 
   /**
-   * Returns a new object of class '<em>Record Type</em>'.
+   * Returns a new object of class '<em>Record</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Record Type</em>'.
+   * @return a new object of class '<em>Record</em>'.
    * @generated
    */
-  RecordType createRecordType();
+  Record createRecord();
+
+  /**
+   * Returns a new object of class '<em>Field List</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Field List</em>'.
+   * @generated
+   */
+  FieldList createFieldList();
 
   /**
    * Returns a new object of class '<em>Field</em>'.

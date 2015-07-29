@@ -91,12 +91,12 @@ public interface Field extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Record</em>' containment reference.
-   * @see #setRecord(RecordType)
+   * @see #setRecord(Record)
    * @see net.langleystudios.dsl.avroSchema.AvroSchemaPackage#getField_Record()
    * @model containment="true"
    * @generated
    */
-  RecordType getRecord();
+  Record getRecord();
 
   /**
    * Sets the value of the '{@link net.langleystudios.dsl.avroSchema.Field#getRecord <em>Record</em>}' containment reference.
@@ -106,7 +106,7 @@ public interface Field extends EObject
    * @see #getRecord()
    * @generated
    */
-  void setRecord(RecordType value);
+  void setRecord(Record value);
 
   /**
    * Returns the value of the '<em><b>Record Ref</b></em>' reference.
@@ -117,12 +117,12 @@ public interface Field extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Record Ref</em>' reference.
-   * @see #setRecordRef(RecordType)
+   * @see #setRecordRef(Record)
    * @see net.langleystudios.dsl.avroSchema.AvroSchemaPackage#getField_RecordRef()
    * @model
    * @generated
    */
-  RecordType getRecordRef();
+  Record getRecordRef();
 
   /**
    * Sets the value of the '{@link net.langleystudios.dsl.avroSchema.Field#getRecordRef <em>Record Ref</em>}' reference.
@@ -132,7 +132,7 @@ public interface Field extends EObject
    * @see #getRecordRef()
    * @generated
    */
-  void setRecordRef(RecordType value);
+  void setRecordRef(Record value);
 
   /**
    * Returns the value of the '<em><b>Etype</b></em>' containment reference.

@@ -3,7 +3,7 @@
 package net.langleystudios.dsl.avroSchema.impl;
 
 import net.langleystudios.dsl.avroSchema.AvroSchemaPackage;
-import net.langleystudios.dsl.avroSchema.RecordType;
+import net.langleystudios.dsl.avroSchema.Record;
 import net.langleystudios.dsl.avroSchema.UnionMember;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -37,7 +37,7 @@ public class UnionMemberImpl extends MinimalEObjectImpl.Container implements Uni
    * @generated
    * @ordered
    */
-  protected RecordType recordRef;
+  protected Record recordRef;
 
   /**
    * <!-- begin-user-doc -->
@@ -65,12 +65,12 @@ public class UnionMemberImpl extends MinimalEObjectImpl.Container implements Uni
    * <!-- end-user-doc -->
    * @generated
    */
-  public RecordType getRecordRef()
+  public Record getRecordRef()
   {
     if (recordRef != null && recordRef.eIsProxy())
     {
       InternalEObject oldRecordRef = (InternalEObject)recordRef;
-      recordRef = (RecordType)eResolveProxy(oldRecordRef);
+      recordRef = (Record)eResolveProxy(oldRecordRef);
       if (recordRef != oldRecordRef)
       {
         if (eNotificationRequired())
@@ -85,7 +85,7 @@ public class UnionMemberImpl extends MinimalEObjectImpl.Container implements Uni
    * <!-- end-user-doc -->
    * @generated
    */
-  public RecordType basicGetRecordRef()
+  public Record basicGetRecordRef()
   {
     return recordRef;
   }
@@ -95,9 +95,9 @@ public class UnionMemberImpl extends MinimalEObjectImpl.Container implements Uni
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRecordRef(RecordType newRecordRef)
+  public void setRecordRef(Record newRecordRef)
   {
-    RecordType oldRecordRef = recordRef;
+    Record oldRecordRef = recordRef;
     recordRef = newRecordRef;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, AvroSchemaPackage.UNION_MEMBER__RECORD_REF, oldRecordRef, recordRef));
@@ -131,7 +131,7 @@ public class UnionMemberImpl extends MinimalEObjectImpl.Container implements Uni
     switch (featureID)
     {
       case AvroSchemaPackage.UNION_MEMBER__RECORD_REF:
-        setRecordRef((RecordType)newValue);
+        setRecordRef((Record)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -148,7 +148,7 @@ public class UnionMemberImpl extends MinimalEObjectImpl.Container implements Uni
     switch (featureID)
     {
       case AvroSchemaPackage.UNION_MEMBER__RECORD_REF:
-        setRecordRef((RecordType)null);
+        setRecordRef((Record)null);
         return;
     }
     super.eUnset(featureID);

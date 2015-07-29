@@ -95,9 +95,14 @@ public class AvroSchemaAdapterFactory extends AdapterFactoryImpl
         return createJsonTypeAdapter();
       }
       @Override
-      public Adapter caseRecordType(RecordType object)
+      public Adapter caseRecord(Record object)
       {
-        return createRecordTypeAdapter();
+        return createRecordAdapter();
+      }
+      @Override
+      public Adapter caseFieldList(FieldList object)
+      {
+        return createFieldListAdapter();
       }
       @Override
       public Adapter caseField(Field object)
@@ -212,16 +217,31 @@ public class AvroSchemaAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link net.langleystudios.dsl.avroSchema.RecordType <em>Record Type</em>}'.
+   * Creates a new adapter for an object of class '{@link net.langleystudios.dsl.avroSchema.Record <em>Record</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see net.langleystudios.dsl.avroSchema.RecordType
+   * @see net.langleystudios.dsl.avroSchema.Record
    * @generated
    */
-  public Adapter createRecordTypeAdapter()
+  public Adapter createRecordAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link net.langleystudios.dsl.avroSchema.FieldList <em>Field List</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see net.langleystudios.dsl.avroSchema.FieldList
+   * @generated
+   */
+  public Adapter createFieldListAdapter()
   {
     return null;
   }

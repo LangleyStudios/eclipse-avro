@@ -7,11 +7,12 @@ import net.langleystudios.dsl.avroSchema.AvroSchema;
 import net.langleystudios.dsl.avroSchema.AvroSchemaPackage;
 import net.langleystudios.dsl.avroSchema.EnumType;
 import net.langleystudios.dsl.avroSchema.Field;
+import net.langleystudios.dsl.avroSchema.FieldList;
 import net.langleystudios.dsl.avroSchema.FixedType;
 import net.langleystudios.dsl.avroSchema.JsonType;
 import net.langleystudios.dsl.avroSchema.MapType;
 import net.langleystudios.dsl.avroSchema.Primitive;
-import net.langleystudios.dsl.avroSchema.RecordType;
+import net.langleystudios.dsl.avroSchema.Record;
 import net.langleystudios.dsl.avroSchema.UnionMember;
 import net.langleystudios.dsl.avroSchema.UnionType;
 import net.langleystudios.dsl.services.AvroSchemaGrammarAccess;
@@ -61,6 +62,12 @@ public class AvroSchemaSemanticSequencer extends AbstractDelegatingSemanticSeque
 					return; 
 				}
 				else break;
+			case AvroSchemaPackage.FIELD_LIST:
+				if(context == grammarAccess.getFieldListRule()) {
+					sequence_FieldList(context, (FieldList) semanticObject); 
+					return; 
+				}
+				else break;
 			case AvroSchemaPackage.FIXED_TYPE:
 				if(context == grammarAccess.getFixedTypeRule() ||
 				   context == grammarAccess.getUnionMemberRule()) {
@@ -88,10 +95,10 @@ public class AvroSchemaSemanticSequencer extends AbstractDelegatingSemanticSeque
 					return; 
 				}
 				else break;
-			case AvroSchemaPackage.RECORD_TYPE:
+			case AvroSchemaPackage.RECORD:
 				if(context == grammarAccess.getRecordTypeRule() ||
 				   context == grammarAccess.getUnionMemberRule()) {
-					sequence_RecordType(context, (RecordType) semanticObject); 
+					sequence_RecordType(context, (Record) semanticObject); 
 					return; 
 				}
 				else break;
@@ -113,7 +120,7 @@ public class AvroSchemaSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (primitive=Primitive | record=RecordType | recordRef=[RecordType|ID] | etype=EnumType)
+	 *     (primitive=Primitive | record=RecordType | recordRef=[Record|ID] | etype=EnumType)
 	 */
 	protected void sequence_ArrayType(EObject context, ArrayType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -140,12 +147,21 @@ public class AvroSchemaSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
+	 *     (fields+=Field fields+=Field*)
+	 */
+	protected void sequence_FieldList(EObject context, FieldList semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (
 	 *         (name='name' | name=ID) 
 	 *         (
 	 *             primitive=Primitive | 
 	 *             record=RecordType | 
-	 *             recordRef=[RecordType|ID] | 
+	 *             recordRef=[Record|ID] | 
 	 *             etype=EnumType | 
 	 *             array=ArrayType | 
 	 *             map=MapType | 
@@ -186,7 +202,7 @@ public class AvroSchemaSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (primitive=Primitive | record=RecordType | recordRef=[RecordType|ID] | etype=EnumType | atype=ArrayType)
+	 *     (primitive=Primitive | record=RecordType | recordRef=[Record|ID] | etype=EnumType | atype=ArrayType)
 	 */
 	protected void sequence_MapType(EObject context, MapType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -213,16 +229,16 @@ public class AvroSchemaSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (name=ID namespace=Namespace? fields+=Field fields+=Field*)
+	 *     (name=ID namespace=Namespace? fieldList=FieldList)
 	 */
-	protected void sequence_RecordType(EObject context, RecordType semanticObject) {
+	protected void sequence_RecordType(EObject context, Record semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     recordRef=[RecordType|ID]
+	 *     recordRef=[Record|ID]
 	 */
 	protected void sequence_UnionMember(EObject context, UnionMember semanticObject) {
 		if(errorAcceptor != null) {
@@ -231,7 +247,7 @@ public class AvroSchemaSemanticSequencer extends AbstractDelegatingSemanticSeque
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getUnionMemberAccess().getRecordRefRecordTypeIDTerminalRuleCall_6_1_0_1(), semanticObject.getRecordRef());
+		feeder.accept(grammarAccess.getUnionMemberAccess().getRecordRefRecordIDTerminalRuleCall_6_1_0_1(), semanticObject.getRecordRef());
 		feeder.finish();
 	}
 	

@@ -8,11 +8,12 @@ import net.langleystudios.dsl.avroSchema.AvroSchemaFactory;
 import net.langleystudios.dsl.avroSchema.AvroSchemaPackage;
 import net.langleystudios.dsl.avroSchema.EnumType;
 import net.langleystudios.dsl.avroSchema.Field;
+import net.langleystudios.dsl.avroSchema.FieldList;
 import net.langleystudios.dsl.avroSchema.FixedType;
 import net.langleystudios.dsl.avroSchema.JsonType;
 import net.langleystudios.dsl.avroSchema.MapType;
 import net.langleystudios.dsl.avroSchema.Primitive;
-import net.langleystudios.dsl.avroSchema.RecordType;
+import net.langleystudios.dsl.avroSchema.Record;
 import net.langleystudios.dsl.avroSchema.UnionMember;
 import net.langleystudios.dsl.avroSchema.UnionType;
 
@@ -64,7 +65,14 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass recordTypeEClass = null;
+  private EClass recordEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass fieldListEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -256,9 +264,9 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getRecordType()
+  public EClass getRecord()
   {
-    return recordTypeEClass;
+    return recordEClass;
   }
 
   /**
@@ -266,9 +274,9 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRecordType_Name()
+  public EAttribute getRecord_Name()
   {
-    return (EAttribute)recordTypeEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)recordEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -276,9 +284,9 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRecordType_Namespace()
+  public EAttribute getRecord_Namespace()
   {
-    return (EAttribute)recordTypeEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)recordEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -286,9 +294,29 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRecordType_Fields()
+  public EReference getRecord_FieldList()
   {
-    return (EReference)recordTypeEClass.getEStructuralFeatures().get(2);
+    return (EReference)recordEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getFieldList()
+  {
+    return fieldListEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFieldList_Fields()
+  {
+    return (EReference)fieldListEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -603,10 +631,13 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
     jsonTypeEClass = createEClass(JSON_TYPE);
     createEReference(jsonTypeEClass, JSON_TYPE__TYPE);
 
-    recordTypeEClass = createEClass(RECORD_TYPE);
-    createEAttribute(recordTypeEClass, RECORD_TYPE__NAME);
-    createEAttribute(recordTypeEClass, RECORD_TYPE__NAMESPACE);
-    createEReference(recordTypeEClass, RECORD_TYPE__FIELDS);
+    recordEClass = createEClass(RECORD);
+    createEAttribute(recordEClass, RECORD__NAME);
+    createEAttribute(recordEClass, RECORD__NAMESPACE);
+    createEReference(recordEClass, RECORD__FIELD_LIST);
+
+    fieldListEClass = createEClass(FIELD_LIST);
+    createEReference(fieldListEClass, FIELD_LIST__FIELDS);
 
     fieldEClass = createEClass(FIELD);
     createEAttribute(fieldEClass, FIELD__NAME);
@@ -671,7 +702,7 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    recordTypeEClass.getESuperTypes().add(this.getUnionMember());
+    recordEClass.getESuperTypes().add(this.getUnionMember());
     enumTypeEClass.getESuperTypes().add(this.getUnionMember());
     arrayTypeEClass.getESuperTypes().add(this.getUnionMember());
     mapTypeEClass.getESuperTypes().add(this.getUnionMember());
@@ -686,21 +717,24 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
     initEReference(getUnionType_Types(), this.getUnionMember(), null, "types", null, 0, -1, UnionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(unionMemberEClass, UnionMember.class, "UnionMember", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getUnionMember_RecordRef(), this.getRecordType(), null, "recordRef", null, 0, 1, UnionMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUnionMember_RecordRef(), this.getRecord(), null, "recordRef", null, 0, 1, UnionMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(jsonTypeEClass, JsonType.class, "JsonType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getJsonType_Type(), this.getPrimitive(), null, "type", null, 0, 1, JsonType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(recordTypeEClass, RecordType.class, "RecordType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getRecordType_Name(), ecorePackage.getEString(), "name", null, 0, 1, RecordType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getRecordType_Namespace(), ecorePackage.getEString(), "namespace", null, 0, 1, RecordType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRecordType_Fields(), this.getField(), null, "fields", null, 0, -1, RecordType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(recordEClass, Record.class, "Record", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRecord_Name(), ecorePackage.getEString(), "name", null, 0, 1, Record.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRecord_Namespace(), ecorePackage.getEString(), "namespace", null, 0, 1, Record.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRecord_FieldList(), this.getFieldList(), null, "fieldList", null, 0, 1, Record.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(fieldListEClass, FieldList.class, "FieldList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFieldList_Fields(), this.getField(), null, "fields", null, 0, -1, FieldList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(fieldEClass, Field.class, "Field", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getField_Name(), ecorePackage.getEString(), "name", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getField_Primitive(), this.getPrimitive(), null, "primitive", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getField_Record(), this.getRecordType(), null, "record", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getField_RecordRef(), this.getRecordType(), null, "recordRef", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getField_Record(), this.getRecord(), null, "record", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getField_RecordRef(), this.getRecord(), null, "recordRef", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getField_Etype(), this.getEnumType(), null, "etype", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getField_Array(), this.getArrayType(), null, "array", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getField_Map(), this.getMapType(), null, "map", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -713,12 +747,12 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
 
     initEClass(arrayTypeEClass, ArrayType.class, "ArrayType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getArrayType_Primitive(), this.getPrimitive(), null, "primitive", null, 0, 1, ArrayType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getArrayType_Record(), this.getRecordType(), null, "record", null, 0, 1, ArrayType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArrayType_Record(), this.getRecord(), null, "record", null, 0, 1, ArrayType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getArrayType_Etype(), this.getEnumType(), null, "etype", null, 0, 1, ArrayType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mapTypeEClass, MapType.class, "MapType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMapType_Primitive(), this.getPrimitive(), null, "primitive", null, 0, 1, MapType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMapType_Record(), this.getRecordType(), null, "record", null, 0, 1, MapType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMapType_Record(), this.getRecord(), null, "record", null, 0, 1, MapType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMapType_Etype(), this.getEnumType(), null, "etype", null, 0, 1, MapType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMapType_Atype(), this.getArrayType(), null, "atype", null, 0, 1, MapType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

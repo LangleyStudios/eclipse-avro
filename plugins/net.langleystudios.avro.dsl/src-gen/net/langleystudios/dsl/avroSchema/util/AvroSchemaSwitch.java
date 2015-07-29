@@ -100,11 +100,18 @@ public class AvroSchemaSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AvroSchemaPackage.RECORD_TYPE:
+      case AvroSchemaPackage.RECORD:
       {
-        RecordType recordType = (RecordType)theEObject;
-        T result = caseRecordType(recordType);
-        if (result == null) result = caseUnionMember(recordType);
+        Record record = (Record)theEObject;
+        T result = caseRecord(record);
+        if (result == null) result = caseUnionMember(record);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AvroSchemaPackage.FIELD_LIST:
+      {
+        FieldList fieldList = (FieldList)theEObject;
+        T result = caseFieldList(fieldList);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -224,17 +231,33 @@ public class AvroSchemaSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Record Type</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Record</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Record Type</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Record</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseRecordType(RecordType object)
+  public T caseRecord(Record object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Field List</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Field List</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFieldList(FieldList object)
   {
     return null;
   }
