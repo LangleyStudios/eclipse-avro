@@ -291,7 +291,7 @@ ruleUnionMember returns [EObject current=null]
         }
 	otherlv_7=RULE_ID
 	{
-		newLeafNode(otherlv_7, grammarAccess.getUnionMemberAccess().getRecordRefRecordTypeCrossReference_6_1_0()); 
+		newLeafNode(otherlv_7, grammarAccess.getUnionMemberAccess().getRecordRefRecordCrossReference_6_1_0()); 
 	}
 
 )
@@ -542,52 +542,91 @@ ruleRecordType returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getRecordTypeAccess().getFieldsFieldParserRuleCall_23_0()); 
+	        newCompositeNode(grammarAccess.getRecordTypeAccess().getFieldListFieldListParserRuleCall_23_0()); 
 	    }
-		lv_fields_30_0=ruleField		{
+		lv_fieldList_30_0=ruleFieldList		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getRecordTypeRule());
+	        }
+       		set(
+       			$current, 
+       			"fieldList",
+        		lv_fieldList_30_0, 
+        		"FieldList");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_31=']' 
+    {
+    	newLeafNode(otherlv_31, grammarAccess.getRecordTypeAccess().getRightSquareBracketKeyword_24());
+    }
+	otherlv_32='}' 
+    {
+    	newLeafNode(otherlv_32, grammarAccess.getRecordTypeAccess().getRightCurlyBracketKeyword_25());
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleFieldList
+entryRuleFieldList returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getFieldListRule()); }
+	 iv_ruleFieldList=ruleFieldList 
+	 { $current=$iv_ruleFieldList.current; } 
+	 EOF 
+;
+
+// Rule FieldList
+ruleFieldList returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+(
+		{ 
+	        newCompositeNode(grammarAccess.getFieldListAccess().getFieldsFieldParserRuleCall_0_0()); 
+	    }
+		lv_fields_0_0=ruleField		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getFieldListRule());
 	        }
        		add(
        			$current, 
        			"fields",
-        		lv_fields_30_0, 
+        		lv_fields_0_0, 
         		"Field");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_31=',' 
+)(	otherlv_1=',' 
     {
-    	newLeafNode(otherlv_31, grammarAccess.getRecordTypeAccess().getCommaKeyword_24_0());
+    	newLeafNode(otherlv_1, grammarAccess.getFieldListAccess().getCommaKeyword_1_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getRecordTypeAccess().getFieldsFieldParserRuleCall_24_1_0()); 
+	        newCompositeNode(grammarAccess.getFieldListAccess().getFieldsFieldParserRuleCall_1_1_0()); 
 	    }
-		lv_fields_32_0=ruleField		{
+		lv_fields_2_0=ruleField		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getRecordTypeRule());
+	            $current = createModelElementForParent(grammarAccess.getFieldListRule());
 	        }
        		add(
        			$current, 
        			"fields",
-        		lv_fields_32_0, 
+        		lv_fields_2_0, 
         		"Field");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))*	otherlv_33=']' 
-    {
-    	newLeafNode(otherlv_33, grammarAccess.getRecordTypeAccess().getRightSquareBracketKeyword_25());
-    }
-	otherlv_34='}' 
-    {
-    	newLeafNode(otherlv_34, grammarAccess.getRecordTypeAccess().getRightCurlyBracketKeyword_26());
-    }
-)
+))*)
 ;
 
 
@@ -740,7 +779,7 @@ ruleField returns [EObject current=null]
         }
 	otherlv_16=RULE_ID
 	{
-		newLeafNode(otherlv_16, grammarAccess.getFieldAccess().getRecordRefRecordTypeCrossReference_13_2_1_0()); 
+		newLeafNode(otherlv_16, grammarAccess.getFieldAccess().getRecordRefRecordCrossReference_13_2_1_0()); 
 	}
 
 )
@@ -1158,7 +1197,7 @@ ruleArrayType returns [EObject current=null]
         }
 	otherlv_16=RULE_ID
 	{
-		newLeafNode(otherlv_16, grammarAccess.getArrayTypeAccess().getRecordRefRecordTypeCrossReference_13_2_1_0()); 
+		newLeafNode(otherlv_16, grammarAccess.getArrayTypeAccess().getRecordRefRecordCrossReference_13_2_1_0()); 
 	}
 
 )
@@ -1313,7 +1352,7 @@ ruleMapType returns [EObject current=null]
         }
 	otherlv_16=RULE_ID
 	{
-		newLeafNode(otherlv_16, grammarAccess.getMapTypeAccess().getRecordRefRecordTypeCrossReference_13_2_1_0()); 
+		newLeafNode(otherlv_16, grammarAccess.getMapTypeAccess().getRecordRefRecordCrossReference_13_2_1_0()); 
 	}
 
 )

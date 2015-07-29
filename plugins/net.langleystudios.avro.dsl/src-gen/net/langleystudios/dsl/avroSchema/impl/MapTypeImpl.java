@@ -7,7 +7,7 @@ import net.langleystudios.dsl.avroSchema.AvroSchemaPackage;
 import net.langleystudios.dsl.avroSchema.EnumType;
 import net.langleystudios.dsl.avroSchema.MapType;
 import net.langleystudios.dsl.avroSchema.Primitive;
-import net.langleystudios.dsl.avroSchema.RecordType;
+import net.langleystudios.dsl.avroSchema.Record;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -53,7 +53,7 @@ public class MapTypeImpl extends UnionMemberImpl implements MapType
    * @generated
    * @ordered
    */
-  protected RecordType record;
+  protected Record record;
 
   /**
    * The cached value of the '{@link #getEtype() <em>Etype</em>}' containment reference.
@@ -149,7 +149,7 @@ public class MapTypeImpl extends UnionMemberImpl implements MapType
    * <!-- end-user-doc -->
    * @generated
    */
-  public RecordType getRecord()
+  public Record getRecord()
   {
     return record;
   }
@@ -159,9 +159,9 @@ public class MapTypeImpl extends UnionMemberImpl implements MapType
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRecord(RecordType newRecord, NotificationChain msgs)
+  public NotificationChain basicSetRecord(Record newRecord, NotificationChain msgs)
   {
-    RecordType oldRecord = record;
+    Record oldRecord = record;
     record = newRecord;
     if (eNotificationRequired())
     {
@@ -176,7 +176,7 @@ public class MapTypeImpl extends UnionMemberImpl implements MapType
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRecord(RecordType newRecord)
+  public void setRecord(Record newRecord)
   {
     if (newRecord != record)
     {
@@ -346,7 +346,7 @@ public class MapTypeImpl extends UnionMemberImpl implements MapType
         setPrimitive((Primitive)newValue);
         return;
       case AvroSchemaPackage.MAP_TYPE__RECORD:
-        setRecord((RecordType)newValue);
+        setRecord((Record)newValue);
         return;
       case AvroSchemaPackage.MAP_TYPE__ETYPE:
         setEtype((EnumType)newValue);
@@ -372,7 +372,7 @@ public class MapTypeImpl extends UnionMemberImpl implements MapType
         setPrimitive((Primitive)null);
         return;
       case AvroSchemaPackage.MAP_TYPE__RECORD:
-        setRecord((RecordType)null);
+        setRecord((Record)null);
         return;
       case AvroSchemaPackage.MAP_TYPE__ETYPE:
         setEtype((EnumType)null);

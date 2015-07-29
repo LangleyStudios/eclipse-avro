@@ -31,12 +31,12 @@ public interface UnionMember extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Record Ref</em>' reference.
-   * @see #setRecordRef(RecordType)
+   * @see #setRecordRef(Record)
    * @see net.langleystudios.dsl.avroSchema.AvroSchemaPackage#getUnionMember_RecordRef()
    * @model
    * @generated
    */
-  RecordType getRecordRef();
+  Record getRecordRef();
 
   /**
    * Sets the value of the '{@link net.langleystudios.dsl.avroSchema.UnionMember#getRecordRef <em>Record Ref</em>}' reference.
@@ -46,6 +46,6 @@ public interface UnionMember extends EObject
    * @see #getRecordRef()
    * @generated
    */
-  void setRecordRef(RecordType value);
+  void setRecordRef(Record value);
 
 } // UnionMember

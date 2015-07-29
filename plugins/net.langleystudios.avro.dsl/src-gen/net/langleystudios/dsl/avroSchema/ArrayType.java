@@ -58,12 +58,12 @@ public interface ArrayType extends UnionMember
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Record</em>' containment reference.
-   * @see #setRecord(RecordType)
+   * @see #setRecord(Record)
    * @see net.langleystudios.dsl.avroSchema.AvroSchemaPackage#getArrayType_Record()
    * @model containment="true"
    * @generated
    */
-  RecordType getRecord();
+  Record getRecord();
 
   /**
    * Sets the value of the '{@link net.langleystudios.dsl.avroSchema.ArrayType#getRecord <em>Record</em>}' containment reference.
@@ -73,7 +73,7 @@ public interface ArrayType extends UnionMember
    * @see #getRecord()
    * @generated
    */
-  void setRecord(RecordType value);
+  void setRecord(Record value);
 
   /**
    * Returns the value of the '<em><b>Etype</b></em>' containment reference.

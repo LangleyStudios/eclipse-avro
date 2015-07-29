@@ -2,41 +2,34 @@
  */
 package net.langleystudios.dsl.avroSchema.impl;
 
-import java.util.Collection;
-
 import net.langleystudios.dsl.avroSchema.AvroSchemaPackage;
-import net.langleystudios.dsl.avroSchema.Field;
-import net.langleystudios.dsl.avroSchema.RecordType;
+import net.langleystudios.dsl.avroSchema.FieldList;
+import net.langleystudios.dsl.avroSchema.Record;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Record Type</b></em>'.
+ * An implementation of the model object '<em><b>Record</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link net.langleystudios.dsl.avroSchema.impl.RecordTypeImpl#getName <em>Name</em>}</li>
- *   <li>{@link net.langleystudios.dsl.avroSchema.impl.RecordTypeImpl#getNamespace <em>Namespace</em>}</li>
- *   <li>{@link net.langleystudios.dsl.avroSchema.impl.RecordTypeImpl#getFields <em>Fields</em>}</li>
+ *   <li>{@link net.langleystudios.dsl.avroSchema.impl.RecordImpl#getName <em>Name</em>}</li>
+ *   <li>{@link net.langleystudios.dsl.avroSchema.impl.RecordImpl#getNamespace <em>Namespace</em>}</li>
+ *   <li>{@link net.langleystudios.dsl.avroSchema.impl.RecordImpl#getFieldList <em>Field List</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class RecordTypeImpl extends UnionMemberImpl implements RecordType
+public class RecordImpl extends UnionMemberImpl implements Record
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -79,21 +72,21 @@ public class RecordTypeImpl extends UnionMemberImpl implements RecordType
   protected String namespace = NAMESPACE_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list.
+   * The cached value of the '{@link #getFieldList() <em>Field List</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFields()
+   * @see #getFieldList()
    * @generated
    * @ordered
    */
-  protected EList<Field> fields;
+  protected FieldList fieldList;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected RecordTypeImpl()
+  protected RecordImpl()
   {
     super();
   }
@@ -106,7 +99,7 @@ public class RecordTypeImpl extends UnionMemberImpl implements RecordType
   @Override
   protected EClass eStaticClass()
   {
-    return AvroSchemaPackage.Literals.RECORD_TYPE;
+    return AvroSchemaPackage.Literals.RECORD;
   }
 
   /**
@@ -129,7 +122,7 @@ public class RecordTypeImpl extends UnionMemberImpl implements RecordType
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AvroSchemaPackage.RECORD_TYPE__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, AvroSchemaPackage.RECORD__NAME, oldName, name));
   }
 
   /**
@@ -152,7 +145,7 @@ public class RecordTypeImpl extends UnionMemberImpl implements RecordType
     String oldNamespace = namespace;
     namespace = newNamespace;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AvroSchemaPackage.RECORD_TYPE__NAMESPACE, oldNamespace, namespace));
+      eNotify(new ENotificationImpl(this, Notification.SET, AvroSchemaPackage.RECORD__NAMESPACE, oldNamespace, namespace));
   }
 
   /**
@@ -160,13 +153,47 @@ public class RecordTypeImpl extends UnionMemberImpl implements RecordType
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Field> getFields()
+  public FieldList getFieldList()
   {
-    if (fields == null)
+    return fieldList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetFieldList(FieldList newFieldList, NotificationChain msgs)
+  {
+    FieldList oldFieldList = fieldList;
+    fieldList = newFieldList;
+    if (eNotificationRequired())
     {
-      fields = new EObjectContainmentEList<Field>(Field.class, this, AvroSchemaPackage.RECORD_TYPE__FIELDS);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AvroSchemaPackage.RECORD__FIELD_LIST, oldFieldList, newFieldList);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return fields;
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFieldList(FieldList newFieldList)
+  {
+    if (newFieldList != fieldList)
+    {
+      NotificationChain msgs = null;
+      if (fieldList != null)
+        msgs = ((InternalEObject)fieldList).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AvroSchemaPackage.RECORD__FIELD_LIST, null, msgs);
+      if (newFieldList != null)
+        msgs = ((InternalEObject)newFieldList).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AvroSchemaPackage.RECORD__FIELD_LIST, null, msgs);
+      msgs = basicSetFieldList(newFieldList, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AvroSchemaPackage.RECORD__FIELD_LIST, newFieldList, newFieldList));
   }
 
   /**
@@ -179,8 +206,8 @@ public class RecordTypeImpl extends UnionMemberImpl implements RecordType
   {
     switch (featureID)
     {
-      case AvroSchemaPackage.RECORD_TYPE__FIELDS:
-        return ((InternalEList<?>)getFields()).basicRemove(otherEnd, msgs);
+      case AvroSchemaPackage.RECORD__FIELD_LIST:
+        return basicSetFieldList(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -195,12 +222,12 @@ public class RecordTypeImpl extends UnionMemberImpl implements RecordType
   {
     switch (featureID)
     {
-      case AvroSchemaPackage.RECORD_TYPE__NAME:
+      case AvroSchemaPackage.RECORD__NAME:
         return getName();
-      case AvroSchemaPackage.RECORD_TYPE__NAMESPACE:
+      case AvroSchemaPackage.RECORD__NAMESPACE:
         return getNamespace();
-      case AvroSchemaPackage.RECORD_TYPE__FIELDS:
-        return getFields();
+      case AvroSchemaPackage.RECORD__FIELD_LIST:
+        return getFieldList();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -210,21 +237,19 @@ public class RecordTypeImpl extends UnionMemberImpl implements RecordType
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case AvroSchemaPackage.RECORD_TYPE__NAME:
+      case AvroSchemaPackage.RECORD__NAME:
         setName((String)newValue);
         return;
-      case AvroSchemaPackage.RECORD_TYPE__NAMESPACE:
+      case AvroSchemaPackage.RECORD__NAMESPACE:
         setNamespace((String)newValue);
         return;
-      case AvroSchemaPackage.RECORD_TYPE__FIELDS:
-        getFields().clear();
-        getFields().addAll((Collection<? extends Field>)newValue);
+      case AvroSchemaPackage.RECORD__FIELD_LIST:
+        setFieldList((FieldList)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -240,14 +265,14 @@ public class RecordTypeImpl extends UnionMemberImpl implements RecordType
   {
     switch (featureID)
     {
-      case AvroSchemaPackage.RECORD_TYPE__NAME:
+      case AvroSchemaPackage.RECORD__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case AvroSchemaPackage.RECORD_TYPE__NAMESPACE:
+      case AvroSchemaPackage.RECORD__NAMESPACE:
         setNamespace(NAMESPACE_EDEFAULT);
         return;
-      case AvroSchemaPackage.RECORD_TYPE__FIELDS:
-        getFields().clear();
+      case AvroSchemaPackage.RECORD__FIELD_LIST:
+        setFieldList((FieldList)null);
         return;
     }
     super.eUnset(featureID);
@@ -263,12 +288,12 @@ public class RecordTypeImpl extends UnionMemberImpl implements RecordType
   {
     switch (featureID)
     {
-      case AvroSchemaPackage.RECORD_TYPE__NAME:
+      case AvroSchemaPackage.RECORD__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case AvroSchemaPackage.RECORD_TYPE__NAMESPACE:
+      case AvroSchemaPackage.RECORD__NAMESPACE:
         return NAMESPACE_EDEFAULT == null ? namespace != null : !NAMESPACE_EDEFAULT.equals(namespace);
-      case AvroSchemaPackage.RECORD_TYPE__FIELDS:
-        return fields != null && !fields.isEmpty();
+      case AvroSchemaPackage.RECORD__FIELD_LIST:
+        return fieldList != null;
     }
     return super.eIsSet(featureID);
   }
@@ -292,4 +317,4 @@ public class RecordTypeImpl extends UnionMemberImpl implements RecordType
     return result.toString();
   }
 
-} //RecordTypeImpl
+} //RecordImpl

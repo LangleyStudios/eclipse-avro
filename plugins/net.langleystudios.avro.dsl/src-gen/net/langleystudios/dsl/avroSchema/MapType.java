@@ -59,12 +59,12 @@ public interface MapType extends UnionMember
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Record</em>' containment reference.
-   * @see #setRecord(RecordType)
+   * @see #setRecord(Record)
    * @see net.langleystudios.dsl.avroSchema.AvroSchemaPackage#getMapType_Record()
    * @model containment="true"
    * @generated
    */
-  RecordType getRecord();
+  Record getRecord();
 
   /**
    * Sets the value of the '{@link net.langleystudios.dsl.avroSchema.MapType#getRecord <em>Record</em>}' containment reference.
@@ -74,7 +74,7 @@ public interface MapType extends UnionMember
    * @see #getRecord()
    * @generated
    */
-  void setRecord(RecordType value);
+  void setRecord(Record value);
 
   /**
    * Returns the value of the '<em><b>Etype</b></em>' containment reference.

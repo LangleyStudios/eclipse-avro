@@ -50,7 +50,8 @@ public class AvroSchemaParser extends AbstractContentAssistParser {
 					put(grammarAccess.getJsonTypeAccess().getGroup(), "rule__JsonType__Group__0");
 					put(grammarAccess.getRecordTypeAccess().getGroup(), "rule__RecordType__Group__0");
 					put(grammarAccess.getRecordTypeAccess().getGroup_16(), "rule__RecordType__Group_16__0");
-					put(grammarAccess.getRecordTypeAccess().getGroup_24(), "rule__RecordType__Group_24__0");
+					put(grammarAccess.getFieldListAccess().getGroup(), "rule__FieldList__Group__0");
+					put(grammarAccess.getFieldListAccess().getGroup_1(), "rule__FieldList__Group_1__0");
 					put(grammarAccess.getFieldAccess().getGroup(), "rule__Field__Group__0");
 					put(grammarAccess.getFieldAccess().getGroup_13_2(), "rule__Field__Group_13_2__0");
 					put(grammarAccess.getEnumTypeAccess().getGroup(), "rule__EnumType__Group__0");
@@ -71,8 +72,9 @@ public class AvroSchemaParser extends AbstractContentAssistParser {
 					put(grammarAccess.getJsonTypeAccess().getTypeAssignment_6(), "rule__JsonType__TypeAssignment_6");
 					put(grammarAccess.getRecordTypeAccess().getNameAssignment_14(), "rule__RecordType__NameAssignment_14");
 					put(grammarAccess.getRecordTypeAccess().getNamespaceAssignment_16_6(), "rule__RecordType__NamespaceAssignment_16_6");
-					put(grammarAccess.getRecordTypeAccess().getFieldsAssignment_23(), "rule__RecordType__FieldsAssignment_23");
-					put(grammarAccess.getRecordTypeAccess().getFieldsAssignment_24_1(), "rule__RecordType__FieldsAssignment_24_1");
+					put(grammarAccess.getRecordTypeAccess().getFieldListAssignment_23(), "rule__RecordType__FieldListAssignment_23");
+					put(grammarAccess.getFieldListAccess().getFieldsAssignment_0(), "rule__FieldList__FieldsAssignment_0");
+					put(grammarAccess.getFieldListAccess().getFieldsAssignment_1_1(), "rule__FieldList__FieldsAssignment_1_1");
 					put(grammarAccess.getFieldAccess().getNameAssignment_6(), "rule__Field__NameAssignment_6");
 					put(grammarAccess.getFieldAccess().getPrimitiveAssignment_13_0(), "rule__Field__PrimitiveAssignment_13_0");
 					put(grammarAccess.getFieldAccess().getRecordAssignment_13_1(), "rule__Field__RecordAssignment_13_1");

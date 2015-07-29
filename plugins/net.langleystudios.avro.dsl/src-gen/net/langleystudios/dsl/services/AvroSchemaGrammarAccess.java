@@ -101,15 +101,15 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cAlternatives.eContents().get(6);
 		private final Keyword cQuotationMarkKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cRecordRefAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final CrossReference cRecordRefRecordTypeCrossReference_6_1_0 = (CrossReference)cRecordRefAssignment_6_1.eContents().get(0);
-		private final RuleCall cRecordRefRecordTypeIDTerminalRuleCall_6_1_0_1 = (RuleCall)cRecordRefRecordTypeCrossReference_6_1_0.eContents().get(1);
+		private final CrossReference cRecordRefRecordCrossReference_6_1_0 = (CrossReference)cRecordRefAssignment_6_1.eContents().get(0);
+		private final RuleCall cRecordRefRecordIDTerminalRuleCall_6_1_0_1 = (RuleCall)cRecordRefRecordCrossReference_6_1_0.eContents().get(1);
 		private final Keyword cQuotationMarkKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
 		
 		//UnionMember:
-		//	RecordType | ArrayType | Primitive | MapType | EnumType | FixedType | "\"" recordRef=[RecordType] "\"";
+		//	RecordType | ArrayType | Primitive | MapType | EnumType | FixedType | "\"" recordRef=[Record] "\"";
 		public ParserRule getRule() { return rule; }
 
-		//RecordType | ArrayType | Primitive | MapType | EnumType | FixedType | "\"" recordRef=[RecordType] "\""
+		//RecordType | ArrayType | Primitive | MapType | EnumType | FixedType | "\"" recordRef=[Record] "\""
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//RecordType
@@ -130,20 +130,20 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 		//FixedType
 		public RuleCall getFixedTypeParserRuleCall_5() { return cFixedTypeParserRuleCall_5; }
 
-		//"\"" recordRef=[RecordType] "\""
+		//"\"" recordRef=[Record] "\""
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"\""
 		public Keyword getQuotationMarkKeyword_6_0() { return cQuotationMarkKeyword_6_0; }
 
-		//recordRef=[RecordType]
+		//recordRef=[Record]
 		public Assignment getRecordRefAssignment_6_1() { return cRecordRefAssignment_6_1; }
 
-		//[RecordType]
-		public CrossReference getRecordRefRecordTypeCrossReference_6_1_0() { return cRecordRefRecordTypeCrossReference_6_1_0; }
+		//[Record]
+		public CrossReference getRecordRefRecordCrossReference_6_1_0() { return cRecordRefRecordCrossReference_6_1_0; }
 
 		//ID
-		public RuleCall getRecordRefRecordTypeIDTerminalRuleCall_6_1_0_1() { return cRecordRefRecordTypeIDTerminalRuleCall_6_1_0_1; }
+		public RuleCall getRecordRefRecordIDTerminalRuleCall_6_1_0_1() { return cRecordRefRecordIDTerminalRuleCall_6_1_0_1; }
 
 		//"\""
 		public Keyword getQuotationMarkKeyword_6_2() { return cQuotationMarkKeyword_6_2; }
@@ -237,22 +237,18 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cQuotationMarkKeyword_20 = (Keyword)cGroup.eContents().get(20);
 		private final Keyword cColonKeyword_21 = (Keyword)cGroup.eContents().get(21);
 		private final Keyword cLeftSquareBracketKeyword_22 = (Keyword)cGroup.eContents().get(22);
-		private final Assignment cFieldsAssignment_23 = (Assignment)cGroup.eContents().get(23);
-		private final RuleCall cFieldsFieldParserRuleCall_23_0 = (RuleCall)cFieldsAssignment_23.eContents().get(0);
-		private final Group cGroup_24 = (Group)cGroup.eContents().get(24);
-		private final Keyword cCommaKeyword_24_0 = (Keyword)cGroup_24.eContents().get(0);
-		private final Assignment cFieldsAssignment_24_1 = (Assignment)cGroup_24.eContents().get(1);
-		private final RuleCall cFieldsFieldParserRuleCall_24_1_0 = (RuleCall)cFieldsAssignment_24_1.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_25 = (Keyword)cGroup.eContents().get(25);
-		private final Keyword cRightCurlyBracketKeyword_26 = (Keyword)cGroup.eContents().get(26);
+		private final Assignment cFieldListAssignment_23 = (Assignment)cGroup.eContents().get(23);
+		private final RuleCall cFieldListFieldListParserRuleCall_23_0 = (RuleCall)cFieldListAssignment_23.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_24 = (Keyword)cGroup.eContents().get(24);
+		private final Keyword cRightCurlyBracketKeyword_25 = (Keyword)cGroup.eContents().get(25);
 		
-		//RecordType:
+		//RecordType returns Record:
 		//	"{" "\"" "type" "\"" ":" "\"" "record" "\"" "," "\"" "name" "\"" ":" "\"" name=ID "\"" ("," "\"" "namespace" "\"" ":"
-		//	"\"" namespace=Namespace "\"")? "," "\"" "fields" "\"" ":" "[" fields+=Field ("," fields+=Field)* "]" "}";
+		//	"\"" namespace=Namespace "\"")? "," "\"" "fields" "\"" ":" "[" fieldList=FieldList "]" "}";
 		public ParserRule getRule() { return rule; }
 
 		//"{" "\"" "type" "\"" ":" "\"" "record" "\"" "," "\"" "name" "\"" ":" "\"" name=ID "\"" ("," "\"" "namespace" "\"" ":"
-		//"\"" namespace=Namespace "\"")? "," "\"" "fields" "\"" ":" "[" fields+=Field ("," fields+=Field)* "]" "}"
+		//"\"" namespace=Namespace "\"")? "," "\"" "fields" "\"" ":" "[" fieldList=FieldList "]" "}"
 		public Group getGroup() { return cGroup; }
 
 		//"{"
@@ -354,29 +350,53 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 		//"["
 		public Keyword getLeftSquareBracketKeyword_22() { return cLeftSquareBracketKeyword_22; }
 
-		//fields+=Field
-		public Assignment getFieldsAssignment_23() { return cFieldsAssignment_23; }
+		//fieldList=FieldList
+		public Assignment getFieldListAssignment_23() { return cFieldListAssignment_23; }
 
-		//Field
-		public RuleCall getFieldsFieldParserRuleCall_23_0() { return cFieldsFieldParserRuleCall_23_0; }
-
-		//("," fields+=Field)*
-		public Group getGroup_24() { return cGroup_24; }
-
-		//","
-		public Keyword getCommaKeyword_24_0() { return cCommaKeyword_24_0; }
-
-		//fields+=Field
-		public Assignment getFieldsAssignment_24_1() { return cFieldsAssignment_24_1; }
-
-		//Field
-		public RuleCall getFieldsFieldParserRuleCall_24_1_0() { return cFieldsFieldParserRuleCall_24_1_0; }
+		//FieldList
+		public RuleCall getFieldListFieldListParserRuleCall_23_0() { return cFieldListFieldListParserRuleCall_23_0; }
 
 		//"]"
-		public Keyword getRightSquareBracketKeyword_25() { return cRightSquareBracketKeyword_25; }
+		public Keyword getRightSquareBracketKeyword_24() { return cRightSquareBracketKeyword_24; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_26() { return cRightCurlyBracketKeyword_26; }
+		public Keyword getRightCurlyBracketKeyword_25() { return cRightCurlyBracketKeyword_25; }
+	}
+
+	public class FieldListElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FieldList");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cFieldsAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cFieldsFieldParserRuleCall_0_0 = (RuleCall)cFieldsAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cCommaKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cFieldsAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cFieldsFieldParserRuleCall_1_1_0 = (RuleCall)cFieldsAssignment_1_1.eContents().get(0);
+		
+		//FieldList:
+		//	fields+=Field ("," fields+=Field)*;
+		public ParserRule getRule() { return rule; }
+
+		//fields+=Field ("," fields+=Field)*
+		public Group getGroup() { return cGroup; }
+
+		//fields+=Field
+		public Assignment getFieldsAssignment_0() { return cFieldsAssignment_0; }
+
+		//Field
+		public RuleCall getFieldsFieldParserRuleCall_0_0() { return cFieldsFieldParserRuleCall_0_0; }
+
+		//("," fields+=Field)*
+		public Group getGroup_1() { return cGroup_1; }
+
+		//","
+		public Keyword getCommaKeyword_1_0() { return cCommaKeyword_1_0; }
+
+		//fields+=Field
+		public Assignment getFieldsAssignment_1_1() { return cFieldsAssignment_1_1; }
+
+		//Field
+		public RuleCall getFieldsFieldParserRuleCall_1_1_0() { return cFieldsFieldParserRuleCall_1_1_0; }
 	}
 
 	public class FieldElements extends AbstractParserRuleElementFinder {
@@ -406,8 +426,8 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_13_2 = (Group)cAlternatives_13.eContents().get(2);
 		private final Keyword cQuotationMarkKeyword_13_2_0 = (Keyword)cGroup_13_2.eContents().get(0);
 		private final Assignment cRecordRefAssignment_13_2_1 = (Assignment)cGroup_13_2.eContents().get(1);
-		private final CrossReference cRecordRefRecordTypeCrossReference_13_2_1_0 = (CrossReference)cRecordRefAssignment_13_2_1.eContents().get(0);
-		private final RuleCall cRecordRefRecordTypeIDTerminalRuleCall_13_2_1_0_1 = (RuleCall)cRecordRefRecordTypeCrossReference_13_2_1_0.eContents().get(1);
+		private final CrossReference cRecordRefRecordCrossReference_13_2_1_0 = (CrossReference)cRecordRefAssignment_13_2_1.eContents().get(0);
+		private final RuleCall cRecordRefRecordIDTerminalRuleCall_13_2_1_0_1 = (RuleCall)cRecordRefRecordCrossReference_13_2_1_0.eContents().get(1);
 		private final Keyword cQuotationMarkKeyword_13_2_2 = (Keyword)cGroup_13_2.eContents().get(2);
 		private final Assignment cEtypeAssignment_13_3 = (Assignment)cAlternatives_13.eContents().get(3);
 		private final RuleCall cEtypeEnumTypeParserRuleCall_13_3_0 = (RuleCall)cEtypeAssignment_13_3.eContents().get(0);
@@ -423,13 +443,13 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Field:
 		//	"{" "\"" "name" "\"" ":" "\"" name=("name" | ID) "\"" "," "\"" "type" "\"" ":" (primitive=Primitive |
-		//	record=RecordType | "\"" recordRef=[RecordType] "\"" | etype=EnumType | array=ArrayType | map=MapType |
-		//	fixed=FixedType | union=UnionType) "}";
+		//	record=RecordType | "\"" recordRef=[Record] "\"" | etype=EnumType | array=ArrayType | map=MapType | fixed=FixedType |
+		//	union=UnionType) "}";
 		public ParserRule getRule() { return rule; }
 
 		//"{" "\"" "name" "\"" ":" "\"" name=("name" | ID) "\"" "," "\"" "type" "\"" ":" (primitive=Primitive | record=RecordType
-		//| "\"" recordRef=[RecordType] "\"" | etype=EnumType | array=ArrayType | map=MapType | fixed=FixedType |
-		//union=UnionType) "}"
+		//| "\"" recordRef=[Record] "\"" | etype=EnumType | array=ArrayType | map=MapType | fixed=FixedType | union=UnionType)
+		//"}"
 		public Group getGroup() { return cGroup; }
 
 		//"{"
@@ -480,8 +500,8 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 		//":"
 		public Keyword getColonKeyword_12() { return cColonKeyword_12; }
 
-		//primitive=Primitive | record=RecordType | "\"" recordRef=[RecordType] "\"" | etype=EnumType | array=ArrayType |
-		//map=MapType | fixed=FixedType | union=UnionType
+		//primitive=Primitive | record=RecordType | "\"" recordRef=[Record] "\"" | etype=EnumType | array=ArrayType | map=MapType
+		//| fixed=FixedType | union=UnionType
 		public Alternatives getAlternatives_13() { return cAlternatives_13; }
 
 		//primitive=Primitive
@@ -496,20 +516,20 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 		//RecordType
 		public RuleCall getRecordRecordTypeParserRuleCall_13_1_0() { return cRecordRecordTypeParserRuleCall_13_1_0; }
 
-		//"\"" recordRef=[RecordType] "\""
+		//"\"" recordRef=[Record] "\""
 		public Group getGroup_13_2() { return cGroup_13_2; }
 
 		//"\""
 		public Keyword getQuotationMarkKeyword_13_2_0() { return cQuotationMarkKeyword_13_2_0; }
 
-		//recordRef=[RecordType]
+		//recordRef=[Record]
 		public Assignment getRecordRefAssignment_13_2_1() { return cRecordRefAssignment_13_2_1; }
 
-		//[RecordType]
-		public CrossReference getRecordRefRecordTypeCrossReference_13_2_1_0() { return cRecordRefRecordTypeCrossReference_13_2_1_0; }
+		//[Record]
+		public CrossReference getRecordRefRecordCrossReference_13_2_1_0() { return cRecordRefRecordCrossReference_13_2_1_0; }
 
 		//ID
-		public RuleCall getRecordRefRecordTypeIDTerminalRuleCall_13_2_1_0_1() { return cRecordRefRecordTypeIDTerminalRuleCall_13_2_1_0_1; }
+		public RuleCall getRecordRefRecordIDTerminalRuleCall_13_2_1_0_1() { return cRecordRefRecordIDTerminalRuleCall_13_2_1_0_1; }
 
 		//"\""
 		public Keyword getQuotationMarkKeyword_13_2_2() { return cQuotationMarkKeyword_13_2_2; }
@@ -730,8 +750,8 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_13_2 = (Group)cAlternatives_13.eContents().get(2);
 		private final Keyword cQuotationMarkKeyword_13_2_0 = (Keyword)cGroup_13_2.eContents().get(0);
 		private final Assignment cRecordRefAssignment_13_2_1 = (Assignment)cGroup_13_2.eContents().get(1);
-		private final CrossReference cRecordRefRecordTypeCrossReference_13_2_1_0 = (CrossReference)cRecordRefAssignment_13_2_1.eContents().get(0);
-		private final RuleCall cRecordRefRecordTypeIDTerminalRuleCall_13_2_1_0_1 = (RuleCall)cRecordRefRecordTypeCrossReference_13_2_1_0.eContents().get(1);
+		private final CrossReference cRecordRefRecordCrossReference_13_2_1_0 = (CrossReference)cRecordRefAssignment_13_2_1.eContents().get(0);
+		private final RuleCall cRecordRefRecordIDTerminalRuleCall_13_2_1_0_1 = (RuleCall)cRecordRefRecordCrossReference_13_2_1_0.eContents().get(1);
 		private final Keyword cQuotationMarkKeyword_13_2_2 = (Keyword)cGroup_13_2.eContents().get(2);
 		private final Assignment cEtypeAssignment_13_3 = (Assignment)cAlternatives_13.eContents().get(3);
 		private final RuleCall cEtypeEnumTypeParserRuleCall_13_3_0 = (RuleCall)cEtypeAssignment_13_3.eContents().get(0);
@@ -739,11 +759,11 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ArrayType:
 		//	"{" "\"" "type" "\"" ":" "\"" "array" "\"" "," "\"" "items" "\"" ":" (primitive=Primitive | record=RecordType | "\""
-		//	recordRef=[RecordType] "\"" | etype=EnumType) "}";
+		//	recordRef=[Record] "\"" | etype=EnumType) "}";
 		public ParserRule getRule() { return rule; }
 
 		//"{" "\"" "type" "\"" ":" "\"" "array" "\"" "," "\"" "items" "\"" ":" (primitive=Primitive | record=RecordType | "\""
-		//recordRef=[RecordType] "\"" | etype=EnumType) "}"
+		//recordRef=[Record] "\"" | etype=EnumType) "}"
 		public Group getGroup() { return cGroup; }
 
 		//"{"
@@ -785,7 +805,7 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 		//":"
 		public Keyword getColonKeyword_12() { return cColonKeyword_12; }
 
-		//primitive=Primitive | record=RecordType | "\"" recordRef=[RecordType] "\"" | etype=EnumType
+		//primitive=Primitive | record=RecordType | "\"" recordRef=[Record] "\"" | etype=EnumType
 		public Alternatives getAlternatives_13() { return cAlternatives_13; }
 
 		//primitive=Primitive
@@ -800,20 +820,20 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 		//RecordType
 		public RuleCall getRecordRecordTypeParserRuleCall_13_1_0() { return cRecordRecordTypeParserRuleCall_13_1_0; }
 
-		//"\"" recordRef=[RecordType] "\""
+		//"\"" recordRef=[Record] "\""
 		public Group getGroup_13_2() { return cGroup_13_2; }
 
 		//"\""
 		public Keyword getQuotationMarkKeyword_13_2_0() { return cQuotationMarkKeyword_13_2_0; }
 
-		//recordRef=[RecordType]
+		//recordRef=[Record]
 		public Assignment getRecordRefAssignment_13_2_1() { return cRecordRefAssignment_13_2_1; }
 
-		//[RecordType]
-		public CrossReference getRecordRefRecordTypeCrossReference_13_2_1_0() { return cRecordRefRecordTypeCrossReference_13_2_1_0; }
+		//[Record]
+		public CrossReference getRecordRefRecordCrossReference_13_2_1_0() { return cRecordRefRecordCrossReference_13_2_1_0; }
 
 		//ID
-		public RuleCall getRecordRefRecordTypeIDTerminalRuleCall_13_2_1_0_1() { return cRecordRefRecordTypeIDTerminalRuleCall_13_2_1_0_1; }
+		public RuleCall getRecordRefRecordIDTerminalRuleCall_13_2_1_0_1() { return cRecordRefRecordIDTerminalRuleCall_13_2_1_0_1; }
 
 		//"\""
 		public Keyword getQuotationMarkKeyword_13_2_2() { return cQuotationMarkKeyword_13_2_2; }
@@ -852,8 +872,8 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_13_2 = (Group)cAlternatives_13.eContents().get(2);
 		private final Keyword cQuotationMarkKeyword_13_2_0 = (Keyword)cGroup_13_2.eContents().get(0);
 		private final Assignment cRecordRefAssignment_13_2_1 = (Assignment)cGroup_13_2.eContents().get(1);
-		private final CrossReference cRecordRefRecordTypeCrossReference_13_2_1_0 = (CrossReference)cRecordRefAssignment_13_2_1.eContents().get(0);
-		private final RuleCall cRecordRefRecordTypeIDTerminalRuleCall_13_2_1_0_1 = (RuleCall)cRecordRefRecordTypeCrossReference_13_2_1_0.eContents().get(1);
+		private final CrossReference cRecordRefRecordCrossReference_13_2_1_0 = (CrossReference)cRecordRefAssignment_13_2_1.eContents().get(0);
+		private final RuleCall cRecordRefRecordIDTerminalRuleCall_13_2_1_0_1 = (RuleCall)cRecordRefRecordCrossReference_13_2_1_0.eContents().get(1);
 		private final Keyword cQuotationMarkKeyword_13_2_2 = (Keyword)cGroup_13_2.eContents().get(2);
 		private final Assignment cEtypeAssignment_13_3 = (Assignment)cAlternatives_13.eContents().get(3);
 		private final RuleCall cEtypeEnumTypeParserRuleCall_13_3_0 = (RuleCall)cEtypeAssignment_13_3.eContents().get(0);
@@ -863,11 +883,11 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//MapType:
 		//	"{" "\"" "type" "\"" ":" "\"" "map" "\"" "," "\"" "items" "\"" ":" (primitive=Primitive | record=RecordType | "\""
-		//	recordRef=[RecordType] "\"" | etype=EnumType | atype=ArrayType) "}";
+		//	recordRef=[Record] "\"" | etype=EnumType | atype=ArrayType) "}";
 		public ParserRule getRule() { return rule; }
 
 		//"{" "\"" "type" "\"" ":" "\"" "map" "\"" "," "\"" "items" "\"" ":" (primitive=Primitive | record=RecordType | "\""
-		//recordRef=[RecordType] "\"" | etype=EnumType | atype=ArrayType) "}"
+		//recordRef=[Record] "\"" | etype=EnumType | atype=ArrayType) "}"
 		public Group getGroup() { return cGroup; }
 
 		//"{"
@@ -909,7 +929,7 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 		//":"
 		public Keyword getColonKeyword_12() { return cColonKeyword_12; }
 
-		//primitive=Primitive | record=RecordType | "\"" recordRef=[RecordType] "\"" | etype=EnumType | atype=ArrayType
+		//primitive=Primitive | record=RecordType | "\"" recordRef=[Record] "\"" | etype=EnumType | atype=ArrayType
 		public Alternatives getAlternatives_13() { return cAlternatives_13; }
 
 		//primitive=Primitive
@@ -924,20 +944,20 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 		//RecordType
 		public RuleCall getRecordRecordTypeParserRuleCall_13_1_0() { return cRecordRecordTypeParserRuleCall_13_1_0; }
 
-		//"\"" recordRef=[RecordType] "\""
+		//"\"" recordRef=[Record] "\""
 		public Group getGroup_13_2() { return cGroup_13_2; }
 
 		//"\""
 		public Keyword getQuotationMarkKeyword_13_2_0() { return cQuotationMarkKeyword_13_2_0; }
 
-		//recordRef=[RecordType]
+		//recordRef=[Record]
 		public Assignment getRecordRefAssignment_13_2_1() { return cRecordRefAssignment_13_2_1; }
 
-		//[RecordType]
-		public CrossReference getRecordRefRecordTypeCrossReference_13_2_1_0() { return cRecordRefRecordTypeCrossReference_13_2_1_0; }
+		//[Record]
+		public CrossReference getRecordRefRecordCrossReference_13_2_1_0() { return cRecordRefRecordCrossReference_13_2_1_0; }
 
 		//ID
-		public RuleCall getRecordRefRecordTypeIDTerminalRuleCall_13_2_1_0_1() { return cRecordRefRecordTypeIDTerminalRuleCall_13_2_1_0_1; }
+		public RuleCall getRecordRefRecordIDTerminalRuleCall_13_2_1_0_1() { return cRecordRefRecordIDTerminalRuleCall_13_2_1_0_1; }
 
 		//"\""
 		public Keyword getQuotationMarkKeyword_13_2_2() { return cQuotationMarkKeyword_13_2_2; }
@@ -1143,30 +1163,50 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
-	private AvroSchemaElements pAvroSchema;
-	private UnionTypeElements pUnionType;
-	private UnionMemberElements pUnionMember;
-	private JsonTypeElements pJsonType;
-	private RecordTypeElements pRecordType;
-	private FieldElements pField;
-	private EnumTypeElements pEnumType;
-	private ArrayTypeElements pArrayType;
-	private MapTypeElements pMapType;
-	private FixedTypeElements pFixedType;
-	private PrimitiveElements pPrimitive;
-	private NamespaceElements pNamespace;
-	private TerminalRule tID;
-	private TerminalRule tINT;
-	private TerminalRule tML_COMMENT;
-	private TerminalRule tSL_COMMENT;
-	private TerminalRule tWS;
-	private TerminalRule tANY_OTHER;
+	private final AvroSchemaElements pAvroSchema;
+	private final UnionTypeElements pUnionType;
+	private final UnionMemberElements pUnionMember;
+	private final JsonTypeElements pJsonType;
+	private final RecordTypeElements pRecordType;
+	private final FieldListElements pFieldList;
+	private final FieldElements pField;
+	private final EnumTypeElements pEnumType;
+	private final ArrayTypeElements pArrayType;
+	private final MapTypeElements pMapType;
+	private final FixedTypeElements pFixedType;
+	private final PrimitiveElements pPrimitive;
+	private final NamespaceElements pNamespace;
+	private final TerminalRule tID;
+	private final TerminalRule tINT;
+	private final TerminalRule tML_COMMENT;
+	private final TerminalRule tSL_COMMENT;
+	private final TerminalRule tWS;
+	private final TerminalRule tANY_OTHER;
 	
 	private final Grammar grammar;
 
 	@Inject
 	public AvroSchemaGrammarAccess(GrammarProvider grammarProvider) {
 		this.grammar = internalFindGrammar(grammarProvider);
+		this.pAvroSchema = new AvroSchemaElements();
+		this.pUnionType = new UnionTypeElements();
+		this.pUnionMember = new UnionMemberElements();
+		this.pJsonType = new JsonTypeElements();
+		this.pRecordType = new RecordTypeElements();
+		this.pFieldList = new FieldListElements();
+		this.pField = new FieldElements();
+		this.pEnumType = new EnumTypeElements();
+		this.pArrayType = new ArrayTypeElements();
+		this.pMapType = new MapTypeElements();
+		this.pFixedType = new FixedTypeElements();
+		this.pPrimitive = new PrimitiveElements();
+		this.pNamespace = new NamespaceElements();
+		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ID");
+		this.tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "INT");
+		this.tML_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ML_COMMENT");
+		this.tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "SL_COMMENT");
+		this.tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "WS");
+		this.tANY_OTHER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ANY_OTHER");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -1195,7 +1235,7 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 	//AvroSchema:
 	//	types+=(JsonType | RecordType | UnionType);
 	public AvroSchemaElements getAvroSchemaAccess() {
-		return (pAvroSchema != null) ? pAvroSchema : (pAvroSchema = new AvroSchemaElements());
+		return pAvroSchema;
 	}
 	
 	public ParserRule getAvroSchemaRule() {
@@ -1205,7 +1245,7 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 	//UnionType:
 	//	"[" types+=UnionMember ("," types+=UnionMember)* "]";
 	public UnionTypeElements getUnionTypeAccess() {
-		return (pUnionType != null) ? pUnionType : (pUnionType = new UnionTypeElements());
+		return pUnionType;
 	}
 	
 	public ParserRule getUnionTypeRule() {
@@ -1213,9 +1253,9 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UnionMember:
-	//	RecordType | ArrayType | Primitive | MapType | EnumType | FixedType | "\"" recordRef=[RecordType] "\"";
+	//	RecordType | ArrayType | Primitive | MapType | EnumType | FixedType | "\"" recordRef=[Record] "\"";
 	public UnionMemberElements getUnionMemberAccess() {
-		return (pUnionMember != null) ? pUnionMember : (pUnionMember = new UnionMemberElements());
+		return pUnionMember;
 	}
 	
 	public ParserRule getUnionMemberRule() {
@@ -1225,30 +1265,40 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 	//JsonType:
 	//	"{" "\"" "type" "\"" ":" "\"" type=Primitive "\"" "}";
 	public JsonTypeElements getJsonTypeAccess() {
-		return (pJsonType != null) ? pJsonType : (pJsonType = new JsonTypeElements());
+		return pJsonType;
 	}
 	
 	public ParserRule getJsonTypeRule() {
 		return getJsonTypeAccess().getRule();
 	}
 
-	//RecordType:
+	//RecordType returns Record:
 	//	"{" "\"" "type" "\"" ":" "\"" "record" "\"" "," "\"" "name" "\"" ":" "\"" name=ID "\"" ("," "\"" "namespace" "\"" ":"
-	//	"\"" namespace=Namespace "\"")? "," "\"" "fields" "\"" ":" "[" fields+=Field ("," fields+=Field)* "]" "}";
+	//	"\"" namespace=Namespace "\"")? "," "\"" "fields" "\"" ":" "[" fieldList=FieldList "]" "}";
 	public RecordTypeElements getRecordTypeAccess() {
-		return (pRecordType != null) ? pRecordType : (pRecordType = new RecordTypeElements());
+		return pRecordType;
 	}
 	
 	public ParserRule getRecordTypeRule() {
 		return getRecordTypeAccess().getRule();
 	}
 
+	//FieldList:
+	//	fields+=Field ("," fields+=Field)*;
+	public FieldListElements getFieldListAccess() {
+		return pFieldList;
+	}
+	
+	public ParserRule getFieldListRule() {
+		return getFieldListAccess().getRule();
+	}
+
 	//Field:
 	//	"{" "\"" "name" "\"" ":" "\"" name=("name" | ID) "\"" "," "\"" "type" "\"" ":" (primitive=Primitive |
-	//	record=RecordType | "\"" recordRef=[RecordType] "\"" | etype=EnumType | array=ArrayType | map=MapType |
-	//	fixed=FixedType | union=UnionType) "}";
+	//	record=RecordType | "\"" recordRef=[Record] "\"" | etype=EnumType | array=ArrayType | map=MapType | fixed=FixedType |
+	//	union=UnionType) "}";
 	public FieldElements getFieldAccess() {
-		return (pField != null) ? pField : (pField = new FieldElements());
+		return pField;
 	}
 	
 	public ParserRule getFieldRule() {
@@ -1259,7 +1309,7 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 	//	"{" "\"" "type" "\"" ":" "\"" "enum" "\"" "," "\"" "name" "\"" ":" "\"" name=ID "\"" "," "\"" "symbols" "\"" ":" "["
 	//	("\"" symbols+=ID "\"") ("," "\"" symbols+=ID "\"")* "]" "}";
 	public EnumTypeElements getEnumTypeAccess() {
-		return (pEnumType != null) ? pEnumType : (pEnumType = new EnumTypeElements());
+		return pEnumType;
 	}
 	
 	public ParserRule getEnumTypeRule() {
@@ -1268,9 +1318,9 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 
 	//ArrayType:
 	//	"{" "\"" "type" "\"" ":" "\"" "array" "\"" "," "\"" "items" "\"" ":" (primitive=Primitive | record=RecordType | "\""
-	//	recordRef=[RecordType] "\"" | etype=EnumType) "}";
+	//	recordRef=[Record] "\"" | etype=EnumType) "}";
 	public ArrayTypeElements getArrayTypeAccess() {
-		return (pArrayType != null) ? pArrayType : (pArrayType = new ArrayTypeElements());
+		return pArrayType;
 	}
 	
 	public ParserRule getArrayTypeRule() {
@@ -1279,9 +1329,9 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 
 	//MapType:
 	//	"{" "\"" "type" "\"" ":" "\"" "map" "\"" "," "\"" "items" "\"" ":" (primitive=Primitive | record=RecordType | "\""
-	//	recordRef=[RecordType] "\"" | etype=EnumType | atype=ArrayType) "}";
+	//	recordRef=[Record] "\"" | etype=EnumType | atype=ArrayType) "}";
 	public MapTypeElements getMapTypeAccess() {
-		return (pMapType != null) ? pMapType : (pMapType = new MapTypeElements());
+		return pMapType;
 	}
 	
 	public ParserRule getMapTypeRule() {
@@ -1291,7 +1341,7 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 	//FixedType:
 	//	"\"" "fixed" "\"" "," "\"" "name" "\"" ":" "\"" name=ID "\"" "," "\"" "size" "\"" ":" "\"" size=INT "\"";
 	public FixedTypeElements getFixedTypeAccess() {
-		return (pFixedType != null) ? pFixedType : (pFixedType = new FixedTypeElements());
+		return pFixedType;
 	}
 	
 	public ParserRule getFixedTypeRule() {
@@ -1301,7 +1351,7 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 	//Primitive:
 	//	"\"" type=("null" | "boolean" | "int" | "long" | "float" | "double" | "bytes" | "string") "\"";
 	public PrimitiveElements getPrimitiveAccess() {
-		return (pPrimitive != null) ? pPrimitive : (pPrimitive = new PrimitiveElements());
+		return pPrimitive;
 	}
 	
 	public ParserRule getPrimitiveRule() {
@@ -1311,7 +1361,7 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 	//Namespace:
 	//	ID ("." ID)*;
 	public NamespaceElements getNamespaceAccess() {
-		return (pNamespace != null) ? pNamespace : (pNamespace = new NamespaceElements());
+		return pNamespace;
 	}
 	
 	public ParserRule getNamespaceRule() {
@@ -1321,36 +1371,36 @@ public class AvroSchemaGrammarAccess extends AbstractGrammarElementFinder {
 	//terminal ID:
 	//	"^"? ("a".."z" | "A".."Z" | "_") ("a".."z" | "A".."Z" | "_" | "0".."9")*;
 	public TerminalRule getIDRule() {
-		return (tID != null) ? tID : (tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ID"));
+		return tID;
 	} 
 
 	//terminal INT returns ecore::EInt:
 	//	"0".."9"+;
 	public TerminalRule getINTRule() {
-		return (tINT != null) ? tINT : (tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "INT"));
+		return tINT;
 	} 
 
 	//terminal ML_COMMENT:
 	//	"/ *"->"* /";
 	public TerminalRule getML_COMMENTRule() {
-		return (tML_COMMENT != null) ? tML_COMMENT : (tML_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ML_COMMENT"));
+		return tML_COMMENT;
 	} 
 
 	//terminal SL_COMMENT:
 	//	"//" !("\n" | "\r")* ("\r"? "\n")?;
 	public TerminalRule getSL_COMMENTRule() {
-		return (tSL_COMMENT != null) ? tSL_COMMENT : (tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "SL_COMMENT"));
+		return tSL_COMMENT;
 	} 
 
 	//terminal WS:
 	//	(" " | "\t" | "\r" | "\n")+;
 	public TerminalRule getWSRule() {
-		return (tWS != null) ? tWS : (tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "WS"));
+		return tWS;
 	} 
 
 	//terminal ANY_OTHER:
 	//	.;
 	public TerminalRule getANY_OTHERRule() {
-		return (tANY_OTHER != null) ? tANY_OTHER : (tANY_OTHER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ANY_OTHER"));
+		return tANY_OTHER;
 	} 
 }

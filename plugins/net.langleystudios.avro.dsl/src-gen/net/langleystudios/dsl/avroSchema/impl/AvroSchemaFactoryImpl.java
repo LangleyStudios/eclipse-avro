@@ -68,7 +68,8 @@ public class AvroSchemaFactoryImpl extends EFactoryImpl implements AvroSchemaFac
       case AvroSchemaPackage.UNION_TYPE: return createUnionType();
       case AvroSchemaPackage.UNION_MEMBER: return createUnionMember();
       case AvroSchemaPackage.JSON_TYPE: return createJsonType();
-      case AvroSchemaPackage.RECORD_TYPE: return createRecordType();
+      case AvroSchemaPackage.RECORD: return createRecord();
+      case AvroSchemaPackage.FIELD_LIST: return createFieldList();
       case AvroSchemaPackage.FIELD: return createField();
       case AvroSchemaPackage.ENUM_TYPE: return createEnumType();
       case AvroSchemaPackage.ARRAY_TYPE: return createArrayType();
@@ -129,10 +130,21 @@ public class AvroSchemaFactoryImpl extends EFactoryImpl implements AvroSchemaFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public RecordType createRecordType()
+  public Record createRecord()
   {
-    RecordTypeImpl recordType = new RecordTypeImpl();
-    return recordType;
+    RecordImpl record = new RecordImpl();
+    return record;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FieldList createFieldList()
+  {
+    FieldListImpl fieldList = new FieldListImpl();
+    return fieldList;
   }
 
   /**

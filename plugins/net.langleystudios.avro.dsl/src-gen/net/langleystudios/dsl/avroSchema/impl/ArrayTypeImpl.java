@@ -6,7 +6,7 @@ import net.langleystudios.dsl.avroSchema.ArrayType;
 import net.langleystudios.dsl.avroSchema.AvroSchemaPackage;
 import net.langleystudios.dsl.avroSchema.EnumType;
 import net.langleystudios.dsl.avroSchema.Primitive;
-import net.langleystudios.dsl.avroSchema.RecordType;
+import net.langleystudios.dsl.avroSchema.Record;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -51,7 +51,7 @@ public class ArrayTypeImpl extends UnionMemberImpl implements ArrayType
    * @generated
    * @ordered
    */
-  protected RecordType record;
+  protected Record record;
 
   /**
    * The cached value of the '{@link #getEtype() <em>Etype</em>}' containment reference.
@@ -137,7 +137,7 @@ public class ArrayTypeImpl extends UnionMemberImpl implements ArrayType
    * <!-- end-user-doc -->
    * @generated
    */
-  public RecordType getRecord()
+  public Record getRecord()
   {
     return record;
   }
@@ -147,9 +147,9 @@ public class ArrayTypeImpl extends UnionMemberImpl implements ArrayType
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRecord(RecordType newRecord, NotificationChain msgs)
+  public NotificationChain basicSetRecord(Record newRecord, NotificationChain msgs)
   {
-    RecordType oldRecord = record;
+    Record oldRecord = record;
     record = newRecord;
     if (eNotificationRequired())
     {
@@ -164,7 +164,7 @@ public class ArrayTypeImpl extends UnionMemberImpl implements ArrayType
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRecord(RecordType newRecord)
+  public void setRecord(Record newRecord)
   {
     if (newRecord != record)
     {
@@ -282,7 +282,7 @@ public class ArrayTypeImpl extends UnionMemberImpl implements ArrayType
         setPrimitive((Primitive)newValue);
         return;
       case AvroSchemaPackage.ARRAY_TYPE__RECORD:
-        setRecord((RecordType)newValue);
+        setRecord((Record)newValue);
         return;
       case AvroSchemaPackage.ARRAY_TYPE__ETYPE:
         setEtype((EnumType)newValue);
@@ -305,7 +305,7 @@ public class ArrayTypeImpl extends UnionMemberImpl implements ArrayType
         setPrimitive((Primitive)null);
         return;
       case AvroSchemaPackage.ARRAY_TYPE__RECORD:
-        setRecord((RecordType)null);
+        setRecord((Record)null);
         return;
       case AvroSchemaPackage.ARRAY_TYPE__ETYPE:
         setEtype((EnumType)null);
