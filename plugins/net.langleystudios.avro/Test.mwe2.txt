@@ -1,0 +1,21 @@
+module HelloWorld
+
+import org.eclipse.emf.mwe.utils.*
+
+var rootPath = ".."
+
+//Workflow {
+//	bean = StandaloneSetup {
+//		scanClassPath = true
+//        platformUri = rootPath
+//	}
+//	
+//	component = DirectoryCleaner {
+//    	directory = "src"
+//    }
+//    
+//	component = org.eclipse.emf.mwe2.ecore.EcoreGenerator {
+//        genModel = "platform:/resource/org.eclipse.emf.examples.library/model/extlibrary.genmodel"
+//        srcPath = "platform:/resource/org.eclipse.emf.examples.library/src"
+//    }
+//}

@@ -1,0 +1,16 @@
+
+{"type":"record","name":"Borrower","namespace":"testPackage.extlibrary","fields":[
+	{"name":"address","type":["null","string"]},
+	{"name":"firstName","type":["null","string"]},
+	{"name":"lastName","type":["null","string"]},
+	{"name":"borrowed","type":["null",{"type":"array","items":
+	{"type":"record","name":"Lendable","fields":[
+	{"name":"copies","type":"int"},
+			{"name":"borrowers","type":["null",{"type":"array","items":
+	"Borrower"
+	}
+	]}
+			]}
+	}
+	]}
+]}

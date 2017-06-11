@@ -13,25 +13,70 @@ package net.langleystudios.avro.test;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
+import java.util.Map;
 
-import net.langleystudios.avro.gen.Utility;
-import net.langleystudios.avro.gen.common.GenerateResourceFactory;
-
-import org.eclipse.acceleo.common.preference.AcceleoPreferences;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.codegen.ecore.genmodel.GenModel;
 import org.eclipse.emf.codegen.ecore.genmodel.GenPackage;
-import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.xtext.generator.JavaIoFileSystemAccess;
+import org.eclipse.xtext.parser.IEncodingProvider;
+import org.eclipse.xtext.resource.IResourceServiceProvider;
 import org.junit.Test;
 import org.osgi.framework.Bundle;
 
+import net.langleystudios.avro.gen.GenerateResourceFactory;
+import net.langleystudios.avro.gen.Utility;
+
 public class TestResourceFactoryGen {
+
+	IResourceServiceProvider.Registry registry = new IResourceServiceProvider.Registry() {
+
+		@Override
+		public IResourceServiceProvider getResourceServiceProvider(URI uri, String contentType) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public IResourceServiceProvider getResourceServiceProvider(URI uri) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public Map<String, Object> getContentTypeToFactoryMap() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public Map<String, Object> getExtensionToFactoryMap() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public Map<String, Object> getProtocolToFactoryMap() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+	};
+
+	IEncodingProvider provider = new IEncodingProvider() {
+		@Override
+		public String getEncoding(URI uri) {
+			return "utf-8";
+		}
+	};
+
+	JavaIoFileSystemAccess fileAccess = new JavaIoFileSystemAccess(registry, provider);
+	
 
 	@Test
 	public void test() throws IOException {
@@ -48,7 +93,6 @@ public class TestResourceFactoryGen {
 
 		locationFile = new File("src-gen");
 		clearDir(locationFile);
-		AcceleoPreferences.switchQueryCache(false);
 
 		for (GenPackage genPackage : genModel.getGenPackages()) {
 			String basePackage = genPackage.getBasePackage() + "."
@@ -59,16 +103,11 @@ public class TestResourceFactoryGen {
 
 			String avroDir = locationFile.toString() + File.separator
 					+ basePackage.replace('.', '/') + File.separator + "avro";
-			File avroLocation = new File(avroDir);
-			GenerateResourceFactory factoryGenerator;
-			try {
-				factoryGenerator = new GenerateResourceFactory(
-						genPackage.getEcorePackage(), avroLocation,
-						new ArrayList<Object>());
-				factoryGenerator.generate(new BasicMonitor());
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			fileAccess.setOutputPath(avroDir);
+			File avroDirFile = new File(avroDir);
+			avroDirFile.mkdirs();
+			GenerateResourceFactory generator = new GenerateResourceFactory();
+			generator.generateResourceFactory(genPackage.getEcorePackage(), fileAccess);
 		}
 	}
 
@@ -76,11 +115,14 @@ public class TestResourceFactoryGen {
 		if (locationFile.exists()) {
 			File[] files = locationFile.listFiles();
 			for (File f : files) {
-				f.delete();
+				if (f.isDirectory()) {
+					clearDir(f);
+				} else {
+					f.delete();
+				}
 			}
 			locationFile.delete();
 		}
-		locationFile.mkdir();
 	}
 
 }

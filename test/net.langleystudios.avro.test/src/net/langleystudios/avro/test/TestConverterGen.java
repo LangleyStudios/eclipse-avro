@@ -1,39 +1,74 @@
 package net.langleystudios.avro.test;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Map;
 
-import net.langleystudios.avro.gen.Utility;
-import net.langleystudios.avro.gen.common.GenerateAvroConverter;
-
-import org.eclipse.acceleo.common.preference.AcceleoPreferences;
-import org.eclipse.acceleo.engine.event.AcceleoTextGenerationEvent;
-import org.eclipse.acceleo.engine.event.IAcceleoTextGenerationListener;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.codegen.ecore.genmodel.GenModel;
 import org.eclipse.emf.codegen.ecore.genmodel.GenPackage;
-import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.xtext.generator.JavaIoFileSystemAccess;
+import org.eclipse.xtext.parser.IEncodingProvider;
+import org.eclipse.xtext.resource.IResourceServiceProvider;
 import org.junit.Test;
 import org.osgi.framework.Bundle;
 
-public class TestConverterGen implements IAcceleoTextGenerationListener {
+import net.langleystudios.avro.gen.AvroSchemaGenerator;
+import net.langleystudios.avro.gen.GenerateAvroConverter;
+import net.langleystudios.avro.gen.Utility;
 
-	private boolean generationComplete = false;
-	private boolean fileGenerated = false;
-	private boolean textGenerated = false;
+public class TestConverterGen {
+
+	IResourceServiceProvider.Registry registry = new IResourceServiceProvider.Registry() {
+
+		@Override
+		public IResourceServiceProvider getResourceServiceProvider(URI uri, String contentType) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public IResourceServiceProvider getResourceServiceProvider(URI uri) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public Map<String, Object> getContentTypeToFactoryMap() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public Map<String, Object> getExtensionToFactoryMap() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public Map<String, Object> getProtocolToFactoryMap() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+	};
+
+	IEncodingProvider provider = new IEncodingProvider() {
+		@Override
+		public String getEncoding(URI uri) {
+			return "utf-8";
+		}
+	};
+
+	JavaIoFileSystemAccess fileAccess = new JavaIoFileSystemAccess(registry, provider);
 	
+
 	@Test
 	public void test() throws IOException {
 		File locationFile;
@@ -49,7 +84,6 @@ public class TestConverterGen implements IAcceleoTextGenerationListener {
 
 		locationFile = new File("src-gen");
 		clearDir(locationFile);
-		AcceleoPreferences.switchQueryCache(false);
 
 		for (GenPackage genPackage : genModel.getGenPackages()) {
 			String basePackage = genPackage.getBasePackage() + "."
@@ -60,21 +94,10 @@ public class TestConverterGen implements IAcceleoTextGenerationListener {
 
 			String avroDir = locationFile.toString() + File.separator
 					+ basePackage.replace('.', '/') + File.separator + "avro";
-			File avroLocation = new File(avroDir);
-			GenerateAvroConverter generator;
-			try {
-				generator = new GenerateAvroConverter(
-						genPackage.getEcorePackage(), avroLocation,
-						new ArrayList<Object>());
-				generator.addGenerationListener(this);
-				Map<String, String> results = generator.generate(new BasicMonitor());
-				assertNotNull(results);
-				assertTrue(textGenerated);
-				assertTrue(fileGenerated);
-				assertTrue(generationComplete);
-			} catch (IOException e) {
-				fail(e.getMessage());
-			}
+			fileAccess.setOutputPath(avroDir);
+			GenerateAvroConverter generator = new GenerateAvroConverter();
+
+			generator.generateConverter(genPackage.getEcorePackage(), fileAccess);
 		}
 	}
 
@@ -87,30 +110,6 @@ public class TestConverterGen implements IAcceleoTextGenerationListener {
 			locationFile.delete();
 		}
 		locationFile.mkdir();
-	}
-
-	@Override
-	public void textGenerated(AcceleoTextGenerationEvent event) {
-		textGenerated = true;
-	}
-
-	@Override
-	public void filePathComputed(AcceleoTextGenerationEvent event) {
-	}
-
-	@Override
-	public void fileGenerated(AcceleoTextGenerationEvent event) {
-		fileGenerated = true;
-	}
-
-	@Override
-	public void generationEnd(AcceleoTextGenerationEvent event) {
-		generationComplete = true;		
-	}
-
-	@Override
-	public boolean listensToGenerationEnd() {
-		return true;
 	}
 
 }

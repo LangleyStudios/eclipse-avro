@@ -11,17 +11,9 @@
 package net.langleystudios.avro.gen.handler;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.inject.Named;
 
-import net.langleystudios.avro.gen.Utility;
-import net.langleystudios.avro.gen.common.GenerateAvroConverter;
-import net.langleystudios.avro.gen.common.GenerateFromGenModel;
-import net.langleystudios.avro.gen.common.GenerateResourceFactory;
-
-import org.eclipse.acceleo.common.preference.AcceleoPreferences;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspace;
@@ -35,15 +27,22 @@ import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.emf.codegen.ecore.genmodel.GenModel;
 import org.eclipse.emf.codegen.ecore.genmodel.GenPackage;
-import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.xtext.generator.JavaIoFileSystemAccess;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.google.inject.Inject;
+
+import net.langleystudios.avro.gen.AvroSchemaGenerator;
+import net.langleystudios.avro.gen.GenerateAvroConverter;
+import net.langleystudios.avro.gen.GenerateResourceFactory;
+import net.langleystudios.avro.gen.Utility;
 
 public class GenerateFromGenModelHandler {
 
@@ -51,8 +50,10 @@ public class GenerateFromGenModelHandler {
 	private static final String SCHEMA_EXTENSION = "avsc";
 	private IResource selectedResource;
 
-	private Logger logger = LoggerFactory
-			.getLogger(GenerateFromGenModelHandler.class);
+	private Logger logger = LoggerFactory.getLogger(GenerateFromGenModelHandler.class);
+
+	@Inject
+	private JavaIoFileSystemAccess fileAccess;
 
 	@Execute
 	public void execute() {
@@ -63,6 +64,7 @@ public class GenerateFromGenModelHandler {
 		ResourceSet resourceSet = new ResourceSetImpl();
 		Resource resource = resourceSet.getResource(locationURI, true);
 		GenModel genModel = (GenModel) resource.getContents().get(0);
+		String modelDir = genModel.getModelDirectory();
 		IWorkspace workspace = ResourcesPlugin.getWorkspace();
 		IWorkspaceRoot workspaceRoot = workspace.getRoot();
 		IResource ifile = workspaceRoot.findMember(genModel.getModelPluginID());
@@ -70,10 +72,10 @@ public class GenerateFromGenModelHandler {
 			java.net.URI fileURI = ifile.getLocationURI();
 			File locationFile = new File(fileURI);
 			try {
-				AcceleoPreferences.switchQueryCache(false);
-				GenerateFromGenModel generator = new GenerateFromGenModel(
-						locationURI, locationFile, new ArrayList<Object>());
-				generator.generate(new BasicMonitor());
+				// configure and start the generator
+				fileAccess.setOutputPath(modelDir);
+				AvroSchemaGenerator generator = new AvroSchemaGenerator();
+				generator.generateAvroSchema(resource, "String", fileAccess);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -85,8 +87,7 @@ public class GenerateFromGenModelHandler {
 			e.printStackTrace();
 		}
 
-		IResource sourceResource = workspaceRoot.findMember(genModel
-				.getModelDirectory());
+		IResource sourceResource = workspaceRoot.findMember(genModel.getModelDirectory());
 		File locationFile = new File(sourceResource.getLocationURI());
 		IPath schemaDirPath = ifile.getFullPath().append("schema");
 		IResource schemaDirResource = workspaceRoot.findMember(schemaDirPath);
@@ -98,19 +99,14 @@ public class GenerateFromGenModelHandler {
 					if (SCHEMA_EXTENSION.equals(schemaRes.getFileExtension())) {
 
 						IResource schemaResource = workspaceRoot
-								.findMember(schemaRes.getFullPath().toFile()
-										.toString());
+								.findMember(schemaRes.getFullPath().toFile().toString());
 
-						java.net.URI schemaURI = schemaResource
-								.getLocationURI();
+						java.net.URI schemaURI = schemaResource.getLocationURI();
 						File schemaFile = new File(schemaURI);
 
-						int rvalue = GenerateJavaHandler.generateCode(
-								schemaFile, locationFile);
+						int rvalue = GenerateJavaHandler.generateCode(schemaFile, locationFile);
 						if (rvalue != 0) {
-							logger.error(
-									"Java Generation from schema incomplete: ",
-									schemaFile.getAbsoluteFile());
+							logger.error("Java Generation from schema incomplete: ", schemaFile.getAbsoluteFile());
 						}
 					}
 				}
@@ -120,34 +116,24 @@ public class GenerateFromGenModelHandler {
 		}
 
 		for (GenPackage genPackage : genModel.getGenPackages()) {
-			String basePackage = genPackage.getBasePackage() + "."
-					+ genPackage.getEcorePackage().getName();
+			String basePackage = genPackage.getBasePackage() + "." + genPackage.getEcorePackage().getName();
 			Utility.setBasePackage(basePackage);
 			Utility.setFactory(genPackage.getPrefix() + "Factory");
 			Utility.setPackage(genPackage.getPrefix() + "Package");
 
-			String avroDir = locationFile.toString() + File.separator
-					+ basePackage.replace('.', '/') + File.separator + "avro";
+			String avroDir = locationFile.toString() + File.separator + basePackage.replace('.', '/') + File.separator
+					+ "avro";
 			File avroLocation = new File(avroDir);
 			GenerateAvroConverter generator;
-			try {
-				generator = new GenerateAvroConverter(
-						genPackage.getEcorePackage(), avroLocation,
-						new ArrayList<Object>());
-				generator.generate(new BasicMonitor());
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			
+			generator = new GenerateAvroConverter();
+			fileAccess.setOutputPath(avroDir);
+			generator.generateConverter(genPackage.getEcorePackage(), fileAccess);
+
 			GenerateResourceFactory factoryGenerator;
-			try {
-				factoryGenerator = new GenerateResourceFactory(
-						genPackage.getEcorePackage(), avroLocation,
-						new ArrayList<Object>());
-				factoryGenerator.generate(new BasicMonitor());	
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+
+			factoryGenerator = new GenerateResourceFactory();
+			fileAccess.setOutputPath(avroDir);
+			factoryGenerator.generateResourceFactory(genPackage.getEcorePackage(), fileAccess);
 		}
 
 		// Final workspace refresh to make everything visible
@@ -160,8 +146,7 @@ public class GenerateFromGenModelHandler {
 	}
 
 	@CanExecute
-	public boolean canExecute(
-			@Optional @Named(IServiceConstants.ACTIVE_SELECTION) ISelection selection) {
+	public boolean canExecute(@Optional @Named(IServiceConstants.ACTIVE_SELECTION) ISelection selection) {
 		if (selection instanceof IStructuredSelection) {
 			IStructuredSelection structured = (IStructuredSelection) selection;
 			Object object = structured.getFirstElement();

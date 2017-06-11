@@ -1,0 +1,6 @@
+
+{"type":"record","name":"Periodical","namespace":"testPackage.extlibrary","fields":[
+	{"name":"publicationDate","type":["null","string"]},
+	{"name":"title","type":["null","string"]},
+	{"name":"issuesPerYear","type":"int"}
+]}

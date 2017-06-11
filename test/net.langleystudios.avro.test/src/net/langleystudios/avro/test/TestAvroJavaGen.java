@@ -22,7 +22,7 @@ public class TestAvroJavaGen {
 
 	@Test
 	public void testLibrary() {
-		File schemaDir = new File("library-schemas/schema");
+		File schemaDir = new File("library-schemas");
 		File srcDir = new File("src-gen");
 		srcDir.mkdir();
 		
@@ -37,35 +37,7 @@ public class TestAvroJavaGen {
 
 	@Test
 	public void testEcore() {
-		File schemaDir = new File("ecore-schemas/schema");
-		File srcDir = new File("src-gen");
-		srcDir.mkdir();
-		
-		for(File file: schemaDir.listFiles())
-		{
-			System.out.println("Generating Java Code for " + file.getName());
-			int rvalue = GenerateJavaHandler.generateCode(file, srcDir);
-			assertTrue("Failed for " + file.getName(), rvalue == 0);
-		}
-	}
-	
-	@Test
-	public void testXMLNamespace() {
-		File schemaDir = new File("xml-namespace-schemas/schema");
-		File srcDir = new File("src-gen");
-		srcDir.mkdir();
-		
-		for(File file: schemaDir.listFiles())
-		{
-			System.out.println("Generating Java Code for " + file.getName());
-			int rvalue = GenerateJavaHandler.generateCode(file, srcDir);
-			assertTrue("Failed for " + file.getName(), rvalue == 0);
-		}
-	}
-	
-	@Test
-	public void testXMLType() {
-		File schemaDir = new File("xml-type-schemas/schema");
+		File schemaDir = new File("ecore-schemas");
 		File srcDir = new File("src-gen");
 		srcDir.mkdir();
 		

@@ -1,0 +1,7 @@
+
+{"type":"record","name":"Employee","namespace":"testPackage.extlibrary","fields":[
+	{"name":"address","type":["null","string"]},
+	{"name":"firstName","type":["null","string"]},
+	{"name":"lastName","type":["null","string"]},
+	{"name":"manager","type":["null","Employee"]}
+]}
